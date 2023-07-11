@@ -23,6 +23,9 @@ class Constant {
   static const String bgColor = "bgColor";
   static const String heroKey = "sendHeroKey";
   static const String sendVal = "sendVal";
+
+  static double defaultProfilePictureHeightAndWidthPercentage = 0.175;
+
   static const int stepStatusNone = 0;
   static const int stepStatusActive = 1;
   static const int stepStatusDone = 2;
@@ -55,6 +58,10 @@ class Constant {
       completer.complete(image.image);
     }));
     return completer.future;
+  }
+
+  static String getImagePath(String imageName) {
+    return "assets/images/$imageName";
   }
 
   static getCurrency(BuildContext context) {

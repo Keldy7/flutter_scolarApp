@@ -15,7 +15,6 @@ import 'tab/tab_calendar.dart';
 import 'tab/tab_home.dart';
 import 'tab/tab_profile.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -34,7 +33,7 @@ class _HomeScreen extends State<HomeScreen> {
   }
 
   List<Widget> bottomViewList = [
-    const TabHome(),
+    TabHome(),
     const TabCalendar(),
     const TabProfile(),
   ];
@@ -60,12 +59,11 @@ class _HomeScreen extends State<HomeScreen> {
               decoration: ShapeDecoration(
                   shadows: const [
                     BoxShadow(
-                        color:
-                            Color.fromRGBO(134, 93, 93, 0.1599999964237213),
+                        color: Color.fromRGBO(134, 93, 93, 0.1599999964237213),
                         offset: Offset(0, -2),
                         blurRadius: 20)
                   ],
-                  color: getCardColor(context),
+                  color: getAccentColor(context),
                   shape: SmoothRectangleBorder(
                       borderRadius: SmoothBorderRadius.vertical(
                           top: SmoothRadius(
@@ -79,11 +77,10 @@ class _HomeScreen extends State<HomeScreen> {
                     selectedColorOpacity: 1,
                     unselectedItemColor: getFontBlackColor(context),
                     itemShape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.all(Radius.circular(27.h))),
-                    itemPadding: EdgeInsets.symmetric(
-                        horizontal: 11.w, vertical: 8.h),
-                    items: List.generate(allBottomNavList.length, (index) {
+                        borderRadius: BorderRadius.all(Radius.circular(27.h))),
+                    itemPadding:
+                        EdgeInsets.symmetric(horizontal: 11.w, vertical: 8.h),
+                    items: List.generate(allBottomNavList.length, (int index) {
                       ModelBottomNav allBottomNav = allBottomNavList[index];
                       return BottomBarItem(
                           title: getCustomFont(

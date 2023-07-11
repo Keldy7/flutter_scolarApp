@@ -17,3 +17,9 @@ const String aProximiteKey = "À proximié";
 const String calendarKey = "Evènements";
 const String messagesKey = "Discussions";
 const String profileKey = "Profil";
+
+
+const String voirPlusKey = "Voir plus";
+const String voirMoinsKey = "Voir moins";
+
+const String mesEnfantsKey = "Mes enfants";

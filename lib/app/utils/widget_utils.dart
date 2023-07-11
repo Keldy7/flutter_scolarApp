@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
 
 import 'constant.dart';
+import 'label_keys.dart';
 
 void showCustomToast(String texts, BuildContext context) {
   Fluttertoast.showToast(
@@ -1457,6 +1458,30 @@ Widget getRowWidget(
     ),
   );
 }
+
+  Widget buildSeeAllView(
+      BuildContext context, String title, Function function) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        getCustomFont(title, 20, getFontColor(context), 1,
+            fontWeight: FontWeight.w700),
+        InkWell(
+          onTap: () {
+            function();
+          },
+          child: getCustomFont(
+            voirPlusKey,
+            18,
+            getAccentColor(context),
+            1,
+            fontWeight: FontWeight.w700,
+          ),
+        )
+      ],
+    ).paddingSymmetric(
+        horizontal: Constant.getDefaultHorSpaceFigma(context));
+  }
 
 Widget getButtonFigma(
     BuildContext context,
