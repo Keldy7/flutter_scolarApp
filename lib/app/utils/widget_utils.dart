@@ -42,9 +42,9 @@ Widget buildProfileRowItem(
       child: Row(
         children: [
           Expanded(
+            flex: 1,
             child: getCustomFont(title, 16, getFontColor(context), 1,
                 fontWeight: FontWeight.w600, textAlign: TextAlign.start),
-            flex: 1,
           ),
           getSvgImageWithSize(context, "arrow_right_profile.svg", 16.h, 16.h,
               color: getFontColor(context))
@@ -83,7 +83,7 @@ Widget buildDatePickerButton(
     BuildContext context, String title, String image, Function function) {
   return InkWell(
     onTap: () {
-      print('object');
+      debugPrint('object');
       function();
     },
     child: Container(
@@ -491,8 +491,8 @@ Widget getDetailWidget(BuildContext context, Function backClick, String title,
                 ),
               ),
               Expanded(
-                child: childWidget,
                 flex: 1,
+                child: childWidget,
               )
             ],
           ),
@@ -1424,7 +1424,7 @@ Widget getRowWidget(
           horizontal: Constant.getDefaultHorSpaceFigma(context),
           vertical: 10.h),
       padding: EdgeInsets.symmetric(horizontal: 21.w),
-      decoration: getButtonDecoration(Colors.white,
+      decoration: getButtonDecoration(primaryColor,
           withCorners: true,
           corner: getButtonCornersFigma(),
           shadow: [

@@ -84,7 +84,7 @@ class _HomeScreen extends State<HomeScreen> {
                       ModelBottomNav allBottomNav = allBottomNavList[index];
                       return BottomBarItem(
                           title: getCustomFont(
-                              allBottomNav.title, 14, Colors.white, 1,
+                              allBottomNav.title, 14, primaryColor, 1,
                               fontWeight: FontWeight.w700),
                           icon: getSvgImageWithSize(
                               context, allBottomNav.icon, 24.h, 24.h,

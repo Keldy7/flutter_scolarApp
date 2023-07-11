@@ -1,5 +1,6 @@
 import '../ui/models/model_banner.dart';
 import '../ui/models/model_bottom_nav.dart';
+import '../ui/models/model_category.dart';
 import '../ui/models/model_intro.dart';
 import '../utils/label_keys.dart';
 
@@ -48,5 +49,15 @@ static List<ModelIntro> getAllIntroList() {
     list.add(ModelBanner("banner3.png", "#F0E4FF"));
 
     return list;
+  }
+
+  static List<ModelCategory> getAllCategoryList() {
+    List<ModelCategory> catList = [];
+
+    catList.add(ModelCategory(attendanceKey, "cat6.jpg"));
+    catList.add(ModelCategory(feesKey, "cat7.jpg"));
+    catList.add(ModelCategory(permissionsKey, "cat1.png"));
+
+    return catList;
   }
 }

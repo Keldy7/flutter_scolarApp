@@ -4,7 +4,9 @@ Color primaryColor = "#FFFFFF".toColor();
 Color defBgColor = "#FCE8E2".toColor();
 Color backgroundColor = "#0F172A".toColor();
 Color fontPrimary = ("#2A190D".toColor()).withOpacity(0.9);
-Color accentColor = "#156779".toColor();
+// Color accentColor = "#156779".toColor();
+// Color accentColor = "#0077B6".toColor();
+Color accentColor = "#139EAD".toColor();
 Color lightAccentColor = "#E2F5FA".toColor();
 Color lightRedColor = "#FCF0F0".toColor();
 Color greyFont = "#616161".toColor();
@@ -26,6 +28,11 @@ Color darkGreyColor = "#2D2D2D".toColor();
 Color cardColor = "#FFFBF8".toColor();
 Color shadowColor = Colors.black12;
 Color greyIconColor = "#BEC4D3".toColor();
+
+
+Color getAccentColor(BuildContext context) {
+  return getCurrentTheme(context).colorScheme.secondary;
+}
 
 getFontColor(BuildContext context) {
   return getCurrentTheme(context).textTheme.titleMedium!.color;
@@ -55,10 +62,8 @@ ThemeData getLightThemeData() {
         titleSmall: TextStyle(color: "#545454".toColor()),
         titleLarge: TextStyle(color: "#000000".toColor()),
       ),
-      backgroundColor: "#E5E5E5".toColor(),
       hoverColor: "#F7F7FF".toColor(),
       cardColor: "#FFFFFF".toColor(),
-      selectedRowColor: "#FFFFFF".toColor(),
       dialogBackgroundColor: "#FFFFFF".toColor(),
       unselectedWidgetColor: "#B9C1D3".toColor(),
       focusColor: Colors.transparent,
@@ -67,17 +72,14 @@ ThemeData getLightThemeData() {
       canvasColor: "#F7F8FB".toColor(),
       dividerColor: "#D7DDEC".toColor(),
       indicatorColor: "#F9F9F9".toColor(),
-      shadowColor: const Color.fromRGBO(131, 157, 216, 0.11999999731779099),
-      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor));
+      shadowColor: const Color.fromRGBO(131, 157, 216, 0.11999999731779099), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor).copyWith(background: "#E5E5E5".toColor()));
 }
 
 ThemeData getDarkThemeData() {
   return ThemeData(
       scaffoldBackgroundColor: "#161E2D".toColor(),
-      backgroundColor: "#161E2D".toColor(),
       hoverColor: "#21F6F7FF".toColor(),
       dialogBackgroundColor: "#283048".toColor(),
-      selectedRowColor: "#5E57FF".toColor(),
       focusColor: Colors.transparent,
       unselectedWidgetColor: "#525E7B".toColor(),
       cardColor: "#2D354F".toColor(),
@@ -91,12 +93,7 @@ ThemeData getDarkThemeData() {
         titleMedium: TextStyle(color: "#FFFFFF".toColor()),
         titleSmall: TextStyle(color: "#A6ADBE".toColor()),
         titleLarge: TextStyle(color: "#FFFFFF".toColor()),
-      ),
-      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor));
-}
-
-Color getAccentColor(BuildContext context) {
-  return getCurrentTheme(context).colorScheme.secondary;
+      ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor).copyWith(background: "#161E2D".toColor()));
 }
 
 getFontHint(BuildContext context) {

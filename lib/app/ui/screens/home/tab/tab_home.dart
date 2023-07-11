@@ -7,6 +7,7 @@ import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:scolar_pay/app/data/fake_data.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
+import 'package:scolar_pay/app/ui/widgets/custom_child_identity_bloc.dart';
 import 'package:scolar_pay/app/utils/label_keys.dart';
 
 import '../../../../utils/constant.dart';
@@ -81,7 +82,7 @@ class _TabHomeState extends State<TabHome> {
                                                 width: 97.w,
                                                 height: 39.w,
                                                 child: GFBorder(
-                                                  dashedLine: [2, 0],
+                                                  dashedLine: const [2, 0],
                                                   type: GFBorderType.oval,
                                                   color:
                                                       getAccentColor(context),
@@ -151,7 +152,6 @@ class _TabHomeState extends State<TabHome> {
                                             boxFit: BoxFit.fill)
                                       ],
                                     ),
-                                    // color: greenColor,
                                   ),
                                 );
                               })),
@@ -164,10 +164,6 @@ class _TabHomeState extends State<TabHome> {
                                     sliderPos.value)),
                             sliderPos),
                         20.h.verticalSpace,
-                        const Center(
-                          child: Text("Tab Home"),
-                        ),
-                        20.h.verticalSpace,
                         buildSeeAllView(context, mesEnfantsKey, () {
                           Constant.goToNextPage(
                               context, Routes.categoryScreenRoute);
@@ -178,9 +174,9 @@ class _TabHomeState extends State<TabHome> {
                               spacing: boxConstraints.maxWidth * (0.1),
                               runSpacing: 32.5,
                               children: [
-                                _buildChildDetailsContainer(
+                                CustomChildIdentityBloc(
                                     width: boxConstraints.maxWidth * (0.45)),
-                                _buildChildDetailsContainer(
+                                CustomChildIdentityBloc(
                                     width: boxConstraints.maxWidth * (0.45)),
                               ]);
                         }).paddingSymmetric(
@@ -205,18 +201,18 @@ class _TabHomeState extends State<TabHome> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
-                    ImageIcon(
+                    const ImageIcon(
                       AssetImage('assets/images/happy.png'),
                       size: 28,
                       color: Colors.white,
                     ),
-                    Text("Scolar Pay",
+                    const Text(nomAppKey,
                         style: TextStyle(
                             fontSize: 22,
                             color: Colors.white,
                             fontWeight: FontWeight.bold)),
                     IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.notifications_none,
                         color: Colors.white,
                         size: 30,
@@ -236,68 +232,10 @@ class _TabHomeState extends State<TabHome> {
     );
   }
 
-  Widget _buildChildDetailsContainer({required double width}) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(20),
-      onTap: () {},
-      child: Container(
-        decoration: BoxDecoration(
-            color: getAccentColor(context),
-            borderRadius: BorderRadius.circular(20)),
-        width: width,
-        height: 130,
-        child: LayoutBuilder(builder: (context, boxConstraints) {
-          return Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Align(
-                alignment: Alignment.topCenter,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: boxConstraints.maxHeight * (0.12),
-                      ),
-                      BorderedProfilePicture(
-                          onTap: () {},
-                          heightAndWidthPercentage: 0.35,
-                          boxConstraints: boxConstraints,
-                          imageUrl: "image"),
-                      SizedBox(
-                        height: boxConstraints.maxHeight * (0.075),
-                      ),
-                      Text(
-                        "Nom Prénoms",
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15.0),
-                      ),
-                      SizedBox(
-                        height: boxConstraints.maxHeight * (0.025),
-                      ),
-                      Text("Class",
-                          style: TextStyle(
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 10)),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          );
-        }),
-      ),
-    );
-  }
 }
 
 List<Widget> indicators(BuildContext context, imagesLength, currentIndex) {
-  return List<Widget>.generate(imagesLength, (index) {
+  return List.generate(imagesLength, (index) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5.w),
       width: 8.w,
@@ -314,11 +252,11 @@ List<Widget> indicators(BuildContext context, imagesLength, currentIndex) {
 AnimatedContainer slider(images, pagePosition, active) {
   double margin = active ? 10 : 20;
   return AnimatedContainer(
-    duration: Duration(milliseconds: 500),
+    duration: const Duration(milliseconds: 500),
     curve: Curves.easeInOutCubic,
     margin: EdgeInsets.all(margin),
     width: 50,
     height: double.infinity,
-    color: greenColor,
+    color: primaryColor,
   );
 }
