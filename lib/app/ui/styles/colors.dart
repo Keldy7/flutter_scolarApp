@@ -27,6 +27,7 @@ Color darkGreyColor = "#2D2D2D".toColor();
 
 Color cardColor = "#FFFBF8".toColor();
 Color shadowColor = Colors.black12;
+Color shadowLigthColor = "#E6E6E6".toColor();
 Color greyIconColor = "#BEC4D3".toColor();
 
 

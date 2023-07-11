@@ -13,7 +13,10 @@ import '../../styles/colors.dart';
 import '../../widgets/dots_indicator.dart';
 
 
+// ignore: must_be_immutable
 class IntroScreen extends StatelessWidget {
+  IntroScreen({super.key});
+
   backClick(BuildContext context) {
     Constant.backToFinish(context);
   }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
 
@@ -27,7 +26,7 @@ class BorderedProfilePicture extends StatelessWidget {
         onTap?.call();
       },
       child: Container(
-        padding: EdgeInsets.all(4.0),
+        padding: const EdgeInsets.all(4.0),
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
@@ -43,10 +42,10 @@ class BorderedProfilePicture extends StatelessWidget {
           shape: BoxShape.circle,
           image: imageUrl != null
               ? DecorationImage(
-                  image: AssetImage(Constant.getImagePath(
-                      "user.png"))) //DecorationImage(image: CachedNetworkImageProvider(imageUrl!))
+                  image: AssetImage(Constant.getImagePngPath(
+                      "woman.png")))
               : DecorationImage(
-                  image: AssetImage(Constant.getImagePath("happy.png"))),
+                  image: AssetImage(Constant.getImagePngPath("happy.png"))),
         )),
       ),
     );

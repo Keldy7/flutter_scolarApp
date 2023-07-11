@@ -9,8 +9,9 @@ import 'dart:ui' as ui;
 import 'package:scolar_pay/app/utils/size_config.dart';
 
 class Constant {
-  static String assetImagePath = "assets/images/";
-  static String assetImagePathNight = "assets/imagesNight/";
+  static String assetImagePngPath = "assets/images/png/";
+  static String assetImageSvgPath = "assets/images/svg/";
+  static String assetImagePngPathNight = "assets/imagesNight/";
   static bool isDriverApp = false;
   static const String fontsFamily = "Montserrat";
   static const String fontsFamilySplash = "Avenir-Next-LT-Pro";
@@ -49,7 +50,7 @@ class Constant {
 
   static Future<ui.Image> getImage(String name) {
     final Image image =
-        Image(image: AssetImage(Constant.assetImagePath + name));
+        Image(image: AssetImage(Constant.assetImagePngPath + name));
 
     Completer<ui.Image> completer = Completer<ui.Image>();
     image.image
@@ -60,8 +61,12 @@ class Constant {
     return completer.future;
   }
 
-  static String getImagePath(String imageName) {
-    return "assets/images/$imageName";
+  static String getImagePngPath(String imageName) {
+    return "assets/images/png/$imageName";
+  }
+
+  static String getImageSvgPath(String imageName) {
+    return "assets/images/svg/$imageName";
   }
 
   static getCurrency(BuildContext context) {

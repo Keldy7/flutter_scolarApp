@@ -25,7 +25,8 @@ const String voirMoinsKey = "Voir moins";
 const String mesEnfantsKey = "Mes enfants";
 
 //Catégories
-const String attendanceKey = "Présence/Absence";
+const String detailsEnfantKey = "Détails : Mon enfant";
+const String attendanceKey = "Ponctualité";
 const String feesKey = "Scolarité";
 const String permissionsKey = "Permissions";
 

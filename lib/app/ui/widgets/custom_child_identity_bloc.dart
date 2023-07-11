@@ -49,7 +49,7 @@ class CustomChildIdentityBloc extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Theme.of(context).scaffoldBackgroundColor,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                             fontSize: 15.0),
                       ),
                       SizedBox(

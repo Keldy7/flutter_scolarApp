@@ -157,7 +157,7 @@ TextStyle buildTextStyle(BuildContext context, Color fontColor,
 DecorationImage getDecorationAssetImage(BuildContext buildContext, String image,
     {BoxFit fit = BoxFit.contain}) {
   return DecorationImage(
-    image: AssetImage(Constant.assetImagePath + image),
+    image: AssetImage(Constant.assetImagePngPath + image),
     fit: fit,
   );
 }
@@ -518,7 +518,7 @@ Widget getCircleImage(BuildContext context, String imgName, double size,{bool fi
 Widget getSvgImage(BuildContext context, String image, double size,
     {Color? color, BoxFit boxFit = BoxFit.fill}) {
   return SvgPicture.asset(
-    Constant.assetImagePath + image,
+    Constant.assetImageSvgPath + image,
     color: color,
     width: size.w,
     height: size.h,
@@ -562,7 +562,7 @@ Widget getSvgImageWithSize(
     BuildContext context, String image, double width, double height,
     {Color? color, BoxFit fit = BoxFit.fill, bool listen = true}) {
   return SvgPicture.asset(
-    Constant.assetImagePath + image,
+    Constant.assetImageSvgPath + image,
     color: color,
     width: width,
     height: height,
@@ -653,7 +653,7 @@ Widget getAssetImage(
     BuildContext context, String image, double width, double height,
     {Color? color, BoxFit boxFit = BoxFit.contain, bool listen = true}) {
   return Image.asset(
-    Constant.assetImagePath + image,
+    Constant.assetImagePngPath + image,
     color: color,
     width: width,
     height: height,
@@ -1464,7 +1464,7 @@ Widget getRowWidget(
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        getCustomFont(title, 20, getFontColor(context), 1,
+        getCustomFont(title, 18, getFontColor(context), 1,
             fontWeight: FontWeight.w700),
         InkWell(
           onTap: () {
@@ -1472,7 +1472,7 @@ Widget getRowWidget(
           },
           child: getCustomFont(
             voirPlusKey,
-            18,
+            16,
             getAccentColor(context),
             1,
             fontWeight: FontWeight.w700,
