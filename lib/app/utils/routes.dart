@@ -1,4 +1,5 @@
 class Routes {
+  
   static String splashRoute = "keySplashScreen";
   static String introRoute = "keyIntroScreen";
   static String loginRoute = "keyLoginScreen";
