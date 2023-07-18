@@ -30,3 +30,12 @@ const String attendanceKey = "Ponctualité";
 const String feesKey = "Scolarité";
 const String permissionsKey = "Permissions";
 
+//Réservations
+const String mesReservationsKey = "Mes réservations";
+const String noReservationsKey = "Pas de réservations!";
+const String historiqueKey = "Historique";
+const String enAttenteKey = "En attente";
+const String accepterKey = "Acceptées";
+const String effectuerKey = "Effectuées";
+const String permissionAccepteeKey = "Acceptée";
+const String permissionRefuseeKey = "Refusée";

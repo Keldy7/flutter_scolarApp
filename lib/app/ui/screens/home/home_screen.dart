@@ -33,9 +33,9 @@ class _HomeScreen extends State<HomeScreen> {
   }
 
   List<Widget> bottomViewList = [
-    TabHome(),
+    const TabHome(),
     const TabCalendar(),
-    const TabProfile(),
+    TabProfile(),
   ];
   List<ModelBottomNav> allBottomNavList = FakeData.getAllBottomNavList();
 

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/ui/screens/home/child/child_screen.dart';
+import 'package:scolar_pay/app/ui/screens/child/child_screen.dart';
+import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
 
 import 'app/ui/controllers/home_controller.dart';
 import 'app/ui/screens/home/home_screen.dart';
 import 'app/ui/screens/intro/intro_screen.dart';
 import 'app/ui/screens/intro/splash_screen.dart';
+import 'app/ui/screens/permission/filter_screen.dart';
 import 'app/utils/custom_scroll_behavior.dart';
 import 'app/utils/routes.dart';
 import 'app/utils/label_keys.dart';
@@ -51,10 +53,10 @@ class MyApp extends StatelessWidget {
         // categoryScreenRoute: (context) => CategoryList(),
         // salonScreenRoute: (context) => SalonList(),
         // searchScreenRoute: (context) => SearchScreen(),
-        // Routes.filterScreenRoute: (context) => FilterScreen(),
+        Routes.filterScreenRoute: (context) => FilterScreen(),
         // offerDetailScreenRoute: (context) => OfferDetailScreen(),
         Routes.childScreenRoute: (context) => const ChildScreen(),
-        // Routes.serviceListRoute: (context) => ServicesList(),
+        Routes.permissionsScreenRoute: (context) => const PermissionScreen(),
         // confirmServiceListRoute: (context) => ConfirmList(),
         // Routes.paymentListRoute: (context) => PaymentList(),
         // Routes.paymentScreenRoute: (context) => PaymentScreen(),

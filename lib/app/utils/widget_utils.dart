@@ -8,6 +8,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
+import 'package:scolar_pay/app/utils/routes.dart';
 
 import 'constant.dart';
 import 'label_keys.dart';
@@ -392,7 +393,8 @@ Widget buildProfilePhotoWidget(BuildContext context,
               child: Container(
                 width: 30.h,
                 height: 30.h,
-                decoration: const BoxDecoration(shape: BoxShape.circle, boxShadow: [
+                decoration:
+                    const BoxDecoration(shape: BoxShape.circle, boxShadow: [
                   BoxShadow(
                       color: Color.fromRGBO(61, 61, 61, 0.11999999731779099),
                       offset: Offset(-4, 8),
@@ -504,13 +506,16 @@ Widget getDetailWidget(BuildContext context, Function backClick, String title,
       });
 }
 
-Widget getCircleImage(BuildContext context, String imgName, double size,{bool fileImage = false}) {
+Widget getCircleImage(BuildContext context, String imgName, double size,
+    {bool fileImage = false}) {
   return SizedBox(
     width: size,
     height: size,
     child: ClipRRect(
       borderRadius: BorderRadius.all(Radius.circular(size / 2)),
-      child: (fileImage)?Image.file(File(imgName)):getAssetImage(context, imgName, double.infinity, double.infinity),
+      child: (fileImage)
+          ? Image.file(File(imgName))
+          : getAssetImage(context, imgName, double.infinity, double.infinity),
     ),
   );
 }
@@ -730,7 +735,8 @@ Widget getScreenDetailDefaultView(
     {bool centerTitle = true,
     bool subtitle = false,
     String subtitleText = '',
-    String actionImg = '',bool withLeading=true}) {
+    String actionImg = '',
+    bool withLeading = true}) {
   return WillPopScope(
       child: Scaffold(
         backgroundColor: getAccentColor(context),
@@ -754,12 +760,16 @@ Widget getScreenDetailDefaultView(
 
 Widget getTabDetailDefaultView(
     BuildContext context, String title, Function backClick, Widget childView,
-    {bool centerTitle = true,bool withLeading=true}) {
+    {bool centerTitle = true, bool withLeading = true}) {
   return Column(
     children: [
       getBackAppBar(context, () {
         backClick();
-      }, title: title, iconColor: Colors.white, centerTitle: centerTitle,withLeading: withLeading),
+      },
+          title: title,
+          iconColor: Colors.white,
+          centerTitle: centerTitle,
+          withLeading: withLeading),
       Expanded(
         flex: 1,
         child: getDefaultContainerView(
@@ -872,9 +882,9 @@ showGetDialog(
                   ? Expanded(
                       child: getButtonFigma(context, Colors.transparent, true,
                           btnTextCancel, getAccentColor(context), () {
-                        if(functionCancel!=null) {
-                          functionCancel();
-                        }
+                      if (functionCancel != null) {
+                        functionCancel();
+                      }
                     }, EdgeInsets.zero,
                           isBorder: true, borderColor: getAccentColor(context)))
                   : 0.horizontalSpace,
@@ -914,8 +924,7 @@ Widget buildTabView(
     width: double.infinity,
     height: 56.h,
     margin: EdgeInsets.symmetric(
-        horizontal: Constant.getDefaultHorSpaceFigma(context),
-        vertical: 16.h),
+        horizontal: Constant.getDefaultHorSpaceFigma(context), vertical: 16.h),
     decoration: getButtonDecoration(Colors.white,
         withCorners: true,
         corner: 15.h,
@@ -1369,7 +1378,8 @@ AppBar getBackAppBar(BuildContext context, Function backClick,
     bool subtitle = false,
     String actionImg = '',
     Color iconColor = Colors.black,
-    bool centerTitle = true,bool withLeading=true}) {
+    bool centerTitle = true,
+    bool withLeading = true}) {
   return (subtitle)
       ? AppBar(
           elevation: 0,
@@ -1388,13 +1398,27 @@ AppBar getBackAppBar(BuildContext context, Function backClick,
           ),
           actions: [
             Padding(
-              padding: EdgeInsets.all(10.h),
-              child: getCircleImage(context, actionImg, 50.h),
+              padding: EdgeInsets.all(12.h),
+              child: InkWell(
+                onTap: () {
+                  Constant.goToNextPage(context, Routes.filterScreenRoute);
+                },
+                child: getSvgImageWithSize(
+                  context,
+                  actionImg,
+                  24.h,
+                  24.h,
+                  fit: BoxFit.scaleDown,
+                  color: iconColor,
+                ),
+              ),
             )
           ],
-          leading: (withLeading)?getBackIcon(context, () {
-            backClick();
-          }, colors: iconColor):0.horizontalSpace,
+          leading: (withLeading)
+              ? getBackIcon(context, () {
+                  backClick();
+                }, colors: iconColor)
+              : 0.horizontalSpace,
         )
       : AppBar(
           elevation: 0,
@@ -1402,9 +1426,11 @@ AppBar getBackAppBar(BuildContext context, Function backClick,
           centerTitle: centerTitle,
           title: getCustomFont(title, 24, fontColor, 1,
               fontWeight: FontWeight.w700),
-          leading: (withLeading)?getBackIcon(context, () {
-            backClick();
-          }, colors: iconColor):0.horizontalSpace,
+          leading: (withLeading)
+              ? getBackIcon(context, () {
+                  backClick();
+                }, colors: iconColor)
+              : 0.horizontalSpace,
         );
 }
 
@@ -1459,29 +1485,27 @@ Widget getRowWidget(
   );
 }
 
-  Widget buildSeeAllView(
-      BuildContext context, String title, Function function) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        getCustomFont(title, 18, getFontColor(context), 1,
-            fontWeight: FontWeight.w700),
-        InkWell(
-          onTap: () {
-            function();
-          },
-          child: getCustomFont(
-            voirPlusKey,
-            16,
-            getAccentColor(context),
-            1,
-            fontWeight: FontWeight.w700,
-          ),
-        )
-      ],
-    ).paddingSymmetric(
-        horizontal: Constant.getDefaultHorSpaceFigma(context));
-  }
+Widget buildSeeAllView(BuildContext context, String title, Function function) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      getCustomFont(title, 18, getFontColor(context), 1,
+          fontWeight: FontWeight.w700),
+      InkWell(
+        onTap: () {
+          function();
+        },
+        child: getCustomFont(
+          voirPlusKey,
+          16,
+          getAccentColor(context),
+          1,
+          fontWeight: FontWeight.w700,
+        ),
+      )
+    ],
+  ).paddingSymmetric(horizontal: Constant.getDefaultHorSpaceFigma(context));
+}
 
 Widget getButtonFigma(
     BuildContext context,
@@ -1748,7 +1772,7 @@ Widget buildCustomDistanceView(BuildContext context, String rate,
     double imgSize, double fontSize, Color fontColor, FontWeight weight) {
   return Row(
     children: [
-      getSvgImageWithSize(context, "Distance.svg", imgSize, imgSize,
+      getSvgImageWithSize(context, "distance.svg", imgSize, imgSize,
           fit: BoxFit.fill),
       6.w.horizontalSpace,
       getCustomFont(rate, 14, fontColor, 1, fontWeight: weight, txtHeight: 1.5)
@@ -1764,7 +1788,7 @@ Widget buildButtonBookNow(BuildContext context, Function function) {
     child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        getCustomFont("Book Now", 16, getFontColor(context), 1,
+        getCustomFont("Réservez maintenant", 16, getFontColor(context), 1,
             fontWeight: FontWeight.w600),
         8.w.horizontalSpace,
         Icon(

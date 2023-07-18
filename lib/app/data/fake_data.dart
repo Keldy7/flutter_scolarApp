@@ -1,3 +1,5 @@
+import 'package:scolar_pay/app/utils/routes.dart';
+
 import '../ui/models/model_banner.dart';
 import '../ui/models/model_bottom_nav.dart';
 import '../ui/models/model_category.dart';
@@ -54,9 +56,9 @@ static List<ModelIntro> getAllIntroList() {
   static List<ModelCategory> getAllCategoryList() {
     List<ModelCategory> catList = [];
 
-    catList.add(ModelCategory(attendanceKey, "cat6.jpg"));
-    catList.add(ModelCategory(feesKey, "cat7.jpg"));
-    catList.add(ModelCategory(permissionsKey, "cat1.png"));
+    catList.add(ModelCategory(attendanceKey, "cat6.jpg", Routes.homeScreenRoute));
+    catList.add(ModelCategory(feesKey, "cat7.jpg", Routes.homeScreenRoute));
+    catList.add(ModelCategory(permissionsKey, "cat1.png", Routes.permissionsScreenRoute));
 
     return catList;
   }

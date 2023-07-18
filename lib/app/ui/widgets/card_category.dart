@@ -4,9 +4,10 @@ import '../styles/colors.dart';
 
 class CardCategory extends StatelessWidget {
   final String title;
+  final Function? onTapWigdet;
   const CardCategory( {
     Key? key,
-    required this.title,
+    required this.title, this.onTapWigdet,
   }) : super(key: key);
 
   @override
@@ -32,7 +33,13 @@ class CardCategory extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                if (onTapWigdet != null) {
+                  onTapWigdet?.call();
+                } else {
+                  Navigator.of(context).pop();
+                }
+              },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
@@ -56,7 +63,7 @@ class CardCategory extends StatelessWidget {
                       children: [
                         Text(
                           title,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold
                           ),
                         ),

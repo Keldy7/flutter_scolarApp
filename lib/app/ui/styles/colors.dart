@@ -7,16 +7,14 @@ Color fontPrimary = ("#2A190D".toColor()).withOpacity(0.9);
 // Color accentColor = "#156779".toColor();
 // Color accentColor = "#0077B6".toColor();
 Color accentColor = "#139EAD".toColor();
-Color lightAccentColor = "#E2F5FA".toColor();
-Color lightRedColor = "#FCF0F0".toColor();
-Color greyFont = "#616161".toColor();
+Color greyFontColor = "#616161".toColor();
 Color greenColor = "#1AA138".toColor();
 Color redColor = "#EC5757".toColor();
 Color indicatorColor = "#DEDEDE".toColor();
 Color itemGreyColor = "#E8E6E5".toColor();
 Color orangeColor = "#FF8F27".toColor();
 Color appBarColor = "#FEE3E4".toColor();
-Color black40 = "#7C7C7C".toColor();
+Color black40Color= "#7C7C7C".toColor();
 Color dividerColor = "#E6E6E6".toColor();
 Color redFontColor = "#F44144".toColor();
 Color redBgColor = "#FFE9E9".toColor();
@@ -25,6 +23,13 @@ Color unAvailableColor = "#E6E6E6".toColor();
 Color slotSelectedColor = "#FFB4B4".toColor();
 Color darkGreyColor = "#2D2D2D".toColor();
 
+//Ligth colors
+Color lightAccentColor = "#E2F5FA".toColor();
+Color lightGreenColor = "#e5FBE5".toColor();
+Color lightRedColor = "#FCF0F0".toColor();
+Color lightOrangeColor = "#FEEDD8".toColor();
+
+//
 Color cardColor = "#FFFBF8".toColor();
 Color shadowColor = Colors.black12;
 Color shadowLigthColor = "#E6E6E6".toColor();

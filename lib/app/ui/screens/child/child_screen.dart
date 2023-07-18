@@ -4,11 +4,11 @@ import 'package:scolar_pay/app/data/fake_data.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
 
-import '../../../../utils/label_keys.dart';
-import '../../../../utils/routes.dart';
-import '../../../../utils/widget_utils.dart';
-import '../../../models/model_category.dart';
-import '../../../widgets/card_category.dart';
+import '../../../utils/label_keys.dart';
+import '../../../utils/routes.dart';
+import '../../../utils/widget_utils.dart';
+import '../../models/model_category.dart';
+import '../../widgets/card_category.dart';
 
 class ChildScreen extends StatefulWidget {
   const ChildScreen({super.key});
@@ -61,7 +61,7 @@ class _ChildScreenState extends State<ChildScreen> {
                           child: Stack(
                             children: [
                               getCircularImage(context, double.infinity,
-                                  double.infinity, 20.h, "woman.png",
+                                  double.infinity, 20.h, "happy.png",
                                   boxFit: BoxFit.cover),
                             ],
                           ),
@@ -76,7 +76,7 @@ class _ChildScreenState extends State<ChildScreen> {
                                 fontWeight: FontWeight.w700),
                             const SizedBox(height: 1.0),
                             getCustomFont(
-                                "Classe: CE2", 15, getFontGreyColor(context), 1,
+                                "Classe: CE1", 15, getFontGreyColor(context), 1,
                                 fontWeight: FontWeight.w400),
                             getCustomFont("Ecole: Institut Frobel", 15,
                                 getFontGreyColor(context), 3,
@@ -114,7 +114,12 @@ class _ChildScreenState extends State<ChildScreen> {
                                 itemCount: categoryList.length,
                                 itemBuilder: (BuildContext context, int index) {
                                   ModelCategory category = categoryList[index];
-                                  return CardCategory(title: category.title);
+                                  return CardCategory(
+                                      title: category.title,
+                                      onTapWigdet: () {
+                                        Constant.goToNextPage(
+                                            context, category.namePage);
+                                      });
                                 },
                               )
                             ]);
@@ -124,7 +129,6 @@ class _ChildScreenState extends State<ChildScreen> {
                 ],
               ),
             ),
-            
             getButtonFigma(context, getAccentColor(context), true,
                 "Modifier les informations", primaryColor, () {
               Constant.goToNextPage(context, Routes.serviceListRoute);

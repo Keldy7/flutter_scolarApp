@@ -36,7 +36,10 @@ class CustomChildIdentityBloc extends StatelessWidget {
                         height: boxConstraints.maxHeight * (0.12),
                       ),
                       BorderedProfilePicture(
-                          onTap: () {},
+                          onTap: () {
+                            Constant.goToNextPage(
+                                context, Routes.childScreenRoute);
+                          },
                           heightAndWidthPercentage: 0.35,
                           boxConstraints: boxConstraints,
                           imageUrl: "image"),
@@ -55,7 +58,7 @@ class CustomChildIdentityBloc extends StatelessWidget {
                       SizedBox(
                         height: boxConstraints.maxHeight * (0.025),
                       ),
-                      Text("Class",
+                      Text("Classe",
                           style: TextStyle(
                               color: Theme.of(context).scaffoldBackgroundColor,
                               fontWeight: FontWeight.w500,
