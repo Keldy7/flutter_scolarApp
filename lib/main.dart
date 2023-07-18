@@ -7,6 +7,7 @@ import 'app/ui/controllers/home_controller.dart';
 import 'app/ui/screens/home/home_screen.dart';
 import 'app/ui/screens/intro/intro_screen.dart';
 import 'app/ui/screens/intro/splash_screen.dart';
+import 'app/ui/screens/permission/add_permission_screen.dart';
 import 'app/ui/screens/permission/filter_screen.dart';
 import 'app/utils/custom_scroll_behavior.dart';
 import 'app/utils/routes.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
         // offerDetailScreenRoute: (context) => OfferDetailScreen(),
         Routes.childScreenRoute: (context) => const ChildScreen(),
         Routes.permissionsScreenRoute: (context) => const PermissionScreen(),
+        Routes.addPermissionsScreenRoute: (context) => const AddPermissionScreen(),
         // confirmServiceListRoute: (context) => ConfirmList(),
         // Routes.paymentListRoute: (context) => PaymentList(),
         // Routes.paymentScreenRoute: (context) => PaymentScreen(),

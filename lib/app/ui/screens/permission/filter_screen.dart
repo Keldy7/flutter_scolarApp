@@ -197,7 +197,7 @@ class FilterScreen extends StatelessWidget {
                                     context, "arrow_down.svg", 18.h, 18.h),
                                 iconSize: 24,
                                 borderRadius:
-                                    BorderRadius.all(const Radius.circular(15)),
+                                    const BorderRadius.all(Radius.circular(15)),
                                 isDense: true,
                                 isExpanded: true,
                                 style: buildTextStyle(context,

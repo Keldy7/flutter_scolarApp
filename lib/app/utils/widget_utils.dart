@@ -909,7 +909,7 @@ showGetDialog(
   ));
 }
 
-Widget buildTitles(BuildContext context, String title,
+Widget buildTitle(BuildContext context, String title,
     {bool withPadding = true}) {
   return getCustomFont(title, 18, getFontColor(context), 1,
           fontWeight: FontWeight.w700)
@@ -918,6 +918,22 @@ Widget buildTitles(BuildContext context, String title,
               (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0);
 }
 
+Widget buildTitles(BuildContext context, String title, {String subTitle = ""}) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: getCustomFont(title, 18, getFontColor(context), 1,
+              fontWeight: FontWeight.w700),
+        ),
+        (subTitle.isNotEmpty)
+            ? getCustomFont(subTitle, 16, getFontColor(context), 1,
+                fontWeight: FontWeight.w500)
+            : 0.horizontalSpace
+      ],
+    ).marginOnly(top: 20.h, bottom: 10.h);
+  }
+
 Widget buildTabView(
     List<String> tabList, BuildContext context, RxInt selectedIndex) {
   return Container(
@@ -925,7 +941,7 @@ Widget buildTabView(
     height: 56.h,
     margin: EdgeInsets.symmetric(
         horizontal: Constant.getDefaultHorSpaceFigma(context), vertical: 16.h),
-    decoration: getButtonDecoration(Colors.white,
+    decoration: getButtonDecoration(primaryColor,
         withCorners: true,
         corner: 15.h,
         shadow: [

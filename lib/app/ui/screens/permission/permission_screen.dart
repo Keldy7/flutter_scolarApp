@@ -7,6 +7,7 @@ import 'package:scolar_pay/app/utils/label_keys.dart';
 import 'package:scolar_pay/app/utils/widget_utils.dart';
 
 import '../../../utils/constant.dart';
+import '../../../utils/routes.dart';
 
 class PermissionScreen extends StatefulWidget {
   const PermissionScreen({super.key});
@@ -19,6 +20,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
   bool isScrolled = true;
   final List<String> tabList = [historiqueKey, enAttenteKey, accepterKey];
   final List<Widget> tabDetail = [
+    HistoryListWidget(),
     HistoryListWidget(),
     HistoryListWidget(),
   ];
@@ -42,14 +44,16 @@ class _PermissionScreenState extends State<PermissionScreen> {
               centerTitle: true),
           floatingActionButton: FloatingActionButton.extended(
             splashColor: black40Color,
-            onPressed: () {},
+            onPressed: () {
+              Constant.goToNextPage(context, Routes.addPermissionsScreenRoute);
+            },
             elevation: 10,
             isExtended: isScrolled,
             backgroundColor: accentColor,
             foregroundColor: primaryColor,
             icon: Icon(Icons.add,
-                color: primaryColor, size: 30, semanticLabel: 'Add'),
-            label: const Text("Prendre une nouVelle permission"),
+                color: primaryColor, size: 30, weight: 20,),
+            label: getCustomFont(demanderPermissionKey, 15, primaryColor, 1, fontWeight: FontWeight.w700),
           ),
           body: getDefaultContainerView(
               context,
@@ -200,7 +204,7 @@ class HistoryListWidget extends StatelessWidget {
       children: [
         getAssetImage(context, "no_booking_img.png", 100.h, 132.h,
             boxFit: BoxFit.fitHeight),
-        getCustomFont(noReservationsKey, 20, getFontColor(context), 1,
+        getCustomFont(noPermissionsKey, 20, getFontColor(context), 1,
                 fontWeight: FontWeight.w700, textAlign: TextAlign.center)
             .marginOnly(top: 30.h)
       ],
@@ -258,7 +262,6 @@ class HistoryListWidget extends StatelessWidget {
                   2,
                   fontWeight: FontWeight.w400,
                 ),
-                
               ],
             ),
           ),
@@ -267,8 +270,8 @@ class HistoryListWidget extends StatelessWidget {
             child: Row(
               children: [
                 Icon(
-                  Icons.circle,
-                  size: 8.h,
+                  Icons.calendar_month,
+                  size: 18.h,
                   color: getAccentColor(context),
                 ),
                 8.w.horizontalSpace,
@@ -284,15 +287,17 @@ class HistoryListWidget extends StatelessWidget {
                         width: 102.h,
                         height: 32.h,
                         decoration: getButtonDecoration(
-                          (isComplete) ? lightGreenColor : lightRedColor,
+                          (isComplete) ? lightGreenColor : lightOrangeColor,
                           withCorners: true,
                           corner: 16.h,
                         ),
                         child: Center(
                           child: getCustomFont(
-                              (isComplete) ? permissionAccepteeKey : permissionRefuseeKey,
+                              (isComplete)
+                                  ? permissionAccepteeKey
+                                  : enAttenteKey,
                               16,
-                              (isComplete) ? greenColor : redColor,
+                              (isComplete) ? greenColor : orangeColor,
                               1,
                               fontWeight: FontWeight.w600,
                               fontFamily: Constant.fontsFamilyLato),
@@ -307,5 +312,3 @@ class HistoryListWidget extends StatelessWidget {
     );
   }
 }
-
-
