@@ -1106,6 +1106,7 @@ Widget getDefaultTextFiled(
     bool isFilled = false,
     bool withFilter = false,
     bool readOnly = false,
+    bool expandTextField = false,
     Function? filterClick,
     Function? editTap,
     EdgeInsetsGeometry margin = EdgeInsets.zero,
@@ -1121,7 +1122,9 @@ Widget getDefaultTextFiled(
           editTap();
         }
       },
-      maxLines: (minLines) ? null : 1,
+      keyboardType: (expandTextField) ? TextInputType.multiline : TextInputType.none,
+      maxLines: (minLines) ? 1 : null,
+      expands: expandTextField,
       controller: textEditingController,
       autofocus: false,
       textAlign: TextAlign.start,

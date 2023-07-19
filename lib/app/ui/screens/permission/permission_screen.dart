@@ -71,7 +71,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
                   return true;
                 },
                 child: Padding(
-                  padding: EdgeInsets.all(15.h),
+                  padding: EdgeInsets.all(4.h),
                   child: Column(
                     children: [
                       buildTabView(tabList, context, selectedTab),

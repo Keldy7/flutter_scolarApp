@@ -17,13 +17,15 @@ class AddPermissionScreen extends StatefulWidget {
 }
 
 class _AddPermissionScreenState extends State<AddPermissionScreen> {
+    bool isAutre = false;
+
   @override
   Widget build(BuildContext context) {
-    bool isLast = false;
     var controllerGet = Get.find<FiltersController>();
     final List<String> spinnerItems = ['One', 'Two', 'Three', 'Four', autreKey];
 
-    TextEditingController nameController = TextEditingController();
+    TextEditingController titrePermissionController = TextEditingController();
+    TextEditingController descriptPermissionController = TextEditingController();
     Rx date = DateTime.now().obs;
 
     return getScreenDetailDefaultView(context, permissionsKey, () {
@@ -66,12 +68,13 @@ class _AddPermissionScreenState extends State<AddPermissionScreen> {
                                 onChanged: (String? data) {
                                   setState(() {
                                     controllerGet.selectedSortPos.value =
-                                      spinnerItems.indexOf(data ?? "");
-                                    if (spinnerItems[spinnerItems.length - 1] ==
+                                        spinnerItems.indexOf(data ?? "");
+                                    if (spinnerItems[
+                                    controllerGet.selectedSortPos.value] ==
                                         autreKey) {
-                                      isLast = false;
+                                      isAutre = true;
                                     } else {
-                                      isLast = true;
+                                      isAutre = false;
                                     }
                                   });
                                 },
@@ -89,49 +92,64 @@ class _AddPermissionScreenState extends State<AddPermissionScreen> {
                         ),
                     controllerGet.selectedSortPos),
                 Visibility(
-                  visible: isLast,
+                  visible: isAutre,
                   child: Column(
                     children: [
                       getDefaultTextFiled(
                               context,
                               "Autre: Visite chez le dentiste",
-                              nameController,
+                              titrePermissionController,
                               getFontColor(context),
                               (value) {})
                           .marginOnly(top: 2.h),
                     ],
                   ),
                 ),
-                20.h.verticalSpace,
+                16.h.verticalSpace,
                 buildTitle(context, "Description de la permission"),
+                14.h.verticalSpace,
+                SizedBox(
+                  height: 100,
+                  child: getDefaultTextFiled(context, "Decrivez la raison...",
+                      descriptPermissionController, getFontColor(context), (value) {}, expandTextField: true),
+                ),
                 16.h.verticalSpace,
-                getDefaultTextFiled(
-                          context,
-                          "Descrivez la raison...",
-                          nameController,
-                          getFontColor(context),
-                          (value) {}),
                 buildTitle(context, "Date de la permission"),
-                16.h.verticalSpace,
+                14.h.verticalSpace,
                 ObxValue(
                     (p0) => buildDatePickerButton(
                             context,
                             DateFormat('dd-MM-yyyy').format(date.value),
                             "calendar.svg", () async {
-                          DateTime? pickedDate = await showDatePicker(
-                            // locale: const Locale("fr", "FR"),
+                          DateTime? chosenDate = await showDatePicker(
+                            builder: (context, child) {
+                              return Theme(
+                                data: Theme.of(context).copyWith(
+                                    colorScheme: Theme.of(context)
+                                        .colorScheme
+                                        .copyWith(
+                                            onPrimary: accentColor,
+                                            primaryContainer: accentColor,
+                                            primary: Colors.white,
+                                            secondary: Colors.black,
+                                            onSecondary: accentColor)),
+                                child: child!,
+                              );
+                            },
+                            locale: const Locale("fr", "FR"),
                             context: context,
                             initialDate: DateTime.now(),
-                            firstDate: DateTime(1950),
+                            firstDate: DateTime(DateTime.now().year),
                             lastDate: DateTime(2150),
                           );
 
-                          if (pickedDate != null) {
-                            date.value = pickedDate;
-                            debugPrint('fdate---${date.value}---$pickedDate');
+                          if (chosenDate != null) {
+                            date.value = chosenDate;
+                            debugPrint('fdate---${date.value}---$chosenDate');
                           }
                         }),
                     date),
+                    
               ],
             ),
           ),

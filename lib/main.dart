@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/screens/child/child_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
-
 import 'app/ui/controllers/home_controller.dart';
 import 'app/ui/screens/home/home_screen.dart';
 import 'app/ui/screens/intro/intro_screen.dart';
@@ -21,7 +21,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(HomeController());
@@ -29,14 +28,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       scrollBehavior: CustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
-      // localizationsDelegates: const [
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      //   S.delegate,
-      // ],
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      supportedLocales: const [
+        Locale('fr'), // Français
+      ],
       title: nomAppKey,
       initialBinding: StoreBinding(),
       initialRoute: "/",
+
       theme: controller.theme,
       // themeMode: (darkThemeProvider.darkMode) ? ThemeMode.dark : ThemeMode.light,
       routes: {
@@ -58,7 +57,8 @@ class MyApp extends StatelessWidget {
         // offerDetailScreenRoute: (context) => OfferDetailScreen(),
         Routes.childScreenRoute: (context) => const ChildScreen(),
         Routes.permissionsScreenRoute: (context) => const PermissionScreen(),
-        Routes.addPermissionsScreenRoute: (context) => const AddPermissionScreen(),
+        Routes.addPermissionsScreenRoute: (context) =>
+            const AddPermissionScreen(),
         // confirmServiceListRoute: (context) => ConfirmList(),
         // Routes.paymentListRoute: (context) => PaymentList(),
         // Routes.paymentScreenRoute: (context) => PaymentScreen(),
