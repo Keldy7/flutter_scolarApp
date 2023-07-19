@@ -95,6 +95,37 @@ class Constant {
     }
   }
 
+  static String getMonthName(int monthNumber) {
+    List<String> months = [
+      'Janvier',
+      'Février',
+      'Mars',
+      'Avril',
+      'Mai',
+      'Juin',
+      'Juillet',
+      'Août',
+      'Septembre',
+      'Octobre',
+      'Novembre',
+      'Décembre'
+    ];
+    return months[monthNumber - 1];
+  }
+
+    static List<String> buildMonthYearsBetweenTwoDates(
+      DateTime startDate, DateTime endDate) {
+    List<String> dateTimes = [];
+    DateTime current = startDate;
+    while (current.difference(endDate).isNegative) {
+      current = current.add(const Duration(days: 24));
+      dateTimes.add("${getMonthName(current.month)}, ${current.year}");
+    }
+    dateTimes = dateTimes.toSet().toList();
+
+    return dateTimes;
+  }
+
   static double getWidthPercentSize(double percent) {
     double screenWidth = Sizes.safeBlockHorizontal! * 100;
     return (percent * screenWidth) / 100;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:scolar_pay/app/data/fake_data.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
@@ -7,6 +8,8 @@ import 'package:scolar_pay/app/utils/constant.dart';
 import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
+import '../../controllers/bottom_selection_controller.dart';
+import '../../controllers/home_controller.dart';
 import '../../models/model_category.dart';
 import '../../widgets/card_category.dart';
 
@@ -24,7 +27,12 @@ class _ChildScreenState extends State<ChildScreen> {
     final List<ModelCategory> categoryList = FakeData.getAllCategoryList();
 
     return getScreenDetailDefaultView(context, detailsEnfantKey, () {
-      Constant.backToPrev(context);
+      var controller = Get.find<HomeController>();
+      var bottomNavController = Get.find<BottomItemSelectionController>();
+      bottomNavController.changePos(0);
+
+      (!controller.fromDetail) ==
+          Constant.goToNextPage(context, Routes.homeScreenRoute);
     },
         Column(
           children: [

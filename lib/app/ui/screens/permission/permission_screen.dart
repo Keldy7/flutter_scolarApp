@@ -33,7 +33,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
         child: Scaffold(
           backgroundColor: getAccentColor(context),
           appBar: getBackAppBar(context, () {
-            Constant.backToPrev(context);
+            Constant.goToNextPage(context, Routes.childScreenRoute);
           },
               subtitle: true,
               withLeading: true,
@@ -81,26 +81,6 @@ class _PermissionScreenState extends State<PermissionScreen> {
                                 child: tabDetail[selectedTab.value],
                               ),
                           selectedTab)
-                      //   Expanded(
-                      //       flex: 1,
-                      //       child: ListView(
-                      //         shrinkWrap: true,
-                      //         padding: EdgeInsets.zero,
-                      //         children: [
-                      //           Column(
-                      //             crossAxisAlignment: CrossAxisAlignment.start,
-                      //             children: List.generate(
-                      //               5,
-                      //               (index) => _buildListItems(context,
-                      //                   iconName: Icons.text_snippet,
-                      //                   primColor: accentColor,
-                      //                   titleAdvice: "Titre permission",
-                      //                   dateAdvice:
-                      //                       "Vendredi 01 Decembre 2014, 17:06"),
-                      //             ),
-                      //           )
-                      //         ],
-                      //       ))
                     ],
                   ),
                 ),

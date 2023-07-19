@@ -105,7 +105,7 @@ Widget buildDatePickerButton(
               fontWeight: FontWeight.w500),
         ),
         getSvgImageWithSize(context, image, 18.h, 18.h,
-            color: getFontColor(context), fit: BoxFit.fill)
+            color: accentColor, fit: BoxFit.fill)
       ]),
     ),
   );
@@ -918,20 +918,23 @@ Widget buildTitle(BuildContext context, String title,
               (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0);
 }
 
-Widget buildTitles(BuildContext context, String title, {String subTitle = ""}) {
+Widget buildTitles(BuildContext context, String title, {String subTitle = "", withPadding = true}) {
     return Row(
       children: [
         Expanded(
           flex: 1,
-          child: getCustomFont(title, 18, getFontColor(context), 1,
-              fontWeight: FontWeight.w700),
+          child: getCustomFont(title, 16, getFontColor(context), 1,
+              fontWeight: FontWeight.w500),
         ),
         (subTitle.isNotEmpty)
             ? getCustomFont(subTitle, 16, getFontColor(context), 1,
                 fontWeight: FontWeight.w500)
             : 0.horizontalSpace
       ],
-    ).marginOnly(top: 20.h, bottom: 10.h);
+    ).marginSymmetric(
+          horizontal:
+              (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0);
+    // ).marginOnly(top: 20.h, bottom: 10.h);
   }
 
 Widget buildTabView(
@@ -1101,10 +1104,11 @@ Widget getDefaultTextFiled(
     Color fontColor,
     ValueChanged<String> changed,
     {bool withPrefix = false,
-    String imgName = "",
+    String imgNamePrefix = "",
+    String imgNameSuffix = "",
     bool minLines = false,
     bool isFilled = false,
-    bool withFilter = false,
+    bool withSuffix = false,
     bool readOnly = false,
     bool expandTextField = false,
     Function? filterClick,
@@ -1137,7 +1141,7 @@ Widget getDefaultTextFiled(
       readOnly: readOnly,
       decoration: InputDecoration(
           prefixIcon: (withPrefix)
-              ? getSvgImageWithSize(context, imgName, getEditIconSize().h,
+              ? getSvgImageWithSize(context, imgNamePrefix, getEditIconSize().h,
                       getEditIconSize().h)
                   .marginOnly(left: 20.w, right: 16.w)
               : 0.horizontalSpace,
@@ -1156,15 +1160,16 @@ Widget getDefaultTextFiled(
           contentPadding: EdgeInsets.zero,
           filled: isFilled,
           fillColor: getCardColor(context),
-          suffixIcon: (withFilter)
+          suffixIcon: (withSuffix)
               ? InkWell(
                   onTap: () {
                     if (filterClick != null) {
                       filterClick();
                     }
                   },
-                  child: getSvgImageWithSize(context, "filter.svg",
-                          getEditIconSize().h, getEditIconSize().h)
+                  child: getSvgImageWithSize(context, 
+                  imgNameSuffix != "" ? imgNameSuffix : "filter.svg" ,
+                          getEditIconSize().h, getEditIconSize().h, color: accentColor)
                       .marginOnly(right: 20.w, left: 16.w),
                 )
               : 0.horizontalSpace,
