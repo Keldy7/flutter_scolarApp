@@ -60,6 +60,8 @@ class Images {
   static const jpsSvg ='jps';
   static const locationActiveSvg ='location_active';
   static const locationSvg ='location';
+  static const mailSvg ='mail';
+  static const mailIconSvg ='mail_icon';
   static const passwordSvg ='pass';
   static const profileSvg ='profile';
   static const radioCheckedSvg ='radio_checked';

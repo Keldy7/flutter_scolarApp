@@ -9,12 +9,15 @@ class Labels {
   static String facebookSignKey = "Connectez-vous avec Facebook";
   static String googleSignKey = "Connectez-vous avec Google";
   static String alreadyAccountKey = "Vous avez déjà un compte ? ";
+  static String createAccountKey = "Créer un compte";
   static String gladMeetKey = "Heureux de vous revoir !";
+  // static String gladMeetKey = "Heureux de vous revoir !";
 
   static String getStartedKey = "Démarrer";
   static String continuerKey = "Continuer";
   static String suivantKey = "Suivant";
   static String rechercherKey = "Rechercher...";
+  static String selectionnerKey = "Sélectionner...";
 
 //Options principales
   static String accueilKey = "Accueil";
@@ -40,6 +43,11 @@ class Labels {
   static String academicYearKey = "Année scolaire";
   static String classeKey = "Classe";
   static String ecoleKey = "École";
+
+//Ponctualité
+  static String ponctualiteKey = "Ponctualité";
+  static String totalPresentKey = "Présence";
+  static String totalAbsentKey = "Absence";
 
 //Permissions
   static String mesPermissionsKey = "Mes permissions";
@@ -70,6 +78,7 @@ class Labels {
   static String numTelephoneKey = "Numéro de téléphone";
   static String adrMailKey = "Adresse mail";
   static String passwordKey = "Mot de passe";
+  static String confirmPasswordKey = "Confirmer le mot de passe";
   static String forgetPasswordKey = "Mot de passe oublié ?";
 
 //Réglages
@@ -78,7 +87,7 @@ class Labels {
   static String termsConditionsKey = "Termes & Conditions";
   static String politiqueConfidentialiteKey = "Politique de confidentialité";
   static String aboutUsKey = "À propos de nous";
-  static String termsCnditionsKey = "Termes & Conditions";
+  static String agreeWithKey = "J'accepte les";
 
 //Chat
   static String enLigneKey = "En ligne";

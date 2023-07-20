@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:scolar_pay/app/utils/label_keys.dart';
 
 import '../../../utils/constant.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
 import '../../styles/colors.dart';
-
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({super.key});
@@ -29,26 +29,26 @@ class RegistrationScreen extends StatelessWidget {
     Constant.setupSize(context);
 
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
-    return buildTitleDefaultWidget(context, "Create an account", "", () {
+    return buildTitleDefaultWidget(context, Labels.createAccountKey, "", () {
       backClick(context);
     },
         Column(
           children: [
-            getDefaultTextFiled(context, "Name", nameController,
+            getDefaultTextFiled(context, Labels.nomKey, nameController,
                 getFontColor(context), (value) {}),
             20.h.verticalSpace,
-            getDefaultTextFiled(context, "Email", emailController,
+            getDefaultTextFiled(context, Labels.adrMailKey, emailController,
                 getFontColor(context), (value) {}),
             20.h.verticalSpace,
             ObxValue((p0) {
-              return getPassTextFiled(context, "Password", passController,
-                  getFontColor(context), showPass.value, () {
+              return getPassTextFiled(context, Labels.passwordKey,
+                  passController, getFontColor(context), showPass.value, () {
                 showPass.value = !showPass.value;
               });
             }, showPass),
             20.h.verticalSpace,
             ObxValue((p0) {
-              return getPassTextFiled(context, "Confirm Password",
+              return getPassTextFiled(context, Labels.confirmPasswordKey,
                   pass2Controller, getFontColor(context), showPass2.value, () {
                 showPass2.value = !showPass2.value;
               });
@@ -60,27 +60,30 @@ class RegistrationScreen extends StatelessWidget {
                   return Checkbox(
                     visualDensity: VisualDensity.compact,
                     side:
-                        BorderSide(color: getAccentColor(context), width: 1.h),
-                    activeColor: getAccentColor(context),
+                        BorderSide(color: secondaryColor, width: 1.h),
+                    activeColor: secondaryColor,
                     onChanged: (value) {
                       agreeTerm.value = value!;
                     },
                     value: agreeTerm.value,
                   );
                 }, agreeTerm),
-                getCustomFont("I Agree with", 16, getFontColor(context), 1,
+                getCustomFont(Labels.agreeWithKey, 16, getFontColor(context), 1,
                     fontWeight: FontWeight.w400, textAlign: TextAlign.start),
-                Expanded(
-                  flex: 1,
+                TextButton(
+                  onPressed: () {
+                    Constant.goToNextPage(context, Routes.termNCondition);
+                  },
                   child: getCustomFont(
-                      " Terms and condition", 16, getAccentColor(context), 1,
-                      fontWeight: FontWeight.w700, textAlign: TextAlign.start),
+                      Labels.termsConditionsKey, 16, getAccentColor(context), 1,
+                      fontWeight: FontWeight.w700,
+                      textAlign: TextAlign.start),
                 )
               ],
             ).paddingSymmetric(horizontal: horSpace),
             30.h.verticalSpace,
             getButtonFigma(
-                context, getAccentColor(context), true, "Sign Up", Colors.white,
+                context, getAccentColor(context), true, Labels.sinscrireKey, primaryColor,
                 () {
               Constant.goToNextPage(context, Routes.phoneNumberRoute);
             }, EdgeInsets.symmetric(horizontal: horSpace)),
@@ -94,7 +97,7 @@ class RegistrationScreen extends StatelessWidget {
                   child:
                       getDivider(setColor: getCurrentTheme(context).hintColor),
                 ),
-                getCustomFont(" OR Sign in with ", 16, getFontColor(context), 1,
+                getCustomFont(Labels.orSignKey, 16, getFontColor(context), 1,
                     fontWeight: FontWeight.w400, textAlign: TextAlign.center),
                 Expanded(
                   flex: 1,
@@ -109,7 +112,7 @@ class RegistrationScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 getCustomFont(
-                  "Already have an account?",
+                  Labels.alreadyAccountKey,
                   16,
                   getFontBlackColor(context),
                   1,
@@ -120,11 +123,12 @@ class RegistrationScreen extends StatelessWidget {
                     Constant.goToNextPage(context, Routes.loginRoute);
                   },
                   child: getCustomFont(
-                    " Login",
+                   Labels.connexionKey,
                     18,
                     getFontBlackColor(context),
                     1,
                     fontWeight: FontWeight.w700,
+                    decoration: TextDecoration.underline
                   ),
                 )
               ],

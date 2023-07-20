@@ -16,6 +16,7 @@ Color indicatorColor = "#DEDEDE".toColor();
 Color itemGreyColor = "#E8E6E5".toColor();
 Color orangeColor = "#FF8F27".toColor();
 Color appBarColor = "#FEE3E4".toColor();
+Color blackColor= Colors.black;
 Color black40Color= "#7C7C7C".toColor();
 Color dividerColor = "#E6E6E6".toColor();
 Color redFontColor = "#F44144".toColor();

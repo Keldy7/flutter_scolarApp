@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
+import 'package:scolar_pay/app/utils/label_keys.dart';
 import 'package:scolar_pay/app/utils/widget_utils.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -44,7 +46,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return getScreenDetailDefaultView(context, "presence", () {
+    return getScreenDetailDefaultView(context, Labels.ponctualiteKey, () {
       Constant.backToPrev(context);
     },
         Column(
@@ -53,6 +55,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 child: ListView(
               shrinkWrap: true,
               children: [
+                20.h.verticalSpace,
                 Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal:
@@ -65,15 +68,12 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                               borderRadius: BorderRadius.circular(10),
                               boxShadow: [
                                 BoxShadow(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .secondary
-                                        .withOpacity(0.075),
+                                    color: black40Color.withOpacity(0.2),
                                     offset: const Offset(2.5, 2.5),
                                     blurRadius: 5,
                                     spreadRadius: 0)
                               ],
-                              color: Theme.of(context).scaffoldBackgroundColor),
+                              color: primaryColor),
                           width: MediaQuery.of(context).size.width * (0.85),
                           child: Stack(
                             children: [
@@ -83,7 +83,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                                   "${Constant.getMonthName(focusedDay.month)} ${focusedDay.year}",
                                   style: TextStyle(
                                       color: black40Color,
-                                      fontWeight: FontWeight.w600),
+                                      fontWeight: FontWeight.w700),
                                 ),
                               ),
                               Align(
@@ -118,10 +118,10 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                         Container(
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              color: Theme.of(context).scaffoldBackgroundColor,
+                              color: primaryColor,
                               boxShadow: [
                                 BoxShadow(
-                                    color: black40Color.withOpacity(0.075),
+                                    color: black40Color.withOpacity(0.2),
                                     offset: const Offset(5.0, 5),
                                     blurRadius: 10,
                                     spreadRadius: 0)
@@ -132,7 +132,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                             locale: 'fr_FR',
                             calendarFormat: CalendarFormat.month,
                             headerVisible: false,
-                            daysOfWeekHeight: 40,
+                            daysOfWeekHeight: 42,
                             enabledDayPredicate: (day) => !_isWeekend(day),
                             onPageChanged: (DateTime dateTime) {
                               setState(() {
@@ -167,11 +167,11 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                             ),
                             daysOfWeekStyle: DaysOfWeekStyle(
                               weekdayStyle: TextStyle(
-                                color: black40Color,
+                                color: getAccentColor(context),
                                 fontWeight: FontWeight.bold,
                               ),
                               weekendStyle: TextStyle(
-                                color: greyFontColor,
+                                color: greyIconColor,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -188,11 +188,76 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                             },
                           ),
                         ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * (0.05),
+                        ),
+                        LayoutBuilder(builder: (context, boxConstraints) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              _buildAttendanceCounterContainer(
+                                  boxConstraints: boxConstraints,
+                                  title: Labels.totalPresentKey,
+                                  value: "18",
+                                  // value: presentDays.length.toString(),
+                                  backgroundColor: greenColor),
+                              const Spacer(),
+                              _buildAttendanceCounterContainer(
+                                  boxConstraints: boxConstraints,
+                                  title: Labels.totalAbsentKey,
+                                  value: "2",
+                                  backgroundColor: redColor),
+                            ],
+                          );
+                        })
                       ],
                     )),
               ],
             ))
           ],
         ));
+  }
+
+  Widget _buildAttendanceCounterContainer(
+      {required String title,
+      required BoxConstraints boxConstraints,
+      required String value,
+      required Color backgroundColor}) {
+    return Container(
+      height: boxConstraints.maxWidth * (0.425),
+      width: boxConstraints.maxWidth * (0.425),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: backgroundColor,
+        boxShadow: [
+          BoxShadow(
+              color: blackColor.withOpacity(0.25),
+              offset: const Offset(5, 5),
+              blurRadius: 10,
+              spreadRadius: 0)
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          getCustomFont(
+                  title, 15, primaryColor, 1,
+                  fontWeight: FontWeight.w700),
+          SizedBox(
+            height: boxConstraints.maxWidth * (0.45) * (0.125),
+          ),
+          CircleAvatar(
+            radius: 25,
+            backgroundColor: primaryColor,
+            child: Center(
+              child: getCustomFont(
+                  value, 18, backgroundColor, 1,
+                  fontWeight: FontWeight.w700),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

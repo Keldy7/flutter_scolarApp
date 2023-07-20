@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:scolar_pay/app/utils/image_keys.dart';
 import 'package:scolar_pay/app/utils/label_keys.dart';
 
 import '../../../utils/constant.dart';
@@ -34,7 +35,7 @@ class LoginScreen extends StatelessWidget {
         Column(
           children: [
             getDefaultTextFiled(context, Labels.adrMailKey, emailController,
-                getFontColor(context), (value) {}),
+                getFontColor(context), (value) {}, withSuffix: true, imgNameSuffix: Images.mailSvg,),
             20.h.verticalSpace,
             ObxValue((p0) {
               return getPassTextFiled(context, Labels.passwordKey, passController,
@@ -51,7 +52,8 @@ class LoginScreen extends StatelessWidget {
                 },
                 child: getCustomFont(
                     Labels.forgetPasswordKey, 16, getFontColor(context), 1,
-                    fontWeight: FontWeight.w400, textAlign: TextAlign.end),
+                    decoration: TextDecoration.underline,
+                    fontWeight: FontWeight.w600, textAlign: TextAlign.end),
               ),
             ).paddingOnly(right: horSpace),
             getButtonFigma(
@@ -95,7 +97,7 @@ class LoginScreen extends StatelessWidget {
                 () {},
                 EdgeInsets.zero,
                 isIcon: true,
-                icons: "Google.svg",
+                icons: Images.googleSvg,
                 shadow: [
                   const BoxShadow(
                       color: Color.fromRGBO(130, 164, 131, 0.2199999988079071),
@@ -111,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                 () {},
                 EdgeInsets.zero,
                 isIcon: true,
-                icons: "Facebook.svg",
+                icons: Images.facebookSvg,
                 shadow: [
                   const BoxShadow(
                       color: Color.fromRGBO(130, 164, 131, 0.2199999988079071),

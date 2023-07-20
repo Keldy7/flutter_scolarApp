@@ -10,6 +10,7 @@ import '../../controllers/home_controller.dart';
 import '../../styles/colors.dart';
 
 
+// ignore: must_be_immutable
 class ResetPasswordScreen extends StatelessWidget {
   backClick(BuildContext context) {
     Constant.backToFinish(context);

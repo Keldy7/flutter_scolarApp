@@ -11,6 +11,7 @@ import 'package:scolar_pay/app/ui/styles/colors.dart';
 import 'package:scolar_pay/app/utils/routes.dart';
 
 import 'constant.dart';
+import 'image_keys.dart';
 import 'label_keys.dart';
 
 void showCustomToast(String texts, BuildContext context) {
@@ -1296,7 +1297,7 @@ Widget getPassTextFiled(
     Color fontColor,
     bool showPass,
     Function function,
-    {String imgName = "pass.svg",
+    {
     bool minLines = false,
     EdgeInsetsGeometry margin = EdgeInsets.zero}) {
   double height = getEditHeightFigma();
@@ -1326,8 +1327,8 @@ Widget getPassTextFiled(
               function();
             },
             child: getSvgImageWithSize(
-                context, "pass.svg", getEditIconSize().h, getEditIconSize().h,
-                fit: BoxFit.scaleDown),
+                context, Images.passwordSvg, getEditIconSize().h, getEditIconSize().h,
+                fit: BoxFit.scaleDown, color: getAccentColor(context)),
           ),
           contentPadding: EdgeInsets.only(left: 20.w),
           border: OutlineInputBorder(
@@ -1382,12 +1383,12 @@ WillPopScope buildTitleDefaultWidget(BuildContext context, String title,
               10.h.verticalSpace,
               getCustomFont(title, 24, getFontColor(context), 1,
                   fontWeight: FontWeight.w700, textAlign: TextAlign.center),
-              subTitle.isNotEmpty ? (16.h.verticalSpace) : 0.verticalSpace,
+              subTitle.isNotEmpty ? (5.h.verticalSpace) : 0.verticalSpace,
               subTitle.isNotEmpty
                   ? (getMultilineCustomFont(subTitle, 16, getFontColor(context),
                       fontWeight: FontWeight.w400, textAlign: TextAlign.center))
                   : 0.verticalSpace,
-              20.h.verticalSpace,
+              25.h.verticalSpace,
               widget
             ],
           ),
