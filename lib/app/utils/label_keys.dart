@@ -61,6 +61,8 @@ class Labels {
   static String permissionRefuseeKey = "Refusée";
   static String demanderPermissionKey = "Demander une permission scolaire";
 
+//Examens et compositions
+  static String examensCompositionsKey = "Examens et compos";
 // static String demanderPermissionKey = "Demander une permission scolaire";
 // static String demanderPermissionKey = "Demander une permission scolaire";
 // static String demanderPermissionKey = "Demander une permission scolaire";

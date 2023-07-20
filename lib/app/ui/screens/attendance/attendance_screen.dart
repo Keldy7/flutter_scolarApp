@@ -142,8 +142,16 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                             onCalendarCreated: (contoller) {
                               calendarPageController = contoller;
                             },
+                            
+
+                            //Style calendar
                             calendarStyle: CalendarStyle(
-                              isTodayHighlighted: false,
+                              isTodayHighlighted: true,
+                              todayDecoration: BoxDecoration(
+                                color: secondaryColor,
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
                               holidayTextStyle: TextStyle(
                                   color: Theme.of(context)
                                       .scaffoldBackgroundColor),
@@ -241,9 +249,8 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          getCustomFont(
-                  title, 15, primaryColor, 1,
-                  fontWeight: FontWeight.w700),
+          getCustomFont(title, 15, primaryColor, 1,
+              fontWeight: FontWeight.w700),
           SizedBox(
             height: boxConstraints.maxWidth * (0.45) * (0.125),
           ),
@@ -251,8 +258,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             radius: 25,
             backgroundColor: primaryColor,
             child: Center(
-              child: getCustomFont(
-                  value, 18, backgroundColor, 1,
+              child: getCustomFont(value, 18, backgroundColor, 1,
                   fontWeight: FontWeight.w700),
             ),
           ),

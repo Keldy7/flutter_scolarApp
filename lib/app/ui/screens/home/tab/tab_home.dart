@@ -47,7 +47,7 @@ class _TabHomeState extends State<TabHome> {
               children: <Widget>[
                 ImageIcon(
                   AssetImage(Constant.getImagePngPath(
-                      Images.girlPng)),
+                      Images.boyPng)),
                   size: 28,
                   color: primaryColor,
                 ),
@@ -58,7 +58,7 @@ class _TabHomeState extends State<TabHome> {
                         fontWeight: FontWeight.bold)),
                 IconButton(
                   icon: Icon(
-                    Icons.notifications_none,
+                    Icons.notifications,
                     color: primaryColor,
                     size: 30,
                   ),

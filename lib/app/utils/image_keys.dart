@@ -47,8 +47,10 @@ class Images {
   static const checkCircleSvg ='check_circle';
   static const distanceSvg ='distance';
   static const doneAllSvg ='done_all';
+  static const examsSvg ='exams';
   static const exportSvg ='export';
   static const facebookSvg ='facebook';
+  static const feesSvg ='fees';
   static const fileUploadSvg ='file_upload';
   static const filterIconSvg ='filter_icon';
   static const filterSvg ='filter';

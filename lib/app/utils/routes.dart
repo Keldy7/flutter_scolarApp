@@ -12,6 +12,7 @@ class Routes {
   static String countrySelectionRoute = "keycountrySelectionRoute";
   static String homeScreenRoute = "keyHomeScreenRoute";
   static String attendanceScreenRoute = "keyAttendanceScreenRoute";
+  static String examsScreenRoute = "keyAttendanceScreenRoute";
   static String categoryScreenRoute = "keyCategoryScreenRoute";
   static String salonScreenRoute = "keySalonScreenRoute";
   static String searchScreenRoute = "keySearchScreenRoute";

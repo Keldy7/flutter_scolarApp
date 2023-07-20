@@ -63,7 +63,7 @@ class _HomeScreen extends State<HomeScreen> {
                         offset: Offset(0, -2),
                         blurRadius: 20)
                   ],
-                  color: getAccentColor(context),
+                  color: lightAccentColor,
                   shape: SmoothRectangleBorder(
                       borderRadius: SmoothBorderRadius.vertical(
                           top: SmoothRadius(

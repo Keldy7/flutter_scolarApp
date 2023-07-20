@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/screens/child/child_screen.dart';
+import 'package:scolar_pay/app/ui/screens/exams/exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
 import 'app/ui/controllers/home_controller.dart';
 import 'app/ui/screens/attendance/attendance_screen.dart';
@@ -17,6 +18,9 @@ import 'app/ui/screens/login/termn_condition_screen.dart';
 import 'app/ui/screens/login/verification_screen.dart';
 import 'app/ui/screens/permission/add_permission_screen.dart';
 import 'app/ui/screens/permission/filter_screen.dart';
+import 'app/ui/screens/profile/edit_profile.dart';
+import 'app/ui/screens/profile/my_profile_screen.dart';
+import 'app/ui/screens/profile/settings_screen.dart';
 import 'app/utils/custom_scroll_behavior.dart';
 import 'app/utils/routes.dart';
 import 'app/utils/label_keys.dart';
@@ -74,9 +78,10 @@ class MyApp extends StatelessWidget {
         // selectLocationRoute: (context) => SelectLocation(),
         // selectOtherLocationRoute: (context) => SelectOtherLocation(),
         // chatScreenRoute: (context) => ChatScreen(),
-        // Routes.myProfileScreenRoute: (context) => MyProfileScreen(),
-        // Routes.editProfileRoute: (context) => EditProfile(),
-        // Routes.settingScreenRoute: (context) => SettingScreen(),
+        Routes.examsScreenRoute: (context) => const ExamenScreen(),
+        Routes.myProfileScreenRoute: (context) => MyProfileScreen(),
+        Routes.editProfileRoute: (context) => EditProfile(),
+        Routes.settingScreenRoute: (context) => SettingScreen(),
         // Routes.notificationScreenRoute: (context) => NotificationScreen(),
         // "/": (context) => controller.isLogin ? const HomeScreen() : SplashScreen()
       },
