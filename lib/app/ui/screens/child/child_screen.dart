@@ -152,7 +152,7 @@ class _ChildScreenState extends State<ChildScreen> {
             ),
             getButtonFigma(context, getAccentColor(context), true,
                 "Modifier les informations", primaryColor, () {
-              Constant.goToNextPage(context, Routes.serviceListRoute);
+              Constant.goToNextPage(context, Routes.editChildScreenRoute);
             },
                 EdgeInsets.only(
                     left: horSpace, right: horSpace, bottom: 30.h, top: 7.h))

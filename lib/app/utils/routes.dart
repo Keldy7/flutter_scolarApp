@@ -12,7 +12,7 @@ class Routes {
   static String countrySelectionRoute = "keycountrySelectionRoute";
   static String homeScreenRoute = "keyHomeScreenRoute";
   static String attendanceScreenRoute = "keyAttendanceScreenRoute";
-  static String examsScreenRoute = "keyAttendanceScreenRoute";
+  static String examsScreenRoute = "keyExamsScreenRoute";
   static String categoryScreenRoute = "keyCategoryScreenRoute";
   static String salonScreenRoute = "keySalonScreenRoute";
   static String searchScreenRoute = "keySearchScreenRoute";
@@ -21,6 +21,7 @@ class Routes {
   static String addPermissionsScreenRoute = "keyAddPermissionScreenRoute";
   static String salonDetailScreenRoute = "keySalonDetailScreenRoute";
   static String childScreenRoute = "keyChildScreenRoute";
+  static String editChildScreenRoute = "keyEditChildScreenRoute";
   static String serviceListRoute = "keyServiceListScreenRoute";
   static String confirmServiceListRoute = "keyConfirmServiceListScreenRoute";
   static String paymentListRoute = "keyPaymentServiceListScreenRoute";

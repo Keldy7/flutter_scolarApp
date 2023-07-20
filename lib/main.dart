@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/screens/child/child_screen.dart';
+import 'package:scolar_pay/app/ui/screens/child/edit_child_screen.dart';
 import 'package:scolar_pay/app/ui/screens/exams/exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
 import 'app/ui/controllers/home_controller.dart';
@@ -68,6 +69,7 @@ class MyApp extends StatelessWidget {
         Routes.filterScreenRoute: (context) => FilterScreen(),
         // offerDetailScreenRoute: (context) => OfferDetailScreen(),
         Routes.childScreenRoute: (context) => const ChildScreen(),
+        Routes.editChildScreenRoute: (context) => const EditChildScreen(),
         Routes.permissionsScreenRoute: (context) => const PermissionScreen(),
         Routes.addPermissionsScreenRoute: (context) =>
             const AddPermissionScreen(),

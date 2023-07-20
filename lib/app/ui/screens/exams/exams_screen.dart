@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
 import 'package:scolar_pay/app/utils/label_keys.dart';
 
@@ -12,8 +13,12 @@ class ExamenScreen extends StatefulWidget {
 }
 
 class _ExamenScreenState extends State<ExamenScreen> {
+  final List<String> tabList = [Labels.examensKey, Labels.compositionsKey];
+
   @override
   Widget build(BuildContext context) {
+    RxInt selectedTab = 0.obs;
+
     return getScreenDetailDefaultView(context, Labels.examensCompositionsKey,
         () {
       Constant.backToPrev(context);
@@ -24,10 +29,18 @@ class _ExamenScreenState extends State<ExamenScreen> {
                 child: ListView(
               shrinkWrap: true,
               children: [
-                Text("No hay exámenes disponibles"),
+                buildTabView(tabList, context, selectedTab),
+                // ObxValue(
+                //           (p0) => Expanded(
+                //                 flex: 1,
+                //                 child: tabDetail[selectedTab.value],
+                //               ),
+                //           selectedTab)
               ],
             ))
           ],
         ));
   }
+
+  
 }

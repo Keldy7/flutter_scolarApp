@@ -35,7 +35,6 @@ class Labels {
   static String detailsEnfantKey = "Détails : Mon enfant";
   static String attendanceKey = "Absences et présences";
   static String feesKey = "Scolarité, car et cantine";
-  static String examsKey = "Examens et compositions";
   static String timetableKey = "Emploi du temps";
   static String permissionsKey = "Permissions";
 
@@ -62,7 +61,10 @@ class Labels {
   static String demanderPermissionKey = "Demander une permission scolaire";
 
 //Examens et compositions
+  static String examsKey = "Examens et compositions";
   static String examensCompositionsKey = "Examens et compos";
+  static String examensKey = "Examens";
+  static String compositionsKey = "Compositions";
 // static String demanderPermissionKey = "Demander une permission scolaire";
 // static String demanderPermissionKey = "Demander une permission scolaire";
 // static String demanderPermissionKey = "Demander une permission scolaire";

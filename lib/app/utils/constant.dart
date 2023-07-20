@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'dart:ui' as ui;
 
 import 'package:scolar_pay/app/utils/size_config.dart';
@@ -59,6 +60,22 @@ class Constant {
       completer.complete(image.image);
     }));
     return completer.future;
+  }
+
+  static String getFormattedDateShort(int time) {
+    DateFormat newFormat = DateFormat("MMM dd, yyyy");
+    return newFormat.format(DateTime.fromMillisecondsSinceEpoch(time));
+  }
+
+  static String getFormattedDate(String date, bool simple) {
+    try{
+      DateTime tempDate = DateFormat("yyyy-MM-dd HH:mm:ss").parse(date);
+      String format = simple ? "dd MMM yyyy" : "dd MMMM yyyy, hh:mm";
+      DateFormat newFormat = DateFormat(format);
+      return newFormat.format(tempDate);
+    } catch (e) {
+      return date;
+    }
   }
 
   static String getImagePngPath(String imageName) {

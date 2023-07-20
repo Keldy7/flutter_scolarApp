@@ -804,7 +804,7 @@ Row buildLocationRow(BuildContext context, String location, Color locationColor,
     double fontSize = 14}) {
   return Row(
     children: [
-      getSvgImageWithSize(context, "location.svg", 20.h, 20.h,
+      getSvgImageWithSize(context, Images.locationSvg, 20.h, 20.h,
           fit: BoxFit.fill, color: getFontGreyColor(context)),
       6.w.horizontalSpace,
       Expanded(
@@ -938,6 +938,8 @@ Widget buildTitles(BuildContext context, String title,
           (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0);
   // ).marginOnly(top: 20.h, bottom: 10.h);
 }
+
+
 
 Widget buildTabView(
     List<String> tabList, BuildContext context, RxInt selectedIndex) {
