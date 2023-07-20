@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
+import 'package:scolar_pay/app/utils/image_keys.dart';
 import 'package:scolar_pay/app/utils/label_keys.dart';
 import 'package:scolar_pay/app/utils/widget_utils.dart';
 
@@ -18,7 +19,7 @@ class PermissionScreen extends StatefulWidget {
 
 class _PermissionScreenState extends State<PermissionScreen> {
   bool isScrolled = true;
-  final List<String> tabList = [historiqueKey, enAttenteKey, accepterKey];
+  final List<String> tabList = [Labels.historiqueKey, Labels.enAttenteKey, Labels.accepterKey];
   final List<Widget> tabDetail = [
     HistoryListWidget(),
     HistoryListWidget(),
@@ -38,8 +39,8 @@ class _PermissionScreenState extends State<PermissionScreen> {
               subtitle: true,
               withLeading: true,
               subtitleText: '',
-              title: permissionsKey,
-              actionImg: 'filter_icon.svg',
+              title: Labels.permissionsKey,
+              actionImg: Images.filterIconSvg,
               iconColor: primaryColor,
               centerTitle: true),
           floatingActionButton: FloatingActionButton.extended(
@@ -53,7 +54,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
             foregroundColor: primaryColor,
             icon: Icon(Icons.add,
                 color: primaryColor, size: 30, weight: 20,),
-            label: getCustomFont(demanderPermissionKey, 15, primaryColor, 1, fontWeight: FontWeight.w700),
+            label: getCustomFont(Labels.demanderPermissionKey, 15, primaryColor, 1, fontWeight: FontWeight.w700),
           ),
           body: getDefaultContainerView(
               context,
@@ -182,9 +183,9 @@ class HistoryListWidget extends StatelessWidget {
       runAlignment: WrapAlignment.center,
       direction: Axis.vertical,
       children: [
-        getAssetImage(context, "no_booking_img.png", 100.h, 132.h,
+        getAssetImage(context, Images.noBookingPng, 100.h, 132.h,
             boxFit: BoxFit.fitHeight),
-        getCustomFont(noPermissionsKey, 20, getFontColor(context), 1,
+        getCustomFont(Labels.noPermissionsKey, 20, getFontColor(context), 1,
                 fontWeight: FontWeight.w700, textAlign: TextAlign.center)
             .marginOnly(top: 30.h)
       ],
@@ -230,7 +231,7 @@ class HistoryListWidget extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    getSvgImageWithSize(context, "trash.svg", 23.h, 23.h,
+                    getSvgImageWithSize(context, Images.trashSvg, 23.h, 23.h,
                         fit: BoxFit.fill)
                   ],
                 ),
@@ -252,7 +253,7 @@ class HistoryListWidget extends StatelessWidget {
                 Icon(
                   Icons.calendar_month,
                   size: 18.h,
-                  color: getAccentColor(context),
+                  color: secondaryColor,
                 ),
                 8.w.horizontalSpace,
                 Expanded(
@@ -274,8 +275,8 @@ class HistoryListWidget extends StatelessWidget {
                         child: Center(
                           child: getCustomFont(
                               (isComplete)
-                                  ? permissionAccepteeKey
-                                  : enAttenteKey,
+                                  ? Labels.permissionAccepteeKey
+                                  : Labels.enAttenteKey,
                               16,
                               (isComplete) ? greenColor : orangeColor,
                               1,

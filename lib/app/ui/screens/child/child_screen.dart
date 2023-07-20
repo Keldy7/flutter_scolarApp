@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:scolar_pay/app/data/fake_data.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
+import 'package:scolar_pay/app/utils/image_keys.dart';
 
 import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
@@ -23,10 +24,10 @@ class ChildScreen extends StatefulWidget {
 class _ChildScreenState extends State<ChildScreen> {
   @override
   Widget build(BuildContext context) {
-    double horSpace = Constant.getDefaultHorSpaceFigma(context);
+    double horSpace = Constant.getDefaultHorSpaceFigma(context) - 5;
     final List<ModelCategory> categoryList = FakeData.getAllCategoryList();
 
-    return getScreenDetailDefaultView(context, detailsEnfantKey, () {
+    return getScreenDetailDefaultView(context, Labels.detailsEnfantKey, () {
       var controller = Get.find<HomeController>();
       var bottomNavController = Get.find<BottomItemSelectionController>();
       bottomNavController.changePos(0);
@@ -53,7 +54,7 @@ class _ChildScreenState extends State<ChildScreen> {
                         withCorners: true,
                         corner: 20.h,
                         withBorder: true,
-                        borderColor: getAccentColor(context),
+                        borderColor: secondaryColor,
                         shadow: [
                           const BoxShadow(
                               color:
@@ -69,30 +70,41 @@ class _ChildScreenState extends State<ChildScreen> {
                           child: Stack(
                             children: [
                               getCircularImage(context, double.infinity,
-                                  double.infinity, 20.h, "happy.png",
+                                  double.infinity, 20.h, Images.boyPng,
                                   boxFit: BoxFit.cover),
                             ],
                           ),
                         ),
                         18.w.horizontalSpace,
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            getCustomFont("Nom complet - Enfant ", 18,
-                                getFontColor(context), 2,
-                                fontWeight: FontWeight.w700),
-                            const SizedBox(height: 1.0),
-                            getCustomFont(
-                                "Classe: CE1", 15, getFontGreyColor(context), 1,
-                                fontWeight: FontWeight.w400),
-                            getCustomFont("Ecole: Institut Frobel", 15,
-                                getFontGreyColor(context), 3,
-                                fontWeight: FontWeight.w400),
-                            getCustomFont("Année scolaire: 2023-2024", 15,
-                                getFontGreyColor(context), 1,
-                                fontWeight: FontWeight.w400),
-                          ],
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              getCustomFont("Nom complet - Enfant ", 18,
+                                  getFontColor(context), 2,
+                                  fontWeight: FontWeight.w700),
+                              const SizedBox(height: 1.0),
+                              getCustomFont(
+                                  "${Constant.addColonToLabel(Labels.ecoleKey)} Groupe Scolaire Les orchidées de Kouté",
+                                  15,
+                                  getFontGreyColor(context),
+                                  3,
+                                  fontWeight: FontWeight.w600),
+                                  getCustomFont(
+                                  "${Constant.addColonToLabel(Labels.classeKey)} CE2",
+                                  15,
+                                  getFontGreyColor(context),
+                                  1,
+                                  fontWeight: FontWeight.w600),
+                              getCustomFont(
+                                  "${Constant.addColonToLabel(Labels.academicYearKey)} 2023-2024",
+                                  15,
+                                  getFontGreyColor(context),
+                                  1,
+                                  fontWeight: FontWeight.w600),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -101,7 +113,7 @@ class _ChildScreenState extends State<ChildScreen> {
                   Container(
                     width: double.infinity,
                     padding:
-                        EdgeInsets.only(right: 22.w, left: 22.w, bottom: 22.w),
+                        EdgeInsets.only(right: 15.w, left: 15.w, bottom: 22.w),
                     child: LayoutBuilder(
                       builder: (BuildContext context,
                           BoxConstraints boxConstraints) {
@@ -116,14 +128,15 @@ class _ChildScreenState extends State<ChildScreen> {
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2,
-                                        crossAxisSpacing: 20,
-                                        mainAxisSpacing: 20,
+                                        crossAxisSpacing: 15,
+                                        mainAxisSpacing: 15,
                                         mainAxisExtent: 65),
                                 itemCount: categoryList.length,
                                 itemBuilder: (BuildContext context, int index) {
                                   ModelCategory category = categoryList[index];
                                   return CardCategory(
                                       title: category.title,
+                                      nameSvg: category.image,
                                       onTapWigdet: () {
                                         Constant.goToNextPage(
                                             context, category.namePage);

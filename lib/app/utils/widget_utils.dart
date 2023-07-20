@@ -105,7 +105,7 @@ Widget buildDatePickerButton(
               fontWeight: FontWeight.w500),
         ),
         getSvgImageWithSize(context, image, 18.h, 18.h,
-            color: accentColor, fit: BoxFit.fill)
+            color: secondaryColor, fit: BoxFit.fill)
       ]),
     ),
   );
@@ -567,7 +567,7 @@ Widget getSvgImageWithSize(
     BuildContext context, String image, double width, double height,
     {Color? color, BoxFit fit = BoxFit.fill, bool listen = true}) {
   return SvgPicture.asset(
-    Constant.assetImageSvgPath + image,
+    "${Constant.assetImageSvgPath}$image.svg",
     color: color,
     width: width,
     height: height,
@@ -658,7 +658,7 @@ Widget getAssetImage(
     BuildContext context, String image, double width, double height,
     {Color? color, BoxFit boxFit = BoxFit.contain, bool listen = true}) {
   return Image.asset(
-    Constant.assetImagePngPath + image,
+    "${Constant.assetImagePngPath}$image.png",
     color: color,
     width: width,
     height: height,
@@ -918,24 +918,25 @@ Widget buildTitle(BuildContext context, String title,
               (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0);
 }
 
-Widget buildTitles(BuildContext context, String title, {String subTitle = "", withPadding = true}) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 1,
-          child: getCustomFont(title, 16, getFontColor(context), 1,
-              fontWeight: FontWeight.w500),
-        ),
-        (subTitle.isNotEmpty)
-            ? getCustomFont(subTitle, 16, getFontColor(context), 1,
-                fontWeight: FontWeight.w500)
-            : 0.horizontalSpace
-      ],
-    ).marginSymmetric(
-          horizontal:
-              (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0);
-    // ).marginOnly(top: 20.h, bottom: 10.h);
-  }
+Widget buildTitles(BuildContext context, String title,
+    {String subTitle = "", withPadding = true}) {
+  return Row(
+    children: [
+      Expanded(
+        flex: 1,
+        child: getCustomFont(title, 16, getFontColor(context), 1,
+            fontWeight: FontWeight.w500),
+      ),
+      (subTitle.isNotEmpty)
+          ? getCustomFont(subTitle, 16, getFontColor(context), 1,
+              fontWeight: FontWeight.w500)
+          : 0.horizontalSpace
+    ],
+  ).marginSymmetric(
+      horizontal:
+          (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0);
+  // ).marginOnly(top: 20.h, bottom: 10.h);
+}
 
 Widget buildTabView(
     List<String> tabList, BuildContext context, RxInt selectedIndex) {
@@ -1126,7 +1127,8 @@ Widget getDefaultTextFiled(
           editTap();
         }
       },
-      keyboardType: (expandTextField) ? TextInputType.multiline : TextInputType.none,
+      keyboardType:
+          (expandTextField) ? TextInputType.multiline : TextInputType.none,
       maxLines: (minLines) ? 1 : null,
       expands: expandTextField,
       controller: textEditingController,
@@ -1167,9 +1169,12 @@ Widget getDefaultTextFiled(
                       filterClick();
                     }
                   },
-                  child: getSvgImageWithSize(context, 
-                  imgNameSuffix != "" ? imgNameSuffix : "filter.svg" ,
-                          getEditIconSize().h, getEditIconSize().h, color: accentColor)
+                  child: getSvgImageWithSize(
+                          context,
+                          imgNameSuffix != "" ? imgNameSuffix : "filter.svg",
+                          getEditIconSize().h,
+                          getEditIconSize().h,
+                          color: accentColor)
                       .marginOnly(right: 20.w, left: 16.w),
                 )
               : 0.horizontalSpace,
@@ -1520,7 +1525,7 @@ Widget buildSeeAllView(BuildContext context, String title, Function function) {
           function();
         },
         child: getCustomFont(
-          voirPlusKey,
+          Labels.voirPlusKey,
           16,
           getAccentColor(context),
           1,

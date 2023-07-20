@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
+import 'package:scolar_pay/app/utils/image_keys.dart';
 
 import '../../../utils/widget_utils.dart';
 import '../../controllers/filters_controller.dart';
@@ -145,9 +146,9 @@ class FilterScreen extends StatelessWidget {
                                 spacing: 6.w,
                                 allowHalfRating: false,
                                 defaultIcon: getSvgImageWithSize(
-                                    context, "rating.svg", 24.h, 24.h),
+                                    context, Images.ratingSvg, 24.h, 24.h),
                                 filledIcon: getSvgImageWithSize(
-                                    context, "star.svg", 24.h, 24.h),
+                                    context, Images.starSvg, 24.h, 24.h),
                               ),
                               20.w.horizontalSpace,
                               Expanded(
@@ -194,7 +195,7 @@ class FilterScreen extends StatelessWidget {
                                 value: spinnerItems[
                                     controllerGet.selectedSortPos.value],
                                 icon: getSvgImageWithSize(
-                                    context, "arrow_down.svg", 18.h, 18.h),
+                                    context, Images.arrowDownSvg, 18.h, 18.h),
                                 iconSize: 24,
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(15)),
@@ -244,7 +245,7 @@ class FilterScreen extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: getButtonFigma(context, getAccentColor(context), true,
-                      "Apply", Colors.white, () {
+                      "Apply", primaryColor, () {
                     Constant.backToPrev(context);
                   }, EdgeInsets.zero),
                 ),

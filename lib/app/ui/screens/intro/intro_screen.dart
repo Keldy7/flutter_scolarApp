@@ -94,8 +94,8 @@ class IntroScreen extends StatelessWidget {
                           getAccentColor(context),
                           true,
                           (selectedPos.value == introList.length - 1)
-                              ? getStartedKey
-                              : suivantKey,
+                              ? Labels.getStartedKey
+                              : Labels.suivantKey,
                           Colors.white,
                           () {
                             if (selectedPos.value == introList.length - 1) {
@@ -124,8 +124,8 @@ class IntroScreen extends StatelessWidget {
                           },
                           child: getCustomFont(
                             (selectedPos.value == introList.length - 1)
-                                ? connexionKey
-                                : continuerKey,
+                                ? Labels.connexionKey
+                                : Labels.continuerKey,
                             16,
                             getFontColor(context),
                             1,

@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
+import '../../utils/widget_utils.dart';
 import '../styles/colors.dart';
 
 class CardCategory extends StatelessWidget {
   final String title;
+  final String nameSvg;
   final Function? onTapWigdet;
-  const CardCategory( {
+  const CardCategory({
     Key? key,
-    required this.title, this.onTapWigdet,
+    required this.title,
+    required this.nameSvg,
+    this.onTapWigdet,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraint) {
-      return 
-      ClipRRect(
+      return ClipRRect(
         borderRadius: BorderRadius.circular(13),
         child: Container(
           width: constraint.maxWidth / 2 - 10,
@@ -40,38 +45,40 @@ class CardCategory extends StatelessWidget {
                   Navigator.of(context).pop();
                 }
               },
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      height: 42,
-                      width: 43,
-                      decoration: BoxDecoration(
-                        color: primaryColor,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: accentColor),
-                      ),
-                      child: Icon(
-                        Icons.calendar_month_outlined,
-                        color: accentColor,
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    height: 43,
+                    width: 44,
+                    decoration: BoxDecoration(
+                      color: primaryColor,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: accentColor),
+                    ),
+                    child: getSvgImageWithSize(
+                      color: accentColor,
+                      context,
+                      nameSvg,
+                      24.h,
+                      24.h,
+                      fit: BoxFit.scaleDown,
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: Text(
+                      title,
+                      maxLines: 2,
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
                       ),
                     ),
-                    const SizedBox(width: 8),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          title,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
+                  )
+                ],
+              ).paddingAll(7),
             ),
           ),
         ),

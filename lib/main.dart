@@ -4,9 +4,17 @@ import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/screens/child/child_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
 import 'app/ui/controllers/home_controller.dart';
+import 'app/ui/screens/attendance/attendance_screen.dart';
 import 'app/ui/screens/home/home_screen.dart';
 import 'app/ui/screens/intro/intro_screen.dart';
 import 'app/ui/screens/intro/splash_screen.dart';
+// import 'app/ui/screens/login/forgot_pass_screen.dart';
+import 'app/ui/screens/login/login_screen.dart';
+// import 'app/ui/screens/login/phone_number_screen.dart';
+import 'app/ui/screens/login/registration_screen.dart';
+import 'app/ui/screens/login/reset_password_screen.dart';
+import 'app/ui/screens/login/termn_condition_screen.dart';
+import 'app/ui/screens/login/verification_screen.dart';
 import 'app/ui/screens/permission/add_permission_screen.dart';
 import 'app/ui/screens/permission/filter_screen.dart';
 import 'app/utils/custom_scroll_behavior.dart';
@@ -32,7 +40,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('fr'), // Français
       ],
-      title: nomAppKey,
+      title: Labels.nomAppKey,
       initialBinding: StoreBinding(),
       initialRoute: "/",
 
@@ -42,16 +50,16 @@ class MyApp extends StatelessWidget {
         "/": (context) => SplashScreen(),
         Routes.splashRoute: (context) => SplashScreen(),
         Routes.introRoute: (context) => IntroScreen(),
-        // Routes.loginRoute: (context) => LoginScreen(),
+        Routes.loginRoute: (context) => const LoginScreen(),
         // Routes.forgotPassRoute: (context) => ForgotPasswordScreen(),
-        // Routes.resetPassRoute: (context) => ResetPasswordScreen(),
-        // Routes.registrationRoute: (context) => RegistrationScreen(),
-        // Routes.phoneNumberRoute: (context) => PhoneNumberScreen(),
-        // Routes.verificationScreenRoute: (context) => VerificationScreen(),
-        // Routes.termNCondition: (context) => TermsNCondition(),
+        Routes.resetPassRoute: (context) => ResetPasswordScreen(),
+        Routes.registrationRoute: (context) => const RegistrationScreen(),
+        // Routes.phoneNumberRoute: (context) => const PhoneNumberScreen(),
+        Routes.verificationScreenRoute: (context) => VerificationScreen(),
+        Routes.termNCondition: (context) => TermsNCondition(),
         Routes.homeScreenRoute: (context) => const HomeScreen(),
         // categoryScreenRoute: (context) => CategoryList(),
-        // salonScreenRoute: (context) => SalonList(),
+        Routes.attendanceScreenRoute: (context) => const AttendanceScreen(),
         // searchScreenRoute: (context) => SearchScreen(),
         Routes.filterScreenRoute: (context) => FilterScreen(),
         // offerDetailScreenRoute: (context) => OfferDetailScreen(),

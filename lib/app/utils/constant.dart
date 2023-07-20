@@ -62,11 +62,11 @@ class Constant {
   }
 
   static String getImagePngPath(String imageName) {
-    return "assets/images/png/$imageName";
+    return "${Constant.assetImagePngPath}$imageName.png";
   }
 
   static String getImageSvgPath(String imageName) {
-    return "assets/images/svg/$imageName";
+    return "${Constant.assetImageSvgPath}$imageName.svg";
   }
 
   static getCurrency(BuildContext context) {
@@ -95,6 +95,18 @@ class Constant {
     }
   }
 
+  static String getImageWithExtension(String imageName) {
+    if (imageName.toLowerCase().contains('svg')) {
+      return '$imageName.svg';
+    } else {
+      return '$imageName.png';
+    }
+  }
+
+  static String addColonToLabel(String label) {
+    return "$label :";
+  }
+
   static String getMonthName(int monthNumber) {
     List<String> months = [
       'Janvier',
@@ -113,7 +125,7 @@ class Constant {
     return months[monthNumber - 1];
   }
 
-    static List<String> buildMonthYearsBetweenTwoDates(
+  static List<String> buildMonthYearsBetweenTwoDates(
       DateTime startDate, DateTime endDate) {
     List<String> dateTimes = [];
     DateTime current = startDate;

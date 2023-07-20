@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
 
+import '../../utils/image_keys.dart';
+
 
 class BorderedProfilePicture extends StatelessWidget {
   final BoxConstraints boxConstraints;
@@ -43,9 +45,9 @@ class BorderedProfilePicture extends StatelessWidget {
           image: imageUrl != null
               ? DecorationImage(
                   image: AssetImage(Constant.getImagePngPath(
-                      "woman.png")))
+                      Images.girlPng)))
               : DecorationImage(
-                  image: AssetImage(Constant.getImagePngPath("happy.png"))),
+                  image: AssetImage(Constant.getImagePngPath(Images.boyPng))),
         )),
       ),
     );

@@ -3,8 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:scolar_pay/app/utils/label_keys.dart';
 
 import '../../../../utils/constant.dart';
+import '../../../../utils/image_keys.dart';
 import '../../../../utils/routes.dart';
 import '../../../../utils/widget_utils.dart';
 import '../../../controllers/bottom_selection_controller.dart';
@@ -16,8 +18,6 @@ class TabProfile extends StatelessWidget {
 
   TabProfile({super.key});
 
-  final List profileList = ['My Profile', 'My Booking', 'Setting'];
-
   var imageController = Get.find<ImageController>();
 
 
@@ -26,7 +26,7 @@ class TabProfile extends StatelessWidget {
     Constant.setupSize(context);
     return getScreenDetailDefaultView(
         context,
-        'Profile',
+        Labels.profilKey,
         () {},
         Column(
           children: [
@@ -39,35 +39,35 @@ class TabProfile extends StatelessWidget {
                       context,
                       (imageController.imagePath.value.isNotEmpty)
                           ? imageController.imagePath.value
-                          : 'profile.jpg',
+                          : Images.userPng,
                       100.h,
                       fileImage: (imageController.imagePath.value.isNotEmpty),
                     ),
                   ),
                   20.h.verticalSpace,
-                  getCustomFont('Kristin Watson', 16, getFontColor(context), 1,
-                      fontWeight: FontWeight.w500),
-                  3.h.verticalSpace,
-                  getCustomFont('USA', 14, getFontColor(context), 1,
+                  getCustomFont('Aude Marie Kouassy', 16, getFontColor(context), 1,
                       fontWeight: FontWeight.w700),
+                  3.h.verticalSpace,
+                  getCustomFont('aud@gmail.com', 14, getFontColor(context), 1,
+                      fontWeight: FontWeight.w500),
                   30.h.verticalSpace,
                   getProfileRowContainer(context, () {
                     Constant.goToNextPage(context, Routes.myProfileScreenRoute);
-                  }, 'My Profile'),
+                  }, Labels.monProfilKey),
                   getProfileRowContainer(context, () {
                     final controller =
                         Get.find<BottomItemSelectionController>();
                     controller.bottomBarSelectedItem.value = 2;
                     Constant.goToNextPage(context, Routes.homeScreenRoute);
-                  }, 'My Booking'),
+                  }, Labels.mesPermissionsKey),
                   getProfileRowContainer(context, () {
                     Constant.goToNextPage(context, Routes.settingScreenRoute);
-                  }, 'Settings'),
+                  }, Labels.reglagesKey),
                 ],
               ),
             ),
-            getButtonFigma(context, getAccentColor(context), true, 'Log Out',
-                    Colors.white, () {
+            getButtonFigma(context, getAccentColor(context), true, Labels.deconnexionKey,
+                    primaryColor, () {
               setLoggedIn(false);
               Constant.goToNextPage(context, Routes.loginRoute);
             },
@@ -81,16 +81,4 @@ class TabProfile extends StatelessWidget {
         withLeading: false);
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Column(
-  //     children:[
-  //       getToolbarTopViewHeight(context).verticalSpace,
-  //       20.h.verticalSpace,
-  //       const Center(
-  //         child : Text("Tab Profile"),
-  //       )
-  //       ],
-  //   );
-  // }
 }

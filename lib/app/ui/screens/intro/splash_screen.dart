@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/constant.dart';
+import '../../../utils/image_keys.dart';
 import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
@@ -57,10 +58,10 @@ class _SplashScreen extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                getSvgImageWithSize(context, "splash_logo.svg", 102.h, 148.h,
+                getSvgImageWithSize(context, Images.splashLogoSvg, 102.h, 148.h,
                     fit: BoxFit.fill),
                 26.h.verticalSpace,
-                getCustomFont(nomAppKey, 28, Colors.white, 1,
+                getCustomFont(Labels.nomAppKey, 28, Colors.white, 1,
                     fontWeight: FontWeight.w700,
                     fontFamily: Constant.fontsFamilySplash,
                     textAlign: TextAlign.center)
