@@ -11,11 +11,16 @@ class Labels {
   static String alreadyAccountKey = "Vous avez déjà un compte ? ";
   static String createAccountKey = "Créer un compte";
   static String gladMeetKey = "Heureux de vous revoir !";
+  static String passwordKey = "Mot de passe";
+  static String confirmPasswordKey = "Confirmer le mot de passe";
+  static String forgetPasswordKey = "Mot de passe oublié ?";
+
   // static String gladMeetKey = "Heureux de vous revoir !";
 
   static String getStartedKey = "Démarrer";
   static String continuerKey = "Continuer";
   static String suivantKey = "Suivant";
+  static String retourKey = "Retour";
   static String rechercherKey = "Rechercher...";
   static String selectionnerKey = "Sélectionner...";
 
@@ -42,6 +47,8 @@ class Labels {
   static String academicYearKey = "Année scolaire";
   static String classeKey = "Classe";
   static String ecoleKey = "École";
+  static String ageKey = "Âge";
+  static String adrMailKey = "Adresse mail";
 
 //Ponctualité
   static String ponctualiteKey = "Ponctualité";
@@ -80,11 +87,8 @@ class Labels {
   static String nomKey = "Nom de famille";
   static String prenomsKey = "Prénoms";
   static String numTelephoneKey = "Numéro de téléphone";
-  static String adrMailKey = "Adresse mail";
-  static String passwordKey = "Mot de passe";
-  static String confirmPasswordKey = "Confirmer le mot de passe";
-  static String forgetPasswordKey = "Mot de passe oublié ?";
-
+  // static String adrMailKey = "Adresse mail";
+  
 //Réglages
   static String reglagesKey = "Réglages";
   static String changePasswordKey = "Changer votre mot de passe";

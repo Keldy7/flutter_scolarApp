@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:scolar_pay/app/data/fake_data.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
+import 'package:scolar_pay/app/utils/image_keys.dart';
 
 import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
@@ -69,10 +70,6 @@ class _ChildScreenState extends State<ChildScreen> {
                                         offset: Offset(-4, 5),
                                         blurRadius: 16)
                                   ]),
-                              // decoration: BoxDecoration(
-                              //   borderRadius: BorderRadius.circular(30),
-                              //   color: primaryColor,
-                              // ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,36 +77,25 @@ class _ChildScreenState extends State<ChildScreen> {
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  Text(
-                                    'KONAN',
-                                    style: TextStyle(
-                                        color: blackColor,
-                                        fontFamily: 'Nunito',
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  getCustomFont("Affoué Edwige Roxane", 18,
+                                  getCustomFont("KONAN", 22, blackColor, 1,
+                                      fontWeight: FontWeight.bold),
+                                  getCustomFont("Affoué Edwige Roxane", 19,
                                       getFontGreyColor(context), 1,
                                       fontWeight: FontWeight.w600),
-                                  const SizedBox(
-                                    height: 2,
-                                  ),
+                                  2.h.verticalSpace,
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Column(
                                         children: [
-                                          getCustomFont("Classe", 18,
-                                              getFontGreyColor(context), 1,
+                                          getCustomFont(Labels.classeKey, 18,
+                                              blackColor, 1,
                                               fontWeight: FontWeight.w500),
-                                          const SizedBox(
-                                            height: 2,
-                                          ),
-                                          const Text(
+                                          2.h.verticalSpace,
+                                          Text(
                                             'CE1',
                                             style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    39, 105, 171, 1),
+                                                color: getAccentColor(context),
                                                 fontFamily: 'Nunito',
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.bold),
@@ -127,23 +113,20 @@ class _ChildScreenState extends State<ChildScreen> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(100),
-                                            color: Colors.grey,
+                                            color: secondaryColor,
                                           ),
                                         ),
                                       ),
                                       Column(
                                         children: [
-                                          getCustomFont("Age", 18,
-                                              getFontGreyColor(context), 1,
+                                          getCustomFont(
+                                              Labels.ageKey, 18, blackColor, 1,
                                               fontWeight: FontWeight.w500),
-                                          const SizedBox(
-                                            height: 2,
-                                          ),
-                                          const Text(
+                                          2.h.verticalSpace,
+                                          Text(
                                             '9 ans',
                                             style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    39, 105, 171, 1),
+                                                color: getAccentColor(context),
                                                 fontFamily: 'Nunito',
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.bold),
@@ -159,9 +142,7 @@ class _ChildScreenState extends State<ChildScreen> {
                                           3,
                                           fontWeight: FontWeight.w600)
                                       .paddingSymmetric(horizontal: 15),
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
+                                  5.h.verticalSpace,
                                   getCustomFont(
                                       "${Constant.addColonToLabel(Labels.academicYearKey)} 2023-2024",
                                       15,
@@ -178,12 +159,14 @@ class _ChildScreenState extends State<ChildScreen> {
                               right: 0,
                               child: Center(
                                 child: Container(
-                                  child: Image.asset(
-                                    'assets/images/png/girl.png',
-                                    width: innerWidth * 0.45,
-                                    height: innerHeight * 0.5,
-                                    fit: BoxFit.fitWidth,
-                                  ),
+                                  child: getAssetImage(context, Images.boyPng,
+                                      innerWidth * 0.45, innerHeight * 0.5),
+                                  // Image.asset(
+                                  //   'assets/images/png/girl.png',
+                                  //   width: innerWidth * 0.45,
+                                  //   height: innerHeight * 0.5,
+                                  //   fit: BoxFit.fitWidth,
+                                  // ),
                                 ),
                               )),
                         ]);
@@ -285,7 +268,7 @@ class _ChildScreenState extends State<ChildScreen> {
                                       nameSvg: category.image,
                                       onTapWigdet: () {
                                         Constant.goToNextPage(
-                                            context, category.namePage);
+                                            context, category.page);
                                       });
                                 },
                               )

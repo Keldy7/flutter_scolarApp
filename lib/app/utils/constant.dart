@@ -45,6 +45,10 @@ class Constant {
         designSize: Size(width, height), minTextAdapt: true);
   }
 
+  static double getButtonHeightFigma() {
+    return 56.h;
+  }
+
   static backToPrev(BuildContext context) {
     Get.back();
   }
@@ -68,7 +72,7 @@ class Constant {
   }
 
   static String getFormattedDate(String date, bool simple) {
-    try{
+    try {
       DateTime tempDate = DateFormat("yyyy-MM-dd HH:mm:ss").parse(date);
       String format = simple ? "dd MMM yyyy" : "dd MMMM yyyy, hh:mm";
       DateFormat newFormat = DateFormat(format);

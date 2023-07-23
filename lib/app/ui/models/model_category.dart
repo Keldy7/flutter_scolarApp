@@ -1,7 +1,7 @@
 class ModelCategory {
   String title;
   String image;
-  String namePage;
+  String page;
 
-  ModelCategory(this.title, this.image, this.namePage);
+  ModelCategory(this.title, this.image, this.page);
 }

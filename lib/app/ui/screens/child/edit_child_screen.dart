@@ -31,7 +31,6 @@ class _EditChildScreenState extends State<EditChildScreen> {
             child: ListView(
           shrinkWrap: true,
           children: [
-            const Text("child edit screen"),
             Container(
                 height: height * 0.43,
                 child: LayoutBuilder(builder: (context, constraints) {

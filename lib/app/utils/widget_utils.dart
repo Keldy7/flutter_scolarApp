@@ -20,8 +20,8 @@ void showCustomToast(String texts, BuildContext context) {
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
-      backgroundColor: Colors.black,
-      textColor: Colors.white,
+      backgroundColor: blackColor,
+      textColor: primaryColor,
       fontSize: 12.0.sp);
 }
 
@@ -85,12 +85,11 @@ Widget buildDatePickerButton(
     BuildContext context, String title, String image, Function function) {
   return InkWell(
     onTap: () {
-      debugPrint('object');
       function();
     },
     child: Container(
       width: double.infinity,
-      height: getButtonHeightFigma(),
+      height: Constant.getButtonHeightFigma(),
       margin: EdgeInsets.symmetric(
           horizontal: Constant.getDefaultHorSpaceFigma(context)),
       padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -192,10 +191,6 @@ Widget getMultilineCustomFont(String text, double fontSize, Color fontColor,
         fontWeight: fontWeight),
     textAlign: textAlign,
   );
-}
-
-double getButtonHeightFigma() {
-  return 56.h;
 }
 
 Widget getButtonContainer(
@@ -382,7 +377,7 @@ Widget buildProfilePhotoWidget(BuildContext context,
       height: 100.h,
       child: Stack(
         children: [
-          getCircleImage(context, "profile.png", double.infinity),
+          getCircleImage(context, Images.userPng, double.infinity),
           Align(
             alignment: Alignment.bottomRight,
             child: InkWell(
@@ -412,7 +407,8 @@ Widget buildProfilePhotoWidget(BuildContext context,
   );
 }
 
-Widget getToolbarWidget(BuildContext context, String title, Function fun,
+Widget getToolbarWidget(
+    BuildContext context, String title, Function functionBack,
     {bool isShowBack = true}) {
   SmoothRadius smoothRadius =
       SmoothRadius(cornerRadius: 90.h, cornerSmoothing: 0);
@@ -433,8 +429,8 @@ Widget getToolbarWidget(BuildContext context, String title, Function fun,
             ? Align(
                 alignment: Alignment.bottomLeft,
                 child: getBackIcon(context, () {
-                  fun();
-                }, colors: Colors.black),
+                  functionBack();
+                }, colors: blackColor),
               )
             : getHorSpace(0),
         Align(
@@ -521,17 +517,6 @@ Widget getCircleImage(BuildContext context, String imgName, double size,
   );
 }
 
-Widget getSvgImage(BuildContext context, String image, double size,
-    {Color? color, BoxFit boxFit = BoxFit.fill}) {
-  return SvgPicture.asset(
-    Constant.assetImageSvgPath + image,
-    color: color,
-    width: size.w,
-    height: size.h,
-    fit: boxFit,
-  );
-}
-
 Widget getTopViewHeader(BuildContext context, String titleMain, String titleSub,
     {bool visibleSub = true}) {
   return Column(
@@ -573,6 +558,29 @@ Widget getSvgImageWithSize(
     width: width,
     height: height,
     fit: fit,
+  );
+}
+
+Widget getSvgImage(BuildContext context, String image, double size,
+    {Color? color, BoxFit boxFit = BoxFit.fill}) {
+  return SvgPicture.asset(
+    "${Constant.assetImageSvgPath}$image.svg",
+    color: color,
+    width: size.w,
+    height: size.h,
+    fit: boxFit,
+  );
+}
+
+Widget getAssetImage(
+    BuildContext context, String image, double width, double height,
+    {Color? color, BoxFit boxFit = BoxFit.contain, bool listen = true}) {
+  return Image.asset(
+    "${Constant.assetImagePngPath}$image.png",
+    color: color,
+    width: width,
+    height: height,
+    fit: boxFit,
   );
 }
 
@@ -643,7 +651,7 @@ Widget getProfileTopView(
 }
 
 Widget getBackIcon(BuildContext context, Function function,
-    {String icon = "arrow_back.svg", Color? colors}) {
+    {String icon = "", Color? colors}) {
   return InkWell(
       onTap: () {
         function();
@@ -653,18 +661,6 @@ Widget getBackIcon(BuildContext context, Function function,
         size: 24.h,
         color: colors,
       ));
-}
-
-Widget getAssetImage(
-    BuildContext context, String image, double width, double height,
-    {Color? color, BoxFit boxFit = BoxFit.contain, bool listen = true}) {
-  return Image.asset(
-    "${Constant.assetImagePngPath}$image.png",
-    color: color,
-    width: width,
-    height: height,
-    fit: boxFit,
-  );
 }
 
 Widget getDialogDividerBottom(BuildContext context) {
@@ -749,7 +745,7 @@ Widget getScreenDetailDefaultView(
             subtitleText: subtitleText,
             title: title,
             actionImg: actionImg,
-            iconColor: Colors.white,
+            iconColor: primaryColor,
             centerTitle: centerTitle),
         body: getDefaultContainerView(context, childView),
       ),
@@ -768,7 +764,7 @@ Widget getTabDetailDefaultView(
         backClick();
       },
           title: title,
-          iconColor: Colors.white,
+          iconColor: primaryColor,
           centerTitle: centerTitle,
           withLeading: withLeading),
       Expanded(
@@ -842,7 +838,7 @@ showGetDialog(
   BoxFit fit = BoxFit.fill,
   bool withCancelBtn = false,
   bool withVerticalBtn = false,
-  String btnTextCancel = "Cancel",
+  String btnTextCancel = "Retour",
   Function? functionCancel,
   String? btnTextVertical,
   Function? functionVerticalBtn,
@@ -875,7 +871,7 @@ showGetDialog(
             children: [
               Expanded(
                   child: getButtonFigma(context, getAccentColor(context), true,
-                      btnText, Colors.white, () {
+                      btnText, primaryColor, () {
                 function();
               }, EdgeInsets.zero)),
               (withCancelBtn) ? 20.w.horizontalSpace : 0.horizontalSpace,
@@ -895,7 +891,7 @@ showGetDialog(
           (withVerticalBtn) ? 20.w.horizontalSpace : 0.horizontalSpace,
           (withVerticalBtn)
               ? Expanded(
-                  child: getButtonFigma(context, Colors.white, true,
+                  child: getButtonFigma(context, primaryColor, true,
                       '$btnTextVertical', getAccentColor(context), () {
                     functionVerticalBtn!();
                   }, EdgeInsets.zero,
@@ -938,8 +934,6 @@ Widget buildTitles(BuildContext context, String title,
           (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0);
   // ).marginOnly(top: 20.h, bottom: 10.h);
 }
-
-
 
 Widget buildTabView(
     List<String> tabList, BuildContext context, RxInt selectedIndex) {
@@ -1022,7 +1016,6 @@ Widget getDefaultUnderlineTextFiled(
       controller: textEditingController,
       autofocus: false,
       textAlign: TextAlign.start,
-      // expands: minLines,
       style: TextStyle(
           fontFamily: Constant.fontsFamily,
           color: getFontColor(context),
@@ -1103,7 +1096,7 @@ Widget getDefaultUnderlineTextFiled(
 
 Widget getDefaultTextFiled(
     BuildContext context,
-    String s,
+    String hintedText,
     TextEditingController textEditingController,
     Color fontColor,
     ValueChanged<String> changed,
@@ -1207,7 +1200,7 @@ Widget getDefaultTextFiled(
                       (isFilled) ? Colors.transparent : getAccentColor(context),
                   width: 1.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
-          hintText: s,
+          hintText: hintedText,
           hintStyle: TextStyle(
               fontFamily: Constant.fontsFamily,
               color: getFontHint(context),
@@ -1294,13 +1287,12 @@ Widget getDivider(
 
 Widget getPassTextFiled(
     BuildContext context,
-    String s,
+    String hintedText,
     TextEditingController textEditingController,
     Color fontColor,
     bool showPass,
     Function function,
-    {
-    bool minLines = false,
+    {bool minLines = false,
     EdgeInsetsGeometry margin = EdgeInsets.zero}) {
   double height = getEditHeightFigma();
 
@@ -1328,8 +1320,8 @@ Widget getPassTextFiled(
             onTap: () {
               function();
             },
-            child: getSvgImageWithSize(
-                context, Images.passwordSvg, getEditIconSize().h, getEditIconSize().h,
+            child: getSvgImageWithSize(context, Images.passwordSvg,
+                getEditIconSize().h, getEditIconSize().h,
                 fit: BoxFit.scaleDown, color: getAccentColor(context)),
           ),
           contentPadding: EdgeInsets.only(left: 20.w),
@@ -1340,7 +1332,7 @@ Widget getPassTextFiled(
               borderSide:
                   BorderSide(color: getAccentColor(context), width: 1.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
-          hintText: s,
+          hintText: hintedText,
           hintStyle: TextStyle(
               fontFamily: Constant.fontsFamily,
               color: getFontHint(context),
@@ -1554,7 +1546,7 @@ Widget getButtonFigma(
     String? icons,
     List<BoxShadow> shadow = const [],
     bool withGradient = false}) {
-  double buttonHeight = getButtonHeightFigma();
+  double buttonHeight = Constant.getButtonHeightFigma();
   double fontSize = getButtonFontSizeFigma();
   return InkWell(
     onTap: () {
@@ -1615,7 +1607,7 @@ Widget getButtonWithEndIcon(
     bool isIcon = false,
     String? icons,
     List<BoxShadow> shadow = const []}) {
-  double buttonHeight = getButtonHeightFigma();
+  double buttonHeight = Constant.getButtonHeightFigma();
   double fontSize = getButtonFontSizeFigma();
   return InkWell(
     onTap: () {
@@ -1735,18 +1727,17 @@ Widget buildFavouriteBtn(EdgeInsets edgeInsets) {
     margin: edgeInsets,
     height: 20.w,
     width: 20.w,
-    decoration: const BoxDecoration(
+    decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.white,
-        boxShadow: [
+        color: primaryColor,
+        boxShadow: const [
           BoxShadow(
               color: Color.fromRGBO(0, 0, 0, 0.25),
               offset: Offset(0, 1),
               blurRadius: 1)
         ]),
     child: Center(
-      child:
-          Icon(Icons.favorite_border_rounded, size: 13.w, color: Colors.black),
+      child: Icon(Icons.favorite_border_rounded, size: 13.w, color: blackColor),
     ),
   );
 }
@@ -1754,7 +1745,8 @@ Widget buildFavouriteBtn(EdgeInsets edgeInsets) {
 Widget buildStarView(BuildContext context, String rate) {
   return Row(
     children: [
-      getSvgImageWithSize(context, "star.svg", 17.w, 17.w, fit: BoxFit.fill),
+      getSvgImageWithSize(context, Images.starSvg, 17.w, 17.w,
+          fit: BoxFit.fill),
       6.w.horizontalSpace,
       getCustomFont(rate, 14, getAccentColor(context), 1,
           fontWeight: FontWeight.w400, txtHeight: 1.5)
@@ -1804,7 +1796,7 @@ Widget buildCustomDistanceView(BuildContext context, String rate,
     double imgSize, double fontSize, Color fontColor, FontWeight weight) {
   return Row(
     children: [
-      getSvgImageWithSize(context, "distance.svg", imgSize, imgSize,
+      getSvgImageWithSize(context, Images.distanceSvg, imgSize, imgSize,
           fit: BoxFit.fill),
       6.w.horizontalSpace,
       getCustomFont(rate, 14, fontColor, 1, fontWeight: weight, txtHeight: 1.5)
@@ -1863,7 +1855,7 @@ Widget getProfileRowContainer(
           Expanded(
               child: getCustomFont(text, 16, getFontColor(context), 1,
                   fontWeight: FontWeight.w500)),
-          getSvgImage(context, 'arrow.svg', 16)
+          getSvgImage(context, Images.arrowSvg, 16)
         ],
       ),
     ),

@@ -16,8 +16,8 @@ Color indicatorColor = "#DEDEDE".toColor();
 Color itemGreyColor = "#E8E6E5".toColor();
 Color orangeColor = "#FF8F27".toColor();
 Color appBarColor = "#FEE3E4".toColor();
-Color blackColor= Colors.black;
-Color black40Color= "#7C7C7C".toColor();
+Color blackColor = Colors.black;
+Color black40Color = "#7C7C7C".toColor();
 Color dividerColor = "#E6E6E6".toColor();
 Color redFontColor = "#F44144".toColor();
 Color redBgColor = "#FFE9E9".toColor();
@@ -37,7 +37,7 @@ Color cardColor = "#FFFBF8".toColor();
 Color shadowColor = Colors.black12;
 Color shadowLigthColor = "#E6E6E6".toColor();
 Color greyIconColor = "#BEC4D3".toColor();
-
+Color greyColor = Colors.grey;
 
 Color getAccentColor(BuildContext context) {
   return getCurrentTheme(context).colorScheme.secondary;
@@ -81,7 +81,10 @@ ThemeData getLightThemeData() {
       canvasColor: "#F7F8FB".toColor(),
       dividerColor: "#D7DDEC".toColor(),
       indicatorColor: "#F9F9F9".toColor(),
-      shadowColor: const Color.fromRGBO(131, 157, 216, 0.11999999731779099), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor).copyWith(background: "#E5E5E5".toColor()));
+      shadowColor: const Color.fromRGBO(131, 157, 216, 0.11999999731779099),
+      colorScheme: ColorScheme.fromSwatch()
+          .copyWith(secondary: accentColor)
+          .copyWith(background: "#E5E5E5".toColor()));
 }
 
 ThemeData getDarkThemeData() {
@@ -102,7 +105,10 @@ ThemeData getDarkThemeData() {
         titleMedium: TextStyle(color: "#FFFFFF".toColor()),
         titleSmall: TextStyle(color: "#A6ADBE".toColor()),
         titleLarge: TextStyle(color: "#FFFFFF".toColor()),
-      ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor).copyWith(background: "#161E2D".toColor()));
+      ),
+      colorScheme: ColorScheme.fromSwatch()
+          .copyWith(secondary: accentColor)
+          .copyWith(background: "#161E2D".toColor()));
 }
 
 getFontHint(BuildContext context) {
@@ -121,7 +127,7 @@ extension ColorExtension on String {
   toColor() {
     var hexColor = replaceAll("#", "");
     if (hexColor.length == 6) {
-      hexColor = "FF" + hexColor;
+      hexColor = "FF$hexColor";
     }
     if (hexColor.length == 8) {
       return Color(int.parse("0x$hexColor"));
