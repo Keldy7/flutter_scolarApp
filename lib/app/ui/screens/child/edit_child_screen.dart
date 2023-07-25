@@ -22,7 +22,7 @@ class _EditChildScreenState extends State<EditChildScreen> {
     double height = MediaQuery.of(context).size.height;
     return getScreenDetailDefaultView(
       context,
-      "Profil : Mon enfant",
+      Labels.profilEnfantKey,
       () {
         Constant.backToPrev(context);
       },

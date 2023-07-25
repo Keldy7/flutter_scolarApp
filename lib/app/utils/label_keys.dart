@@ -38,6 +38,7 @@ class Labels {
 
 //Services
   static String detailsEnfantKey = "Détails : Mon enfant";
+  static String profilEnfantKey = "Profil : Mon enfant";
   static String attendanceKey = "Absences et présences";
   static String feesKey = "Scolarité, car et cantine";
   static String timetableKey = "Emploi du temps";

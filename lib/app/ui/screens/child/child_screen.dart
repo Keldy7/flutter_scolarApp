@@ -74,9 +74,7 @@ class _ChildScreenState extends State<ChildScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
+                                  20.h.verticalSpace,
                                   getCustomFont("KONAN", 22, blackColor, 1,
                                       fontWeight: FontWeight.bold),
                                   getCustomFont("Affoué Edwige Roxane", 19,
@@ -161,12 +159,6 @@ class _ChildScreenState extends State<ChildScreen> {
                                 child: Container(
                                   child: getAssetImage(context, Images.boyPng,
                                       innerWidth * 0.45, innerHeight * 0.5),
-                                  // Image.asset(
-                                  //   'assets/images/png/girl.png',
-                                  //   width: innerWidth * 0.45,
-                                  //   height: innerHeight * 0.5,
-                                  //   fit: BoxFit.fitWidth,
-                                  // ),
                                 ),
                               )),
                         ]);
