@@ -41,7 +41,7 @@ class FakeData {
         Images.homeSvg,
         Images.homeActiveSvg));
     bottomList.add(ModelBottomNav(
-        Labels.calendarKey,
+        Labels.eventsKey,
         Images.saveSvg,
         Images.saveActiveSvg));
     bottomList.add(ModelBottomNav(

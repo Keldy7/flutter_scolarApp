@@ -27,7 +27,7 @@ class Labels {
 //Options principales
   static String accueilKey = "Accueil";
   static String aProximiteKey = "À proximié";
-  static String calendarKey = "Evènements";
+  static String eventsKey = "Evènements";
   static String messagesKey = "Discussions";
   static String profilKey = "Profil";
 
@@ -73,7 +73,7 @@ class Labels {
   static String examensCompositionsKey = "Examens et compos";
   static String examensKey = "Examens";
   static String compositionsKey = "Compositions";
-// static String demanderPermissionKey = "Demander une permission scolaire";
+  static String resultatsKey = "Résultats scolaires";
 // static String demanderPermissionKey = "Demander une permission scolaire";
 // static String demanderPermissionKey = "Demander une permission scolaire";
 // static String demanderPermissionKey = "Demander une permission scolaire";
