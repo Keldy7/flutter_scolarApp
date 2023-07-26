@@ -28,8 +28,8 @@ class AddedFileContainer extends StatelessWidget {
           color: black40Color.withOpacity(0.3),
           child: Container(
             alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width * (0.8),
-            height: MediaQuery.of(context).size.height * (0.05),
+            width: MediaQuery.sizeOf(context).width * (0.8),
+            height: MediaQuery.sizeOf(context).height * (0.05),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,7 +53,7 @@ class AddedFileContainer extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * (0.05),
+                  width: MediaQuery.sizeOf(context).width * (0.05),
                 ),
                 Text(
                   Labels.selectionnerKey,

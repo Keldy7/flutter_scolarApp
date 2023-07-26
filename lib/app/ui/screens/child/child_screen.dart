@@ -24,7 +24,7 @@ class ChildScreen extends StatefulWidget {
 class _ChildScreenState extends State<ChildScreen> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    double height = MediaQuery.sizeOf(context).height;
     // double horSpace = Constant.getDefaultHorSpaceFigma(context) - 5;
     final List<ModelCategory> categoryList = FakeData.getAllCategoryList();
 

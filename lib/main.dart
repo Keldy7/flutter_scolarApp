@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/screens/child/child_screen.dart';
 import 'package:scolar_pay/app/ui/screens/child/edit_child_screen.dart';
+import 'package:scolar_pay/app/ui/screens/exams/details_exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/exams/exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
 import 'app/ui/controllers/home_controller.dart';
@@ -80,7 +81,7 @@ class MyApp extends StatelessWidget {
         // selectOtherLocationRoute: (context) => SelectOtherLocation(),
         // chatScreenRoute: (context) => ChatScreen(),
         Routes.examsScreenRoute: (context) => const ExamenScreen(),
-        // Routes.examsDetailScreenRoute: (context) => const DetailExamsScreen(),
+        Routes.examsDetailScreenRoute: (context) => const DetailExamsScreen(),
         Routes.myProfileScreenRoute: (context) => MyProfileScreen(),
         Routes.editProfileRoute: (context) => EditProfile(),
         Routes.settingScreenRoute: (context) => SettingScreen(),

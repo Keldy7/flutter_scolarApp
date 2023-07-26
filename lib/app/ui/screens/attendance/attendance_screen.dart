@@ -59,7 +59,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal:
-                            MediaQuery.of(context).size.width * (0.075)),
+                            MediaQuery.sizeOf(context).width * (0.075)),
                     child: Column(
                       children: [
                         Container(
@@ -74,7 +74,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                                     spreadRadius: 0)
                               ],
                               color: primaryColor),
-                          width: MediaQuery.of(context).size.width * (0.85),
+                          width: MediaQuery.sizeOf(context).width * (0.85),
                           child: Stack(
                             children: [
                               Align(
@@ -197,7 +197,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * (0.05),
+                          height: MediaQuery.sizeOf(context).height * (0.05),
                         ),
                         LayoutBuilder(builder: (context, boxConstraints) {
                           return Row(

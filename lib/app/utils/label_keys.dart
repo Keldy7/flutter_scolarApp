@@ -74,9 +74,10 @@ class Labels {
   static String examensKey = "Examens";
   static String compositionsKey = "Compositions";
   static String resultatsKey = "Résultats scolaires";
-// static String demanderPermissionKey = "Demander une permission scolaire";
-// static String demanderPermissionKey = "Demander une permission scolaire";
-// static String demanderPermissionKey = "Demander une permission scolaire";
+  static String matieresKey = "Matières";
+  static String noteKey = "Note";
+  static String mentionKey = "Mention";
+  static String mentionAppreciationKey = "Mention et appréciations";
 
 //Divers
   static String autreKey = "Autre";

@@ -178,17 +178,19 @@ Widget getMultilineCustomFont(String text, double fontSize, Color fontColor,
     TextDecoration decoration = TextDecoration.none,
     FontWeight fontWeight = FontWeight.normal,
     TextAlign textAlign = TextAlign.start,
+    bool isItalic = false,
     txtHeight = 1.5}) {
   return Text(
     text,
     style: TextStyle(
         decoration: decoration,
         fontSize: fontSize.sp,
-        fontStyle: FontStyle.normal,
+        fontStyle: (!isItalic) ? FontStyle.normal : FontStyle.italic,
         color: fontColor,
         fontFamily: Constant.fontsFamily,
         height: txtHeight,
-        fontWeight: fontWeight),
+        fontWeight: fontWeight,
+        ),
     textAlign: textAlign,
   );
 }
@@ -916,16 +918,16 @@ Widget buildTitle(BuildContext context, String title,
 }
 
 Widget buildTitles(BuildContext context, String title,
-    {String subTitle = "", withPadding = true}) {
+    {String subTitle = "", withPadding = true, double sizeTitle = 16}) {
   return Row(
     children: [
       Expanded(
         flex: 1,
-        child: getCustomFont(title, 16, getFontColor(context), 1,
+        child: getCustomFont(title, sizeTitle, getFontColor(context), 1,
             fontWeight: FontWeight.w500),
       ),
       (subTitle.isNotEmpty)
-          ? getCustomFont(subTitle, 16, getFontColor(context), 1,
+          ? getCustomFont(subTitle, sizeTitle, getFontColor(context), 1,
               fontWeight: FontWeight.w500)
           : 0.horizontalSpace
     ],

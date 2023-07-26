@@ -17,9 +17,8 @@ class EditChildScreen extends StatefulWidget {
 class _EditChildScreenState extends State<EditChildScreen> {
   @override
   Widget build(BuildContext context) {
-        double width = MediaQuery.of(context).size.width;
-
-    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.sizeOf(context).width;
+    double height = MediaQuery.sizeOf(context).height;
     return getScreenDetailDefaultView(
       context,
       Labels.profilEnfantKey,
@@ -45,17 +44,17 @@ class _EditChildScreenState extends State<EditChildScreen> {
                         height: innerHeight * 0.6,
                         width: innerWidth,
                         decoration: getButtonDecoration(getCardColor(context),
-                        withCorners: true,
-                        corner: 20.h,
-                        withBorder: true,
-                        borderColor: secondaryColor,
-                        shadow: [
-                          const BoxShadow(
-                              color:
-                                  Color.fromRGBO(0, 0, 0, 0.07999999821186066),
-                              offset: Offset(-4, 5),
-                              blurRadius: 16)
-                        ]),
+                            withCorners: true,
+                            corner: 20.h,
+                            withBorder: true,
+                            borderColor: secondaryColor,
+                            shadow: [
+                              const BoxShadow(
+                                  color: Color.fromRGBO(
+                                      0, 0, 0, 0.07999999821186066),
+                                  offset: Offset(-4, 5),
+                                  blurRadius: 16)
+                            ]),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,11 +65,10 @@ class _EditChildScreenState extends State<EditChildScreen> {
                             Text(
                               'KONAN',
                               style: TextStyle(
-                                color: blackColor,
-                                fontFamily: 'Nunito',
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold
-                              ),
+                                  color: blackColor,
+                                  fontFamily: 'Nunito',
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold),
                             ),
                             Text(
                               'Affoué Edwige Roxane',
@@ -141,63 +139,59 @@ class _EditChildScreenState extends State<EditChildScreen> {
                                     ),
                                   ],
                                 ),
-                                
-                                
-                                
                               ],
                             ),
                             getCustomFont(
-                                  "${Constant.addColonToLabel(Labels.ecoleKey)} Groupe Scolaire Les orchidées de Kouté",
-                                  15,
-                                  getFontGreyColor(context),
-                                  3,
-                                  fontWeight: FontWeight.w600).paddingSymmetric(horizontal: 15),
-                             getCustomFont(
-                                  "${Constant.addColonToLabel(Labels.academicYearKey)} 2023-2024",
-                                  15,
-                                  getFontGreyColor(context),
-                                  1,
-                                  fontWeight: FontWeight.w600),
+                                    "${Constant.addColonToLabel(Labels.ecoleKey)} Groupe Scolaire Les orchidées de Kouté",
+                                    15,
+                                    getFontGreyColor(context),
+                                    3,
+                                    fontWeight: FontWeight.w600)
+                                .paddingSymmetric(horizontal: 15),
+                            getCustomFont(
+                                "${Constant.addColonToLabel(Labels.academicYearKey)} 2023-2024",
+                                15,
+                                getFontGreyColor(context),
+                                1,
+                                fontWeight: FontWeight.w600),
                           ],
                         ),
                       ),
                     ),
                     Positioned(
-                                    top: 10,
-                                    left: 0,
-                                    right: 0,
-                                    child: Center(
-                                      child: Container(
-                                        child: Image.asset(
-                                          'assets/images/png/boy.png',
-                                          width: innerWidth * 0.45,
-                                          height: innerHeight * 0.5,
-                                          fit: BoxFit.fitWidth,
-                                        ),
-                                      ),
-                                    )),
-                                    
+                        top: 10,
+                        left: 0,
+                        right: 0,
+                        child: Center(
+                          child: Container(
+                            child: Image.asset(
+                              'assets/images/png/boy.png',
+                              width: innerWidth * 0.45,
+                              height: innerHeight * 0.5,
+                              fit: BoxFit.fitWidth,
+                            ),
+                          ),
+                        )),
                   ]);
                 })),
-                const SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    height: height * 0.5,
-                    width: width,
-                    decoration: getButtonDecoration(getCardColor(context),
-                        withCorners: true,
-                        corner: 20.h,
-                        withBorder: true,
-                        borderColor: secondaryColor,
-                        shadow: [
-                          const BoxShadow(
-                              color:
-                                  Color.fromRGBO(0, 0, 0, 0.07999999821186066),
-                              offset: Offset(-4, 5),
-                              blurRadius: 16)
-                        ]),
-                    child: const Text('test').paddingAll(5))
+            const SizedBox(
+              height: 30,
+            ),
+            Container(
+                height: height * 0.5,
+                width: width,
+                decoration: getButtonDecoration(getCardColor(context),
+                    withCorners: true,
+                    corner: 20.h,
+                    withBorder: true,
+                    borderColor: secondaryColor,
+                    shadow: [
+                      const BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.07999999821186066),
+                          offset: Offset(-4, 5),
+                          blurRadius: 16)
+                    ]),
+                child: const Text('test').paddingAll(5))
           ],
         ))
       ]).paddingSymmetric(horizontal: 15),
