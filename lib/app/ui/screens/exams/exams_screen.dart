@@ -33,7 +33,6 @@ class _ExamenScreenState extends State<ExamenScreen> {
               shrinkWrap: true,
               children: [
                 20.h.verticalSpace,
-                //janv-feb text
                 buildTitles(context, "Jan - Fev"),
                 Column(
                   children: List.generate(7, (int _) {

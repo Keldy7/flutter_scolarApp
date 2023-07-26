@@ -19,7 +19,11 @@ class PermissionScreen extends StatefulWidget {
 
 class _PermissionScreenState extends State<PermissionScreen> {
   bool isScrolled = true;
-  final List<String> tabList = [Labels.historiqueKey, Labels.enAttenteKey, Labels.accepterKey];
+  final List<String> tabList = [
+    Labels.historiqueKey,
+    Labels.enAttenteKey,
+    Labels.accepterKey
+  ];
   final List<Widget> tabDetail = [
     HistoryListWidget(),
     HistoryListWidget(),
@@ -52,9 +56,15 @@ class _PermissionScreenState extends State<PermissionScreen> {
             isExtended: isScrolled,
             backgroundColor: accentColor,
             foregroundColor: primaryColor,
-            icon: Icon(Icons.add,
-                color: primaryColor, size: 30, weight: 20,),
-            label: getCustomFont(Labels.demanderPermissionKey, 15, primaryColor, 1, fontWeight: FontWeight.w700),
+            icon: Icon(
+              Icons.add,
+              color: primaryColor,
+              size: 30,
+              weight: 20,
+            ),
+            label: getCustomFont(
+                Labels.demanderPermissionKey, 15, primaryColor, 1,
+                fontWeight: FontWeight.w700),
           ),
           body: getDefaultContainerView(
               context,
@@ -231,8 +241,14 @@ class HistoryListWidget extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    getSvgImageWithSize(context, Images.trashSvg, 23.h, 23.h,
-                        fit: BoxFit.fill)
+                    InkWell(
+                      onTap: () {
+                        print("tap delete");
+                      },
+                      child: getSvgImageWithSize(
+                          context, Images.trashSvg, 23.h, 23.h,
+                          fit: BoxFit.fill),
+                    )
                   ],
                 ),
                 10.h.verticalSpace,

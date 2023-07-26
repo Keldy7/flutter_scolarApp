@@ -77,7 +77,8 @@ class Labels {
   static String matieresKey = "Matières";
   static String noteKey = "Note";
   static String mentionKey = "Mention";
-  static String mentionAppreciationKey = "Mention et appréciations";
+  static String totalKey = "Total des notes";
+  static String mentionAppreciationKey = "Appréciations et classement";
 
 //Divers
   static String autreKey = "Autre";
