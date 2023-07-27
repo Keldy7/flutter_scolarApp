@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:scolar_pay/app/utils/image_keys.dart';
 
 import '../../../utils/constant.dart';
 import '../../../utils/label_keys.dart';
@@ -41,8 +42,8 @@ class MyProfileScreen extends StatelessWidget {
                 Obx(() => getCircleImage(
                   context,
                   (imageController.imagePath.value.isNotEmpty)
-                      ? '${imageController.imagePath.value}'
-                      : 'profile.jpg',
+                      ? imageController.imagePath.value
+                      : Images.userPng,
                   100.h,
                   fileImage: (imageController.imagePath.value.isNotEmpty),
                 ),),
@@ -67,7 +68,7 @@ class MyProfileScreen extends StatelessWidget {
               ],
             )),
             getButtonFigma(context, getAccentColor(context), true,
-                    Labels.editProfilKey, Colors.white, () {
+                    Labels.editProfilKey, primaryColor, () {
               Constant.goToNextPage(context, Routes.editProfileRoute);
             }, edgeInsets)
                 .marginSymmetric(vertical: 30.h)

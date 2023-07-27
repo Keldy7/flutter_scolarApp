@@ -18,7 +18,7 @@ class DetailExamsScreen extends StatefulWidget {
 class _DetailExamsScreenState extends State<DetailExamsScreen>
     with TickerProviderStateMixin {
   int note = 62;
-  int countList = 5;
+  int countList = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class _DetailExamsScreenState extends State<DetailExamsScreen>
                         })),
                         getDivider().marginSymmetric(vertical: 15.h),
                         buildTitles(context, Labels.totalKey,
-                            subTitle: "${note * countList}",
+                            subTitle: "= ${note * countList}",
                             sizeTitle: 18,
                             withPadding: false),
                       ],
@@ -150,7 +150,7 @@ class _DetailExamsScreenState extends State<DetailExamsScreen>
                                                 border: Border.all(
                                                     width: 3,
                                                     color: accentColor
-                                                        .withOpacity(0.7)),
+                                                        .withOpacity(0.15)),
                                               ),
                                               child: Column(
                                                 mainAxisAlignment:

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/constant.dart';
+import '../../../utils/image_keys.dart';
 import '../../../utils/label_keys.dart';
 import '../../../utils/widget_utils.dart';
 import '../../controllers/image_controller.dart';
@@ -77,7 +78,7 @@ class EditProfile extends StatelessWidget {
             getAccentColor(context),
             true,
             Labels.saveProfilKey,
-            Colors.white,
+            primaryColor,
             () {
               onBackClick(context);
             },
@@ -103,8 +104,9 @@ class EditProfile extends StatelessWidget {
                     () => getCircleImage(
                       context,
                       (imageController.imagePath.value.isNotEmpty)
-                          ? '${imageController.imagePath.value}'
-                          : 'profile.jpg',
+                          ? imageController.imagePath.value
+                          : Images.profileJpg
+                          ,
                       100.h,
                       fileImage: (imageController.imagePath.value.isNotEmpty),
                     ),
@@ -122,19 +124,19 @@ class EditProfile extends StatelessWidget {
                     height: 32.h,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: Color(0x2d7a6054),
                           blurRadius: 23,
                           offset: Offset(1, 8),
                         ),
                       ],
-                      color: Colors.white,
+                      color: primaryColor,
                     ),
                     child: Center(
                       child: getSvgImage(
                         context,
-                        'camera.svg',
+                        Images.cameraSvg,
                         18,
                       ),
                     ),

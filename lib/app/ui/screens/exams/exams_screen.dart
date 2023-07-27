@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
 import 'package:scolar_pay/app/utils/label_keys.dart';
 
+import '../../../utils/image_keys.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
 import '../../styles/colors.dart';
@@ -124,6 +125,6 @@ class _ExamenScreenState extends State<ExamenScreen> {
               ],
             ))
           ],
-        ).paddingSymmetric(horizontal: 15));
+        ).paddingSymmetric(horizontal: 15), actionImg: Images.filterIconSvg, withLeading: true, centerTitle: true, subtitle: true, subtitleText: '');
   }
 }
