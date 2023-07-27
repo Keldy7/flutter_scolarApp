@@ -13,6 +13,8 @@ import '../../styles/colors.dart';
 class EditProfile extends StatelessWidget {
   final imageController = Get.put(ImageController());
 
+  EditProfile({super.key});
+
   onBackClick(BuildContext context) {
     // Get.delete<ImageController>();
     Constant.backToPrev(context);

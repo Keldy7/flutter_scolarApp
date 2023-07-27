@@ -91,12 +91,11 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
       'Perm 1',
       'Perm 2',
       'Perm 3',
-      'Four',
+      'Perm 4',
       Labels.autreKey
     ];
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
 
-    // TextEditingController nameController = TextEditingController();
     TextEditingController titrePermissionController = TextEditingController();
     TextEditingController descriptPermissionController =
         TextEditingController();
@@ -184,8 +183,8 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
             children: [
               Expanded(
                 flex: 1,
-                child: getButtonFigma(context, Colors.transparent, true,
-                    "Annuler", getAccentColor(context), () {
+                child: getButtonFigma(context, transparentColor, true,
+                    Labels.annulerKey, getAccentColor(context), () {
                   Constant.backToPrev(context);
                 },
                     isBorder: true,
@@ -196,7 +195,7 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
               Expanded(
                 flex: 1,
                 child: getButtonFigma(context, getAccentColor(context), true,
-                    "Soumettre", primaryColor, () {
+                    Labels.submitKey, primaryColor, () {
                   Get.bottomSheet(
                     Wrap(
                       children: [
@@ -278,7 +277,7 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
               child: Container(
                 width: double.infinity,
                 height: getEditHeightFigma(),
-                decoration: getButtonDecoration(Colors.transparent,
+                decoration: getButtonDecoration(transparentColor,
                     withCorners: true,
                     corner: getButtonCornersFigma(),
                     withBorder: true,

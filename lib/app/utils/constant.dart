@@ -13,7 +13,6 @@ class Constant {
   static String assetImagePngPath = "assets/images/png/";
   static String assetImageSvgPath = "assets/images/svg/";
   static String assetImagePngPathNight = "assets/imagesNight/";
-  static bool isDriverApp = false;
   static const String fontsFamily = "Montserrat";
   static const String fontsFamilySplash = "Avenir-Next-LT-Pro";
   static const String fontsFamilyOffer = "Plantagenet Cherokee";
@@ -55,7 +54,7 @@ class Constant {
 
   static Future<ui.Image> getImage(String name) {
     final Image image =
-        Image(image: AssetImage(Constant.assetImagePngPath + name));
+        Image(image: AssetImage('${Constant.assetImagePngPath}$name.png'));
 
     Completer<ui.Image> completer = Completer<ui.Image>();
     image.image

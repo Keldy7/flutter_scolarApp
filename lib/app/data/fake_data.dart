@@ -9,28 +9,28 @@ import '../utils/label_keys.dart';
 
 class FakeData {
   static List<ModelIntro> getAllIntroList() {
-    List<ModelIntro> list = [];
-    list.add(ModelIntro(
+    List<ModelIntro> introList = [];
+    introList.add(ModelIntro(
         "Discover and book your\nfavorite hair stylist !",
         "Schedule your date,time for your\nbeauty session in your favourite salon.",
         Images.intro1Png));
 
-    list.add(ModelIntro(
+    introList.add(ModelIntro(
         "Helping you to take good\ncare of your Hair !",
         "With the help of our best stylist create\nyour own look.",
         Images.intro2Png));
 
-    list.add(ModelIntro(
+    introList.add(ModelIntro(
         "Find your nearst salon in\nyour area !",
         "Set your location and find nearst salon\nto papmer you.",
         Images.intro3Png));
 
-    // list.add(ModelIntro(
+    // introList.add(ModelIntro(
     //     "Confirm your bookind and\nmake secure pay",
     //     "When making time for beauty and\nwellness is already a challenge.",
     //     Images.intro4Png));
 
-    return list;
+    return introList;
   }
 
   static List<ModelBottomNav> getAllBottomNavList() {
@@ -53,16 +53,16 @@ class FakeData {
   }
 
   static List<ModelBanner> getAllBannerList() {
-    List<ModelBanner> list = [];
+    List<ModelBanner> bannerList = [];
 
-    list.add(ModelBanner(
+    bannerList.add(ModelBanner(
         Images.banner1Png, "#D9EEF9"));
-    list.add(ModelBanner(
+    bannerList.add(ModelBanner(
         Images.banner2Png, "#FFE4EE"));
-    list.add(ModelBanner(
+    bannerList.add(ModelBanner(
         Images.banner3Png, "#F0E4FF"));
 
-    return list;
+    return bannerList;
   }
 
   static List<ModelCategory> getAllCategoryList() {

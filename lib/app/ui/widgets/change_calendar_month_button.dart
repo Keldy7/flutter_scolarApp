@@ -25,7 +25,7 @@ class ChangeCalendarMonthButton extends StatelessWidget {
         width: 30.0,
         height: 30.0,
         decoration: BoxDecoration(
-            border: Border.all(color: Colors.transparent),
+            border: Border.all(color: transparentColor),
             color: secondaryColor
                 .withOpacity(isDisable ? 0.75 : 1.0),
             borderRadius: BorderRadius.circular(7.5)),

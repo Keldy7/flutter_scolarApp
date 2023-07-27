@@ -61,7 +61,7 @@ class _SplashScreen extends State<SplashScreen> {
                 getSvgImageWithSize(context, Images.splashLogoSvg, 102.h, 148.h,
                     fit: BoxFit.fill),
                 26.h.verticalSpace,
-                getCustomFont(Labels.nomAppKey, 28, Colors.white, 1,
+                getCustomFont(Labels.nomAppKey, 28, primaryColor, 1,
                     fontWeight: FontWeight.w700,
                     fontFamily: Constant.fontsFamilySplash,
                     textAlign: TextAlign.center)

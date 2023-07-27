@@ -36,7 +36,7 @@ class CardCategory extends StatelessWidget {
             ],
           ),
           child: Material(
-            color: Colors.transparent,
+            color: transparentColor,
             child: InkWell(
               onTap: () {
                 if (onTapWigdet != null) {

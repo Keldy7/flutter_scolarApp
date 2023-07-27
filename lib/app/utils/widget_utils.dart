@@ -7,12 +7,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/ui/styles/colors.dart';
-import 'package:scolar_pay/app/utils/routes.dart';
 
+import '../ui/styles/colors.dart';
 import 'constant.dart';
 import 'image_keys.dart';
 import 'label_keys.dart';
+import 'routes.dart';
 
 void showCustomToast(String texts, BuildContext context) {
   Fluttertoast.showToast(
@@ -93,7 +93,7 @@ Widget buildDatePickerButton(
       margin: EdgeInsets.symmetric(
           horizontal: Constant.getDefaultHorSpaceFigma(context)),
       padding: EdgeInsets.symmetric(horizontal: 16.w),
-      decoration: getButtonDecoration(Colors.transparent,
+      decoration: getButtonDecoration(transparentColor,
           withCorners: true,
           corner: 20.h,
           withBorder: true,
@@ -158,7 +158,7 @@ TextStyle buildTextStyle(BuildContext context, Color fontColor,
 DecorationImage getDecorationAssetImage(BuildContext buildContext, String image,
     {BoxFit fit = BoxFit.contain}) {
   return DecorationImage(
-    image: AssetImage(Constant.assetImagePngPath + image),
+    image: AssetImage('${Constant.assetImagePngPath}$image.png'),
     fit: fit,
   );
 }
@@ -238,7 +238,7 @@ Widget getEmptyWidget(BuildContext context, String image, String title,
                   margin: EdgeInsets.only(top: 40.h),
                   width: 192.h,
                   height: 60.h,
-                  decoration: getButtonDecoration(Colors.transparent,
+                  decoration: getButtonDecoration(transparentColor,
                       withCorners: true,
                       withBorder: true,
                       borderColor: getAccentColor(context),
@@ -281,6 +281,10 @@ double getButtonCornersFigma() {
   return 20.h;
 }
 
+double getButtonFontSizeFigma() {
+  return 18;
+}
+
 Widget getToolbarIcons(BuildContext context, String name, Function click,
     {bool withTheme = true, Color? color}) {
   return InkWell(
@@ -290,10 +294,6 @@ Widget getToolbarIcons(BuildContext context, String name, Function click,
       click();
     },
   );
-}
-
-double getButtonFontSizeFigma() {
-  return 18;
 }
 
 ShapeDecoration getButtonDecoration(Color bgColor,
@@ -308,7 +308,7 @@ ShapeDecoration getButtonDecoration(Color bgColor,
       shadows: shadow,
       shape: SmoothRectangleBorder(
           side: BorderSide(
-              width: 1, color: (withBorder) ? borderColor : Colors.transparent),
+              width: 1, color: (withBorder) ? borderColor : transparentColor),
           borderRadius: SmoothBorderRadius(
               cornerRadius: (withCorners) ? corner : 0,
               cornerSmoothing: (withCorners) ? cornerSmoothing : 0)));
@@ -326,7 +326,7 @@ ShapeDecoration getButtonDecorationWithGradient(Color bgColor,
       gradient: getGradients(),
       shape: SmoothRectangleBorder(
           side: BorderSide(
-              width: 1, color: (withBorder) ? borderColor : Colors.transparent),
+              width: 1, color: (withBorder) ? borderColor : transparentColor),
           borderRadius: SmoothBorderRadius(
               cornerRadius: (withCorners) ? corner : 0,
               cornerSmoothing: (withCorners) ? cornerSmoothing : 0)));
@@ -692,7 +692,7 @@ Widget getTextFieldView(BuildContext context, Widget widget, bool minLines,
     padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 0),
     alignment: (minLines) ? Alignment.topLeft : Alignment.centerLeft,
     decoration: ShapeDecoration(
-      color: Colors.transparent,
+      color: transparentColor,
       shape: SmoothRectangleBorder(
         side: BorderSide(
             color: getCurrentTheme(context).unselectedWidgetColor, width: 1),
@@ -715,7 +715,7 @@ Widget getTextFieldViewCustom(BuildContext context, Widget widget,
     padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 0),
     alignment: (minLines) ? Alignment.topLeft : Alignment.centerLeft,
     decoration: ShapeDecoration(
-      color: Colors.transparent,
+      color: transparentColor,
       shape: SmoothRectangleBorder(
         side: BorderSide(
             color: getCurrentTheme(context).unselectedWidgetColor, width: 1),
@@ -784,7 +784,7 @@ Widget itemSlotBooking(int index, BuildContext context, bool isSelected,
     width: width,
     height: 33.w,
     decoration: getButtonDecoration(
-        (isSelected) ? lightAccentColor : Colors.transparent,
+        (isSelected) ? lightAccentColor : transparentColor,
         withBorder: true,
         borderColor: (isSelected) ? getAccentColor(context) : indicatorColor,
         withCorners: true,
@@ -879,7 +879,7 @@ showGetDialog(
               (withCancelBtn) ? 20.w.horizontalSpace : 0.horizontalSpace,
               (withCancelBtn)
                   ? Expanded(
-                      child: getButtonFigma(context, Colors.transparent, true,
+                      child: getButtonFigma(context, transparentColor, true,
                           btnTextCancel, getAccentColor(context), () {
                       if (functionCancel != null) {
                         functionCancel();
@@ -968,7 +968,7 @@ Widget buildTabView(
               width: double.infinity,
               height: double.infinity,
               decoration: getButtonDecoration(
-                  (isSelected) ? lightAccentColor : Colors.transparent,
+                  (isSelected) ? lightAccentColor : transparentColor,
                   withCorners: true,
                   corner: 15.h),
               child: Center(
@@ -1053,35 +1053,35 @@ Widget getDefaultUnderlineTextFiled(
                       filterClick();
                     }
                   },
-                  child: getSvgImageWithSize(context, "filter.svg",
+                  child: getSvgImageWithSize(context, Images.filterSvg,
                           getEditIconSize().h, getEditIconSize().h)
                       .marginOnly(right: 20.w, left: 16.w),
                 )
               : 0.horizontalSpace,
           enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(
-                  color: (isFilled) ? Colors.transparent : getFontHint(context),
+                  color: (isFilled) ? transparentColor : getFontHint(context),
                   width: 2.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           disabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(
-                  color: (isFilled) ? Colors.transparent : getFontHint(context),
+                  color: (isFilled) ? transparentColor : getFontHint(context),
                   width: 2.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           errorBorder: UnderlineInputBorder(
               borderSide: BorderSide(
-                  color: (isFilled) ? Colors.transparent : getFontHint(context),
+                  color: (isFilled) ? transparentColor : getFontHint(context),
                   width: 2.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           border: UnderlineInputBorder(
               borderSide: BorderSide(
-                  color: (isFilled) ? Colors.transparent : getFontHint(context),
+                  color: (isFilled) ? transparentColor : getFontHint(context),
                   width: 2.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
                 color:
-                    (isFilled) ? Colors.transparent : getAccentColor(context),
+                    (isFilled) ? transparentColor : getAccentColor(context),
                 width: 2.h),
           ),
           labelText: s,
@@ -1178,28 +1178,28 @@ Widget getDefaultTextFiled(
               : 0.horizontalSpace,
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: (isFilled) ? Colors.transparent : getFontHint(context),
+                  color: (isFilled) ? transparentColor : getFontHint(context),
                   width: 1.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           disabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: (isFilled) ? Colors.transparent : getFontHint(context),
+                  color: (isFilled) ? transparentColor : getFontHint(context),
                   width: 1.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           errorBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: (isFilled) ? Colors.transparent : getFontHint(context),
+                  color: (isFilled) ? transparentColor : getFontHint(context),
                   width: 1.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           border: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: (isFilled) ? Colors.transparent : getFontHint(context),
+                  color: (isFilled) ? transparentColor : getFontHint(context),
                   width: 1.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
                   color:
-                      (isFilled) ? Colors.transparent : getAccentColor(context),
+                      (isFilled) ? transparentColor : getAccentColor(context),
                   width: 1.h),
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           hintText: hintedText,
@@ -1265,7 +1265,7 @@ Widget getDefaultTextFiledWithCustomPrefix(BuildContext context, String s,
 
 getProgressDialog() {
   return Container(
-      color: Colors.transparent,
+      color: transparentColor,
       child: Center(
           child: Theme(
               data: ThemeData(
@@ -1369,7 +1369,7 @@ WillPopScope buildTitleDefaultWidget(BuildContext context, String title,
       child: Scaffold(
         appBar: getBackAppBar(context, () {
           backClick();
-        }, color: Colors.transparent),
+        }, color: transparentColor),
         backgroundColor: getCurrentTheme(context).scaffoldBackgroundColor,
         body: Container(
           width: double.infinity,

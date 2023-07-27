@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:scolar_pay/app/utils/image_keys.dart';
 
+import '../../../utils/label_keys.dart';
 import '../../../utils/constant.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
@@ -29,30 +31,30 @@ class ResetPasswordScreen extends StatelessWidget {
     Constant.setupSize(context);
 
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
-    return buildTitleDefaultWidget(context, "Reset Password",
-        "Enter password which are different\nfrom the previous paswords.", () {
+    return buildTitleDefaultWidget(context, Labels.modifierPasswordKey,
+        Labels.advicePasswordKey, () {
       backClick(context);
     },
         Column(
           children: [
             ObxValue((p0) {
-              return getPassTextFiled(context, "Password", passController,
+              return getPassTextFiled(context, Labels.passwordKey, passController,
                   getFontColor(context), showPass.value, () {
                 showPass.value = !showPass.value;
               });
             }, showPass),
             20.h.verticalSpace,
             ObxValue((p0) {
-              return getPassTextFiled(context, "Confirm Password",
+              return getPassTextFiled(context, Labels.confirmPasswordKey,
                   pass2Controller, getFontColor(context), showPass2.value, () {
                 showPass2.value = !showPass2.value;
               });
             }, showPass2),
             getButtonFigma(
-                context, getAccentColor(context), true, "Submit", Colors.white,
+                context, getAccentColor(context), true, Labels.submitKey, primaryColor,
                 () {
-              showGetDialog(context, "done.png", "Changed!",
-                  "Your password has been changed\nsucessfully !", "Ok", () {
+              showGetDialog(context, Images.donePng, Labels.changedPasswordKey,
+                  Labels.changeSuccessPasswordKey, Labels.okKey, () {
                 backClick(context);
 
                 var controller = Get.find<HomeController>();

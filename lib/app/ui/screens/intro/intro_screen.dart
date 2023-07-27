@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/data/fake_data.dart';
 
+import '../../../data/fake_data.dart';
 import '../../../utils/constant.dart';
 import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
@@ -96,7 +96,7 @@ class IntroScreen extends StatelessWidget {
                           (selectedPos.value == introList.length - 1)
                               ? Labels.getStartedKey
                               : Labels.suivantKey,
-                          Colors.white,
+                          primaryColor,
                           () {
                             if (selectedPos.value == introList.length - 1) {
                               changeIntroVal(false);

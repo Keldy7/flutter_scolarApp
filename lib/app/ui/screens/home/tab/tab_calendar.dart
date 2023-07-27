@@ -49,7 +49,7 @@ class _TabCalendarState extends State<TabCalendar> {
                                     const Padding(
                                       padding: EdgeInsets.only(right: 10),
                                       child: Text(
-                                        "object.title",
+                                        "Title",
                                         maxLines: 1,
                                       ),
                                     ),

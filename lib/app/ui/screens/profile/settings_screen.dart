@@ -28,7 +28,7 @@ class SettingScreen extends StatelessWidget {
                   var controller = Get.find<HomeController>();
                   controller.fromDetail = true;
                   Constant.goToNextPage(context, Routes.resetPassRoute);
-                }, Labels.changePasswordKey),
+                }, Labels.changerPasswordKey),
                 getProfileRowContainer(context, () {
                   Constant.goToNextPage(context, Routes.termNCondition);
                 }, Labels.termsConditionsKey),

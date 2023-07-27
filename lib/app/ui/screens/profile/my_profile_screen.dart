@@ -12,6 +12,8 @@ import '../../styles/colors.dart';
 
 
 class MyProfileScreen extends StatelessWidget {
+  const MyProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     TextEditingController nomController =

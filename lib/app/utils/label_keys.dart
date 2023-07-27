@@ -14,9 +14,7 @@ class Labels {
   static String passwordKey = "Mot de passe";
   static String confirmPasswordKey = "Confirmer le mot de passe";
   static String forgetPasswordKey = "Mot de passe oublié ?";
-
-  // static String gladMeetKey = "Heureux de vous revoir !";
-
+  
   static String getStartedKey = "Démarrer";
   static String continuerKey = "Continuer";
   static String suivantKey = "Suivant";
@@ -82,7 +80,10 @@ class Labels {
 
 //Divers
   static String autreKey = "Autre";
-
+  static String okKey = "Ok";
+  static String submitKey = "Soumettre";
+  static String validerKey = "Valider";
+  static String annulerKey = "Annuler";
 //Profil
   static String monProfilKey = "Mon profil";
   static String saveProfilKey = "Enregistrer les modifications";
@@ -94,7 +95,11 @@ class Labels {
   
 //Réglages
   static String reglagesKey = "Réglages";
-  static String changePasswordKey = "Changer votre mot de passe";
+  static String changerPasswordKey = "Changer votre mot de passe";
+  static String modifierPasswordKey = "Modifier votre mot de passe";
+  static String advicePasswordKey = "Entrer un mot de passe différent de vos \nprécedents sauvegardés.";
+  static String changedPasswordKey = "Changé !";
+  static String changeSuccessPasswordKey = "Votre mot de passe a été changé \navec succès !";
   static String termsConditionsKey = "Termes & Conditions";
   static String politiqueConfidentialiteKey = "Politique de confidentialité";
   static String aboutUsKey = "À propos de nous";

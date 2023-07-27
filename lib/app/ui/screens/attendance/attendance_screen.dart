@@ -58,8 +58,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 20.h.verticalSpace,
                 Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal:
-                            MediaQuery.sizeOf(context).width * (0.075)),
+                        horizontal: MediaQuery.sizeOf(context).width * (0.075)),
                     child: Column(
                       children: [
                         Container(
@@ -78,14 +77,13 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                           child: Stack(
                             children: [
                               Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "${Constant.getMonthName(focusedDay.month)} ${focusedDay.year}",
-                                  style: TextStyle(
-                                      color: black40Color,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              ),
+                                  alignment: Alignment.center,
+                                  child: getCustomFont(
+                                      "${Constant.getMonthName(focusedDay.month)} ${focusedDay.year}",
+                                      16,
+                                      black40Color,
+                                      1,
+                                      fontWeight: FontWeight.w700)),
                               Align(
                                   alignment: AlignmentDirectional.centerStart,
                                   child: ChangeCalendarMonthButton(
@@ -142,7 +140,6 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                             onCalendarCreated: (contoller) {
                               calendarPageController = contoller;
                             },
-                            
 
                             //Style calendar
                             calendarStyle: CalendarStyle(
@@ -152,16 +149,11 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                                 shape: BoxShape.rectangle,
                                 borderRadius: BorderRadius.circular(5),
                               ),
-                              holidayTextStyle: TextStyle(
-                                  color: Theme.of(context)
-                                      .scaffoldBackgroundColor),
+                              holidayTextStyle: TextStyle(color: blackColor),
                               holidayDecoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color:
-                                      Theme.of(context).colorScheme.onPrimary),
+                                  shape: BoxShape.circle, color: accentColor),
                               selectedDecoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Theme.of(context).colorScheme.error),
+                                  shape: BoxShape.circle, color: redColor),
                               selectedTextStyle: TextStyle(
                                 color: primaryColor,
                               ),
@@ -206,7 +198,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                               _buildAttendanceCounterContainer(
                                   boxConstraints: boxConstraints,
                                   title: Labels.totalPresentKey,
-                                  value: "18",
+                                  value: "8",
                                   // value: presentDays.length.toString(),
                                   backgroundColor: greenColor),
                               const Spacer(),

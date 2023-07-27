@@ -6,6 +6,8 @@ import '../../../utils/widget_utils.dart';
 import '../../styles/colors.dart';
 
 class TermsNCondition extends StatelessWidget {
+  const TermsNCondition({super.key});
+
   @override
   Widget build(BuildContext context) {
     Constant.setupSize(context);

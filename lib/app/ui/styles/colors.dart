@@ -33,6 +33,7 @@ Color lightRedColor = "#FCF0F0".toColor();
 Color lightOrangeColor = "#FEEDD8".toColor();
 
 //
+Color transparentColor = Colors.transparent;
 Color cardColor = "#FFFBF8".toColor();
 Color shadowColor = Colors.black12;
 Color shadowLigthColor = "#E6E6E6".toColor();
@@ -75,7 +76,7 @@ ThemeData getLightThemeData() {
       cardColor: "#FFFFFF".toColor(),
       dialogBackgroundColor: "#FFFFFF".toColor(),
       unselectedWidgetColor: "#B9C1D3".toColor(),
-      focusColor: Colors.transparent,
+      focusColor: transparentColor,
       hintColor: "#9B9B9B".toColor(),
       disabledColor: "#525E7B".toColor(),
       canvasColor: "#F7F8FB".toColor(),
@@ -92,7 +93,7 @@ ThemeData getDarkThemeData() {
       scaffoldBackgroundColor: "#161E2D".toColor(),
       hoverColor: "#21F6F7FF".toColor(),
       dialogBackgroundColor: "#283048".toColor(),
-      focusColor: Colors.transparent,
+      focusColor: transparentColor,
       unselectedWidgetColor: "#525E7B".toColor(),
       cardColor: "#2D354F".toColor(),
       dividerColor: "#2B354D".toColor(),

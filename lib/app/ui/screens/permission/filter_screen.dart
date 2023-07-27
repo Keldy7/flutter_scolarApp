@@ -55,7 +55,7 @@ class FilterScreen extends StatelessWidget {
                                   decoration: getButtonDecoration(
                                       (isSelected)
                                           ? lightAccentColor
-                                          : Colors.transparent,
+                                          : transparentColor,
                                       withBorder: true,
                                       borderColor: (isSelected)
                                           ? getAccentColor(context)
@@ -103,7 +103,7 @@ class FilterScreen extends StatelessWidget {
                                   decoration: getButtonDecoration(
                                       (isSelected)
                                           ? lightAccentColor
-                                          : Colors.transparent,
+                                          : transparentColor,
                                       withBorder: true,
                                       borderColor: (isSelected)
                                           ? getAccentColor(context)
@@ -185,7 +185,7 @@ class FilterScreen extends StatelessWidget {
                       (p0) => Container(
                             width: double.infinity,
                             height: 56.h,
-                            decoration: getButtonDecoration(Colors.transparent,
+                            decoration: getButtonDecoration(transparentColor,
                                 withCorners: true,
                                 corner: getButtonCornersFigma(),
                                 withBorder: true,
@@ -254,7 +254,7 @@ class FilterScreen extends StatelessWidget {
                   flex: 1,
                   child: getButtonFigma(
                       context,
-                      Colors.transparent,
+                      transparentColor,
                       true,
                       "Clear All",
                       getAccentColor(context),

@@ -10,6 +10,8 @@ import '../../styles/colors.dart';
 
 
 class VerificationScreen extends StatefulWidget {
+  const VerificationScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _VerificationScreen();
