@@ -112,7 +112,7 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
               shrinkWrap: true,
               children: [
                 20.h.verticalSpace,
-                buildTitle(context, "Titre de la permission"),
+                buildTitle(context, Labels.titrePermissionKey),
                 _buildListChoices(context, spinnerItems, controllerGet),
                 Visibility(
                   visible: isOther,
@@ -129,26 +129,26 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                   ),
                 ),
                 16.h.verticalSpace,
-                buildTitle(context, "Description de la permission"),
+                buildTitle(context, Labels.descriptionPermissionKey),
                 20.h.verticalSpace,
                 SizedBox(
                   height: 100,
                   child: getDefaultTextFiled(
                       context,
-                      "Decrivez la raison...",
+                      Labels.decrirePermissionKey,
                       descriptPermissionController,
                       getFontColor(context),
                       (value) {},
                       expandTextField: true),
                 ),
                 30.h.verticalSpace,
-                buildTitle(context, "Période de la permission"),
+                buildTitle(context, Labels.periodePermissionKey),
                 14.h.verticalSpace,
-                buildTitles(context, "Date de début", subTitle: "Date de fin"),
+                buildTitles(context, Labels.startDatePermissionKey, subTitle: Labels.endDatePermissionKey),
                 10.h.verticalSpace,
                 PeriodPermissions(firstDate: firstDate, lastDate: lastDate),
                 30.h.verticalSpace,
-                buildTitle(context, "Joindre un fichier"),
+                buildTitle(context, Labels.joindreFileKey),
                 14.h.verticalSpace,
                 AddedFileContainer(
                   onAdd: () {
@@ -200,7 +200,7 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                     Wrap(
                       children: [
                         getCustomFont(
-                          "Demande d'absence scolaire",
+                          Labels.demandeAbsenceScolaireKey,
                           18,
                           getFontColor(context),
                           1,
@@ -216,7 +216,7 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                             togglePanel1();
                           },
                           nameSurname: "Konan Affoué Edwige Roxane ",
-                          titleExpand: "Informations sur l'enfant",
+                          titleExpand: Labels.infosEnfantKey,
                         ),
                         _buildContentExpand(
                           context,
@@ -228,16 +228,16 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                             togglePanel2();
                           },
                           nameSurname: "Aka Angele Grâce ",
-                          titleExpand: "Informations sur la permission",
+                          titleExpand: Labels.infosPermissionKey,
                         ),
                         getButtonFigma(context, getAccentColor(context), true,
-                            "Confirmer la soumission", primaryColor, () {
+                            Labels.confirmPermissionKey, primaryColor, () {
                           showGetDialog(
                               context,
                               Images.donePng,
-                              "Demande envoyée!",
-                              "La permission d'absence scolaire de votre enfant a été envoyé avec succès!",
-                              "Afficher mes demandes", () {
+                              Labels.demandeEnvoyeeKey,
+                              Labels.permissionSuccessKey,
+                              Labels.afficherMesDemandesKey, () {
                             Get.back();
                             Constant.goToNextPage(
                                 context, Routes.permissionsScreenRoute);
@@ -453,8 +453,8 @@ class PeriodPermissions extends StatelessWidget {
                                   .copyWith(
                                       onPrimary: accentColor,
                                       primaryContainer: accentColor,
-                                      primary: Colors.white,
-                                      secondary: secondaryColor,
+                                      primary: primaryColor,
+                                      secondary: blackColor,
                                       onSecondary: accentColor)),
                           child: child!,
                         );
@@ -468,7 +468,7 @@ class PeriodPermissions extends StatelessWidget {
 
                     if (startDate != null) {
                       firstDate.value = startDate;
-                      debugPrint('fdate---$startDate');
+                      debugPrint('fstartDate---$startDate');
                     }
                   }),
               firstDate),
@@ -488,8 +488,9 @@ class PeriodPermissions extends StatelessWidget {
                                   .copyWith(
                                       onPrimary: accentColor,
                                       primaryContainer: accentColor,
-                                      primary: Colors.white,
-                                      secondary: Colors.black,
+                                      primary: primaryColor,
+                                      secondary: blackColor,
+                                      secondaryContainer: blackColor,
                                       onSecondary: accentColor)),
                           child: child!,
                         );
@@ -503,7 +504,7 @@ class PeriodPermissions extends StatelessWidget {
 
                     if (endDate != null) {
                       lastDate.value = endDate;
-                      debugPrint('fdate---$endDate');
+                      debugPrint('fendDate---$endDate');
                     }
                   }),
               lastDate),

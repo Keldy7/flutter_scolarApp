@@ -14,7 +14,7 @@ class Labels {
   static String passwordKey = "Mot de passe";
   static String confirmPasswordKey = "Confirmer le mot de passe";
   static String forgetPasswordKey = "Mot de passe oublié ?";
-  
+
   static String getStartedKey = "Démarrer";
   static String continuerKey = "Continuer";
   static String suivantKey = "Suivant";
@@ -65,6 +65,21 @@ class Labels {
   static String permissionAccepteeKey = "Acceptée";
   static String permissionRefuseeKey = "Refusée";
   static String demanderPermissionKey = "Demander une permission scolaire";
+  static String demandeAbsenceScolaireKey = "Demande d'absence scolaire";
+  static String infosEnfantKey = "Informations sur l'enfant";
+  static String infosPermissionKey = "Informations sur la permission";
+  static String confirmPermissionKey = "Confirmer la soumission";
+  static String demandeEnvoyeeKey = "Demande envoyée !";
+  static String afficherMesDemandesKey = "Afficher mes demandes";
+  static String permissionSuccessKey =
+      "La permission d'absence scolaire de votre enfant a été envoyé avec succès!";
+  static String titrePermissionKey = "Titre de la permission";
+  static String descriptionPermissionKey = "Description de la permission";
+  static String periodePermissionKey = "Période de la permission";
+  static String decrirePermissionKey = "Decrivez la raison...";
+  static String startDatePermissionKey = "Date de début";
+  static String endDatePermissionKey = "Date de fin";
+  static String joindreFileKey = "Joindre un fichier";
 
 //Examens et compositions
   static String examsKey = "Examens et compositions";
@@ -92,14 +107,16 @@ class Labels {
   static String prenomsKey = "Prénoms";
   static String numTelephoneKey = "Numéro de téléphone";
   // static String adrMailKey = "Adresse mail";
-  
+
 //Réglages
   static String reglagesKey = "Réglages";
   static String changerPasswordKey = "Changer votre mot de passe";
   static String modifierPasswordKey = "Modifier votre mot de passe";
-  static String advicePasswordKey = "Entrer un mot de passe différent de vos \nprécedents sauvegardés.";
+  static String advicePasswordKey =
+      "Entrer un mot de passe différent de vos \nprécedents sauvegardés.";
   static String changedPasswordKey = "Changé !";
-  static String changeSuccessPasswordKey = "Votre mot de passe a été changé \navec succès !";
+  static String changeSuccessPasswordKey =
+      "Votre mot de passe a été changé \navec succès !";
   static String termsConditionsKey = "Termes & Conditions";
   static String politiqueConfidentialiteKey = "Politique de confidentialité";
   static String aboutUsKey = "À propos de nous";
