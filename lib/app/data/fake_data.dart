@@ -45,6 +45,10 @@ class FakeData {
         Images.saveSvg,
         Images.saveActiveSvg));
     bottomList.add(ModelBottomNav(
+        Labels.aProximiteKey,
+        Images.locationSvg,
+        Images.locationActiveSvg));
+    bottomList.add(ModelBottomNav(
         Labels.profilKey,
         Images.profileSvg,
         Images.userActiveSvg));

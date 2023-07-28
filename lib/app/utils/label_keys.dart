@@ -24,7 +24,7 @@ class Labels {
 
 //Options principales
   static String accueilKey = "Accueil";
-  static String aProximiteKey = "À proximié";
+  static String aProximiteKey = "À proximité";
   static String eventsKey = "Evènements";
   static String messagesKey = "Discussions";
   static String profilKey = "Profil";
