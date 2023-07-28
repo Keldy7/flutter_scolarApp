@@ -2,6 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
+import 'package:scolar_pay/app/utils/widget_utils.dart';
 
 class DeletedFileContainer extends StatelessWidget {
   final PlatformFile platformFile;
@@ -24,11 +25,7 @@ class DeletedFileContainer extends StatelessWidget {
             children: [
               SizedBox(
                 width: boxConstraints.maxWidth * (0.75),
-                child: Text(
-                  platformFile.name,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
+                child: getCustomFont(platformFile.name, 15, black40Color, 1)
               ),
               const Spacer(),
               IconButton(

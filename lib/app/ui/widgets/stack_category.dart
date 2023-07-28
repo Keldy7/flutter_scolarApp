@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
+import 'package:scolar_pay/app/utils/widget_utils.dart';
 
 class WikiCategory extends StatelessWidget {
   final IconData icon;
@@ -41,13 +42,8 @@ class WikiCategory extends StatelessWidget {
                 color: primaryColor,
               ),
               const SizedBox(height: 16.0),
-              Text(
-                label,
-                style: TextStyle(
-                  color: primaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
-              )
+              getCustomFont(label, 14, primaryColor, 1,
+                  fontWeight: FontWeight.bold)
             ],
           ),
         )

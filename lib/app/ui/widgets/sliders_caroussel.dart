@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
-import '../models/model_banner.dart';
 
+import '../models/model_banner.dart';
 import '../styles/colors.dart';
 import '../../utils/constant.dart';
 import '../../utils/widget_utils.dart';

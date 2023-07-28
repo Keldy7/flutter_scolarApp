@@ -62,6 +62,7 @@ class _ChildScreenState extends State<ChildScreen> {
                                   withCorners: true,
                                   corner: 20.h,
                                   withBorder: true,
+                                  widthBorder: 2,
                                   borderColor: secondaryColor,
                                   shadow: [
                                     const BoxShadow(

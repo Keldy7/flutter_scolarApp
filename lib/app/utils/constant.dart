@@ -1,13 +1,15 @@
 import 'dart:async';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'dart:ui' as ui;
 
-import 'package:scolar_pay/app/utils/size_config.dart';
+import 'size_config.dart';
+
+
 
 class Constant {
   static String assetImagePngPath = "assets/images/png/";

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
+import 'package:scolar_pay/app/utils/widget_utils.dart';
 
 import '../../utils/label_keys.dart';
 
@@ -55,14 +56,7 @@ class AddedFileContainer extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.sizeOf(context).width * (0.05),
                 ),
-                Text(
-                  Labels.selectionnerKey,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: black40Color,
-                  ),
-                )
+                getCustomFont(Labels.selectionnerKey, 15, black40Color, 1)
               ],
             ),
           ),

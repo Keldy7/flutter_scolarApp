@@ -43,11 +43,20 @@ class Labels {
   static String permissionsKey = "Permissions";
 
 //Enfant
-  static String academicYearKey = "Année scolaire";
   static String classeKey = "Classe";
-  static String ecoleKey = "École";
+  static String dateNaissanceKey = "Date de naissance";
   static String ageKey = "Âge";
-  static String adrMailKey = "Adresse mail";
+  static String matriculeKey = "Matricule";
+  static String infosEnfantKey = "Informations sur l'enfant";
+  static String infosNivoScolaireKey = "Informations sur le niveau scolaire";
+
+//École
+  static String ecoleKey = "École";
+  static String paysKey = "Pays";
+  static String villeKey = "Ville";
+  static String adrGeoKey = "Adresse géographique";
+  static String academicYearKey = "Année scolaire";
+  static String infosEcoleKey = "Informations sur l'établissement";
 
 //Ponctualité
   static String ponctualiteKey = "Ponctualité";
@@ -66,7 +75,6 @@ class Labels {
   static String permissionRefuseeKey = "Refusée";
   static String demanderPermissionKey = "Demander une permission scolaire";
   static String demandeAbsenceScolaireKey = "Demande d'absence scolaire";
-  static String infosEnfantKey = "Informations sur l'enfant";
   static String infosPermissionKey = "Informations sur la permission";
   static String confirmPermissionKey = "Confirmer la soumission";
   static String demandeEnvoyeeKey = "Demande envoyée !";
@@ -99,12 +107,14 @@ class Labels {
   static String submitKey = "Soumettre";
   static String validerKey = "Valider";
   static String annulerKey = "Annuler";
+
 //Profil
   static String monProfilKey = "Mon profil";
   static String saveProfilKey = "Enregistrer les modifications";
   static String editProfilKey = "Modifier mon profil";
   static String nomKey = "Nom de famille";
   static String prenomsKey = "Prénoms";
+  static String adrMailKey = "Adresse mail";
   static String numTelephoneKey = "Numéro de téléphone";
   // static String adrMailKey = "Adresse mail";
 

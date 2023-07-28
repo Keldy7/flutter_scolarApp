@@ -183,14 +183,14 @@ Widget getMultilineCustomFont(String text, double fontSize, Color fontColor,
   return Text(
     text,
     style: TextStyle(
-        decoration: decoration,
-        fontSize: fontSize.sp,
-        fontStyle: (!isItalic) ? FontStyle.normal : FontStyle.italic,
-        color: fontColor,
-        fontFamily: Constant.fontsFamily,
-        height: txtHeight,
-        fontWeight: fontWeight,
-        ),
+      decoration: decoration,
+      fontSize: fontSize.sp,
+      fontStyle: (!isItalic) ? FontStyle.normal : FontStyle.italic,
+      color: fontColor,
+      fontFamily: Constant.fontsFamily,
+      height: txtHeight,
+      fontWeight: fontWeight,
+    ),
     textAlign: textAlign,
   );
 }
@@ -301,6 +301,7 @@ ShapeDecoration getButtonDecoration(Color bgColor,
     Color borderColor = Colors.transparent,
     bool withCorners = true,
     double corner = 0,
+    double widthBorder = 1,
     double cornerSmoothing = 1.1,
     List<BoxShadow> shadow = const []}) {
   return ShapeDecoration(
@@ -308,7 +309,8 @@ ShapeDecoration getButtonDecoration(Color bgColor,
       shadows: shadow,
       shape: SmoothRectangleBorder(
           side: BorderSide(
-              width: 1, color: (withBorder) ? borderColor : transparentColor),
+              width: widthBorder,
+              color: (withBorder) ? borderColor : transparentColor),
           borderRadius: SmoothBorderRadius(
               cornerRadius: (withCorners) ? corner : 0,
               cornerSmoothing: (withCorners) ? cornerSmoothing : 0)));
@@ -827,6 +829,24 @@ Widget getDefaultContainerView(BuildContext context, Widget childView,
   );
 }
 
+Container getBorderedContainer(BuildContext context, double innerWidth, Widget childColumn) {
+  return Container(
+      width: innerWidth,
+      decoration: getButtonDecoration(getCardColor(context),
+          withCorners: true,
+          corner: 20.h,
+          withBorder: true,
+          widthBorder: 2,
+          borderColor: secondaryColor,
+          shadow: [
+            const BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.07999999821186066),
+                offset: Offset(-4, 5),
+                blurRadius: 16)
+          ]),
+      child: childColumn.paddingSymmetric(vertical: 10));
+}
+
 showGetDialog(
   BuildContext context,
   String img,
@@ -1080,8 +1100,7 @@ Widget getDefaultUnderlineTextFiled(
               borderRadius: BorderRadius.all(Radius.circular(20.h))),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-                color:
-                    (isFilled) ? transparentColor : getAccentColor(context),
+                color: (isFilled) ? transparentColor : getAccentColor(context),
                 width: 2.h),
           ),
           labelText: s,
@@ -1089,7 +1108,7 @@ Widget getDefaultUnderlineTextFiled(
               fontFamily: Constant.fontsFamily,
               color: getFontHint(context),
               fontWeight: FontWeight.w400,
-              fontSize: 16.sp)),
+              fontSize: 20.sp)),
     ).marginSymmetric(
         horizontal:
             (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0),
