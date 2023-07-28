@@ -6,6 +6,7 @@ import 'package:scolar_pay/app/ui/screens/child/edit_child_screen.dart';
 import 'package:scolar_pay/app/ui/screens/exams/details_exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/exams/exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
+import 'package:scolar_pay/app/ui/screens/settings/help_center.dart';
 import 'app/ui/controllers/home_controller.dart';
 import 'app/ui/screens/attendance/attendance_screen.dart';
 import 'app/ui/screens/child/children_screen.dart';
@@ -84,6 +85,7 @@ class MyApp extends StatelessWidget {
         // selectLocationRoute: (context) => SelectLocation(),
         // selectOtherLocationRoute: (context) => SelectOtherLocation(),
         // chatScreenRoute: (context) => ChatScreen(),
+        Routes.helpCenterScreenRoute: (context) => const HelpCenterScreen(),
         Routes.examsScreenRoute: (context) => const ExamenScreen(),
         Routes.examsDetailScreenRoute: (context) => const DetailExamsScreen(),
         Routes.myProfileScreenRoute: (context) => const MyProfileScreen(),

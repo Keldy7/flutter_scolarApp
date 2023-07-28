@@ -76,6 +76,7 @@ class Images {
   static const saveSvg ='save';
   static const searchSvg ='search';
   static const sendSvg ='send';
+  static const settingsSvg ='settings';
   static const splashLogoSvg ='splash_logo';
   static const starSvg ='star';
   static const takeAttendanceSvg ='take_attendance';
@@ -83,6 +84,7 @@ class Images {
   static const topicsSvg ='topics';
   static const trashSvg ='trash';
   static const userActiveSvg ='user_active';
+  static const userProRollNoIconSvg ='user_pro_roll_no_icon';
   
 }
    

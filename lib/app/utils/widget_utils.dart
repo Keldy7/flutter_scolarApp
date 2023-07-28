@@ -1848,7 +1848,7 @@ Widget buildButtonBookNow(BuildContext context, Function function) {
 }
 
 Widget getProfileRowContainer(
-    BuildContext context, Function function, String text) {
+    BuildContext context, Function function, String text,) {
   return InkWell(
     onTap: () {
       function();
