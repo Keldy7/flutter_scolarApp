@@ -158,7 +158,7 @@ class _ChildScreenState extends State<ChildScreen> {
                               right: 0,
                               child: Center(
                                 child: Container(
-                                  child: getAssetImage(context, Images.boyPng,
+                                  child: getAssetImage(context, Images.girlPng,
                                       innerWidth * 0.45, innerHeight * 0.5),
                                 ),
                               )),

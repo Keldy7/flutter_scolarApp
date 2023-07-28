@@ -829,7 +829,8 @@ Widget getDefaultContainerView(BuildContext context, Widget childView,
   );
 }
 
-Container getBorderedContainer(BuildContext context, double innerWidth, Widget childColumn) {
+Container getBorderedContainer(
+    BuildContext context, double innerWidth, Widget childColumn) {
   return Container(
       width: innerWidth,
       decoration: getButtonDecoration(getCardColor(context),
@@ -1873,6 +1874,8 @@ Widget getProfileRowContainer(
           vertical: 10.h),
       child: Row(
         children: [
+          getSvgImage(context, Images.starSvg, 16),
+          12.w.horizontalSpace,
           Expanded(
               child: getCustomFont(text, 16, getFontColor(context), 1,
                   fontWeight: FontWeight.w500)),

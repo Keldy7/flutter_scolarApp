@@ -125,7 +125,7 @@ class Labels {
   // static String adrMailKey = "Adresse mail";
 
 //Réglages
-  static String reglagesKey = "Réglages";
+  static String reglagesKey = "Paramètres";
   static String changerPasswordKey = "Changer votre mot de passe";
   static String modifierPasswordKey = "Modifier votre mot de passe";
   static String advicePasswordKey =
@@ -137,6 +137,11 @@ class Labels {
   static String politiqueConfidentialiteKey = "Politique de confidentialité";
   static String aboutUsKey = "À propos de nous";
   static String agreeWithKey = "J'accepte les";
+
+//Centre d'aide
+  static String helpCenterKey = "Centre d'aide";
+  static String faqKey = "FAQ";
+  static String contactUsKey = "Contacter nous";
 
 //Chat
   static String enLigneKey = "En ligne";

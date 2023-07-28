@@ -8,6 +8,7 @@ import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
 import '../../controllers/bottom_selection_controller.dart';
 import '../../controllers/home_controller.dart';
+import '../../controllers/value_selection_controller.dart';
 import '../../styles/colors.dart';
 import '../../widgets/custom_child_identity_bloc.dart';
 
@@ -21,7 +22,9 @@ class ChildrenScreen extends StatefulWidget {
 class _ChildrenScreenState extends State<ChildrenScreen> {
   @override
   Widget build(BuildContext context) {
-    return getScreenDetailDefaultView(context, Labels.mesEnfantsKey, () {
+    var selectionController = Get.find<ValueSelectionController>();
+
+    return getScreenDetailDefaultView(context, selectionController.selectedTitle.value, () {
       var controller = Get.find<HomeController>();
       var bottomNavController = Get.find<BottomItemSelectionController>();
       bottomNavController.changePos(0);

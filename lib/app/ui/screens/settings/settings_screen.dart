@@ -10,7 +10,6 @@ import '../../../utils/widget_utils.dart';
 import '../../controllers/home_controller.dart';
 
 class SettingScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Constant.setupSize(context);
@@ -39,7 +38,8 @@ class SettingScreen extends StatelessWidget {
                   );
                 }, Labels.politiqueConfidentialiteKey),
                 getProfileRowContainer(context, () {
-                  Constant.goToNextPage(context, Routes.notificationScreenRoute);
+                  Constant.goToNextPage(
+                      context, Routes.notificationScreenRoute);
                 }, Labels.notificationsKey),
                 getProfileRowContainer(context, () async {
                   await launchUrl(
@@ -47,6 +47,10 @@ class SettingScreen extends StatelessWidget {
                     mode: LaunchMode.externalApplication,
                   );
                 }, Labels.aboutUsKey),
+                getProfileRowContainer(context, () {
+                  Constant.goToNextPage(
+                      context, Routes.helpCenterScreenRoute);
+                }, Labels.helpCenterKey),
               ],
             )),
           ],

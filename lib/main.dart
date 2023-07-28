@@ -17,13 +17,13 @@ import 'app/ui/screens/login/login_screen.dart';
 // import 'app/ui/screens/login/phone_number_screen.dart';
 import 'app/ui/screens/login/registration_screen.dart';
 import 'app/ui/screens/login/reset_password_screen.dart';
-import 'app/ui/screens/login/termn_condition_screen.dart';
+import 'app/ui/screens/settings/termn_condition_screen.dart';
 import 'app/ui/screens/login/verification_screen.dart';
 import 'app/ui/screens/permission/add_permission_screen.dart';
 import 'app/ui/screens/permission/filter_screen.dart';
 import 'app/ui/screens/profile/edit_profile.dart';
 import 'app/ui/screens/profile/my_profile_screen.dart';
-import 'app/ui/screens/profile/settings_screen.dart';
+import 'app/ui/screens/settings/settings_screen.dart';
 import 'app/utils/custom_scroll_behavior.dart';
 import 'app/utils/routes.dart';
 import 'app/utils/label_keys.dart';
@@ -64,8 +64,8 @@ class MyApp extends StatelessWidget {
         Routes.resetPassRoute: (context) => ResetPasswordScreen(),
         Routes.registrationRoute: (context) => const RegistrationScreen(),
         // Routes.phoneNumberRoute: (context) => const PhoneNumberScreen(),
-        Routes.verificationScreenRoute: (context) => VerificationScreen(),
-        Routes.termNCondition: (context) => TermsNCondition(),
+        Routes.verificationScreenRoute: (context) => const VerificationScreen(),
+        Routes.termNCondition: (context) => const TermsNCondition(),
         Routes.homeScreenRoute: (context) => const HomeScreen(),
         // categoryScreenRoute: (context) => CategoryList(),
         Routes.attendanceScreenRoute: (context) => const AttendanceScreen(),
@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
         // chatScreenRoute: (context) => ChatScreen(),
         Routes.examsScreenRoute: (context) => const ExamenScreen(),
         Routes.examsDetailScreenRoute: (context) => const DetailExamsScreen(),
-        Routes.myProfileScreenRoute: (context) => MyProfileScreen(),
+        Routes.myProfileScreenRoute: (context) => const MyProfileScreen(),
         Routes.editProfileRoute: (context) => EditProfile(),
         Routes.settingScreenRoute: (context) => SettingScreen(),
         // Routes.notificationScreenRoute: (context) => NotificationScreen(),

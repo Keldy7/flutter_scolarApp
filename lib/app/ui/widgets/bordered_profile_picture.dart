@@ -45,7 +45,7 @@ class BorderedProfilePicture extends StatelessWidget {
           image: imageUrl != null
               ? DecorationImage(
                   image: AssetImage(Constant.getImagePngPath(
-                      Images.girlPng)))
+                      Images.boyPng)))
               : DecorationImage(
                   image: AssetImage(Constant.getImagePngPath(Images.boyPng))),
         )),

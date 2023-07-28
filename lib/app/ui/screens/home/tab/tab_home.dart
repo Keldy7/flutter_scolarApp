@@ -10,6 +10,7 @@ import '../../../../utils/constant.dart';
 import '../../../../utils/image_keys.dart';
 import '../../../../utils/routes.dart';
 import '../../../../utils/widget_utils.dart';
+import '../../../controllers/value_selection_controller.dart';
 import '../../../models/model_banner.dart';
 import '../../../widgets/sliders_caroussel.dart';
 
@@ -46,8 +47,7 @@ class _TabHomeState extends State<TabHome> {
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 ImageIcon(
-                  AssetImage(Constant.getImagePngPath(
-                      Images.boyPng)),
+                  AssetImage(Constant.getImagePngPath(Images.boyPng)),
                   size: 28,
                   color: primaryColor,
                 ),
@@ -76,6 +76,14 @@ class _TabHomeState extends State<TabHome> {
   }
 
   Align _buildBodyContent(BuildContext context, RxInt sliderPos) {
+    var selectionController = Get.find<ValueSelectionController>();
+    double horSpace = Constant.getDefaultHorSpaceFigma(context);
+    final List<String> nearestSalonList = [
+      Images.intro3Png,
+      Images.intro4Png,
+      Images.intro1Png
+    ];
+
     return Align(
       alignment: Alignment.topCenter,
       child: Column(
@@ -102,7 +110,122 @@ class _TabHomeState extends State<TabHome> {
                                 context, bannerList.length, sliderPos.value)),
                         sliderPos),
                     20.h.verticalSpace,
+                    buildSeeAllView(context, "Near by beauty salon", () {
+                      selectionController
+                          .setSelectedTitle("Near by beauty salon");
+                      // Constant.goToNextPage(context, Routes.);
+                    }),
+                    SizedBox(
+                      height: 292.w,
+                      child: ListView.builder(
+                        itemCount: nearestSalonList.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            padding: EdgeInsets.all(10.w),
+                            margin: EdgeInsets.only(
+                                left: (index == 0) ? horSpace : 6.w,
+                                right: (index == nearestSalonList.length - 1)
+                                    ? horSpace
+                                    : 6.w,
+                                top: 20.w,
+                                bottom: 20.w),
+                            width: 278.w,
+                            decoration: getButtonDecoration(
+                                getCardColor(context),
+                                withCorners: true,
+                                corner: 20.w,
+                                shadow: [
+                                  const BoxShadow(
+                                      color: Color.fromRGBO(
+                                          0, 0, 0, 0.07999999821186066),
+                                      offset: Offset(-4, 5),
+                                      blurRadius: 16)
+                                ]),
+                            height: double.infinity,
+                            child: InkWell(
+                              onTap: () {
+                                Constant.goToNextPage(
+                                    context, Routes.attendanceScreenRoute);
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Stack(
+                                      children: [
+                                        getCircularImage(
+                                            context,
+                                            double.infinity,
+                                            double.infinity,
+                                            20.w,
+                                            nearestSalonList[index],
+                                            boxFit: BoxFit.cover),
+                                        Align(
+                                          alignment: Alignment.topRight,
+                                          child: buildFavouriteBtn(
+                                              EdgeInsets.all(10.w)),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  10.w.verticalSpace,
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: getCustomFont(
+                                            "Royalty  barbershop",
+                                            16,
+                                            getFontColor(context),
+                                            1,
+                                            fontWeight: FontWeight.w700),
+                                      ),
+                                      getSvgImageWithSize(
+                                          context, Images.starSvg, 17.w, 17.w,
+                                          fit: BoxFit.fill),
+                                      6.w.horizontalSpace,
+                                      getCustomFont(
+                                          "4.9", 14, getAccentColor(context), 1,
+                                          fontWeight: FontWeight.w400,
+                                          txtHeight: 1.5),
+                                    ],
+                                  ),
+                                  10.w.verticalSpace,
+                                  buildLocationRow(
+                                      context,
+                                      "8502 Preston Rd. Inglewood, Maine",
+                                      getFontGreyColor(context)),
+                                  // 10.w.verticalSpace,
+                                  // Row(
+                                  //   children: [
+                                  //     getSvgImageWithSize(context,
+                                  //         Images.distanceSvg, 17.w, 17.w,
+                                  //         fit: BoxFit.fill,
+                                  //         color: getAccentColor(context)),
+                                  //     6.w.horizontalSpace,
+                                  //     Expanded(
+                                  //       flex: 1,
+                                  //       child: getCustomFont("20 m", 14,
+                                  //           getAccentColor(context), 1,
+                                  //           fontWeight: FontWeight.w400),
+                                  //     ),
+                                  //     buildButtonBookNow(context, () {})
+                                  //   ],
+                                  // ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                        scrollDirection: Axis.horizontal,
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                      ),
+                    ),
+                    20.h.verticalSpace,
                     buildSeeAllView(context, Labels.mesEnfantsKey, () {
+                      selectionController
+                          .setSelectedTitle(Labels.mesEnfantsKey);
                       Constant.goToNextPage(
                           context, Routes.childrenScreenRoute);
                     }),
@@ -120,7 +243,8 @@ class _TabHomeState extends State<TabHome> {
                                 width: boxConstraints.maxWidth * (0.45)),
                           ]);
                     }).paddingSymmetric(
-                        horizontal: Constant.getDefaultHorSpaceFigma(context))
+                        horizontal: Constant.getDefaultHorSpaceFigma(context)),
+                    10.w.verticalSpace,
                   ],
                 ),
                 padding: EdgeInsets.only(bottom: 104.h)),
@@ -138,9 +262,7 @@ List<Widget> indicators(BuildContext context, imagesLength, currentIndex) {
       width: 8.w,
       height: 8.w,
       decoration: BoxDecoration(
-          color: currentIndex == index
-              ? secondaryColor
-              : lightOrangeColor,
+          color: currentIndex == index ? secondaryColor : lightOrangeColor,
           shape: BoxShape.circle),
     );
   });

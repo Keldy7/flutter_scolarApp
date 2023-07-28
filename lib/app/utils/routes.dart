@@ -35,6 +35,7 @@ class Routes {
   static String myProfileScreenRoute = "keyMyProfileScreenRoute";
   static String editProfileRoute = "keyEditProfileRoute";
   static String settingScreenRoute = "keySettingScreenRoute";
+  static String helpCenterScreenRoute = "keyHelpCenterScreenRoute";
   static String notificationScreenRoute = "keyNotificationScreenRoute";
 
 }
