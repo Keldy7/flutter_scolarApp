@@ -20,7 +20,8 @@ class Routes {
   static String filterScreenRoute = "keyFilterScreenRoute";
   static String permissionsScreenRoute = "keyPermissionScreenRoute";
   static String addPermissionsScreenRoute = "keyAddPermissionScreenRoute";
-  static String salonDetailScreenRoute = "keySalonDetailScreenRoute";
+  static String ecoleDetailScreenRoute = "keyEcoleDetailScreenRoute";
+  static String childrenScreenRoute = "keyChildrenScreenRoute";
   static String childScreenRoute = "keyChildScreenRoute";
   static String editChildScreenRoute = "keyEditChildScreenRoute";
   static String serviceListRoute = "keyServiceListScreenRoute";

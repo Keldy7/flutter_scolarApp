@@ -8,6 +8,7 @@ import 'package:scolar_pay/app/ui/screens/exams/exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
 import 'app/ui/controllers/home_controller.dart';
 import 'app/ui/screens/attendance/attendance_screen.dart';
+import 'app/ui/screens/child/children_screen.dart';
 import 'app/ui/screens/home/home_screen.dart';
 import 'app/ui/screens/intro/intro_screen.dart';
 import 'app/ui/screens/intro/splash_screen.dart';
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
         Routes.attendanceScreenRoute: (context) => const AttendanceScreen(),
         // searchScreenRoute: (context) => SearchScreen(),
         Routes.filterScreenRoute: (context) => FilterScreen(),
+        Routes.childrenScreenRoute: (context) => const ChildrenScreen(),
         Routes.childScreenRoute: (context) => const ChildScreen(),
         Routes.editChildScreenRoute: (context) => const EditChildScreen(),
         Routes.permissionsScreenRoute: (context) => const PermissionScreen(),

@@ -75,7 +75,7 @@ class _HomeScreen extends State<HomeScreen> {
                       controller.changePos(p0);
                     },
                     currentIndex: controller.bottomBarSelectedItem.value,
-                    selectedItemColor: getAccentColor(context),
+                    selectedItemColor: secondaryColor,
                     selectedColorOpacity: 1,
                     unselectedItemColor: getFontBlackColor(context),
                     itemShape: RoundedRectangleBorder(

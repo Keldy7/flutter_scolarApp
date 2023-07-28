@@ -47,8 +47,13 @@ class Labels {
   static String dateNaissanceKey = "Date de naissance";
   static String ageKey = "Âge";
   static String matriculeKey = "Matricule";
+  static String pereKey = "Père";
+  static String mereKey = "Mère";
   static String infosEnfantKey = "Informations sur l'enfant";
   static String infosNivoScolaireKey = "Informations sur le niveau scolaire";
+  static String infosParentsKey = "Informations sur les parents";
+  static String addEnfantKey = "Ajouter mon enfant";
+  static String saveModificationKey = "Enregistrer les modifications";
 
 //École
   static String ecoleKey = "École";
@@ -56,6 +61,7 @@ class Labels {
   static String villeKey = "Ville";
   static String adrGeoKey = "Adresse géographique";
   static String academicYearKey = "Année scolaire";
+  static String phoneKey = "Contact télephonique";
   static String infosEcoleKey = "Informations sur l'établissement";
 
 //Ponctualité

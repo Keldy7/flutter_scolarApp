@@ -104,7 +104,7 @@ class _TabHomeState extends State<TabHome> {
                     20.h.verticalSpace,
                     buildSeeAllView(context, Labels.mesEnfantsKey, () {
                       Constant.goToNextPage(
-                          context, Routes.categoryScreenRoute);
+                          context, Routes.childrenScreenRoute);
                     }),
                     20.w.verticalSpace,
                     LayoutBuilder(builder: (context, boxConstraints) {
@@ -112,6 +112,8 @@ class _TabHomeState extends State<TabHome> {
                           spacing: boxConstraints.maxWidth * (0.1),
                           runSpacing: 32.5,
                           children: [
+                            CustomChildIdentityBloc(
+                                width: boxConstraints.maxWidth * (0.45)),
                             CustomChildIdentityBloc(
                                 width: boxConstraints.maxWidth * (0.45)),
                             CustomChildIdentityBloc(
@@ -137,8 +139,8 @@ List<Widget> indicators(BuildContext context, imagesLength, currentIndex) {
       height: 8.w,
       decoration: BoxDecoration(
           color: currentIndex == index
-              ? getAccentColor(context)
-              : lightAccentColor,
+              ? secondaryColor
+              : lightOrangeColor,
           shape: BoxShape.circle),
     );
   });

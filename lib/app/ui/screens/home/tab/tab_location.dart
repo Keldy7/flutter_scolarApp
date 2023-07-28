@@ -28,73 +28,77 @@ class TabLocation extends StatelessWidget {
                 color: primaryColor,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(22.r)),
               ),
-              child: ListView.builder(
-                controller: myscrollController,
-                itemCount: 7,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: Constant.getDefaultHorSpaceFigma(context),
-                        vertical: 10.h),
-                    decoration: getButtonDecoration(getCardColor(context),
-                        withCorners: true,
-                        corner: 20.h,
-                        shadow: [
-                          const BoxShadow(
-                              color:
-                                  Color.fromRGBO(0, 0, 0, 0.07999999821186066),
-                              offset: Offset(-4, 5),
-                              blurRadius: 16)
-                        ]),
-                    width: double.infinity,
-                    height: 100.h,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
-                    child: InkWell(
-                      onTap: () {
-                        Constant.goToNextPage(
-                            context, Routes.salonDetailScreenRoute);
-                      },
-                      child: Row(
-                        children: [
-                          getCircularImage(context, 80.h, double.infinity, 20.h,
-                              Images.banner3Png,
-                              boxFit: BoxFit.cover),
-                          12.w.horizontalSpace,
-                          Expanded(
-                            flex: 1,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                getCustomFont(
-                                  "Nom école",
-                                  18,
-                                  getFontColor(context),
-                                  1,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                                6.h.verticalSpace,
-                                buildLocationRow(
-                                    context,
-                                    "2103 Cocody Route ZONE.  Abidjan 6134",
-                                    getFontGreyColor(context)),
-                                6.h.verticalSpace,
-                                Row(
-                                  children: [
-                                    buildStarView(context, "4.9"),
-                                    10.w.horizontalSpace,
-                                    buildDistanceView(context, "50 m"),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
+              child: MediaQuery.removePadding(
+                context: context,
+                removeTop: true,
+                child: ListView.builder(
+                  controller: myscrollController,
+                  itemCount: 5,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: EdgeInsets.symmetric(
+                          horizontal: Constant.getDefaultHorSpaceFigma(context),
+                          vertical: 10.h),
+                      decoration: getButtonDecoration(getCardColor(context),
+                          withCorners: true,
+                          corner: 20.h,
+                          shadow: [
+                            const BoxShadow(
+                                color:
+                                    Color.fromRGBO(0, 0, 0, 0.07999999821186066),
+                                offset: Offset(-4, 5),
+                                blurRadius: 16)
+                          ]),
+                      width: double.infinity,
+                      height: 100.h,
+                      padding:
+                          EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+                      child: InkWell(
+                        onTap: () {
+                          Constant.goToNextPage(
+                              context, Routes.ecoleDetailScreenRoute);
+                        },
+                        child: Row(
+                          children: [
+                            getCircularImage(context, 80.h, double.infinity, 20.h,
+                                Images.banner3Png,
+                                boxFit: BoxFit.cover),
+                            12.w.horizontalSpace,
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  getCustomFont(
+                                    "Nom école",
+                                    18,
+                                    getFontColor(context),
+                                    1,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  6.h.verticalSpace,
+                                  buildLocationRow(
+                                      context,
+                                      "2103 Cocody Route ZONE.  Abidjan 6134",
+                                      getFontGreyColor(context)),
+                                  6.h.verticalSpace,
+                                  Row(
+                                    children: [
+                                      buildStarView(context, "4.9"),
+                                      10.w.horizontalSpace,
+                                      buildDistanceView(context, "50 m"),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             );
           },
