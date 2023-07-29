@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scolar_pay/app/ui/models/model_options_contact_us.dart';
 import 'package:scolar_pay/app/utils/label_keys.dart';
 
+import '../../../data/fake_data.dart';
 import '../../../utils/constant.dart';
 import '../../../utils/widget_utils.dart';
 
@@ -16,6 +18,10 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
   final List<String> tabList = [
     Labels.faqKey,
     Labels.contactUsKey,
+  ];
+  final List<Widget> tabDetail = [
+    ContactUs(),
+    ContactUs(),
   ];
 
   @override
@@ -33,6 +39,8 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
                   Column(
                     children: [
                       buildTabView(tabList, context, selectedTab),
+                      ObxValue(
+                          (p0) => tabDetail[selectedTab.value], selectedTab)
                     ],
                   ),
                 ],
@@ -40,5 +48,23 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
             ),
           ],
         ));
+  }
+}
+
+// ignore: must_be_immutable
+class ContactUs extends StatelessWidget {
+  ContactUs({super.key});
+
+  List<ModelOptions> allOptionsList = FakeData.getAllOptionsList();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: List.generate(allOptionsList.length, (int index) {
+        ModelOptions allOptions = allOptionsList[index];
+        return getProfileRowContainer(context, () {}, allOptions.title,
+            iconName: allOptions.icon);
+      }),
+    );
   }
 }

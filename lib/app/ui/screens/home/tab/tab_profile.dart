@@ -9,7 +9,6 @@ import '../../../../utils/constant.dart';
 import '../../../../utils/image_keys.dart';
 import '../../../../utils/routes.dart';
 import '../../../../utils/widget_utils.dart';
-import '../../../controllers/bottom_selection_controller.dart';
 import '../../../controllers/image_controller.dart';
 import '../../../controllers/storage.dart';
 import '../../../styles/colors.dart';
@@ -53,16 +52,13 @@ class TabProfile extends StatelessWidget {
                   30.h.verticalSpace,
                   getProfileRowContainer(context, () {
                     Constant.goToNextPage(context, Routes.myProfileScreenRoute);
-                  }, Labels.monProfilKey),
+                  }, Labels.monProfilKey, iconName: Icons.manage_accounts_rounded),
                   getProfileRowContainer(context, () {
-                    final controller =
-                        Get.find<BottomItemSelectionController>();
-                    controller.bottomBarSelectedItem.value = 2;
-                    Constant.goToNextPage(context, Routes.homeScreenRoute);
-                  }, Labels.mesPermissionsKey),
+                    Constant.goToNextPage(context, Routes.permissionsScreenRoute);
+                  }, Labels.mesPermissionsKey, iconName: Icons.compare_arrows_outlined),
                   getProfileRowContainer(context, () {
                     Constant.goToNextPage(context, Routes.settingScreenRoute);
-                  }, Labels.reglagesKey),
+                  }, Labels.reglagesKey, iconName: Icons.settings),
                 ],
               ),
             ),

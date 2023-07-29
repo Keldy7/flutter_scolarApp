@@ -33,6 +33,7 @@ class Images {
 
 
   //SVG
+  static const accountSvg ='account';
   static const addImgSvg ='add_img';
   static const arrowBottomSvg ='arrow_bottom';
   static const arrowDownSvg ='arrow_down';
@@ -62,9 +63,10 @@ class Images {
   static const jpsSvg ='jps';
   static const locationActiveSvg ='location_active';
   static const locationSvg ='location';
+  static const passwordSvg ='pass';
   static const mailSvg ='mail';
   static const mailIconSvg ='mail_icon';
-  static const passwordSvg ='pass';
+  static const noticeBoardSvg ='notice_board';
   static const profileSvg ='profile';
   static const radioCheckedSvg ='radio_checked';
   static const radioUncheckedSvg ='radio_unchecked';

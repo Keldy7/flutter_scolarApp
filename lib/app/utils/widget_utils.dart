@@ -1848,7 +1848,8 @@ Widget buildButtonBookNow(BuildContext context, Function function) {
 }
 
 Widget getProfileRowContainer(
-    BuildContext context, Function function, String text,) {
+    BuildContext context, Function function, String text,
+    {IconData iconName = Icons.pages}) {
   return InkWell(
     onTap: () {
       function();
@@ -1874,7 +1875,9 @@ Widget getProfileRowContainer(
           vertical: 10.h),
       child: Row(
         children: [
-          getSvgImage(context, Images.starSvg, 16),
+          // getSvgImage(
+          //     context, nameSvg, 16, color: secondaryColor),
+          Icon(iconName, color: secondaryColor, size: 20),
           12.w.horizontalSpace,
           Expanded(
               child: getCustomFont(text, 16, getFontColor(context), 1,

@@ -7,6 +7,7 @@ import 'package:scolar_pay/app/ui/screens/exams/details_exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/exams/exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
 import 'package:scolar_pay/app/ui/screens/settings/help_center.dart';
+
 import 'app/ui/controllers/home_controller.dart';
 import 'app/ui/screens/attendance/attendance_screen.dart';
 import 'app/ui/screens/child/children_screen.dart';
@@ -18,6 +19,7 @@ import 'app/ui/screens/login/login_screen.dart';
 // import 'app/ui/screens/login/phone_number_screen.dart';
 import 'app/ui/screens/login/registration_screen.dart';
 import 'app/ui/screens/login/reset_password_screen.dart';
+import 'app/ui/screens/profile/notification_screen.dart';
 import 'app/ui/screens/settings/termn_condition_screen.dart';
 import 'app/ui/screens/login/verification_screen.dart';
 import 'app/ui/screens/permission/add_permission_screen.dart';
@@ -90,8 +92,8 @@ class MyApp extends StatelessWidget {
         Routes.examsDetailScreenRoute: (context) => const DetailExamsScreen(),
         Routes.myProfileScreenRoute: (context) => const MyProfileScreen(),
         Routes.editProfileRoute: (context) => EditProfile(),
-        Routes.settingScreenRoute: (context) => SettingScreen(),
-        // Routes.notificationScreenRoute: (context) => NotificationScreen(),
+        Routes.settingScreenRoute: (context) => const SettingScreen(),
+        Routes.notificationScreenRoute: (context) => NotificationScreen(),
         // "/": (context) => controller.isLogin ? const HomeScreen() : SplashScreen()
       },
     );

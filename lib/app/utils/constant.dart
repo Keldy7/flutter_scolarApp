@@ -6,10 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'size_config.dart';
-
-
 
 class Constant {
   static String assetImagePngPath = "assets/images/png/";
@@ -193,6 +192,14 @@ class Constant {
 
   static formatTime(Duration d) =>
       d.toString().split('.').first.padLeft(8, "0");
+
+  static Future<bool> shareApp(String urlLink) {
+      return launchUrl(
+        Uri.parse(urlLink),
+        mode: LaunchMode.externalApplication,
+      );
+    
+  }
 
   static closeApp() {
     Future.delayed(const Duration(milliseconds: 1000), () {

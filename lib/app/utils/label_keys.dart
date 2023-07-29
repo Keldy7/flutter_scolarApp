@@ -137,11 +137,16 @@ class Labels {
   static String politiqueConfidentialiteKey = "Politique de confidentialité";
   static String aboutUsKey = "À propos de nous";
   static String agreeWithKey = "J'accepte les";
+  static String shareAppKey = "Partager l'application";
 
 //Centre d'aide
   static String helpCenterKey = "Centre d'aide";
   static String faqKey = "FAQ";
   static String contactUsKey = "Contacter nous";
+  static String serviceClientKey = "Service client";
+  static String whatsappKey = "WhatsApp";
+  static String facebookKey = "Facebook";
+  static String websiteKey = "Site web";
 
 //Chat
   static String enLigneKey = "En ligne";

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:scolar_pay/app/utils/image_keys.dart';
 
 import '../../../utils/constant.dart';
 import '../../../utils/label_keys.dart';
@@ -10,6 +11,8 @@ import '../../styles/colors.dart';
 
 class NotificationScreen extends StatelessWidget {
   final List<String> notifications = ['', '', '', '', '', '', '', ''];
+
+  NotificationScreen({super.key});
 
   // final List<ModelNotifications> notificationList =
   //     DataFile.getAllNotificationList();
@@ -107,7 +110,7 @@ Wrap buildNoNotificationWidget(BuildContext context) {
     runAlignment: WrapAlignment.center,
     direction: Axis.vertical,
     children: [
-      getAssetImage(context, "no_notification_img.png", 173.w, 128.h,
+      getAssetImage(context, Images.noNotificationPng, 173.w, 128.h,
           boxFit: BoxFit.fitHeight),
       getCustomFont(Labels.pasNotificationsKey, 20, getFontColor(context), 1,
               fontWeight: FontWeight.w700)

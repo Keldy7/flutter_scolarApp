@@ -58,11 +58,14 @@ class _TabHomeState extends State<TabHome> {
                         fontWeight: FontWeight.bold)),
                 IconButton(
                   icon: Icon(
-                    Icons.notifications,
+                    Icons.notifications_rounded,
                     color: primaryColor,
                     size: 30,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Constant.goToNextPage(
+                        context, Routes.notificationScreenRoute);
+                  },
                 ),
                 // SvgPicture.asset(
                 //   'assets/images/arrow.svg',
@@ -110,7 +113,7 @@ class _TabHomeState extends State<TabHome> {
                                 context, bannerList.length, sliderPos.value)),
                         sliderPos),
                     20.h.verticalSpace,
-                    buildSeeAllView(context, "Near by beauty salon", () {
+                    buildSeeAllView(context, "Écoles en vedette", () {
                       selectionController
                           .setSelectedTitle("Near by beauty salon");
                       // Constant.goToNextPage(context, Routes.);
@@ -173,11 +176,8 @@ class _TabHomeState extends State<TabHome> {
                                     children: [
                                       Expanded(
                                         flex: 1,
-                                        child: getCustomFont(
-                                            "Royalty  barbershop",
-                                            16,
-                                            getFontColor(context),
-                                            1,
+                                        child: getCustomFont("Nom école", 16,
+                                            getFontColor(context), 1,
                                             fontWeight: FontWeight.w700),
                                       ),
                                       getSvgImageWithSize(
@@ -185,7 +185,7 @@ class _TabHomeState extends State<TabHome> {
                                           fit: BoxFit.fill),
                                       6.w.horizontalSpace,
                                       getCustomFont(
-                                          "4.9", 14, getAccentColor(context), 1,
+                                          "4.7", 14, getAccentColor(context), 1,
                                           fontWeight: FontWeight.w400,
                                           txtHeight: 1.5),
                                     ],
@@ -193,7 +193,7 @@ class _TabHomeState extends State<TabHome> {
                                   10.w.verticalSpace,
                                   buildLocationRow(
                                       context,
-                                      "8502 Preston Rd. Inglewood, Maine",
+                                      "8502 Plateau Centre. Abidjan",
                                       getFontGreyColor(context)),
                                   // 10.w.verticalSpace,
                                   // Row(
