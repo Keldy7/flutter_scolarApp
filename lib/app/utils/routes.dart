@@ -7,7 +7,7 @@ class Routes {
   static String resetPassRoute = "keyResetPasswordScreen";
   static String phoneNumberRoute = "keyPhoneNumberScreen";
   static String verificationScreenRoute = "keyverificationScreen";
-  static String termNCondition = "keyTermsNCondition";
+  static String termNConditionScreenRoute = "keyTermsNCondition";
   static String registrationRoute = "keyregistrationRoute";
   static String countrySelectionRoute = "keycountrySelectionRoute";
   static String homeScreenRoute = "keyHomeScreenRoute";
@@ -26,6 +26,7 @@ class Routes {
   static String editChildScreenRoute = "keyEditChildScreenRoute";
   static String serviceListRoute = "keyServiceListScreenRoute";
   static String confirmServiceListRoute = "keyConfirmServiceListScreenRoute";
+  static String feesScreenRoute = "keyFeesScreenRoute";
   static String paymentListRoute = "keyPaymentServiceListScreenRoute";
   static String paymentScreenRoute = "keyPaymentScreenRoute";
   static String bookingDetailScreenRoute = "keyBookingDetailScreenRoute";

@@ -72,7 +72,7 @@ class RegistrationScreen extends StatelessWidget {
                     fontWeight: FontWeight.w400, textAlign: TextAlign.start),
                 TextButton(
                   onPressed: () {
-                    Constant.goToNextPage(context, Routes.termNCondition);
+                    Constant.goToNextPage(context, Routes.termNConditionScreenRoute);
                   },
                   child: getCustomFont(
                       Labels.termsConditionsKey, 16, getAccentColor(context), 1,

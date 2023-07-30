@@ -68,7 +68,7 @@ class FakeData {
     catList.add(ModelCategory(
         Labels.timetableKey, Images.timetableSvg, Routes.homeScreenRoute));
     catList.add(
-        ModelCategory(Labels.feesKey, Images.feesSvg, Routes.homeScreenRoute));
+        ModelCategory(Labels.feesKey, Images.feesSvg, Routes.feesScreenRoute));
     catList.add(ModelCategory(
         Labels.examsKey, Images.examsSvg, Routes.examsScreenRoute));
     catList.add(ModelCategory(Labels.permissionsAbsenceKey, Images.distanceSvg,

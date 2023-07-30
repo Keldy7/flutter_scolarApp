@@ -31,7 +31,7 @@ class SettingScreen extends StatelessWidget {
                 }, Labels.changerPasswordKey,
                     iconName: Icons.lock_person_rounded),
                 getProfileRowContainer(context, () {
-                  Constant.goToNextPage(context, Routes.termNCondition);
+                  Constant.goToNextPage(context, Routes.termNConditionScreenRoute);
                 }, Labels.termsConditionsKey,
                     iconName: Icons.auto_stories_rounded),
                 getProfileRowContainer(context, () async {

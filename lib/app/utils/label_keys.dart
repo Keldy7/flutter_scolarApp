@@ -2,6 +2,7 @@
 class Labels {
   static String nomAppKey = "Scolar Pay";
 
+//Authentification
   static String connexionKey = "Se connecter";
   static String deconnexionKey = "Se déconnecter";
   static String sinscrireKey = "S'inscrire";
@@ -22,6 +23,9 @@ class Labels {
   static String rechercherKey = "Rechercher...";
   static String selectionnerKey = "Sélectionner...";
 
+  static String voirPlusKey = "Voir plus";
+  static String voirMoinsKey = "Voir moins";
+
 //Options principales
   static String accueilKey = "Accueil";
   static String aProximiteKey = "À proximité";
@@ -29,18 +33,12 @@ class Labels {
   static String messagesKey = "Discussions";
   static String profilKey = "Profil";
 
-  static String voirPlusKey = "Voir plus";
-  static String voirMoinsKey = "Voir moins";
-
-  static String mesEnfantsKey = "Mes enfants";
-
 //Services
-  static String detailsEnfantKey = "Détails : Mon enfant";
-  static String profilEnfantKey = "Profil : Mon enfant";
   static String attendanceKey = "Absences et présences";
   static String feesKey = "Scolarité, car et cantine";
   static String timetableKey = "Emploi du temps";
-  static String permissionsKey = "Permissions";
+  static String examsKey = "Examens et compositions";
+  static String permissionsAbsenceKey = "Permissions d'absence";
 
 //Enfant
   static String classeKey = "Classe";
@@ -49,6 +47,9 @@ class Labels {
   static String matriculeKey = "Matricule";
   static String pereKey = "Père";
   static String mereKey = "Mère";
+  static String mesEnfantsKey = "Mes enfants";
+  static String detailsEnfantKey = "Détails : Mon enfant";
+  static String profilEnfantKey = "Profil : Mon enfant";
   static String infosEnfantKey = "Informations sur l'enfant";
   static String infosNivoScolaireKey = "Informations sur le niveau scolaire";
   static String infosParentsKey = "Informations sur les parents";
@@ -70,8 +71,8 @@ class Labels {
   static String totalAbsentKey = "Absence";
 
 //Permissions
+  static String permissionsKey = "Permissions";
   static String mesPermissionsKey = "Mes permissions";
-  static String permissionsAbsenceKey = "Permissions d'absence";
   static String noPermissionsKey = "Pas de permissions!";
   static String historiqueKey = "Historique";
   static String enAttenteKey = "En attente";
@@ -96,7 +97,6 @@ class Labels {
   static String joindreFileKey = "Joindre un fichier";
 
 //Examens et compositions
-  static String examsKey = "Examens et compositions";
   static String examensCompositionsKey = "Examens et compos";
   static String examensKey = "Examens";
   static String compositionsKey = "Compositions";
@@ -106,6 +106,15 @@ class Labels {
   static String mentionKey = "Mention";
   static String totalKey = "Total des notes";
   static String mentionAppreciationKey = "Appréciations et classement";
+
+//Scolarité
+  static String feeKey = "Frais scolaires";
+
+//Moyens de paiement
+  static String waveKey = "Wave";
+  static String moowMoneyKey = "Moov money";
+  static String mtnwMoneyKey = "MTN money";
+  static String orangeMoneyKey = "Orange money";
 
 //Divers
   static String autreKey = "Autre";
@@ -152,11 +161,6 @@ class Labels {
   static String enLigneKey = "En ligne";
   static String ecrireMessageKey = "Ecrire un message";
 
-//Moyens de paiement
-  static String waveKey = "Wave";
-  static String moowMoneyKey = "Moov money";
-  static String mtnwMoneyKey = "MTN money";
-  static String orangeMoneyKey = "Orange money";
 
 //Notifications
   static String notificationsKey = "Notifications";
