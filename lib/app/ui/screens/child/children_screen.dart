@@ -48,10 +48,7 @@ class _ChildrenScreenState extends State<ChildrenScreen> {
                             CustomChildIdentityBloc(
                                 width: boxConstraints.maxWidth * (0.45)),
                             CustomChildIdentityBloc(
-                                width: boxConstraints.maxWidth * (0.45)),
-                            CustomChildIdentityBloc(
-                                width: boxConstraints.maxWidth * (0.45)),
-                          ]);
+                                width: boxConstraints.maxWidth * (0.45))]);
                     })
                   ],
                 )),

@@ -24,6 +24,7 @@ class _FeesScreenState extends State<FeesScreen> {
           shrinkWrap: true,
           children: [
                 20.h.verticalSpace,
+                Text("Scolarité")
 
           ],
         ))
