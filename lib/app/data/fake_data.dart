@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scolar_pay/app/ui/models/model_fees.dart';
 import 'package:scolar_pay/app/utils/image_keys.dart';
 import 'package:scolar_pay/app/utils/routes.dart';
 
@@ -58,6 +59,16 @@ class FakeData {
     bannerList.add(ModelBanner(Images.banner3Png, "#F0E4FF"));
 
     return bannerList;
+  }
+
+  static List<Fees> getAllFeesList() {
+    List<Fees> matList = [];
+
+    matList.add(Fees(0, "Transport", 2000));
+    matList.add(Fees(1, "Cantine", 10000));
+    matList.add(Fees(2, "1er versement", 25000));
+
+    return matList;
   }
 
   static List<ModelCategory> getAllCategoryList() {
