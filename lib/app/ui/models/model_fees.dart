@@ -1,11 +1,13 @@
 class Fees {
   int? id;
-  String? name;
-  double? amount;
-  Fees( 
+  String name;
+  double amount;
+  bool isChecked;
+  Fees({
       this.id,
-      this.name,
-      this.amount);
+      required this.name,
+      required this.amount,
+      this.isChecked = false});
 
 }
 

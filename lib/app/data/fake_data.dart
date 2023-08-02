@@ -64,9 +64,9 @@ class FakeData {
   static List<Fees> getAllFeesList() {
     List<Fees> matList = [];
 
-    matList.add(Fees(0, "Transport", 2000));
-    matList.add(Fees(1, "Cantine", 10000));
-    matList.add(Fees(2, "1er versement", 25000));
+    matList.add(Fees(name: "Transport", amount: 2));
+    matList.add(Fees(name:"Cantine", amount:1));
+    matList.add(Fees(name:"1er versement", amount:25));
 
     return matList;
   }

@@ -61,15 +61,9 @@ class _FeesScreenState extends State<FeesScreen> {
                       children: [
                         listOfFees(feesDetails: FakeData.getAllFeesList()),
                         getDivider(),
-                        setRow(
-                            titleLabel: Labels.totalKey,
-                            amountLabel: totalFees.toString(),
-                            isCheckboxRequired: false,
-                            index: 0),
                       ],
                     ).paddingSymmetric(
-                        horizontal: MediaQuery.of(context).size.width * (0.05),
-
+                      horizontal: MediaQuery.of(context).size.width * (0.05),
                     ))
               ],
             ))
@@ -78,22 +72,54 @@ class _FeesScreenState extends State<FeesScreen> {
         centerTitle: true);
   }
 
-  Widget listOfFees({required List<Fees> feesDetails}) {
-    return Column(
-        children: List.generate(
-            feesDetails.length,
-            (index) => setRow(
-                titleLabel: feesDetails[index].name!,
-                amountLabel: feesDetails[index].amount.toString(),
-                isCheckboxRequired: true,
-                index: index)));
+// Fonction pour gérer le changement de la case à cocher
+  void _onChanged(int index, bool value, List<Fees> feesDetails) {
+    Fees fee = feesDetails[index];
+    (value) ? totalFees += fee.amount : totalFees -= fee.amount;
+    print(totalFees);
+    // Mettez à jour l'état des cases à cocher pour la ligne actuelle
+    fee.isChecked = value;
+    // Rafraîchir l'affichage pour refléter les changements
+    setState(() {});
   }
 
-  Widget setRow(
-      {required String titleLabel,
-      required String amountLabel,
-      required bool isCheckboxRequired,
-      required int index}) {
+  // Widget listOfFees({required List<Fees> feesDetails}) {
+  //   return Column(
+  //       children: List.generate(
+  //           feesDetails.length,
+  //           (index) => setRow(
+  //               titleLabel: feesDetails[index].name!,
+  //               amountLabel: feesDetails[index].amount.toString(),
+  //               isCheckboxRequired: true,
+  //               index: index)));
+  // }
+
+  Widget listOfFees({required List<Fees> feesDetails}) {
+    return Column(
+      children: List.generate(
+        feesDetails.length,
+        (index) => setRow(
+          titleLabel: feesDetails[index].name!,
+          amountLabel: feesDetails[index].amount.toString(),
+          index: index,
+          isCheckboxRequired: true,
+          onChanged: (index, value) {
+            setState(() {
+              _onChanged(index, value, feesDetails);
+            });
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget setRow({
+    required String titleLabel,
+    required String amountLabel,
+    required bool isCheckboxRequired,
+    required int index,
+    required Function(int index, bool value) onChanged,
+  }) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -103,40 +129,82 @@ class _FeesScreenState extends State<FeesScreen> {
             SizedBox(
               height: 15,
               width: 15,
-              child: ObxValue((p0) {
-                return Checkbox(
-                  visualDensity: VisualDensity.compact,
-                  side: BorderSide(color: secondaryColor, width: 1.h),
-                  activeColor: secondaryColor,
-                  onChanged: (value) {
-                    isCheckbox.value = value!;
-                  },
-                  value: isCheckbox.value,
-                );
-              }, isCheckbox),
+              child: Checkbox(
+                visualDensity: VisualDensity.compact,
+                side: BorderSide(color: getAccentColor(context), width: 1.h),
+                activeColor: secondaryColor,
+                onChanged: (value) {
+                  onChanged(index, value ?? false);
+                },
+                value: isCheckboxRequired,
+              ),
             )
           else
             const SizedBox.shrink(),
           Expanded(
-              child: Padding(
-            padding: (isCheckboxRequired)
-                ? const EdgeInsetsDirectional.only(start: 15)
-                : const EdgeInsetsDirectional.only(start: 30),
-            child: Text(titleLabel),
-          )),
+            child: Padding(
+              padding: (isCheckboxRequired)
+                  ? const EdgeInsetsDirectional.only(start: 15)
+                  : const EdgeInsetsDirectional.only(start: 30),
+              child: Text(titleLabel),
+            ),
+          ),
           Text(amountLabel),
         ],
       ),
     );
   }
 
-  _onChanged(bool val, int index, String amountLabel) {
-    setState(() {
-      isChecked[index] = val;
+  // Widget setRow(
+  //     {required String titleLabel,
+  //     required String amountLabel,
+  //     required bool isCheckboxRequired,
+  //     required int index}) {
+  //   return Padding(
+  //     padding: const EdgeInsets.all(8.0),
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //       children: [
+  //         if (isCheckboxRequired)
+  //           SizedBox(
+  //             height: 15,
+  //             width: 15,
+  //             child: ObxValue((p0) {
+  //               return Checkbox(
+  //                 visualDensity: VisualDensity.compact,
+  //                 side: BorderSide(color: getAccentColor(context), width: 1.h),
+  //                 activeColor: secondaryColor,
+  //                 onChanged: (value) {
+  //                   _onChanged(value!, index, amountLabel);
+  //                   // isCheckbox.value = value!;
+  //                   print(index);
+  //                 },
+  //                 value: isCheckbox.value,
+  //               );
+  //             }, isCheckbox),
+  //           )
+  //         else
+  //           const SizedBox.shrink(),
+  //         Expanded(
+  //             child: Padding(
+  //           padding: (isCheckboxRequired)
+  //               ? const EdgeInsetsDirectional.only(start: 15)
+  //               : const EdgeInsetsDirectional.only(start: 30),
+  //           child: Text(titleLabel),
+  //         )),
+  //         Text(amountLabel),
+  //       ],
+  //     ),
+  //   );
+  // }
 
-      (val)
-          ? totalFees += double.parse(amountLabel)
-          : totalFees -= double.parse(amountLabel);
-    });
-  }
+  // _onChanged(bool val, int index, String amountLabel) {
+  //   setState(() {
+  //     isChecked[index] = val;
+
+  //     (val)
+  //         ? totalFees += double.parse(amountLabel)
+  //         : totalFees -= double.parse(amountLabel);
+  //   });
+  // }
 }
