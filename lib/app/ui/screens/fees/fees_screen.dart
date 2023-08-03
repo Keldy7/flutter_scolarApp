@@ -17,12 +17,9 @@ class FeesScreen extends StatefulWidget {
 }
 
 class _FeesScreenState extends State<FeesScreen> {
-  List<bool> isChecked = [false, false, false];
+  List<bool> isChecked = [];
   double totalFees = 0;
 
-  // List<Fees> feesDetail = [
-
-  // ];
   RxBool isCheckbox = false.obs;
 
   double amount = 0;
@@ -61,6 +58,8 @@ class _FeesScreenState extends State<FeesScreen> {
                       children: [
                         listOfFees(feesDetails: FakeData.getAllFeesList()),
                         getDivider(),
+                        setRow(titleLabel: Labels.totalKey, amountLabel: totalFees.toString(), isCheckboxRequired: false, index: 0, onChanged: 
+                        (index, value){})
                       ],
                     ).paddingSymmetric(
                       horizontal: MediaQuery.of(context).size.width * (0.05),
@@ -83,35 +82,41 @@ class _FeesScreenState extends State<FeesScreen> {
     setState(() {});
   }
 
-  // Widget listOfFees({required List<Fees> feesDetails}) {
-  //   return Column(
-  //       children: List.generate(
-  //           feesDetails.length,
-  //           (index) => setRow(
-  //               titleLabel: feesDetails[index].name!,
-  //               amountLabel: feesDetails[index].amount.toString(),
-  //               isCheckboxRequired: true,
-  //               index: index)));
-  // }
-
   Widget listOfFees({required List<Fees> feesDetails}) {
     return Column(
-      children: List.generate(
-        feesDetails.length,
-        (index) => setRow(
-          titleLabel: feesDetails[index].name!,
-          amountLabel: feesDetails[index].amount.toString(),
-          index: index,
-          isCheckboxRequired: true,
-          onChanged: (index, value) {
-            setState(() {
-              _onChanged(index, value, feesDetails);
-            });
-          },
-        ),
-      ),
-    );
+        children: List.generate(
+            feesDetails.length,
+            (index) => setRow(
+                  titleLabel: feesDetails[index].name,
+                  amountLabel: feesDetails[index].amount.toString(),
+                  isCheckboxRequired: true,
+                  index: index,
+                  onChanged: (index, value) {
+                    setState(() {
+                      _onChanged(index, value, feesDetails);
+                    });
+                  },
+                )));
   }
+
+  // Widget listOfFees({required List<Fees> feesDetails}) {
+  //   return Column(
+  //     children: List.generate(
+  //       feesDetails.length,
+  //       (index) => setRow(
+  //         titleLabel: feesDetails[index].name!,
+  //         amountLabel: feesDetails[index].amount.toString(),
+  //         index: index,
+  //         isCheckboxRequired: true,
+  //         onChanged: (index, value) {
+  //           setState(() {
+  //             _onChanged(index, value, feesDetails);
+  //           });
+  //         },
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget setRow({
     required String titleLabel,
@@ -136,7 +141,7 @@ class _FeesScreenState extends State<FeesScreen> {
                 onChanged: (value) {
                   onChanged(index, value ?? false);
                 },
-                value: isCheckboxRequired,
+                value: false,
               ),
             )
           else

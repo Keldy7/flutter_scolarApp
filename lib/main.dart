@@ -7,6 +7,7 @@ import 'package:scolar_pay/app/ui/screens/exams/details_exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/exams/exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/fees/fees_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
+import 'package:scolar_pay/app/ui/screens/school/school_screen.dart';
 import 'package:scolar_pay/app/ui/screens/settings/help_center.dart';
 
 import 'app/ui/controllers/home_controller.dart';
@@ -83,6 +84,7 @@ class MyApp extends StatelessWidget {
             const AddPermissionScreen(),
         // confirmServiceListRoute: (context) => ConfirmList(),
         Routes.feesScreenRoute: (context) => const FeesScreen(),
+        Routes.schoolScreenRoute: (context) => const SchoolScreen(),
         // Routes.paymentListRoute: (context) => PaymentList(),
         // Routes.paymentScreenRoute: (context) => PaymentScreen(),
         // bookingDetailScreenRoute: (context) => BookingDetailScreen(),
