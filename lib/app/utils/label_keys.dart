@@ -20,6 +20,8 @@ class Labels {
   static String continuerKey = "Continuer";
   static String suivantKey = "Suivant";
   static String retourKey = "Retour";
+  static String messageKey = "Discuter";
+  static String partagerSalonKey = "Partager";
   static String rechercherKey = "Rechercher...";
   static String selectionnerKey = "Sélectionner...";
 
@@ -64,6 +66,19 @@ class Labels {
   static String academicYearKey = "Année scolaire";
   static String phoneKey = "Contact télephonique";
   static String infosEcoleKey = "Informations sur l'établissement";
+
+//Détails sur une école
+  static String notesAvisKey = "Notes et avis";
+  static String noterSalonKey = "Noter l'établissement";
+  static String valeurMaxNotesKey = "sur 5";
+  static String descriptionSalonKey = "DESCRIPTION";
+  static String adrGeoSalonKey = "ADRESSE GÉOGRAPHIQUE";
+  static String contactSalonKey = "CONTACT TÉLÉPHONIQUE";
+  static String heurOuvertureSalonKey = "HEURES D'OUVERTURE";
+  static String aProposKey = "À propos";
+  static String avisKey = "Avis";
+  static String photosKey = "Photos";
+  static String localisationKey = "Localisation";
 
 //Ponctualité
   static String ponctualiteKey = "Ponctualité";
@@ -160,7 +175,6 @@ class Labels {
 //Chat
   static String enLigneKey = "En ligne";
   static String ecrireMessageKey = "Ecrire un message";
-
 
 //Notifications
   static String notificationsKey = "Notifications";

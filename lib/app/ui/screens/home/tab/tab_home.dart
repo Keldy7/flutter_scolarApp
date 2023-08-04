@@ -81,7 +81,7 @@ class _TabHomeState extends State<TabHome> {
   Align _buildBodyContent(BuildContext context, RxInt sliderPos) {
     var selectionController = Get.find<ValueSelectionController>();
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
-    final List<String> nearestSalonList = [
+    final List<String> nearestEcolesList = [
       Images.intro3Png,
       Images.intro4Png,
       Images.intro1Png
@@ -121,13 +121,13 @@ class _TabHomeState extends State<TabHome> {
                     SizedBox(
                       height: 292.w,
                       child: ListView.builder(
-                        itemCount: nearestSalonList.length,
+                        itemCount: nearestEcolesList.length,
                         itemBuilder: (context, index) {
                           return Container(
                             padding: EdgeInsets.all(10.w),
                             margin: EdgeInsets.only(
                                 left: (index == 0) ? horSpace : 6.w,
-                                right: (index == nearestSalonList.length - 1)
+                                right: (index == nearestEcolesList.length - 1)
                                     ? horSpace
                                     : 6.w,
                                 top: 20.w,
@@ -148,7 +148,7 @@ class _TabHomeState extends State<TabHome> {
                             child: InkWell(
                               onTap: () {
                                 Constant.goToNextPage(
-                                    context, Routes.attendanceScreenRoute);
+                                    context, Routes.schoolScreenRoute);
                               },
                               child: Column(
                                 children: [
@@ -161,7 +161,7 @@ class _TabHomeState extends State<TabHome> {
                                             double.infinity,
                                             double.infinity,
                                             20.w,
-                                            nearestSalonList[index],
+                                            nearestEcolesList[index],
                                             boxFit: BoxFit.cover),
                                         Align(
                                           alignment: Alignment.topRight,
