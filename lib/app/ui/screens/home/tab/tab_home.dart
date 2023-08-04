@@ -115,7 +115,7 @@ class _TabHomeState extends State<TabHome> {
                     20.h.verticalSpace,
                     buildSeeAllView(context, "Écoles en vedette", () {
                       selectionController
-                          .setSelectedTitle("Near by beauty salon");
+                          .setSelectedTitle("Écoles en vedette");
                       // Constant.goToNextPage(context, Routes.);
                     }),
                     SizedBox(

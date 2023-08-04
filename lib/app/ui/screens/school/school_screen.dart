@@ -1,18 +1,14 @@
-import 'dart:ui' as ui;
-import 'dart:math';
-
+// ignore_for_file: camel_case_types
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:readmore/readmore.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../../utils/constant.dart';
+import '../../../utils/image_keys.dart';
 import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
@@ -27,13 +23,16 @@ class SchoolScreen extends StatefulWidget {
 }
 
 class _SchoolScreenState extends State<SchoolScreen> {
+  List<Widget> tabWidgetList = [const AboutUs(), Reviews(), const AboutUs()];
+  List<String> tabNameList = [
+    Labels.aProposKey,
+    Labels.avisKey,
+    Labels.photosKey
+  ];
 
-// List<ModelProfile> allProfileList = DataFile.getAllProfileList();
-
-  List<Widget> tabWidgetList = [AboutUs(), Reviews(), PhotosGallery()];
-
-  List<String> tabList = ["aProposKey", "avisKey", "photosKey"];
   RxInt selectedIndex = 0.obs;
+  RxInt selected = 0.obs;
+  RxBool isVisible = false.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +61,8 @@ class _SchoolScreenState extends State<SchoolScreen> {
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              // "${Constant.assetImagePath}
-                                              "salon_detail_img.png"),
+                                              Constant.getImagePngPath(
+                                                  Images.intro4Png)),
                                           fit: BoxFit.cover)),
                                   child: Align(
                                     alignment: Alignment.topLeft,
@@ -73,10 +72,10 @@ class _SchoolScreenState extends State<SchoolScreen> {
                                       children: [
                                         getBackIcon(context, () {
                                           Constant.backToPrev(context);
-                                        }, colors: Colors.white),
+                                        }, colors: getAccentColor(context)),
                                         getToolbarIcons(
-                                            context, "heart.svg", () {},
-                                            color: Colors.white)
+                                            context, Images.heartSvg, () {},
+                                            color: getAccentColor(context))
                                       ],
                                     ),
                                   ),
@@ -99,7 +98,7 @@ class _SchoolScreenState extends State<SchoolScreen> {
                                           Expanded(
                                             flex: 1,
                                             child: getCustomFont(
-                                                "Royalty barbershop",
+                                                "Nom de l'École",
                                                 22,
                                                 getFontColor(context),
                                                 1,
@@ -117,14 +116,10 @@ class _SchoolScreenState extends State<SchoolScreen> {
                                       16.h.verticalSpace,
                                       Row(
                                         children: [
-                                          // getCustomFont("open", 16,
-                                          //     getFontColor(context), 1,
-                                          //     fontWeight: FontWeight.w500),
-                                          // 10.w.horizontalSpace,
-                                          getCustomFont("4.9", 17,
+                                          getCustomFont("4.6", 17,
                                               getFontColor(context), 1,
                                               fontWeight: FontWeight.w500),
-                                          3.w.horizontalSpace,
+                                          5.w.horizontalSpace,
                                           GFRating(
                                             onChanged: (rating) {},
                                             value: 5,
@@ -134,7 +129,7 @@ class _SchoolScreenState extends State<SchoolScreen> {
                                             spacing: 3.w,
                                             filledIcon: getSvgImageWithSize(
                                                 context,
-                                                "star.svg",
+                                                Images.starSvg,
                                                 16.h,
                                                 16.h),
                                           )
@@ -144,68 +139,35 @@ class _SchoolScreenState extends State<SchoolScreen> {
                                       Row(
                                         children: [
                                           buildListItem(
-                                              context, "global.svg", "websiteKey",
-                                              () async {
-                                            await launchUrl(
-                                              Uri.parse(
-                                                  "http://www.google.com"),
-                                              mode: LaunchMode
-                                                  .externalApplication,
-                                            );
+                                              context,
+                                              Images.globalSvg,
+                                              Labels.websiteKey, () async {
+                                            Constant.shareApp(
+                                                "http://www.google.com");
                                           }),
-                                          buildListItem(context, "location.svg",
-                                              "localisationKey", () {
+                                          buildListItem(
+                                              context,
+                                              Images.locationSvg,
+                                              Labels.localisationKey, () {
                                             final controller = Get.find<
                                                 BottomItemSelectionController>();
                                             controller.bottomBarSelectedItem
-                                                .value = 1;
-                                            Constant.goToNextPage(
-                                                context, Routes.homeScreenRoute);
+                                                .value = 2;
+                                            Constant.goToNextPage(context,
+                                                Routes.homeScreenRoute);
                                           }),
                                           buildListItem(
-                                              context, "chat.svg", "messageKey",
-                                              () {
-                                            Constant.goToNextPage(
-                                                context, Routes.chatScreenRoute);
-                                          }),
-                                          buildListItem(
-                                              context, "export.svg", "partagerSalonKey",
-                                              () {
+                                              context,
+                                              Images.exportSvg,
+                                              Labels.partagerSalonKey, () {
                                             Share.share(
-                                                "http://www.royaltybarbershop.com");
+                                                "http://www.google.com");
                                           }),
                                         ],
                                       ).marginSymmetric(horizontal: horSpace),
                                       16.h.verticalSpace,
-                                      // getCustomFont("Salon  specialists", 18,
-                                      //         getFontColor(context), 1,
-                                      //         fontWeight: FontWeight.w700,
-                                      //         txtHeight: 1.5)
-                                      //     .marginSymmetric(
-                                      //         horizontal: horSpace),
-                                      // 16.h.verticalSpace,
-                                      // Container(
-                                      //   width: double.infinity,
-                                      //   height: 92.h,
-                                      //   child: ListView.builder(
-                                      //     scrollDirection: Axis.horizontal,
-                                      //     itemCount: allProfileList.length,
-                                      //     padding: EdgeInsets.zero,
-                                      //     itemBuilder: (context, index) {
-                                      //       return buildProfileItem(
-                                      //           context, index, () {
-                                      //         Constant.sendToNext(context,
-                                      //             specialistDetailScreenRoute);
-                                      //       },
-                                      //           allProfileList[index],
-                                      //           index ==
-                                      //               allProfileList.length - 1);
-                                      //     },
-                                      //   ),
-                                      // ),
-                                      
                                       buildTabView(
-                                          tabList, context, selectedIndex),
+                                          tabNameList, context, selectedIndex),
                                       ObxValue(
                                           (p0) => tabWidgetList[
                                               selectedIndex.value],
@@ -218,8 +180,9 @@ class _SchoolScreenState extends State<SchoolScreen> {
                           ),
                         ),
                         getButtonFigma(context, getAccentColor(context), true,
-                            "prendreRdvKey", Colors.white, () {
-                          Constant.goToNextPage(context, Routes.serviceListRoute);
+                            Labels.aProposKey, primaryColor, () {
+                          Constant.goToNextPage(
+                              context, Routes.childrenScreenRoute);
                         },
                             EdgeInsets.only(
                                 left: horSpace,
@@ -269,94 +232,67 @@ class _SchoolScreenState extends State<SchoolScreen> {
   }
 }
 
-class ImageTile extends StatelessWidget {
-  const ImageTile({
-    Key? key,
-    required this.index,
-    required this.width,
-    required this.height,
-  }) : super(key: key);
+// class PhotosGallery extends StatelessWidget {
+//   final List<String> imgList = [
+//     "gallery1.png",
+//     "gallery2.png",
+//     "gallery3.png",
+//     "gallery4.png",
+//     "gallery5.png",
+//     "gallery6.png",
+//   ];
+//   final rnd = Random();
 
-  final int index;
-  final int width;
-  final int height;
+//   final int crossAxisCount = 4;
 
-  @override
-  Widget build(BuildContext context) {
-    return Image.network(
-      'https://picsum.photos/$width/$height?random=$index',
-      width: width.toDouble(),
-      height: height.toDouble(),
-      fit: BoxFit.cover,
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     Constant.setupSize(context);
+//     double crossCount = 2;
+//     double width = context.width;
+//     double itemWidth =
+//         (width - (Constant.getDefaultHorSpaceFigma(context) * 3)) / crossCount;
 
-RxBool isVisible = false.obs;
-RxInt selected = 0.obs;
+//     return Stack(children: [
+//       MasonryGridView.count(
+//           crossAxisCount: 2,
+//           physics: const NeverScrollableScrollPhysics(),
+//           mainAxisSpacing: 10.w,
+//           padding: EdgeInsets.all(10.w),
+//           crossAxisSpacing: 10.w,
+//           shrinkWrap: true,
+//           itemBuilder: (context, index) {
+//             return InkWell(
+//               onTap: () {
+//                 isVisible.value = true;
+//                 selected.value = index;
 
-class PhotosGallery extends StatelessWidget {
-  final List<String> imgList = [
-    "gallery1.png",
-    "gallery2.png",
-    "gallery3.png",
-    "gallery4.png",
-    "gallery5.png",
-    "gallery6.png",
-  ];
-  final rnd = Random();
-
-  final int crossAxisCount = 4;
-
-  @override
-  Widget build(BuildContext context) {
-    Constant.setupSize(context);
-    double crossCount = 2;
-    double width = context.width;
-    double itemWidth =
-        (width - (Constant.getDefaultHorSpaceFigma(context) * 3)) /
-            crossCount;
-
-    return Stack(children: [
-      MasonryGridView.count(
-          crossAxisCount: 2,
-          physics: NeverScrollableScrollPhysics(),
-          mainAxisSpacing: 10.w,
-          padding: EdgeInsets.all(10.w),
-          crossAxisSpacing: 10.w,
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                isVisible.value = true;
-                selected.value = index;
-
-                showImage();
-              },
-              child: FutureBuilder<ui.Image>(
-                builder: (context, snapshot) {
-                  if (snapshot.hasData &&
-                      snapshot.data != null &&
-                      snapshot.connectionState == ConnectionState.done) {
-                    double height = snapshot.data!.height.toDouble();
-                    double ration = height / itemWidth;
-                    double setHeight = height / ration;
-                    print("height===$height===$ration--$setHeight");
-                    return getCircularImage(context, double.infinity,
-                        (height / 2), 12.h, imgList[index],
-                        boxFit: BoxFit.cover);
-                  } else {
-                    return 0.verticalSpace;
-                  }
-                },
-                future: Constant.getImage(imgList[index]),
-              ),
-            );
-          },
-          itemCount: imgList.length),
-    ]);
-  }
-}
+//                 showImage();
+//               },
+//               child: FutureBuilder<ui.Image>(
+//                 builder: (context, snapshot) {
+//                   if (snapshot.hasData &&
+//                       snapshot.data != null &&
+//                       snapshot.connectionState == ConnectionState.done) {
+//                     double height = snapshot.data!.height.toDouble();
+//                     double ration = height / itemWidth;
+//                     double setHeight = height / ration;
+//                     print("height===$height===$ration--$setHeight");
+//                     return getCircularImage(context, double.infinity,
+//                         (height / 2), 12.h, imgList[index],
+//                         boxFit: BoxFit.cover);
+//                   } else {
+//                     return 0.verticalSpace;
+//                   }
+//                 },
+//                 future: Constant.getImage(imgList[index]),
+//               ),
+//             );
+//           },
+//           itemCount: imgList.length),
+//     ]);
+//   }
+// }
 
 class showImage extends StatelessWidget {
   final List<String> imgList = [
@@ -367,6 +303,8 @@ class showImage extends StatelessWidget {
     "gallery5.png",
     "gallery6.png",
   ];
+
+  showImage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -397,6 +335,8 @@ class showImage extends StatelessWidget {
 class Reviews extends StatelessWidget {
   final RxDouble rating = 0.0.obs;
 
+  Reviews({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -407,7 +347,7 @@ class Reviews extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              getCustomFont("notesAvisKey", 18, getFontColor(context), 1,
+              getCustomFont(Labels.notesAvisKey, 18, getFontColor(context), 1,
                   fontWeight: FontWeight.w800),
               getCustomFont(Labels.voirPlusKey, 16, getFontColor(context), 1,
                   fontWeight: FontWeight.w700)
@@ -425,7 +365,8 @@ class Reviews extends StatelessWidget {
                   getCustomFont("4.5", 36, getFontColor(context), 1,
                       fontWeight: FontWeight.w700),
                   4.h.verticalSpace,
-                  getCustomFont("valeurMaxNotesKey", 18, getFontColor(context), 1,
+                  getCustomFont(
+                      Labels.valeurMaxNotesKey, 18, getFontColor(context), 1,
                       fontWeight: FontWeight.w700),
                 ],
               ),
@@ -452,7 +393,7 @@ class Reviews extends StatelessWidget {
           Row(
             children: [
               getCustomFont(
-                "noterSalonKey",
+                Labels.noterEcoleKey,
                 16,
                 getFontColor(context),
                 1,
@@ -470,9 +411,9 @@ class Reviews extends StatelessWidget {
                         spacing: 3.w,
                         allowHalfRating: false,
                         defaultIcon: getSvgImageWithSize(
-                            context, "rating.svg", 21.h, 21.h),
+                            context, Images.ratingSvg, 21.h, 21.h),
                         filledIcon: getSvgImageWithSize(
-                            context, "star.svg", 21.h, 21.h),
+                            context, Images.starSvg, 21.h, 21.h),
                       ),
                   rating)
             ],
@@ -489,7 +430,7 @@ class Reviews extends StatelessWidget {
                   "Maria Sana",
                   "“I Was A very First To Pleased With This app using and get great experience",
                   "15 April 2022",
-                  "profile1.png");
+                  Images.profileJpg);
             },
           )
         ],
@@ -507,7 +448,7 @@ class Reviews extends StatelessWidget {
           itemCount: rate.toInt(),
           size: 10.h,
           spacing: 2.w,
-          filledIcon: getSvgImageWithSize(context, "star.svg", 10.h, 10.h),
+          filledIcon: getSvgImageWithSize(context, Images.starSvg, 10.h, 10.h),
         ),
         4.w.horizontalSpace,
         LinearPercentIndicator(
@@ -525,6 +466,8 @@ class Reviews extends StatelessWidget {
 }
 
 class AboutUs extends StatelessWidget {
+  const AboutUs({super.key});
+
   Widget buildTitle(BuildContext context, String s) {
     return getCustomFont(
       s,
@@ -544,7 +487,7 @@ class AboutUs extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          buildTitle(context, "descriptionSalonKey"),
+          buildTitle(context, Labels.descriptionKey),
           6.h.verticalSpace,
           ReadMoreText(
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -568,21 +511,21 @@ class AboutUs extends StatelessWidget {
             trimExpandedText: Labels.voirMoinsKey,
           ),
           16.h.verticalSpace,
-          buildTitle(context, "adrGeoSalonKey"),
+          buildTitle(context, Labels.adrGeographikKey),
           6.h.verticalSpace,
-          buildIconRow(context, "451 Beach crescent vancouver,\nBC V6Z 3H1",
-              "location.svg",
+          buildIconRow(context, "8502 Plateau Centre. Abidjan,\nBC V6Z 3H1",
+              Images.locationSvg,
               withImg: true),
           14.h.verticalSpace,
-          buildTitle(context, "contactSalonKey"),
+          buildTitle(context, Labels.contactEcoleKey),
           6.h.verticalSpace,
-          buildIconRow(context, "(+225) 01 82 252 316", "call.svg"),
+          buildIconRow(context, "(+225) 01 82 252 516", Images.callSvg),
           16.h.verticalSpace,
-          buildTitle(context, "heurOuvertureSalonKey"),
+          buildTitle(context, Labels.heurOuvertureEcoleKey),
           10.h.verticalSpace,
-          buildDetailRow(context, "Lundi - Vendredi", "9h00 - 22h00"),
+          buildDetailRow(context, "Lundi - Vendredi", "08h00 - 17h00"),
           8.h.verticalSpace,
-          buildDetailRow(context, "Samedi", "8h00 - 23h00")
+          buildDetailRow(context, "Samedi", "09h00 - 13h00")
         ],
       ),
     );
@@ -598,7 +541,7 @@ class AboutUs extends StatelessWidget {
         ),
         6.w.horizontalSpace,
         Expanded(
-          flex: 1,
+          flex: 2,
           child: getCustomFont(title, 16, getFontColor(context), 1,
               fontWeight: FontWeight.w400),
         ),
@@ -617,7 +560,8 @@ class AboutUs extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        getSvgImageWithSize(context, image, 22.h, 22.h, fit: BoxFit.fill)
+        getSvgImageWithSize(context, image, 22.h, 22.h,
+                fit: BoxFit.fill, color: getAccentColor(context))
             .marginOnly(top: 5.h),
         10.w.horizontalSpace,
         Expanded(
@@ -625,11 +569,10 @@ class AboutUs extends StatelessWidget {
             child: getMultilineCustomFont(title, 16, getFontColor(context),
                 fontWeight: FontWeight.w400, txtHeight: 1.5)),
         (withImg)
-            ? getAssetImage(context, "map_btn.png", 44.h, 52.h,
+            ? getAssetImage(context, Images.mapButtonPng, 44.h, 52.h,
                 boxFit: BoxFit.fill)
             : 0.horizontalSpace
       ],
     );
   }
 }
-

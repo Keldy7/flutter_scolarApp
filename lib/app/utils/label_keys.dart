@@ -16,6 +16,7 @@ class Labels {
   static String confirmPasswordKey = "Confirmer le mot de passe";
   static String forgetPasswordKey = "Mot de passe oublié ?";
 
+//Extras
   static String getStartedKey = "Démarrer";
   static String continuerKey = "Continuer";
   static String suivantKey = "Suivant";
@@ -60,6 +61,7 @@ class Labels {
 
 //École
   static String ecoleKey = "École";
+  static String localisationKey = "Localisation";
   static String paysKey = "Pays";
   static String villeKey = "Ville";
   static String adrGeoKey = "Adresse géographique";
@@ -69,16 +71,15 @@ class Labels {
 
 //Détails sur une école
   static String notesAvisKey = "Notes et avis";
-  static String noterSalonKey = "Noter l'établissement";
+  static String noterEcoleKey = "Noter l'établissement";
   static String valeurMaxNotesKey = "sur 5";
-  static String descriptionSalonKey = "DESCRIPTION";
-  static String adrGeoSalonKey = "ADRESSE GÉOGRAPHIQUE";
-  static String contactSalonKey = "CONTACT TÉLÉPHONIQUE";
-  static String heurOuvertureSalonKey = "HEURES D'OUVERTURE";
+  static String descriptionKey = "DESCRIPTION";
+  static String adrGeographikKey = "ADRESSE GÉOGRAPHIQUE";
+  static String contactEcoleKey = "CONTACT TÉLÉPHONIQUE";
+  static String heurOuvertureEcoleKey = "HEURES D'OUVERTURE";
   static String aProposKey = "À propos";
   static String avisKey = "Avis";
   static String photosKey = "Photos";
-  static String localisationKey = "Localisation";
 
 //Ponctualité
   static String ponctualiteKey = "Ponctualité";

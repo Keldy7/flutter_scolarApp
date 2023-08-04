@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../utils/image_keys.dart';
 import '../../../../utils/label_keys.dart';
 import '../../../../utils/widget_utils.dart';
 import '../../../styles/colors.dart';
@@ -77,8 +78,7 @@ class _TabCalendarState extends State<TabCalendar> {
                                   child: SizedBox(
                                     width: 60,
                                     height: 60,
-                                    child: Image.network(
-                                        "https://fluttergems.dev/media/logo.png"),
+                                    child: getAssetImage(context, Images.banner2Png, 60, 60),
                                   ),
                                 ),
                               ],
