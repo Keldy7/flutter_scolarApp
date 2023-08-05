@@ -68,6 +68,7 @@ class Images {
   static const mailSvg ='mail';
   static const mailIconSvg ='mail_icon';
   static const noticeBoardSvg ='notice_board';
+  static const notificationSvg ='notification';
   static const profileSvg ='profile';
   static const radioCheckedSvg ='radio_checked';
   static const radioUncheckedSvg ='radio_unchecked';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/ui/screens/home/tab/tab_location.dart';
+
 
 import '../../../data/fake_data.dart';
 import '../../../utils/constant.dart';
@@ -14,6 +14,7 @@ import '../../styles/colors.dart';
 import '../../widgets/bottom_bar.dart';
 import 'tab/tab_calendar.dart';
 import 'tab/tab_home.dart';
+import 'tab/tab_location.dart';
 import 'tab/tab_profile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -65,7 +66,7 @@ class _HomeScreen extends State<HomeScreen> {
                         offset: Offset(0, -2),
                         blurRadius: 20)
                   ],
-                  color: lightAccentColor,
+                  color: getAccentColor(context),
                   shape: SmoothRectangleBorder(
                       borderRadius: SmoothBorderRadius.vertical(
                           top: SmoothRadius(
@@ -91,7 +92,7 @@ class _HomeScreen extends State<HomeScreen> {
                           icon: getSvgImageWithSize(
                               context, allBottomNav.icon, 24.h, 24.h,
                               fit: BoxFit.scaleDown,
-                              color: getFontBlackColor(context)),
+                              color: primaryColor),
                           activeIcon: getSvgImageWithSize(
                               context, allBottomNav.activeIcon, 24.h, 24.h,
                               fit: BoxFit.scaleDown));

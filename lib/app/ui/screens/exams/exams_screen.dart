@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/utils/constant.dart';
-import 'package:scolar_pay/app/utils/label_keys.dart';
 
+import '../../../utils/constant.dart';
 import '../../../utils/image_keys.dart';
+import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
 import '../../styles/colors.dart';
@@ -21,8 +21,6 @@ class _ExamenScreenState extends State<ExamenScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // RxInt selectedTab = 0.obs;
-
     return getScreenDetailDefaultView(context, Labels.examensCompositionsKey,
         () {
       Constant.backToPrev(context);
@@ -39,9 +37,7 @@ class _ExamenScreenState extends State<ExamenScreen> {
                   children: List.generate(7, (int _) {
                     return Card(
                         shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: greyColor
-                          ),
+                            side: BorderSide(color: greyColor),
                             borderRadius: BorderRadius.circular(8)),
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         elevation: 0,
@@ -110,11 +106,8 @@ class _ExamenScreenState extends State<ExamenScreen> {
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      const Text(
-                                        "Assez-bien",
-                                        maxLines: 2,
-                                      ),
-                                      5.h.verticalSpace,
+                                      getCustomFont(
+                                          "Assez-bien", 14, fontPrimary, 1)
                                     ],
                                   ).paddingOnly(right: 10)
                                 ],
@@ -125,6 +118,11 @@ class _ExamenScreenState extends State<ExamenScreen> {
               ],
             ))
           ],
-        ).paddingSymmetric(horizontal: 15), actionImg: Images.filterIconSvg, withLeading: true, centerTitle: true, subtitle: true, subtitleText: '');
+        ).paddingSymmetric(horizontal: 15),
+        actionImg: Images.filterIconSvg,
+        withLeading: true,
+        centerTitle: true,
+        subtitle: true,
+        subtitleText: 'Aperçu des épreuves écrites');
   }
 }

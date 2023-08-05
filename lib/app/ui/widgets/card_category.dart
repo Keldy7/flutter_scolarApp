@@ -46,7 +46,7 @@ class CardCategory extends StatelessWidget {
                 }
               },
               child: Row(
-                children: <Widget>[
+                children: [
                   Container(
                     height: 48,
                     width: 50,
@@ -59,22 +59,19 @@ class CardCategory extends StatelessWidget {
                       color: accentColor,
                       context,
                       nameSvg,
-                      24.h,
-                      24.h,
+                      25.h,
+                      25.h,
                       fit: BoxFit.scaleDown,
                     ),
                   ),
-                  const SizedBox(width: 6),
+                  8.w.horizontalSpace,
                   Expanded(
-                    child: Text(
+                    child: getCustomFont(
                       title,
-                      maxLines: 2,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13,
-                      ),
+                      14,
+                      getFontColor(context),
+                      2,
+                      fontWeight: FontWeight.bold,
                     ),
                   )
                 ],

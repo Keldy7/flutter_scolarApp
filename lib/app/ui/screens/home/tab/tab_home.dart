@@ -37,43 +37,29 @@ class _TabHomeState extends State<TabHome> {
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
-        height: 120.h,
+        height: 116.h,
         width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                ImageIcon(
-                  AssetImage(Constant.getImagePngPath(Images.boyPng)),
-                  size: 28,
-                  color: primaryColor,
-                ),
-                Text(Labels.nomAppKey,
-                    style: TextStyle(
-                        fontSize: 22,
-                        color: primaryColor,
-                        fontWeight: FontWeight.bold)),
-                IconButton(
-                  icon: Icon(
-                    Icons.notifications_rounded,
-                    color: primaryColor,
-                    size: 30,
-                  ),
-                  onPressed: () {
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ImageIcon(
+                AssetImage(Constant.getImagePngPath(Images.boyPng)),
+                size: 28,
+                color: primaryColor,
+              ),
+              getCustomFont(Labels.nomAppKey, 25, primaryColor, 1,
+                  fontWeight: FontWeight.bold),
+              InkWell(
+                  onTap: () {
                     Constant.goToNextPage(
                         context, Routes.notificationScreenRoute);
                   },
-                ),
-                // SvgPicture.asset(
-                //   'assets/images/arrow.svg',
-                //   height: 32,
-                //   width: 32,
-                // ),
-              ]),
-        ),
+                  child: getSvgImageWithSize(
+                      context, Images.notificationSvg, 25, 25,
+                      color: primaryColor)),
+            ]).paddingOnly(left: 15, right: 15, top: 15),
       ),
     );
   }
@@ -116,7 +102,8 @@ class _TabHomeState extends State<TabHome> {
                     buildSeeAllView(context, Labels.ecoleVedetteKey, () {
                       selectionController
                           .setSelectedTitle(Labels.ecoleVedetteKey);
-                      Constant.goToNextPage(context, Routes.schoolListScreenRoute);
+                      Constant.goToNextPage(
+                          context, Routes.schoolListScreenRoute);
                     }),
                     SizedBox(
                       height: 290.w,
@@ -233,7 +220,7 @@ class _TabHomeState extends State<TabHome> {
                     LayoutBuilder(builder: (context, boxConstraints) {
                       return Wrap(
                           spacing: boxConstraints.maxWidth * (0.1),
-                          runSpacing: 32.5,
+                          runSpacing: 35,
                           children: [
                             CustomChildIdentityBloc(
                                 width: boxConstraints.maxWidth * (0.45)),
@@ -244,7 +231,6 @@ class _TabHomeState extends State<TabHome> {
                           ]);
                     }).paddingSymmetric(
                         horizontal: Constant.getDefaultHorSpaceFigma(context)),
-                    10.w.verticalSpace,
                   ],
                 ),
                 padding: EdgeInsets.only(bottom: 104.h)),

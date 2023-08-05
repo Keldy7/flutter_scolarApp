@@ -14,11 +14,9 @@ import '../../../controllers/storage.dart';
 import '../../../styles/colors.dart';
 
 class TabProfile extends StatelessWidget {
-
   TabProfile({super.key});
 
   var imageController = Get.find<ImageController>();
-
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +42,8 @@ class TabProfile extends StatelessWidget {
                     ),
                   ),
                   20.h.verticalSpace,
-                  getCustomFont('Aude Marie Kouassy', 16, getFontColor(context), 1,
+                  getCustomFont(
+                      'Aude Marie Kouassy', 16, getFontColor(context), 1,
                       fontWeight: FontWeight.w700),
                   3.h.verticalSpace,
                   getCustomFont('aud@gmail.com', 14, getFontColor(context), 1,
@@ -52,29 +51,29 @@ class TabProfile extends StatelessWidget {
                   30.h.verticalSpace,
                   getProfileRowContainer(context, () {
                     Constant.goToNextPage(context, Routes.myProfileScreenRoute);
-                  }, Labels.monProfilKey, iconName: Icons.manage_accounts_rounded),
+                  }, Labels.monProfilKey,
+                      iconName: Icons.manage_accounts_rounded),
                   getProfileRowContainer(context, () {
-                    Constant.goToNextPage(context, Routes.permissionsScreenRoute);
-                  }, Labels.mesPermissionsKey, iconName: Icons.compare_arrows_outlined),
+                    Constant.goToNextPage(
+                        context, Routes.permissionsScreenRoute);
+                  }, Labels.mesPermissionsKey,
+                      iconName: Icons.compare_arrows_outlined),
                   getProfileRowContainer(context, () {
                     Constant.goToNextPage(context, Routes.settingScreenRoute);
                   }, Labels.reglagesKey, iconName: Icons.settings),
                 ],
               ),
             ),
-            getButtonFigma(context, getAccentColor(context), true, Labels.deconnexionKey,
-                    primaryColor, () {
+            getButtonFigma(context, getAccentColor(context), true,
+                    Labels.deconnexionKey, primaryColor, () {
               setLoggedIn(false);
               Constant.goToNextPage(context, Routes.loginRoute);
             },
                     EdgeInsets.symmetric(
-                        horizontal:
-                            Constant.getDefaultHorSpaceFigma(context)))
+                        horizontal: Constant.getDefaultHorSpaceFigma(context)))
                 .marginSymmetric(vertical: 30.h),
-            130.h.verticalSpace,
           ],
         ),
         withLeading: false);
   }
-
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:scolar_pay/app/ui/styles/colors.dart';
-import 'package:scolar_pay/app/utils/constant.dart';
 
+import '../../utils/constant.dart';
 import '../../utils/image_keys.dart';
+import '../styles/colors.dart';
 
 
 class BorderedProfilePicture extends StatelessWidget {
@@ -33,7 +33,7 @@ class BorderedProfilePicture extends StatelessWidget {
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
-                width: 1.0, color: getAccentColor(context))),
+                width: 1.0, color: secondaryColor)),
         width: boxConstraints.maxWidth *
             (heightAndWidthPercentage ??
                 Constant.defaultProfilePictureHeightAndWidthPercentage),
@@ -48,7 +48,7 @@ class BorderedProfilePicture extends StatelessWidget {
                   image: AssetImage(Constant.getImagePngPath(
                       Images.boyPng)))
               : DecorationImage(
-                  image: AssetImage(Constant.getImagePngPath(Images.boyPng))),
+                  image: AssetImage(Constant.getImagePngPath(Images.girlPng))),
         )),
       ),
     );
