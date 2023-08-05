@@ -22,6 +22,7 @@ import 'app/ui/screens/login/login_screen.dart';
 import 'app/ui/screens/login/registration_screen.dart';
 import 'app/ui/screens/login/reset_password_screen.dart';
 import 'app/ui/screens/profile/notification_screen.dart';
+import 'app/ui/screens/school/list_school_screen.dart';
 import 'app/ui/screens/settings/termn_condition_screen.dart';
 import 'app/ui/screens/login/verification_screen.dart';
 import 'app/ui/screens/permission/add_permission_screen.dart';
@@ -85,6 +86,7 @@ class MyApp extends StatelessWidget {
         // confirmServiceListRoute: (context) => ConfirmList(),
         Routes.feesScreenRoute: (context) => const FeesScreen(),
         Routes.schoolScreenRoute: (context) => const SchoolScreen(),
+        Routes.schoolListScreenRoute: (context) => SchoolListScreen(),
         // Routes.paymentListRoute: (context) => PaymentList(),
         // Routes.paymentScreenRoute: (context) => PaymentScreen(),
         // bookingDetailScreenRoute: (context) => BookingDetailScreen(),

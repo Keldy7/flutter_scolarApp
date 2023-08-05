@@ -113,13 +113,13 @@ class _TabHomeState extends State<TabHome> {
                                 context, bannerList.length, sliderPos.value)),
                         sliderPos),
                     20.h.verticalSpace,
-                    buildSeeAllView(context, "Écoles en vedette", () {
+                    buildSeeAllView(context, Labels.ecoleVedetteKey, () {
                       selectionController
-                          .setSelectedTitle("Écoles en vedette");
-                      // Constant.goToNextPage(context, Routes.);
+                          .setSelectedTitle(Labels.ecoleVedetteKey);
+                      Constant.goToNextPage(context, Routes.schoolListScreenRoute);
                     }),
                     SizedBox(
-                      height: 292.w,
+                      height: 290.w,
                       child: ListView.builder(
                         itemCount: nearestEcolesList.length,
                         itemBuilder: (context, index) {
@@ -229,7 +229,7 @@ class _TabHomeState extends State<TabHome> {
                       Constant.goToNextPage(
                           context, Routes.childrenScreenRoute);
                     }),
-                    20.w.verticalSpace,
+                    20.h.verticalSpace,
                     LayoutBuilder(builder: (context, boxConstraints) {
                       return Wrap(
                           spacing: boxConstraints.maxWidth * (0.1),

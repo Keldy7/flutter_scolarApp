@@ -8,6 +8,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
+import '../ui/models/model_category.dart';
+import '../ui/models/model_profile.dart';
 import '../ui/styles/colors.dart';
 import 'constant.dart';
 import 'image_keys.dart';
@@ -798,6 +800,143 @@ Widget itemSlotBooking(int index, BuildContext context, bool isSelected,
   );
 }
 
+Widget buildProfileItem(BuildContext context, int index, Function function,
+    ModelProfile modelProfile, bool isLast) {
+  double horSpace = Constant.getDefaultHorSpaceFigma(context);
+
+  return InkWell(
+    onTap: () {
+      function();
+    },
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        getCircleImage(context, modelProfile.image, 64.h),
+        getCustomFont(modelProfile.name, 16, getFontColor(context), 1,
+            fontWeight: FontWeight.w400)
+      ],
+    ).marginOnly(
+        left: (index == 0) ? horSpace : horSpace / 2,
+        right: (isLast) ? horSpace : (horSpace / 2)),
+  );
+}
+
+Widget buildItemCategoryDetail(
+    BuildContext context, ModelCategory category, Function function) {
+  return InkWell(
+    onTap: () {
+      function();
+    },
+    child: Container(
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+      width: double.infinity,
+      height: 90.h,
+      decoration: getButtonDecoration(getCardColor(context),
+          withCorners: true,
+          corner: 20.h,
+          shadow: [
+            const BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.07999999821186066),
+                offset: Offset(-4, 5),
+                blurRadius: 16)
+          ]),
+      margin: EdgeInsets.symmetric(
+          horizontal: Constant.getDefaultHorSpaceFigma(context),
+          vertical: 10.h),
+      child: Row(
+        children: [
+          getCircularImage(
+              context, 70.h, double.infinity, 20.h, category.image),
+          12.w.horizontalSpace,
+          Expanded(
+            flex: 1,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  getCustomFont(category.title, 20, getFontColor(context), 1,
+                      fontWeight: FontWeight.w700, txtHeight: 1.5),
+                  6.h.verticalSpace,
+                  getCustomFont(
+                      "Over 10 Salon", 14, getFontGreyColor(context), 1,
+                      fontWeight: FontWeight.w700, txtHeight: 1.5)
+                ]),
+          )
+        ],
+      ),
+    ),
+  );
+}
+
+Widget buildItemNearestSchoolDetail(BuildContext context, Function function,
+    {String img = ''}) {
+  return InkWell(
+    onTap: () {
+      function();
+    },
+    child: Container(
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+      width: double.infinity,
+      height: 161.h,
+      decoration: getButtonDecoration(getCardColor(context),
+          withCorners: true,
+          corner: 20.h,
+          shadow: [
+            const BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.07999999821186066),
+                offset: Offset(-4, 5),
+                blurRadius: 16)
+          ]),
+      margin: EdgeInsets.symmetric(
+          horizontal: Constant.getDefaultHorSpaceFigma(context),
+          vertical: 10.h),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 165.h,
+            height: double.infinity,
+            child: Stack(
+              children: [
+                getCircularImage(context, double.infinity, double.infinity,
+                    20.h, img,
+                    boxFit: BoxFit.cover),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: buildFavouriteBtn(EdgeInsets.all(10.h)),
+                )
+              ],
+            ),
+          ),
+          12.w.horizontalSpace,
+          Expanded(
+            flex: 1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                getCustomFont(
+                    "Nom école", 16, getFontColor(context), 1,
+                    fontWeight: FontWeight.w700),
+                10.h.verticalSpace,
+                buildLocationRow(context, "8502 Plateau Centre. Abidjan 31134",
+                    getFontGreyColor(context)),
+                10.h.verticalSpace,
+                Row(
+                  children: [
+                    buildStarView(context, "4.7"),
+                    20.w.horizontalSpace,
+                    buildDistanceView(context, "50 m"),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    ),
+  );
+}
+
 Row buildLocationRow(BuildContext context, String location, Color locationColor,
     {FontWeight weight = FontWeight.w400,
     int maxLine = 1,
@@ -1115,6 +1254,7 @@ Widget getDefaultUnderlineTextFiled(
             (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0),
   );
 }
+
 
 Widget getDefaultTextFiled(
     BuildContext context,

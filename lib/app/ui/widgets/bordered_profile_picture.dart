@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scolar_pay/app/ui/styles/colors.dart';
 import 'package:scolar_pay/app/utils/constant.dart';
 
 import '../../utils/image_keys.dart';
@@ -32,7 +33,7 @@ class BorderedProfilePicture extends StatelessWidget {
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
-                width: 1.0, color: Theme.of(context).scaffoldBackgroundColor)),
+                width: 1.0, color: getAccentColor(context))),
         width: boxConstraints.maxWidth *
             (heightAndWidthPercentage ??
                 Constant.defaultProfilePictureHeightAndWidthPercentage),

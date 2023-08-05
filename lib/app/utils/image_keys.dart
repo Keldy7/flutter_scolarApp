@@ -46,6 +46,7 @@ class Images {
   static const chatActiveSvg ='chat_active';
   static const chatSvg ='chat';
   static const checkCircleSvg ='check_circle';
+  static const classSvg ='class';
   static const distanceSvg ='distance';
   static const doneAllSvg ='done_all';
   static const examsSvg ='exams';
@@ -74,6 +75,7 @@ class Images {
   static const ratingSvg ='rating';
   static const removeImgSvg ='remove_img';
   static const rightSvg ='right';
+  static const rollNoSvg ='roll_no';
   static const saveActiveSvg ='save_active';
   static const saveSvg ='save';
   static const searchSvg ='search';
@@ -82,11 +84,11 @@ class Images {
   static const splashLogoSvg ='splash_logo';
   static const starSvg ='star';
   static const takeAttendanceSvg ='take_attendance';
+  static const teacherSvg ='teacher';
   static const timetableSvg ='timetable';
   static const topicsSvg ='topics';
   static const trashSvg ='trash';
   static const userActiveSvg ='user_active';
-  static const userProRollNoIconSvg ='user_pro_roll_no_icon';
   
 }
    

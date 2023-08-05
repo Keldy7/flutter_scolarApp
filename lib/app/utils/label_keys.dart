@@ -42,6 +42,7 @@ class Labels {
   static String timetableKey = "Emploi du temps";
   static String examsKey = "Examens et compositions";
   static String permissionsAbsenceKey = "Permissions d'absence";
+  static String enseignantsKey = "Enseignants";
 
 //Enfant
   static String classeKey = "Classe";
@@ -61,6 +62,7 @@ class Labels {
 
 //École
   static String ecoleKey = "École";
+  static String ecoleVedetteKey = "Écoles vedettes";
   static String localisationKey = "Localisation";
   static String paysKey = "Pays";
   static String villeKey = "Ville";

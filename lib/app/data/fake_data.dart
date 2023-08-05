@@ -65,8 +65,10 @@ class FakeData {
     List<Fees> matList = [];
 
     matList.add(Fees(name: "Transport", amount: 2));
-    matList.add(Fees(name:"Cantine", amount:1));
-    matList.add(Fees(name:"1er versement", amount:25));
+    matList.add(Fees(name: "Cantine", amount: 10));
+    matList.add(Fees(name: "1er versement", amount: 25));
+    matList.add(Fees(name: "2ème versement", amount: 25));
+    matList.add(Fees(name: "3ème versement", amount: 15));
 
     return matList;
   }
@@ -75,6 +77,8 @@ class FakeData {
     List<ModelCategory> catList = [];
 
     catList.add(ModelCategory(Labels.attendanceKey, Images.attendanceSvg,
+        Routes.attendanceScreenRoute));
+    catList.add(ModelCategory(Labels.enseignantsKey, Images.teacherSvg,
         Routes.attendanceScreenRoute));
     catList.add(ModelCategory(
         Labels.timetableKey, Images.timetableSvg, Routes.homeScreenRoute));
@@ -91,8 +95,10 @@ class FakeData {
   static List<ModelOptions> getAllOptionsList() {
     List<ModelOptions> optionsList = [];
 
-    optionsList.add(ModelOptions(Icons.headset_mic_rounded, Labels.serviceClientKey));
-    optionsList.add(ModelOptions(Icons.g_translate_outlined, Labels.websiteKey));
+    optionsList
+        .add(ModelOptions(Icons.headset_mic_rounded, Labels.serviceClientKey));
+    optionsList
+        .add(ModelOptions(Icons.g_translate_outlined, Labels.websiteKey));
     optionsList.add(ModelOptions(Icons.wordpress_rounded, Labels.whatsappKey));
     optionsList.add(ModelOptions(Icons.facebook, Labels.facebookKey));
 

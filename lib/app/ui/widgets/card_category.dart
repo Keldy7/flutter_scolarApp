@@ -48,8 +48,8 @@ class CardCategory extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Container(
-                    height: 43,
-                    width: 44,
+                    height: 48,
+                    width: 50,
                     decoration: BoxDecoration(
                       color: primaryColor,
                       shape: BoxShape.circle,
