@@ -68,8 +68,8 @@ class _TabHomeState extends State<TabHome> {
     var selectionController = Get.find<ValueSelectionController>();
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
     final List<String> nearestEcolesList = [
-      Images.intro3Png,
-      Images.intro4Png,
+      Images.ecole1Png,
+      Images.ecole2Png,
       Images.intro1Png
     ];
 

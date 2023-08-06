@@ -9,6 +9,8 @@ class Images {
   static String confirm1Png = "confirm1";
   static String deleteImgPng = "delete_img";
   static String donePng = "done";
+  static String ecole1Png = "ecole1";
+  static String ecole2Png = "ecole2";
   static String girlPng = "girl";
   static String intro1Png = "intro1";
   static String intro2Png = "intro2";

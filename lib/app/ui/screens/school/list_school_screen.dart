@@ -16,10 +16,10 @@ class SchoolListScreen extends StatelessWidget {
   final List<ModelCategory> categoryList = FakeData.getAllCategoryList();
 
   final List<String> images = [
-    Images.intro1Png,
-    Images.intro2Png,
-    Images.intro3Png,
-    Images.intro4Png
+    Images.ecole1Png,
+    Images.ecole2Png,
+    Images.ecole1Png,
+    Images.ecole2Png
   ];
 
   SchoolListScreen({super.key});
