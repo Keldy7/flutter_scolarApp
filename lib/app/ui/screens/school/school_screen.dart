@@ -62,7 +62,7 @@ class _SchoolScreenState extends State<SchoolScreen> {
                                       image: DecorationImage(
                                           image: AssetImage(
                                               Constant.getImagePngPath(
-                                                  Images.intro4Png)),
+                                                  Images.ecole1Png)),
                                           fit: BoxFit.cover)),
                                   child: Align(
                                     alignment: Alignment.topLeft,

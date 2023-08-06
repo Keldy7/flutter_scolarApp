@@ -29,6 +29,7 @@ class Routes {
   static String feesScreenRoute = "keyFeesScreenRoute";
   static String schoolScreenRoute = "keySchoolScreenRoute";
   static String schoolListScreenRoute = "keySchoolListScreenRoute";
+  static String teachersScreenRoute = "keyTeachersScreenRoute";
   static String paymentListRoute = "keyPaymentServiceListScreenRoute";
   static String paymentScreenRoute = "keyPaymentScreenRoute";
   static String bookingDetailScreenRoute = "keyBookingDetailScreenRoute";
