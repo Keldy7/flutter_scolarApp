@@ -21,6 +21,7 @@ class Labels {
   static String continuerKey = "Continuer";
   static String suivantKey = "Suivant";
   static String retourKey = "Retour";
+  static String confirmerKey = "Confirmer";
   static String messageKey = "Discuter";
   static String partagerSalonKey = "Partager";
   static String rechercherKey = "Rechercher...";
@@ -127,8 +128,12 @@ class Labels {
 
 //Scolarité
   static String feeKey = "Frais scolaires";
+  static String detailKey = "Détail";
+  static String paiementKey = "Paiement";
+  static String payNowKey = "Payez maintenant";
 
 //Moyens de paiement
+  static String paymentMethodsKey = "Moyens de paiement";
   static String waveKey = "Wave";
   static String moowMoneyKey = "Moov money";
   static String mtnwMoneyKey = "MTN money";

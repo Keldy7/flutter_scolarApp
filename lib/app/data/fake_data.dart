@@ -8,6 +8,7 @@ import '../ui/models/model_bottom_nav.dart';
 import '../ui/models/model_category.dart';
 import '../ui/models/model_intro.dart';
 import '../ui/models/model_options_contact_us.dart';
+import '../ui/models/model_payment.dart';
 import '../utils/label_keys.dart';
 
 class FakeData {
@@ -103,5 +104,16 @@ class FakeData {
     optionsList.add(ModelOptions(Icons.facebook, Labels.facebookKey));
 
     return optionsList;
+  }
+
+  static List<ModelPayment> getAllPaymentList() {
+    List<ModelPayment> paymentList = [];
+
+    paymentList.add(ModelPayment(Images.waveLogoPng, Labels.waveKey));
+    paymentList.add(ModelPayment(Images.moovLogoPng, Labels.moowMoneyKey));
+    paymentList.add(ModelPayment(Images.orangeLogoPng, Labels.orangeMoneyKey));
+    paymentList.add(ModelPayment(Images.moovLogoPng, Labels.mtnwMoneyKey));
+
+    return paymentList;
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scolar_pay/app/utils/widget_utils.dart';
+
+import '../../../utils/constant.dart';
+import '../../../utils/widget_utils.dart';
 
 class TeachersScreen extends StatefulWidget {
   const TeachersScreen({super.key});
@@ -11,10 +13,10 @@ class TeachersScreen extends StatefulWidget {
 class _TeachersScreenState extends State<TeachersScreen> {
   @override
   Widget build(BuildContext context) {
-    return getScreenDetailDefaultView(context, "Enseignants", (){}, Column(children: [
-      Center(
-        child: Text("Enseignants"),
-      )
+    return getScreenDetailDefaultView(context, "Enseignants", (){
+      Constant.backToPrev(context);
+    }, Column(children: [
+                       
     ],));
   }
 }

@@ -99,7 +99,7 @@ Widget buildDatePickerButton(
           withCorners: true,
           corner: 20.h,
           withBorder: true,
-          borderColor: indicatorColor),
+          borderColor: black40Color),
       child: Row(children: [
         Expanded(
           flex: 1,

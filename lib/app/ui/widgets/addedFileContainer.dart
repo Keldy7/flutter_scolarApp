@@ -26,7 +26,7 @@ class AddedFileContainer extends StatelessWidget {
           borderType: BorderType.RRect,
           dashPattern: const [10, 10],
           radius: const Radius.circular(15.0),
-          color: black40Color.withOpacity(0.3),
+          color: blackColor.withOpacity(0.3),
           child: Container(
             alignment: Alignment.center,
             width: MediaQuery.sizeOf(context).width * (0.8),
