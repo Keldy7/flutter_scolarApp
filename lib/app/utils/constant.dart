@@ -90,8 +90,8 @@ class Constant {
     return "${Constant.assetImageSvgPath}$imageName.svg";
   }
 
-  static getCurrency(BuildContext context) {
-    return "FCFA";
+  static getCurrency(BuildContext context, String amount) {
+    return "$amount FCFA";
   }
 
   static goToNextPage(BuildContext context, String route, {Object? arguments}) {

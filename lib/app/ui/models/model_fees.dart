@@ -1,7 +1,7 @@
 class Fees {
   int? id;
   String name;
-  double amount;
+  int amount;
   bool isChecked;
   Fees({
       this.id,

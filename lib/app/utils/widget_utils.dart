@@ -897,8 +897,8 @@ Widget buildItemNearestSchoolDetail(BuildContext context, Function function,
             height: double.infinity,
             child: Stack(
               children: [
-                getCircularImage(context, double.infinity, double.infinity,
-                    20.h, img,
+                getCircularImage(
+                    context, double.infinity, double.infinity, 20.h, img,
                     boxFit: BoxFit.cover),
                 Align(
                   alignment: Alignment.topLeft,
@@ -914,8 +914,7 @@ Widget buildItemNearestSchoolDetail(BuildContext context, Function function,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                getCustomFont(
-                    "Nom école", 16, getFontColor(context), 1,
+                getCustomFont("Nom école", 16, getFontColor(context), 1,
                     fontWeight: FontWeight.w700),
                 10.h.verticalSpace,
                 buildLocationRow(context, "8502 Plateau Centre. Abidjan 31134",
@@ -969,22 +968,57 @@ Widget getDefaultContainerView(BuildContext context, Widget childView,
 }
 
 Container getBorderedContainer(
-    BuildContext context, double innerWidth, Widget childColumn) {
+    BuildContext context, double innerWidth, Widget childColumn,
+    {Color borderColor = Colors.grey,
+    double widthBorder = 2,
+    bool isBlockFees = false}) {
   return Container(
       width: innerWidth,
       decoration: getButtonDecoration(getCardColor(context),
           withCorners: true,
           corner: 20.h,
           withBorder: true,
-          widthBorder: 2,
-          borderColor: secondaryColor,
+          widthBorder: widthBorder,
+          borderColor: borderColor,
           shadow: [
             const BoxShadow(
                 color: Color.fromRGBO(0, 0, 0, 0.07999999821186066),
                 offset: Offset(-4, 5),
                 blurRadius: 16)
           ]),
-      child: childColumn.paddingSymmetric(vertical: 10));
+      child: Stack(clipBehavior: Clip.none, children: [
+        childColumn.paddingSymmetric(vertical: 10),
+        !isBlockFees
+            ? Container()
+            : PositionedDirectional(
+                bottom: -20,
+                start: (innerWidth * 0.2),
+                end: (innerWidth * 0.2),
+                child: GestureDetector(
+                  onTap: () {
+                    print("Pay now");
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: innerWidth * (0.2),
+                    height: 30,
+                    decoration: getButtonDecoration(
+                      getAccentColor(context),
+                      withCorners: true,
+                      corner: 12.w,
+                      shadow: [
+                        const BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.07999999821186066),
+                            offset: Offset(-4, 5),
+                            blurRadius: 16)
+                      ],
+                    ),
+                    child: getCustomFont(Labels.payNowKey, 15, primaryColor, 1,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ))
+      
+      ]));
 }
 
 showGetDialog(
@@ -1254,7 +1288,6 @@ Widget getDefaultUnderlineTextFiled(
             (withPadding) ? Constant.getDefaultHorSpaceFigma(context) : 0),
   );
 }
-
 
 Widget getDefaultTextFiled(
     BuildContext context,

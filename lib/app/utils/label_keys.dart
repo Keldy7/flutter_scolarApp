@@ -17,15 +17,20 @@ class Labels {
   static String forgetPasswordKey = "Mot de passe oublié ?";
 
 //Extras
-  static String getStartedKey = "Démarrer";
-  static String continuerKey = "Continuer";
+  static String okKey = "Ok";
+  static String autreKey = "Autre";
   static String suivantKey = "Suivant";
   static String retourKey = "Retour";
+  static String rechercherKey = "Rechercher...";
+  static String selectionnerKey = "Sélectionner...";
+  static String getStartedKey = "Démarrer";
+  static String continuerKey = "Continuer";
   static String confirmerKey = "Confirmer";
   static String messageKey = "Discuter";
   static String partagerSalonKey = "Partager";
-  static String rechercherKey = "Rechercher...";
-  static String selectionnerKey = "Sélectionner...";
+  static String submitKey = "Soumettre";
+  static String validerKey = "Valider";
+  static String annulerKey = "Annuler";
 
   static String voirPlusKey = "Voir plus";
   static String voirMoinsKey = "Voir moins";
@@ -86,8 +91,8 @@ class Labels {
 
 //Ponctualité
   static String ponctualiteKey = "Ponctualité";
-  static String totalPresentKey = "Présence";
-  static String totalAbsentKey = "Absence";
+  static String totalPresentKey = "Total présence";
+  static String totalAbsentKey = "Total absence";
 
 //Permissions
   static String permissionsKey = "Permissions";
@@ -131,6 +136,7 @@ class Labels {
   static String detailKey = "Détail";
   static String paiementKey = "Paiement";
   static String payNowKey = "Payez maintenant";
+  static String payeeKey = "Reglée";
 
 //Moyens de paiement
   static String paymentMethodsKey = "Moyens de paiement";
@@ -138,13 +144,6 @@ class Labels {
   static String moowMoneyKey = "Moov money";
   static String mtnwMoneyKey = "MTN money";
   static String orangeMoneyKey = "Orange money";
-
-//Divers
-  static String autreKey = "Autre";
-  static String okKey = "Ok";
-  static String submitKey = "Soumettre";
-  static String validerKey = "Valider";
-  static String annulerKey = "Annuler";
 
 //Profil
   static String monProfilKey = "Mon profil";
