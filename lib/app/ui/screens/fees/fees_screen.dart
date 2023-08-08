@@ -60,17 +60,18 @@ class _FeesScreenState extends State<FeesScreen> {
                           innerWidth,
                           _buildExpansionTile(
                               context, innerWidth, "Mai", "10", false),
-                          isBlockFees: true)
+                          widthBorder: 1)
                       .paddingSymmetric(vertical: 15.h),
                   Column(
                       children: List.generate(
                     3,
                     (index) => getBorderedContainer(
-                      context,
-                      innerWidth,
-                      _buildExpansionTile(
-                          context, innerWidth, "Avril", "10", true),
-                    ).paddingSymmetric(vertical: 15.h),
+                            context,
+                            innerWidth,
+                            _buildExpansionTile(
+                                context, innerWidth, "Avril", "10", true),
+                            widthBorder: 1)
+                        .paddingSymmetric(vertical: 15.h),
                   )),
                 ],
               ),
@@ -213,18 +214,24 @@ class _FeesScreenState extends State<FeesScreen> {
           children: [
             Column(
               children: [
+                //List of fees
                 listOfFees(feesDetails: FakeData.getAllFeesList()),
                 getDivider(),
+                // Title for total fees
                 setRow(
                     titleLabel: Labels.totalKey,
                     amountLabel: totalFees.toString(),
                     isCheckboxRequired: false,
                     index: 0,
                     onChanged: (index, value) {}),
-                // getButtonFigma(context, getAccentColor(context), true,
-                //     Labels.payNowKey, primaryColor, () {
-                //   Constant.goToNextPage(context, Routes.editChildScreenRoute);
-                // }, EdgeInsets.zero),
+                //Button for pay now
+                isPaid
+                    ? Container()
+                    : getButtonFigma(context, getAccentColor(context), true,
+                        Labels.payNowKey, primaryColor, () {
+                        Constant.goToNextPage(
+                            context, Routes.paymentFeesScreenRoute);
+                      }, EdgeInsets.zero),
               ],
             ).paddingSymmetric(
               horizontal: MediaQuery.of(context).size.width * (0.05),
@@ -280,7 +287,7 @@ class _FeesScreenState extends State<FeesScreen> {
               width: 15,
               child: Checkbox(
                 visualDensity: VisualDensity.compact,
-                side: BorderSide(color: getAccentColor(context), width: 1.h),
+                side: BorderSide(color: secondaryColor, width: 1.h),
                 activeColor: secondaryColor,
                 onChanged: (value) {
                   onChanged(index, value ?? false);

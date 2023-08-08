@@ -970,8 +970,7 @@ Widget getDefaultContainerView(BuildContext context, Widget childView,
 Container getBorderedContainer(
     BuildContext context, double innerWidth, Widget childColumn,
     {Color borderColor = Colors.grey,
-    double widthBorder = 2,
-    bool isBlockFees = false}) {
+    double widthBorder = 2}) {
   return Container(
       width: innerWidth,
       decoration: getButtonDecoration(getCardColor(context),
@@ -986,39 +985,7 @@ Container getBorderedContainer(
                 offset: Offset(-4, 5),
                 blurRadius: 16)
           ]),
-      child: Stack(clipBehavior: Clip.none, children: [
-        childColumn.paddingSymmetric(vertical: 10),
-        !isBlockFees
-            ? Container()
-            : PositionedDirectional(
-                bottom: -20,
-                start: (innerWidth * 0.2),
-                end: (innerWidth * 0.2),
-                child: GestureDetector(
-                  onTap: () {
-                    print("Pay now");
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: innerWidth * (0.2),
-                    height: 30,
-                    decoration: getButtonDecoration(
-                      getAccentColor(context),
-                      withCorners: true,
-                      corner: 12.w,
-                      shadow: [
-                        const BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.07999999821186066),
-                            offset: Offset(-4, 5),
-                            blurRadius: 16)
-                      ],
-                    ),
-                    child: getCustomFont(Labels.payNowKey, 15, primaryColor, 1,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ))
-      
-      ]));
+      child: childColumn.paddingSymmetric(vertical: 10));
 }
 
 showGetDialog(

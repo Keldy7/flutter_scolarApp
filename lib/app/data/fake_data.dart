@@ -109,10 +109,10 @@ class FakeData {
   static List<ModelPayment> getAllPaymentList() {
     List<ModelPayment> paymentList = [];
 
-    paymentList.add(ModelPayment(Images.waveLogoPng, Labels.waveKey));
     paymentList.add(ModelPayment(Images.moovLogoPng, Labels.moowMoneyKey));
+    paymentList.add(ModelPayment(Images.mtnLogoPng, Labels.mtnMoneyKey));
     paymentList.add(ModelPayment(Images.orangeLogoPng, Labels.orangeMoneyKey));
-    paymentList.add(ModelPayment(Images.moovLogoPng, Labels.mtnwMoneyKey));
+    paymentList.add(ModelPayment(Images.waveLogoPng, Labels.waveKey));
 
     return paymentList;
   }

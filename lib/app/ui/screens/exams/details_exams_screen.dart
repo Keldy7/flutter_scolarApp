@@ -76,7 +76,7 @@ class _DetailExamsScreenState extends State<DetailExamsScreen>
                           );
                         })),
                         getDivider().marginSymmetric(vertical: 15.h),
-                        buildTitles(context, Labels.totalKey,
+                        buildTitles(context, Labels.totalNotesKey,
                             subTitle: "= ${note * countList}",
                             sizeTitle: 18,
                             withPadding: false),

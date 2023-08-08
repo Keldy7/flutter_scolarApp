@@ -128,11 +128,12 @@ class Labels {
   static String matieresKey = "Matières";
   static String noteKey = "Note";
   static String mentionKey = "Mention";
-  static String totalKey = "Total des notes";
+  static String totalNotesKey = "Total des notes";
   static String mentionAppreciationKey = "Appréciations et classement";
 
 //Scolarité
   static String feeKey = "Frais scolaires";
+  static String totalKey = "Total";
   static String detailKey = "Détail";
   static String paiementKey = "Paiement";
   static String payNowKey = "Payez maintenant";
@@ -141,9 +142,9 @@ class Labels {
 //Moyens de paiement
   static String paymentMethodsKey = "Moyens de paiement";
   static String waveKey = "Wave";
-  static String moowMoneyKey = "Moov money";
-  static String mtnwMoneyKey = "MTN money";
-  static String orangeMoneyKey = "Orange money";
+  static String moowMoneyKey = "Moov Money";
+  static String mtnMoneyKey = "MTN Money";
+  static String orangeMoneyKey = "Orange Money";
 
 //Profil
   static String monProfilKey = "Mon profil";

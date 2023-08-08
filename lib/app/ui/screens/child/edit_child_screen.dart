@@ -280,7 +280,7 @@ TextEditingController phoneMereController =
         )),
         getButtonFigma(
             context,
-            getAccentColor(context),
+            secondaryColor,
             true,
             Labels.saveModificationKey,
             primaryColor,

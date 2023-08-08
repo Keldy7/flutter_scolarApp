@@ -6,6 +6,7 @@ import 'package:scolar_pay/app/ui/screens/child/edit_child_screen.dart';
 import 'package:scolar_pay/app/ui/screens/exams/details_exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/exams/exams_screen.dart';
 import 'package:scolar_pay/app/ui/screens/fees/fees_screen.dart';
+import 'package:scolar_pay/app/ui/screens/fees/pay_fees_screen.dart';
 import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
 import 'package:scolar_pay/app/ui/screens/school/school_screen.dart';
 import 'package:scolar_pay/app/ui/screens/settings/help_center.dart';
@@ -86,11 +87,10 @@ class MyApp extends StatelessWidget {
             const AddPermissionScreen(),
         // confirmServiceListRoute: (context) => ConfirmList(),
         Routes.feesScreenRoute: (context) => const FeesScreen(),
+        Routes.paymentFeesScreenRoute: (context) => const PaymentFeesScreen(),
         Routes.schoolScreenRoute: (context) => const SchoolScreen(),
         Routes.schoolListScreenRoute: (context) => SchoolListScreen(),
         Routes.teachersScreenRoute: (context) => const TeachersScreen(),
-        // Routes.paymentListRoute: (context) => PaymentList(),
-        // Routes.paymentScreenRoute: (context) => PaymentScreen(),
         // bookingDetailScreenRoute: (context) => BookingDetailScreen(),
         // selectLocationRoute: (context) => SelectLocation(),
         // selectOtherLocationRoute: (context) => SelectOtherLocation(),
