@@ -240,7 +240,7 @@ class _PaymentFeesScreenState extends State<PaymentFeesScreen> {
                       getSvgImageWithSize(
                           context, Images.accountSvg, 34.h, 34.h,
                           fit: BoxFit.fill, color: secondaryColor),
-                      Text("texte payment!.title}"),
+                      getCustomFont("texte payment!.title}", 15, blackColor, 1)
                     ],
                   ),
                 ),

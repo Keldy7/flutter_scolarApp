@@ -17,13 +17,12 @@ class DetailExamsScreen extends StatefulWidget {
 
 class _DetailExamsScreenState extends State<DetailExamsScreen>
     with TickerProviderStateMixin {
-  int note = 62;
+  int note = 14;
   int countList = 4;
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
-    // double height = MediaQuery.sizeOf(context).height;
 
     return getScreenDetailDefaultView(context, Labels.resultatsKey, () {
       Constant.backToPrev(context);
@@ -132,113 +131,70 @@ class _DetailExamsScreenState extends State<DetailExamsScreen>
                                 Stack(
                                   clipBehavior: Clip.none,
                                   children: [
-                                    Center(
-                                      child: Stack(
-                                        clipBehavior: Clip.none,
+                                    Container(
+                                      width: 135,
+                                      height: 135,
+                                      decoration: BoxDecoration(
+                                        color: primaryColor,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(100.0),
+                                        ),
+                                        border: Border.all(
+                                            width: 3,
+                                            color:
+                                                accentColor.withOpacity(0.15)),
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Container(
-                                              width: 135,
-                                              height: 135,
-                                              decoration: BoxDecoration(
-                                                color: primaryColor,
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                  Radius.circular(100.0),
-                                                ),
-                                                border: Border.all(
-                                                    width: 3,
-                                                    color: accentColor
-                                                        .withOpacity(0.15)),
-                                              ),
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        '15,43',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 22,
-                                                          color: redColor,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        ' / 20',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontSize: 16,
-                                                          color: greyColor
-                                                              .withOpacity(0.5),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        '1er',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 18,
-                                                          color: black40Color,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        ' / 32',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontSize: 16,
-                                                          color: greyColor
-                                                              .withOpacity(0.5),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              getCustomFont(
+                                                  "15,43", 22, redColor, 1,
+                                                  textAlign: TextAlign.center,
+                                                  fontWeight: FontWeight.bold),
+                                              getCustomFont(" / 20", 16,
+                                                  greyColor.withOpacity(0.5), 1,
+                                                  textAlign: TextAlign.center),
+                                            ],
                                           ),
-                                          CustomPaint(
-                                            painter: CurvePainter(
-                                                colors: [
-                                                  lightAccentColor,
-                                                  accentColor,
-                                                  accentColor
-                                                ],
-                                                angle: 140 +
-                                                    (360 - 100) * (1.0 - 1.0)),
-                                            child: const SizedBox(
-                                              width: 150,
-                                              height: 150,
-                                            ),
-                                          )
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              getCustomFont(
+                                                  "1er", 18, black40Color, 1,
+                                                  textAlign: TextAlign.center,
+                                                  fontWeight: FontWeight.bold),
+                                              getCustomFont(" / 32", 16,
+                                                  greyColor.withOpacity(0.5), 1,
+                                                  textAlign: TextAlign.center),
+                                            ],
+                                          ),
                                         ],
+                                      ),
+                                    ).paddingAll(8),
+                                    CustomPaint(
+                                      painter: CurvePainter(
+                                          colors: [
+                                            lightAccentColor,
+                                            accentColor,
+                                            accentColor
+                                          ],
+                                          angle:
+                                              140 + (360 - 100) * (1.0 - 1.0)),
+                                      child: const SizedBox(
+                                        width: 150,
+                                        height: 150,
                                       ),
                                     )
                                   ],
@@ -367,7 +323,7 @@ class CurvePainter extends CustomPainter {
   }
 
   double degreeToRadians(double degree) {
-    var redian = (math.pi / 180) * degree;
-    return redian;
+    var radian = (math.pi / 180) * degree;
+    return radian;
   }
 }

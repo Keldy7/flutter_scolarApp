@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/utils/image_keys.dart';
 
 import '../../../utils/constant.dart';
+import '../../../utils/image_keys.dart';
 import '../../../utils/label_keys.dart';
 import '../../../utils/widget_utils.dart';
 import '../../styles/colors.dart';
@@ -42,7 +42,7 @@ class NotificationScreen extends StatelessWidget {
                       withCorners: true,
                       corner: 12.h,
                       shadow: [
-                        BoxShadow(
+                        const BoxShadow(
                           color: Color(0x14000000),
                           blurRadius: 16,
                           offset: Offset(-4, 5),

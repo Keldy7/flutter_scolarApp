@@ -276,39 +276,36 @@ class _FeesScreenState extends State<FeesScreen> {
     required int index,
     required Function(int index, bool value) onChanged,
   }) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          if (isCheckboxRequired)
-            SizedBox(
-              height: 15,
-              width: 15,
-              child: Checkbox(
-                visualDensity: VisualDensity.compact,
-                side: BorderSide(color: secondaryColor, width: 1.h),
-                activeColor: secondaryColor,
-                onChanged: (value) {
-                  onChanged(index, value ?? false);
-                },
-                value: false,
-              ),
-            )
-          else
-            const SizedBox.shrink(),
-          Expanded(
-            child: Padding(
-              padding: (isCheckboxRequired)
-                  ? const EdgeInsetsDirectional.only(start: 15)
-                  : const EdgeInsetsDirectional.only(start: 30),
-              child: Text(titleLabel),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        if (isCheckboxRequired)
+          SizedBox(
+            height: 15,
+            width: 15,
+            child: Checkbox(
+              visualDensity: VisualDensity.compact,
+              side: BorderSide(color: secondaryColor, width: 1.h),
+              activeColor: secondaryColor,
+              onChanged: (value) {
+                onChanged(index, value ?? false);
+              },
+              value: false,
             ),
+          )
+        else
+          const SizedBox.shrink(),
+        Expanded(
+          child: Padding(
+            padding: (isCheckboxRequired)
+                ? const EdgeInsetsDirectional.only(start: 15)
+                : const EdgeInsetsDirectional.only(start: 30),
+            child: getCustomFont(titleLabel, 15, blackColor, 1),
           ),
-          Text(amountLabel),
-        ],
-      ),
-    );
+        ),
+        getCustomFont(amountLabel, 15, blackColor, 1),
+      ],
+    ).paddingAll(8);
   }
 
   // Widget listOfFees({required List<Fees> feesDetails}) {
@@ -365,9 +362,9 @@ class _FeesScreenState extends State<FeesScreen> {
   //           padding: (isCheckboxRequired)
   //               ? const EdgeInsetsDirectional.only(start: 15)
   //               : const EdgeInsetsDirectional.only(start: 30),
-  //           child: Text(titleLabel),
+  //           child: getCustomFont(titleLabel, 15, blackColor, 1),
   //         )),
-  //         Text(amountLabel),
+  //         getCustomFont(amountLabel, 15, blackColor, 1),
   //       ],
   //     ),
   //   );

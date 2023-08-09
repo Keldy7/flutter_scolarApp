@@ -13,6 +13,8 @@ import '../../controllers/home_controller.dart';
 import '../../styles/colors.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _SplashScreen();

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -13,7 +15,6 @@ import '../../styles/colors.dart';
 import '../../widgets/dots_indicator.dart';
 
 
-// ignore: must_be_immutable
 class IntroScreen extends StatelessWidget {
   IntroScreen({super.key});
 

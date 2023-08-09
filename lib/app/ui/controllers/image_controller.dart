@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 
 class ImageController extends GetxController {
   File? image;
-  RxString imagePath = ''.obs;
+  RxString imagePath = "".obs;
   final _picker = ImagePicker();
 
   getImage() async {

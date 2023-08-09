@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scolar_pay/app/ui/styles/colors.dart';
 import 'package:scolar_pay/app/utils/widget_utils.dart';
 
@@ -31,22 +32,19 @@ class WikiCategory extends StatelessWidget {
                 color: primaryColor,
               )),
         ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                icon,
-                color: primaryColor,
-              ),
-              const SizedBox(height: 16.0),
-              getCustomFont(label, 14, primaryColor, 1,
-                  fontWeight: FontWeight.bold)
-            ],
-          ),
-        )
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              icon,
+              color: primaryColor,
+            ),
+            const SizedBox(height: 16.0),
+            getCustomFont(label, 14, primaryColor, 1,
+                fontWeight: FontWeight.bold)
+          ],
+        ).paddingAll(16.0)
       ],
     );
   }

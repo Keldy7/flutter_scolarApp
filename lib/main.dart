@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/ui/screens/child/child_screen.dart';
-import 'package:scolar_pay/app/ui/screens/child/edit_child_screen.dart';
-import 'package:scolar_pay/app/ui/screens/exams/details_exams_screen.dart';
-import 'package:scolar_pay/app/ui/screens/exams/exams_screen.dart';
-import 'package:scolar_pay/app/ui/screens/fees/fees_screen.dart';
-import 'package:scolar_pay/app/ui/screens/fees/pay_fees_screen.dart';
-import 'package:scolar_pay/app/ui/screens/permission/permission_screen.dart';
-import 'package:scolar_pay/app/ui/screens/school/school_screen.dart';
-import 'package:scolar_pay/app/ui/screens/settings/help_center.dart';
-import 'package:scolar_pay/app/ui/screens/teachers/teachers_screen.dart';
 
+import 'app/ui/screens/child/child_screen.dart';
+import 'app/ui/screens/child/edit_child_screen.dart';
+import 'app/ui/screens/exams/details_exams_screen.dart';
+import 'app/ui/screens/exams/exams_screen.dart';
+import 'app/ui/screens/fees/fees_screen.dart';
+import 'app/ui/screens/fees/pay_fees_screen.dart';
+import 'app/ui/screens/permission/permission_screen.dart';
+import 'app/ui/screens/school/school_screen.dart';
+import 'app/ui/screens/settings/help_center.dart';
+import 'app/ui/screens/teachers/teachers_screen.dart';
 import 'app/ui/controllers/home_controller.dart';
 import 'app/ui/screens/attendance/attendance_screen.dart';
 import 'app/ui/screens/child/children_screen.dart';
@@ -64,8 +64,8 @@ class MyApp extends StatelessWidget {
       theme: controller.theme,
       // themeMode: (darkThemeProvider.darkMode) ? ThemeMode.dark : ThemeMode.light,
       routes: {
-        "/": (context) => SplashScreen(),
-        Routes.splashRoute: (context) => SplashScreen(),
+        "/": (context) => const SplashScreen(),
+        Routes.splashRoute: (context) => const SplashScreen(),
         Routes.introRoute: (context) => IntroScreen(),
         Routes.loginRoute: (context) => const LoginScreen(),
         // Routes.forgotPassRoute: (context) => ForgotPasswordScreen(),

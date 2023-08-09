@@ -84,6 +84,7 @@ class _TabHomeState extends State<TabHome> {
             child: getDefaultContainerView(
                 context,
                 ListView(
+                  shrinkWrap: true,
                   padding: EdgeInsets.only(top: 30.h),
                   children: [
                     SizedBox(
@@ -108,6 +109,9 @@ class _TabHomeState extends State<TabHome> {
                     SizedBox(
                       height: 290.w,
                       child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
                         itemCount: nearestEcolesList.length,
                         itemBuilder: (context, index) {
                           return Container(
@@ -204,9 +208,6 @@ class _TabHomeState extends State<TabHome> {
                             ),
                           );
                         },
-                        scrollDirection: Axis.horizontal,
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
                       ),
                     ),
                     20.h.verticalSpace,

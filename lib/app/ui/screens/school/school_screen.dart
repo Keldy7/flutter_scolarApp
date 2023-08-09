@@ -429,7 +429,7 @@ class Reviews extends StatelessWidget {
                   context,
                   "Maria Sana",
                   "“I Was A very First To Pleased With This app using and get great experience",
-                  "15 April 2022",
+                  "15 Avril 2022",
                   Images.profileJpg);
             },
           )
@@ -468,9 +468,9 @@ class Reviews extends StatelessWidget {
 class AboutUs extends StatelessWidget {
   const AboutUs({super.key});
 
-  Widget buildTitle(BuildContext context, String s) {
+  Widget buildTitle(BuildContext context, String title) {
     return getCustomFont(
-      s,
+      title,
       16,
       getFontHint(context),
       1,

@@ -18,6 +18,7 @@ class Constant {
   static const String fontsFamilySplash = "Avenir-Next-LT-Pro";
   static const String fontsFamilyOffer = "Plantagenet Cherokee";
   static const String fontsFamilyLato = "Lato-semibold";
+  static const String fontsFamilyNunito = "Nunito";
   static const String fromLogin = "getFromLoginClick";
   static const String homePos = "getTabPos";
   static const String nameSend = "name";
@@ -125,7 +126,7 @@ class Constant {
   }
 
   static String addColonToLabel(String label) {
-    return "$label :";
+    return "$label : ";
   }
 
   static String getMonthName(int monthNumber) {
@@ -194,11 +195,10 @@ class Constant {
       d.toString().split('.').first.padLeft(8, "0");
 
   static Future<bool> shareApp(String urlLink) {
-      return launchUrl(
-        Uri.parse(urlLink),
-        mode: LaunchMode.externalApplication,
-      );
-    
+    return launchUrl(
+      Uri.parse(urlLink),
+      mode: LaunchMode.externalApplication,
+    );
   }
 
   static closeApp() {

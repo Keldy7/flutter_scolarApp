@@ -88,10 +88,10 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
 
     var controllerGet = Get.find<FiltersController>();
     final List<String> spinnerItems = [
-      'Perm 1',
-      'Perm 2',
-      'Perm 3',
-      'Perm 4',
+      'Permission 1',
+      'Permission 2',
+      'Permission 3',
+      'Permission 4',
       Labels.autreKey
     ];
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
@@ -144,7 +144,8 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                 30.h.verticalSpace,
                 buildTitle(context, Labels.periodePermissionKey),
                 14.h.verticalSpace,
-                buildTitles(context, Labels.startDatePermissionKey, subTitle: Labels.endDatePermissionKey),
+                buildTitles(context, Labels.startDatePermissionKey,
+                    subTitle: Labels.endDatePermissionKey),
                 10.h.verticalSpace,
                 PeriodPermissions(firstDate: firstDate, lastDate: lastDate),
                 30.h.verticalSpace,
@@ -211,11 +212,11 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                           animationValue: animation1.value,
                           animationView: animation1View,
                           dateAction: "EPV Les fleuriets d'Angré",
-                          nameCenter: "CM2",
+                          valueClasse: "CM2",
                           onTap: () {
                             togglePanel1();
                           },
-                          nameSurname: "Konan Affoué Edwige Roxane ",
+                          namePerson: "Konan Affoué Edwige Roxane ",
                           titleExpand: Labels.infosEnfantKey,
                         ),
                         _buildContentExpand(
@@ -223,11 +224,11 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                           animationValue: animation2.value,
                           animationView: animation2View,
                           dateAction: "23 avr 2023",
-                          nameCenter: "11h05",
+                          valueClasse: "11h05",
                           onTap: () {
                             togglePanel2();
                           },
-                          nameSurname: "Aka Angele Grâce ",
+                          namePerson: "Aka Angele Grâce ",
                           titleExpand: Labels.infosPermissionKey,
                         ),
                         getButtonFigma(context, getAccentColor(context), true,
@@ -272,60 +273,57 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
   ObxValue<RxInt> _buildListChoices(BuildContext context,
       List<String> spinnerItems, FiltersController controllerGet) {
     return ObxValue(
-        (p0) => Padding(
-              padding: EdgeInsets.all(19.h),
-              child: Container(
-                width: double.infinity,
-                height: getEditHeightFigma(),
-                decoration: getButtonDecoration(transparentColor,
-                    withCorners: true,
-                    corner: getButtonCornersFigma(),
-                    withBorder: true,
-                    borderColor: getFontHint(context)),
-                child: Center(
-                  child: DropdownButton<String>(
-                    value: spinnerItems[controllerGet.selectedSortPos.value],
-                    icon: getSvgImageWithSize(
-                        context, Images.arrowDownSvg, 18.h, 18.h,
-                        color: secondaryColor),
-                    iconSize: 24,
-                    borderRadius: const BorderRadius.all(Radius.circular(15)),
-                    isDense: true,
-                    isExpanded: true,
-                    style: buildTextStyle(
-                        context, getFontColor(context), FontWeight.w500, 16),
-                    underline: 0.verticalSpace,
-                    onChanged: (String? data) {
-                      setState(() {
-                        controllerGet.selectedSortPos.value =
-                            spinnerItems.indexOf(data ?? "");
-                        if (spinnerItems[controllerGet.selectedSortPos.value] ==
-                            Labels.autreKey) {
-                          isOther = true;
-                        } else {
-                          isOther = false;
-                        }
-                      });
-                    },
-                    items: spinnerItems
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                  ).marginSymmetric(horizontal: 12.w),
-                ),
-              ),
-            ),
+        (p0) => Container(
+          width: double.infinity,
+          height: getEditHeightFigma(),
+          decoration: getButtonDecoration(transparentColor,
+              withCorners: true,
+              corner: getButtonCornersFigma(),
+              withBorder: true,
+              borderColor: getFontHint(context)),
+          child: Center(
+            child: DropdownButton<String>(
+              value: spinnerItems[controllerGet.selectedSortPos.value],
+              icon: getSvgImageWithSize(
+                  context, Images.arrowDownSvg, 18.h, 18.h,
+                  color: secondaryColor),
+              iconSize: 24,
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+              isDense: true,
+              isExpanded: true,
+              style: buildTextStyle(
+                  context, getFontColor(context), FontWeight.w500, 16),
+              underline: 0.verticalSpace,
+              onChanged: (String? data) {
+                setState(() {
+                  controllerGet.selectedSortPos.value =
+                      spinnerItems.indexOf(data ?? "");
+                  if (spinnerItems[controllerGet.selectedSortPos.value] ==
+                      Labels.autreKey) {
+                    isOther = true;
+                  } else {
+                    isOther = false;
+                  }
+                });
+              },
+              items: spinnerItems
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: getCustomFont(value, 15, blackColor, 1),
+                );
+              }).toList(),
+            ).marginSymmetric(horizontal: 12.w),
+          ),
+        ).paddingAll(19.h),
         controllerGet.selectedSortPos);
   }
 
   Widget _buildContentExpand(
     BuildContext context, {
     required String titleExpand,
-    required String nameSurname,
-    required String nameCenter,
+    required String namePerson,
+    required String valueClasse,
     required String dateAction,
     required double animationValue,
     required Animation<double> animationView,
@@ -336,9 +334,8 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
       children: [
         Row(
           children: [
-            Text(titleExpand,
-                style: TextStyle(
-                    color: black40Color, fontWeight: FontWeight.w600)),
+            getCustomFont(titleExpand, 17, black40Color, 1,
+                fontWeight: FontWeight.w600),
             const Spacer(),
             Transform.rotate(
               angle: animationValue * math.pi / 180,
@@ -361,21 +358,22 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
             // mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(nameSurname,
-                  style: const TextStyle(fontWeight: FontWeight.w600)),
+              getCustomFont(namePerson, 16, blackColor, 1),
               Container(height: 5),
               Row(
                 children: [
                   Flexible(
                       flex: 1,
-                      child: Text(Constant.addColonToLabel(Labels.classeKey),
-                          style: TextStyle(
-                              color: black40Color,
-                              fontWeight: FontWeight.w600))),
+                      child: getCustomFont(
+                          Constant.addColonToLabel(Labels.classeKey),
+                          15,
+                          black40Color,
+                          1,
+                          fontWeight: FontWeight.w600)),
                   Flexible(
-                      child: Text(nameCenter,
-                          style: TextStyle(
-                              color: accentColor, fontWeight: FontWeight.w600)))
+                      child: getCustomFont(
+                          valueClasse, 14, getAccentColor(context), 1,
+                          fontWeight: FontWeight.w600))
                 ],
               ),
               Container(height: 5),
@@ -383,11 +381,13 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                 children: [
                   Flexible(
                       flex: 1,
-                      child: Text(Constant.addColonToLabel(Labels.ecoleKey),
-                          style: TextStyle(
-                              color: black40Color,
-                              fontWeight: FontWeight.w600))),
-                  Flexible(child: Text(dateAction))
+                      child: getCustomFont(
+                          Constant.addColonToLabel(Labels.ecoleKey),
+                          15,
+                          black40Color,
+                          1,
+                          fontWeight: FontWeight.w600)),
+                  Flexible(child: getCustomFont(dateAction, 14, blackColor, 1))
                 ],
               ),
             ],

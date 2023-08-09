@@ -16,8 +16,8 @@ class TabLocation extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-          image:
-              getDecorationAssetImage(context, Images.mapPng, fit: BoxFit.cover)),
+          image: getDecorationAssetImage(context, Images.mapPng,
+              fit: BoxFit.cover)),
       child: Container(
         height: MediaQuery.of(context).size.height,
         child: DraggableScrollableSheet(
@@ -32,6 +32,7 @@ class TabLocation extends StatelessWidget {
                 context: context,
                 removeTop: true,
                 child: ListView.builder(
+                  shrinkWrap: true,
                   controller: myscrollController,
                   itemCount: 5,
                   itemBuilder: (BuildContext context, int index) {
@@ -44,15 +45,15 @@ class TabLocation extends StatelessWidget {
                           corner: 20.h,
                           shadow: [
                             const BoxShadow(
-                                color:
-                                    Color.fromRGBO(0, 0, 0, 0.07999999821186066),
+                                color: Color.fromRGBO(
+                                    0, 0, 0, 0.07999999821186066),
                                 offset: Offset(-4, 5),
                                 blurRadius: 16)
                           ]),
                       width: double.infinity,
                       height: 100.h,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 10.w),
                       child: InkWell(
                         onTap: () {
                           Constant.goToNextPage(
@@ -60,8 +61,8 @@ class TabLocation extends StatelessWidget {
                         },
                         child: Row(
                           children: [
-                            getCircularImage(context, 80.h, double.infinity, 20.h,
-                                Images.banner3Png,
+                            getCircularImage(context, 80.h, double.infinity,
+                                20.h, Images.banner3Png,
                                 boxFit: BoxFit.cover),
                             12.w.horizontalSpace,
                             Expanded(

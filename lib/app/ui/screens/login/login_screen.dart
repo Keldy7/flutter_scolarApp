@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/utils/image_keys.dart';
-import 'package:scolar_pay/app/utils/label_keys.dart';
 
 import '../../../utils/constant.dart';
+import '../../../utils/image_keys.dart';
+import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
 import '../../controllers/bottom_selection_controller.dart';

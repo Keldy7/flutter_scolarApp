@@ -81,20 +81,17 @@ class _PermissionScreenState extends State<PermissionScreen> {
                   }
                   return true;
                 },
-                child: Padding(
-                  padding: EdgeInsets.all(4.h),
-                  child: Column(
-                    children: [
-                      buildTabView(tabList, context, selectedTab),
-                      ObxValue(
-                          (p0) => Expanded(
-                                flex: 1,
-                                child: tabDetail[selectedTab.value],
-                              ),
-                          selectedTab)
-                    ],
-                  ),
-                ),
+                child: Column(
+                  children: [
+                    buildTabView(tabList, context, selectedTab),
+                    ObxValue(
+                        (p0) => Expanded(
+                              flex: 1,
+                              child: tabDetail[selectedTab.value],
+                            ),
+                        selectedTab)
+                  ],
+                ).paddingAll(4.h),
               )),
         ),
         onWillPop: () async {
@@ -103,68 +100,48 @@ class _PermissionScreenState extends State<PermissionScreen> {
         });
   }
 
-  Padding _buildListItems(BuildContext context,
+  
+  _buildListItems(BuildContext context,
       {required IconData iconName,
       required Color primColor,
       required String titleAdvice,
       required String dateAdvice}) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: Container(
-          width: double.infinity,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: black40Color.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: ListTile(
-                leading: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                  ),
-                  decoration: BoxDecoration(
-                    color: primColor.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        iconName,
-                        color: primColor,
-                        size: 25,
-                      )
-                    ],
-                  ),
-                ),
-                title: Text(
-                  titleAdvice,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
-                      fontSize: 20),
-                ),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        dateAdvice,
-                        style: TextStyle(
-                          fontStyle: FontStyle.italic,
-                          color: backgroundColor.withOpacity(0.6),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+    return Container(
+        width: double.infinity,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: black40Color.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: ListTile(
+            leading: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              decoration: BoxDecoration(
+                color: primColor.withOpacity(0.3),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    iconName,
+                    color: primColor,
+                    size: 25,
+                  )
+                ],
               ),
             ),
-          )),
-    );
+            title: getCustomFont(titleAdvice, 20, blackColor, 1, fontWeight: FontWeight.w500),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                getCustomFont(dateAdvice, 15, backgroundColor.withOpacity(.6), 1).paddingOnly(top: 8.0),
+              ],
+            ),
+          ).paddingAll(10),
+        )).paddingOnly(top: 20);
   }
 }
 

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/utils/image_keys.dart';
 
 import '../../../utils/constant.dart';
 import '../../../utils/label_keys.dart';
+import '../../../utils/image_keys.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
 import '../../controllers/image_controller.dart';
 import '../../styles/colors.dart';
-
 
 class MyProfileScreen extends StatelessWidget {
   const MyProfileScreen({super.key});
@@ -41,14 +40,16 @@ class MyProfileScreen extends StatelessWidget {
                 child: Column(
               children: [
                 50.h.verticalSpace,
-                Obx(() => getCircleImage(
-                  context,
-                  (imageController.imagePath.value.isNotEmpty)
-                      ? imageController.imagePath.value
-                      : Images.userPng,
-                  100.h,
-                  fileImage: (imageController.imagePath.value.isNotEmpty),
-                ),),
+                Obx(
+                  () => getCircleImage(
+                    context,
+                    (imageController.imagePath.value.isNotEmpty)
+                        ? imageController.imagePath.value
+                        : Images.userPng,
+                    100.h,
+                    fileImage: (imageController.imagePath.value.isNotEmpty),
+                  ),
+                ),
                 20.h.verticalSpace,
                 getCustomFont('Kouassy Audy', 16, getFontColor(context), 1,
                     fontWeight: FontWeight.w500),
@@ -56,8 +57,8 @@ class MyProfileScreen extends StatelessWidget {
                 getCustomFont('CI', 14, getFontColor(context), 1,
                     fontWeight: FontWeight.w700),
                 40.h.verticalSpace,
-                getDefaultUnderlineTextFiled(context, Labels.nomKey, nomController,
-                    getFontHint(context), (value) {}),
+                getDefaultUnderlineTextFiled(context, Labels.nomKey,
+                    nomController, getFontHint(context), (value) {}),
                 16.h.verticalSpace,
                 getDefaultUnderlineTextFiled(context, Labels.prenomsKey,
                     prenomController, getFontHint(context), (value) {}),

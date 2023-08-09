@@ -213,7 +213,7 @@ class FilterScreen extends StatelessWidget {
                                         (String value) {
                                   return DropdownMenuItem<String>(
                                     value: value,
-                                    child: Text(value),
+                                    child: getCustomFont(value, 15, blackColor, 1),
                                   );
                                 }).toList(),
                               ).marginSymmetric(horizontal: 16.w),

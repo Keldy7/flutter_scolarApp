@@ -6,6 +6,7 @@ class RestartController extends StatefulWidget {
   const RestartController({Key? key, required this.child}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _RestartController createState() => _RestartController();
 
   static rebirth(BuildContext context) {

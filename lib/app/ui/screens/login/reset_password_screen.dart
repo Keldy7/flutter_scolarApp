@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/utils/image_keys.dart';
 
+import '../../../utils/image_keys.dart';
 import '../../../utils/label_keys.dart';
 import '../../../utils/constant.dart';
 import '../../../utils/routes.dart';
@@ -10,7 +10,6 @@ import '../../../utils/widget_utils.dart';
 import '../../controllers/bottom_selection_controller.dart';
 import '../../controllers/home_controller.dart';
 import '../../styles/colors.dart';
-
 
 // ignore: must_be_immutable
 class ResetPasswordScreen extends StatelessWidget {
@@ -31,15 +30,15 @@ class ResetPasswordScreen extends StatelessWidget {
     Constant.setupSize(context);
 
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
-    return buildTitleDefaultWidget(context, Labels.modifierPasswordKey,
-        Labels.advicePasswordKey, () {
+    return buildTitleDefaultWidget(
+        context, Labels.modifierPasswordKey, Labels.advicePasswordKey, () {
       backClick(context);
     },
         Column(
           children: [
             ObxValue((p0) {
-              return getPassTextFiled(context, Labels.passwordKey, passController,
-                  getFontColor(context), showPass.value, () {
+              return getPassTextFiled(context, Labels.passwordKey,
+                  passController, getFontColor(context), showPass.value, () {
                 showPass.value = !showPass.value;
               });
             }, showPass),
@@ -50,9 +49,8 @@ class ResetPasswordScreen extends StatelessWidget {
                 showPass2.value = !showPass2.value;
               });
             }, showPass2),
-            getButtonFigma(
-                context, getAccentColor(context), true, Labels.submitKey, primaryColor,
-                () {
+            getButtonFigma(context, getAccentColor(context), true,
+                Labels.submitKey, primaryColor, () {
               showGetDialog(context, Images.donePng, Labels.changedPasswordKey,
                   Labels.changeSuccessPasswordKey, Labels.okKey, () {
                 backClick(context);

@@ -19,11 +19,11 @@ class FeeButton extends StatelessWidget {
       child: Container(
         width: 150.w,
         height: 27.h,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFF6789CA), Color(0xFF345FB4)],
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(0.5, 0.0),
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(0.5, 0.0),
             stops: [0.0, 1.0],
             tileMode: TileMode.clamp,
           ),
@@ -35,7 +35,7 @@ class FeeButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(title, style: Theme.of(context).textTheme.subtitle2),
+            Text(title, style: Theme.of(context).textTheme.titleSmall),
             Icon(
               iconData,
               color: redColor,
@@ -60,12 +60,12 @@ class FeeDetailRow extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.subtitle2!.copyWith(
+          style: Theme.of(context).textTheme.titleSmall!.copyWith(
                 color: blackColor,
                 fontWeight: FontWeight.w900,
               ),
         ),
-        Text(statusValue, style: Theme.of(context).textTheme.caption),
+        Text(statusValue, style: Theme.of(context).textTheme.bodySmall),
       ],
     );
   }

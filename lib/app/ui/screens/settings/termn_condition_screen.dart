@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../utils/constant.dart';
+import '../../../utils/label_keys.dart';
 import '../../../utils/widget_utils.dart';
 import '../../styles/colors.dart';
 
@@ -13,10 +14,11 @@ class TermsNCondition extends StatelessWidget {
     Constant.setupSize(context);
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
 
-    return getScreenDetailDefaultView(context, "Terms And Condition", () {
+    return getScreenDetailDefaultView(context, Labels.termsConditionsKey, () {
       Constant.backToPrev(context);
     },
         ListView(
+          shrinkWrap: true,
           padding: EdgeInsets.symmetric(horizontal: horSpace, vertical: 20.h),
           children: [
             getMultilineCustomFont(
@@ -27,6 +29,6 @@ class TermsNCondition extends StatelessWidget {
                 txtHeight: 1.5)
           ],
         ),
-        centerTitle: false);
+        centerTitle: true);
   }
 }

@@ -3,11 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/constant.dart';
+import '../../../utils/image_keys.dart';
+import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
 import '../../controllers/storage.dart';
 import '../../styles/colors.dart';
-
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
@@ -56,14 +57,14 @@ class _VerificationScreen extends State<VerificationScreen> {
             //   borderRadius: BorderRadius.all(Radius.circular(11.h)),
             //   borderColor: getCurrentTheme(context).hintColor,
             // ),
-            
-            getButtonFigma(context, getAccentColor(context), true, "Confirm ",
-                Colors.white, () {
+
+            getButtonFigma(context, getAccentColor(context), true,
+                Labels.confirmerKey, primaryColor, () {
               // if (otpController.text.isNotEmpty) {
               // Constant.sendToNext(context, resetPassRoute);
               showGetDialog(
                   context,
-                  "confirm1.png",
+                  Images.confirm1Png,
                   "Confirmed !",
                   "You have been sucessfully\ncompleted for Sign in",
                   "Done", () {
@@ -78,14 +79,14 @@ class _VerificationScreen extends State<VerificationScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 getCustomFont(
-                  "Don’t receive code?",
+                  Labels.dontReceiveCodeKey,
                   16,
                   getFontBlackColor(context),
                   1,
                   fontWeight: FontWeight.w400,
                 ),
                 getCustomFont(
-                  " Resend",
+                  Labels.renvoyerKey,
                   18,
                   getFontBlackColor(context),
                   1,

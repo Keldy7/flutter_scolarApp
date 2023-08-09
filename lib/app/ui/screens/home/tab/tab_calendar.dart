@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../../../utils/image_keys.dart';
 import '../../../../utils/label_keys.dart';
@@ -48,23 +49,15 @@ class _TabCalendarState extends State<TabCalendar> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(height: 10),
-                                      const Padding(
-                                        padding: EdgeInsets.only(right: 10),
-                                        child: Text(
-                                          "Title",
-                                          maxLines: 1,
-                                        ),
-                                      ),
+                                      getCustomFont("Title", 15, blackColor, 1)
+                                          .paddingOnly(right: 10),
                                       Container(height: 5),
-                                      const Padding(
-                                        padding: EdgeInsets.only(right: 10),
-                                        child: Text("content", maxLines: 2),
-                                      ),
+                                      getCustomFont(
+                                              "content", 15, blackColor, 2)
+                                          .paddingOnly(right: 10),
                                       const Spacer(),
-                                      const Padding(
-                                        padding: EdgeInsets.only(right: 10),
-                                        child: Text("6 juin", maxLines: 2),
-                                      ),
+                                      getCustomFont("6 juin", 15, blackColor, 1)
+                                          .paddingOnly(right: 10),
                                       Container(height: 10),
                                     ],
                                   ),
@@ -78,7 +71,8 @@ class _TabCalendarState extends State<TabCalendar> {
                                   child: SizedBox(
                                     width: 60,
                                     height: 60,
-                                    child: getAssetImage(context, Images.banner2Png, 60, 60),
+                                    child: getAssetImage(
+                                        context, Images.banner2Png, 60, 60),
                                   ),
                                 ),
                               ],

@@ -622,35 +622,32 @@ Widget getProfileTopView(
                 top: Constant.getToolbarTopHeight(context) + 10.h), () {
           backClick();
         }, visibleMore: visibleMore, moreFunc: moreFunc),
-        Padding(
-          padding: EdgeInsets.only(left: horSpace),
-          child: Align(
-            alignment: Alignment.bottomLeft,
-            child: SizedBox(
-              width: 120.h,
-              height: 120.h,
-              child: Stack(
-                children: [
-                  getCircleImage(
-                      context, "profile_Setting.png", double.infinity),
-                  Visibility(
-                    visible: visibleEdit,
-                    child: Align(
-                      alignment: Alignment.bottomRight,
-                      child: InkWell(
-                        onTap: () {
-                          funcEdit!();
-                        },
-                        child: getSvgImageWithSize(
-                            context, "edit_icon.svg", 36.h, 36.h),
-                      ),
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: SizedBox(
+            width: 120.h,
+            height: 120.h,
+            child: Stack(
+              children: [
+                getCircleImage(
+                    context, "profile_Setting.png", double.infinity),
+                Visibility(
+                  visible: visibleEdit,
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: InkWell(
+                      onTap: () {
+                        funcEdit!();
+                      },
+                      child: getSvgImageWithSize(
+                          context, "edit_icon.svg", 36.h, 36.h),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
-        )
+        ).paddingOnly(left: horSpace)
       ],
     ),
   );
@@ -1583,22 +1580,19 @@ AppBar getBackAppBar(BuildContext context, Function backClick,
             ],
           ),
           actions: [
-            Padding(
-              padding: EdgeInsets.all(12.h),
-              child: InkWell(
-                onTap: () {
-                  Constant.goToNextPage(context, Routes.filterScreenRoute);
-                },
-                child: getSvgImageWithSize(
-                  context,
-                  actionImg,
-                  24.h,
-                  24.h,
-                  fit: BoxFit.scaleDown,
-                  color: iconColor,
-                ),
+            InkWell(
+              onTap: () {
+                Constant.goToNextPage(context, Routes.filterScreenRoute);
+              },
+              child: getSvgImageWithSize(
+                context,
+                actionImg,
+                24.h,
+                24.h,
+                fit: BoxFit.scaleDown,
+                color: iconColor,
               ),
-            )
+            ).paddingAll(12.h)
           ],
           leading: (withLeading)
               ? getBackIcon(context, () {

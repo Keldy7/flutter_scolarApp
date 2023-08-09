@@ -1,11 +1,13 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/ui/models/model_options_contact_us.dart';
-import 'package:scolar_pay/app/utils/label_keys.dart';
 
 import '../../../data/fake_data.dart';
 import '../../../utils/constant.dart';
+import '../../../utils/label_keys.dart';
 import '../../../utils/widget_utils.dart';
+import '../../models/model_options_contact_us.dart';
 
 class HelpCenterScreen extends StatefulWidget {
   const HelpCenterScreen({super.key});
@@ -35,6 +37,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
           children: [
             Expanded(
               child: ListView(
+                shrinkWrap: true,
                 children: [
                   Column(
                     children: [
@@ -51,7 +54,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
   }
 }
 
-// ignore: must_be_immutable
+
 class ContactUs extends StatelessWidget {
   ContactUs({super.key});
 

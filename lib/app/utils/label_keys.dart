@@ -31,6 +31,8 @@ class Labels {
   static String submitKey = "Soumettre";
   static String validerKey = "Valider";
   static String annulerKey = "Annuler";
+  static String envoyerKey = "Envoyer";
+  static String renvoyerKey = "Renvoyer";
 
   static String voirPlusKey = "Voir plus";
   static String voirMoinsKey = "Voir moins";
@@ -68,7 +70,7 @@ class Labels {
 
 //École
   static String ecoleKey = "École";
-  static String ecoleVedetteKey = "Écoles vedettes";
+  static String ecoleVedetteKey = "Établissements vedettes";
   static String localisationKey = "Localisation";
   static String paysKey = "Pays";
   static String villeKey = "Ville";
@@ -170,6 +172,7 @@ class Labels {
   static String aboutUsKey = "À propos de nous";
   static String agreeWithKey = "J'accepte les";
   static String shareAppKey = "Partager l'application";
+  static String dontReceiveCodeKey = "Vous n'avez pas reçu de code?";
 
 //Centre d'aide
   static String helpCenterKey = "Centre d'aide";

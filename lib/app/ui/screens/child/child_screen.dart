@@ -87,56 +87,47 @@ class _ChildScreenState extends State<ChildScreen> {
                                     children: [
                                       Column(
                                         children: [
-                                          getCustomFont(Labels.classeKey, 18,
+                                          getCustomFont(Labels.classeKey, 16,
                                               blackColor, 1,
                                               fontWeight: FontWeight.w500),
                                           2.h.verticalSpace,
-                                          Text(
-                                            'CE1',
-                                            style: TextStyle(
-                                                color: getAccentColor(context),
-                                                fontFamily: 'Nunito',
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.bold),
-                                          ),
+                                          getCustomFont("CE1", 19,
+                                              getAccentColor(context), 1,
+                                              fontFamily:
+                                                  Constant.fontsFamilyNunito,
+                                              fontWeight: FontWeight.bold)
                                         ],
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 25,
-                                          vertical: 8,
+                                      Container(
+                                        height: 50,
+                                        width: 3,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(100),
+                                          color: secondaryColor,
                                         ),
-                                        child: Container(
-                                          height: 50,
-                                          width: 3,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(100),
-                                            color: secondaryColor,
-                                          ),
-                                        ),
+                                      ).paddingSymmetric(
+                                        horizontal: 25,
+                                        vertical: 8,
                                       ),
                                       Column(
                                         children: [
                                           getCustomFont(
-                                              Labels.ageKey, 18, blackColor, 1,
+                                              Labels.ageKey, 16, blackColor, 1,
                                               fontWeight: FontWeight.w500),
                                           2.h.verticalSpace,
-                                          Text(
-                                            '9 ans',
-                                            style: TextStyle(
-                                                color: getAccentColor(context),
-                                                fontFamily: 'Nunito',
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.bold),
-                                          ),
+                                          getCustomFont("9 ans", 19,
+                                              getAccentColor(context), 1,
+                                              fontFamily:
+                                                  Constant.fontsFamilyNunito,
+                                              fontWeight: FontWeight.bold),
                                         ],
                                       ),
                                     ],
                                   ),
                                   getCustomFont(
                                           "${Constant.addColonToLabel(Labels.ecoleKey)} Groupe Scolaire Les orchidées de Kouté",
-                                          15,
+                                          14,
                                           getFontGreyColor(context),
                                           3,
                                           fontWeight: FontWeight.w600)
@@ -144,7 +135,7 @@ class _ChildScreenState extends State<ChildScreen> {
                                   5.h.verticalSpace,
                                   getCustomFont(
                                       "${Constant.addColonToLabel(Labels.academicYearKey)} 2023-2024",
-                                      15,
+                                      14,
                                       getFontGreyColor(context),
                                       1,
                                       fontWeight: FontWeight.w600),
