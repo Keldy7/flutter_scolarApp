@@ -355,7 +355,6 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
         SizeTransition(
           sizeFactor: animationView,
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               getCustomFont(namePerson, 16, blackColor, 1),
