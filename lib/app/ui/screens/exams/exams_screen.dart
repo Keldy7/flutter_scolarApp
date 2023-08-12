@@ -33,6 +33,47 @@ class _ExamenScreenState extends State<ExamenScreen> {
               children: [
                 20.h.verticalSpace,
                 buildTitles(context, "Jan - Fev"),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border(left: BorderSide(color: Colors.amber.shade200, width: 8)),
+                            color: Theme.of(context).cardColor,
+              //               // borderRadius: BorderRadius.circular(15),
+              //           
+                  ),
+                  padding: EdgeInsets.fromLTRB(20, 15,15,15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('day'),
+                      Row(children: [
+                        Text("erty"),
+                       Text(" . "),
+                      Text('code'),
+                      Text(" . "),
+                      Text('venue')
+                      ]),
+                      Text('time'),
+
+                    ],
+                  ),
+                ),
+              //   .width(double.infinity)
+                
+              //           .decorated(
+              //             border: Border(left: BorderSide(color: Colors.amber.shade200, width: 8)),
+              //               color: Theme.of(context).cardColor,
+              //               // borderRadius: BorderRadius.circular(15),
+              //           ).clipRRect(all: 15).decorated(
+                
+              //               boxShadow: [
+              //             BoxShadow(
+              //                 blurRadius: 20,
+              //                 color: Colors.black.withOpacity(.1),
+              //                 offset: Offset(0, 8))
+              //           ])
+
+
+              //  .padding(horizontal: 15, bottom: 15);
                 Column(
                   children: List.generate(7, (int _) {
                     return Card(
