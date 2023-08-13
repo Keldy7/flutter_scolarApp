@@ -53,11 +53,11 @@ class TabProfile extends StatelessWidget {
                     Constant.goToNextPage(context, Routes.myProfileScreenRoute);
                   }, Labels.monProfilKey,
                       iconName: Icons.manage_accounts_rounded),
-                  getProfileRowContainer(context, () {
-                    Constant.goToNextPage(
-                        context, Routes.permissionsScreenRoute);
-                  }, Labels.mesPermissionsKey,
-                      iconName: Icons.compare_arrows_outlined),
+                  // getProfileRowContainer(context, () {
+                  //   Constant.goToNextPage(
+                  //       context, Routes.permissionsScreenRoute);
+                  // }, Labels.mesPermissionsKey,
+                  //     iconName: Icons.compare_arrows_outlined),
                   getProfileRowContainer(context, () {
                     Constant.goToNextPage(context, Routes.settingScreenRoute);
                   }, Labels.reglagesKey, iconName: Icons.settings),
@@ -72,6 +72,7 @@ class TabProfile extends StatelessWidget {
                     EdgeInsets.symmetric(
                         horizontal: Constant.getDefaultHorSpaceFigma(context)))
                 .marginSymmetric(vertical: 30.h),
+            130.h.verticalSpace,
           ],
         ),
         withLeading: false);

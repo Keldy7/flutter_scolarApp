@@ -194,7 +194,7 @@ class Constant {
   static formatTime(Duration d) =>
       d.toString().split('.').first.padLeft(8, "0");
 
-  static Future<bool> shareApp(String urlLink) {
+  static Future<bool> openWebsite(String urlLink) {
     return launchUrl(
       Uri.parse(urlLink),
       mode: LaunchMode.externalApplication,

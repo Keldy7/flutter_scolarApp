@@ -7,6 +7,7 @@ import 'package:getwidget/getwidget.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:readmore/readmore.dart';
 import 'package:share_plus/share_plus.dart';
+
 import '../../../utils/constant.dart';
 import '../../../utils/image_keys.dart';
 import '../../../utils/label_keys.dart';
@@ -142,7 +143,7 @@ class _SchoolScreenState extends State<SchoolScreen> {
                                               context,
                                               Images.globalSvg,
                                               Labels.websiteKey, () async {
-                                            Constant.shareApp(
+                                            Constant.openWebsite(
                                                 "http://www.google.com");
                                           }),
                                           buildListItem(
@@ -296,12 +297,9 @@ class _SchoolScreenState extends State<SchoolScreen> {
 
 class showImage extends StatelessWidget {
   final List<String> imgList = [
-    "gallery1.png",
-    "gallery2.png",
-    "gallery3.png",
-    "gallery4.png",
-    "gallery5.png",
-    "gallery6.png",
+    Images.ecole1Png,
+    Images.boyPng,
+    Images.girlPng,
   ];
 
   showImage({super.key});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../utils/constant.dart';
 import '../../../utils/label_keys.dart';
@@ -31,11 +32,12 @@ class SettingScreen extends StatelessWidget {
                 }, Labels.changerPasswordKey,
                     iconName: Icons.lock_person_rounded),
                 getProfileRowContainer(context, () {
-                  Constant.goToNextPage(context, Routes.termNConditionScreenRoute);
+                  Constant.goToNextPage(
+                      context, Routes.termNConditionScreenRoute);
                 }, Labels.termsConditionsKey,
                     iconName: Icons.auto_stories_rounded),
                 getProfileRowContainer(context, () async {
-                  await Constant.shareApp("http://www.google.com");
+                  await Constant.openWebsite("http://www.google.com");
                 }, Labels.politiqueConfidentialiteKey,
                     iconName: Icons.security),
                 getProfileRowContainer(context, () {
@@ -46,8 +48,9 @@ class SettingScreen extends StatelessWidget {
                 // getProfileRowContainer(context, () async {
                 //   await Constant.shareApp("http://www.google.com");
                 // }, Labels.aboutUsKey, iconName: Icons.info_outline_rounded),
-                getProfileRowContainer(context, () {}, Labels.shareAppKey,
-                    iconName: Icons.share_outlined),
+                getProfileRowContainer(context, () {
+                  Share.share("http://www.google.com");
+                }, Labels.shareAppKey, iconName: Icons.share_outlined),
                 getProfileRowContainer(context, () {
                   Constant.goToNextPage(context, Routes.helpCenterScreenRoute);
                 }, Labels.helpCenterKey, iconName: Icons.help_rounded),
