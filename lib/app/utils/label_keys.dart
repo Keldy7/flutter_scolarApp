@@ -139,7 +139,9 @@ class Labels {
   static String detailKey = "Détail";
   static String paiementKey = "Paiement";
   static String payNowKey = "Payez maintenant";
-  static String payeeKey = "Reglée";
+  static String paidKey = "Reglée";
+  static String pleaseTapeSyntaxKey = "Veuillez saisir le code de vérification obtenu en saisissant";
+  static String codeVerificationKey = "Code de vérification";
 
 //Moyens de paiement
   static String paymentMethodsKey = "Moyens de paiement";
@@ -147,6 +149,7 @@ class Labels {
   static String moowMoneyKey = "Moov Money";
   static String mtnMoneyKey = "MTN Money";
   static String orangeMoneyKey = "Orange Money";
+  static String syntaxOrangeMoneyKey = "#144*82#";
 
 //Profil
   static String monProfilKey = "Mon profil";

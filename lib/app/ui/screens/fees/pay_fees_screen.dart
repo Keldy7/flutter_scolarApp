@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../data/fake_data.dart';
 import '../../../utils/constant.dart';
@@ -45,7 +46,6 @@ class _PaymentFeesScreenState extends State<PaymentFeesScreen> {
   @override
   Widget build(BuildContext context) {
     double innerWidth = MediaQuery.sizeOf(context).width;
-
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
     var controller = Get.find<ValueStorageController>();
     // ModelPayment? paymentMethod = controller.selectedPaymentMethod;
@@ -211,43 +211,83 @@ class _PaymentFeesScreenState extends State<PaymentFeesScreen> {
   }
 
   Step _buildStepperThree(
-    // ModelPayment? payment,
-  ) {
+      // ModelPayment? payment,
+      ) {
+    TextEditingController numTelController = TextEditingController();
+    numTelController.text = "";
+
+    TextEditingController codeVerifController = TextEditingController();
+    codeVerifController.text = "";
+
     return Step(
         title: Container(),
         label: getCustomFont(Labels.paiementKey, 16, greyColor, 1),
         content: Column(
           children: [
-            Center(
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.w),
-                decoration: getButtonDecoration(getCardColor(context),
-                    withCorners: true,
-                    corner: 12.h,
-                    withBorder: false,
-                    borderColor: getAccentColor(context),
-                    shadow: [
-                      const BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.07999999821186066),
-                          offset: Offset(-4, 5),
-                          blurRadius: 16)
-                    ]),
-                width: double.infinity,
-                height: 57.h,
-                child: Center(
-                  child: Row(
-                    children: [
-                      getSvgImageWithSize(
-                          context, Images.accountSvg, 34.h, 34.h,
-                          fit: BoxFit.fill, color: secondaryColor),
-                      getCustomFont("texte payment!.title}", 15, blackColor, 1)
-                    ],
-                  ),
-                ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10.w),
+              decoration: getButtonDecoration(getCardColor(context),
+                  withCorners: true,
+                  corner: 12.h,
+                  withBorder: false,
+                  borderColor: getAccentColor(context),
+                  shadow: [
+                    const BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.07999999821186066),
+                        offset: Offset(-4, 5),
+                        blurRadius: 16)
+                  ]),
+              width: double.infinity,
+              height: 57.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  getSvgImageWithSize(context, Images.accountSvg, 34.h, 34.h,
+                      fit: BoxFit.fill, color: secondaryColor),
+                  12.w.horizontalSpace,
+                  getCustomFont("texte {payment!.title}", 15, blackColor, 1)
+                ],
               ),
+            ),
+            10.h.verticalSpace,
+            getMultilineCustomFont(
+                Labels.pleaseTapeSyntaxKey, 14.5, getFontColor(context),
+                fontWeight: FontWeight.w400, textAlign: TextAlign.center),
+            25.h.verticalSpace,
+            getButtonFigma(context, primaryColor, true,
+                    Labels.syntaxOrangeMoneyKey, secondaryColor, () async* {
+              setState(() {
+                _makingPhoneCall == true;
+              });
+            }, isBorder: true, borderColor: secondaryColor, EdgeInsets.zero)
+                .paddingOnly(right: 65.w, left: 65.w),
+            40.h.verticalSpace,
+            getDefaultTextFiled(
+              context,
+              Labels.numTelephoneKey,
+              numTelController,
+              blackColor,
+              (value) {},
+            ),
+            20.h.verticalSpace,
+            getDefaultTextFiled(
+              context,
+              Labels.codeVerificationKey,
+              codeVerifController,
+              blackColor,
+              (value) {},
             ),
           ],
         ),
         isActive: currentStep >= 2);
+  }
+
+  _makingPhoneCall() async {
+    var url = Uri.parse("tel:9776765434");
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

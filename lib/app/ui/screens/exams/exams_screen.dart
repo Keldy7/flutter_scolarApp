@@ -33,47 +33,72 @@ class _ExamenScreenState extends State<ExamenScreen> {
               children: [
                 20.h.verticalSpace,
                 buildTitles(context, "Jan - Fev"),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border(left: BorderSide(color: Colors.amber.shade200, width: 8)),
-                            color: Theme.of(context).cardColor,
-              //               // borderRadius: BorderRadius.circular(15),
-              //           
-                  ),
-                  padding: EdgeInsets.fromLTRB(20, 15,15,15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('day'),
-                      Row(children: [
-                        Text("erty"),
-                       Text(" . "),
-                      Text('code'),
-                      Text(" . "),
-                      Text('venue')
-                      ]),
-                      Text('time'),
+                // flutter pub add styled_widget
+                // Container(
+                //   width: double.infinity,
+                //   decoration: BoxDecoration(
+                //     border: Border(
+                //         left:
+                //             BorderSide(color: secondaryColor, width: 8)),
+                //     color: cardColor,
+                //     //               // borderRadius: BorderRadius.circular(15),
+                //   ),
+                //   padding: EdgeInsets.fromLTRB(20, 15, 15, 15),
+                //   child: Column(
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       getCustomFont(
+                // "Titre compo", 16, blackColor, 2,
+                // fontWeight: FontWeight.bold),
+                //       Row(
+                //   mainAxisSize: MainAxisSize.min,
+                //   children: [
+                //     Icon(
+                //       Icons.calendar_month,
+                //       size: 18.h,
+                //       color: accentColor,
+                //     ),
+                //     8.w.horizontalSpace,
+                //     getCustomFont(
+                //         "Vendredi, 22 Juillet 2023",
+                //         14,
+                //         greyFontColor,
+                //         1),
+                //   ],
+                // ),
+                //       Text('time'),
+                // Row(
+                //                           mainAxisSize: MainAxisSize.min,
+                //                           children: [
+                //                             Icon(
+                //                               Icons.access_time_outlined,
+                //                               size: 18.h,
+                //                               color: accentColor,
+                //                             ),
+                //                             8.w.horizontalSpace,
+                //                             getCustomFont("09H - 11H", 14,
+                //                                 greyFontColor, 1),
+                //                           ],
+                //                         ),
+                //     ],
+                //   ),
+                // )
+                //     .width(double.infinity)
+                //     .decorated(
+                //       border: Border(
+                //           left: BorderSide(
+                //               color: Colors.amber.shade200, width: 8)),
+                //       color: Theme.of(context).cardColor,
+                //       // borderRadius: BorderRadius.circular(15),
+                //     )
+                //     .clipRRect(all: 15)
+                //     .decorated(boxShadow: [
+                //   BoxShadow(
+                //       blurRadius: 20,
+                //       color: Colors.black.withOpacity(.1),
+                //       offset: Offset(0, 8))
+                // ]).padding(horizontal: 15, bottom: 15),
 
-                    ],
-                  ),
-                ),
-              //   .width(double.infinity)
-                
-              //           .decorated(
-              //             border: Border(left: BorderSide(color: Colors.amber.shade200, width: 8)),
-              //               color: Theme.of(context).cardColor,
-              //               // borderRadius: BorderRadius.circular(15),
-              //           ).clipRRect(all: 15).decorated(
-                
-              //               boxShadow: [
-              //             BoxShadow(
-              //                 blurRadius: 20,
-              //                 color: Colors.black.withOpacity(.1),
-              //                 offset: Offset(0, 8))
-              //           ])
-
-
-              //  .padding(horizontal: 15, bottom: 15);
                 Column(
                   children: List.generate(7, (int _) {
                     return Card(

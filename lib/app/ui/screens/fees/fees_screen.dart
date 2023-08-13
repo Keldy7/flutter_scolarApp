@@ -202,7 +202,7 @@ class _FeesScreenState extends State<FeesScreen> {
                     ],
                   ),
                   child: getCustomFont(
-                      isPaid ? Labels.payeeKey : Labels.enAttenteKey,
+                      isPaid ? Labels.paidKey : Labels.enAttenteKey,
                       15,
                       primaryColor,
                       1)),

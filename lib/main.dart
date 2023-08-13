@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:scolar_pay/app/ui/screens/timetable/timetable_screen.dart';
+import 'app/ui/screens/timetable/timetable_screen.dart';
 
 import 'app/ui/screens/child/child_screen.dart';
 import 'app/ui/screens/child/edit_child_screen.dart';
