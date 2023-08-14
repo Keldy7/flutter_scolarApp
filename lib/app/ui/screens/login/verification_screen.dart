@@ -32,7 +32,7 @@ class _VerificationScreen extends State<VerificationScreen> {
 
     double horSpace = Constant.getDefaultHorSpaceFigma(context);
     return buildTitleDefaultWidget(
-        context, "Verification", "We sent to the 01*******5", () {
+        context, Labels.verificationKey, "${Labels.sentCodeVerifKey}01*******5", () {
       backClick(context);
     },
         Column(
@@ -65,8 +65,9 @@ class _VerificationScreen extends State<VerificationScreen> {
               showGetDialog(
                   context,
                   Images.confirm1Png,
-                  "Confirmed !",
-                  "You have been sucessfully\ncompleted for Sign in",
+                  Labels.confirmVerifKey,
+                  Labels.signInCompletedKey,
+                  // "You have been sucessfully\ncompleted for Sign in",
                   "Done", () {
                 Get.back();
                 setLoggedIn(true);

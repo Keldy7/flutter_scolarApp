@@ -15,6 +15,13 @@ class Labels {
   static String passwordKey = "Mot de passe";
   static String confirmPasswordKey = "Confirmer le mot de passe";
   static String forgetPasswordKey = "Mot de passe oublié ?";
+  static String numeroForgotPasswordKey = "Entrer votre numéro de télephone pour réinitialiser votre mot de passe.";
+  static String verificationKey = "Vérification";
+  static String pleaseTapeSyntaxKey = "Veuillez saisir le code de vérification obtenu en saisissant";
+  static String codeVerificationKey = "Code de vérification";
+  static String sentCodeVerifKey = "Code de vérification envoyé au ";
+  static String confirmVerifKey = "Code de vérification confirmé !";
+  static String signInCompletedKey = "";
 
 //Extras
   static String okKey = "Ok";
@@ -140,9 +147,7 @@ class Labels {
   static String paiementKey = "Paiement";
   static String payNowKey = "Payez maintenant";
   static String paidKey = "Reglée";
-  static String pleaseTapeSyntaxKey = "Veuillez saisir le code de vérification obtenu en saisissant";
-  static String codeVerificationKey = "Code de vérification";
-
+  
 //Moyens de paiement
   static String paymentMethodsKey = "Moyens de paiement";
   static String waveKey = "Wave";

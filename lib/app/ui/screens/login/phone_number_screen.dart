@@ -4,6 +4,7 @@
 // import 'package:get/get.dart';
 
 // import '../../../utils/constant.dart';
+// import '../../../utils/label_keys.dart';
 // import '../../../utils/routes.dart';
 // import '../../../utils/widget_utils.dart';
 // import '../../styles/colors.dart';
@@ -39,7 +40,7 @@
 //           children: [
 //             getDefaultTextFiledWithCustomPrefix(
 //                 context,
-//                 "Phone number",
+//                 Labels.numTelephoneKey,
 //                 numberController,
 //                 getFontColor(context),
 //                 CountryCodePicker(
@@ -55,7 +56,7 @@
 //                   showOnlyCountryWhenClosed: false,
 //                   alignLeft: false,
 //                 ).marginOnly(left: 20.w)),
-//             getButtonFigma(context, getAccentColor(context), true, "Continue",
+//             getButtonFigma(context, getAccentColor(context), true, Labels.continuerKey,
 //                 Colors.white, () {
 //               Constant.goToNextPage(context, Routes.verificationScreenRoute);
 //             }, EdgeInsets.symmetric(horizontal: horSpace, vertical: 30.h)),
