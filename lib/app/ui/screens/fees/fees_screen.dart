@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../data/fake_data.dart';
 import '../../../utils/constant.dart';
+import '../../../utils/image_keys.dart';
 import '../../../utils/label_keys.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
@@ -46,7 +47,7 @@ class _FeesScreenState extends State<FeesScreen> {
     double innerWidth = MediaQuery.sizeOf(context).width;
 
     return getScreenDetailDefaultView(context, Labels.feeKey, () {
-      Constant.backToPrev(context);
+      Constant.goToNextPage(context, Routes.childScreenRoute);
     },
         Column(
           children: [
@@ -231,7 +232,7 @@ class _FeesScreenState extends State<FeesScreen> {
                         Labels.payNowKey, primaryColor, () {
                         Constant.goToNextPage(
                             context, Routes.paymentFeesScreenRoute);
-                      }, EdgeInsets.zero),
+                      }, EdgeInsets.zero, isIcon: true, icons: Images.arrowSvg),
               ],
             ).paddingSymmetric(
               horizontal: MediaQuery.of(context).size.width * (0.05),

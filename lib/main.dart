@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:scolar_pay/app/ui/screens/child/select_gender.dart';
 import 'app/ui/screens/timetable/timetable_screen.dart';
 
 import 'app/ui/screens/child/child_screen.dart';
@@ -104,6 +105,7 @@ class MyApp extends StatelessWidget {
         Routes.editProfileRoute: (context) => EditProfile(),
         Routes.settingScreenRoute: (context) => const SettingScreen(),
         Routes.notificationScreenRoute: (context) => NotificationScreen(),
+        Routes.gender: (context) => SelectGender(),
         // "/": (context) => controller.isLogin ? const HomeScreen() : SplashScreen()
       },
     );

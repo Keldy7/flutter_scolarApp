@@ -9,6 +9,7 @@ import '../../../data/fake_data.dart';
 import '../../../utils/constant.dart';
 import '../../../utils/image_keys.dart';
 import '../../../utils/label_keys.dart';
+import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
 import '../../controllers/value_storage_controller.dart';
 import '../../models/model_payment.dart';
@@ -56,68 +57,82 @@ class _PaymentFeesScreenState extends State<PaymentFeesScreen> {
       () {
         Constant.backToPrev(context);
       },
-      Stepper(
-        type: StepperType.horizontal,
-        steps: [
-          _buildStepperOne(context, innerWidth),
-          _buildStepperTwo(horSpace, innerWidth, controller),
-          _buildStepperThree()
-        ],
-        currentStep: currentStep,
-        // onStepTapped: (valueStep) {
-        //   setState(() => currentStep = valueStep);
-        // },
-        onStepContinue: () {
-          final isLastStep = currentStep == stepListLength.length - 1;
-          if (!isLastStep) {
-            setState(() => currentStep++);
-          } else {
-            setState(() => isCompleted = true.obs);
-            debugPrint("fin step");
-          }
-        },
-        onStepCancel: currentStep == 1
-            ? null
-            : () {
-                setState(() => currentStep--);
-              },
-        controlsBuilder: (context, details) {
-          final isLastStep = currentStep == stepListLength.length - 1;
+      Theme(
+        data: Theme.of(context).copyWith(
+            colorScheme: Theme.of(context)
+                .colorScheme
+                .copyWith(onPrimary: primaryColor, primary: secondaryColor)),
+        child: Stepper(
+          type: StepperType.horizontal,
+          steps: [
+            _buildStepperOne(context, innerWidth),
+            _buildStepperTwo(horSpace, innerWidth, controller),
+            _buildStepperThree()
+          ],
+          currentStep: currentStep,
+          // onStepTapped: (valueStep) {
+          //   setState(() => currentStep = valueStep);
+          // },
+          onStepContinue: () {
+            final isLastStep = currentStep == stepListLength.length - 1;
+            if (!isLastStep) {
+              setState(() => currentStep++);
+            } else {
+              setState(() => isCompleted = true.obs);
+              showGetDialog(
+                  context,
+                  Images.confirmPaymentPng,
+                  Labels.paiementEffectueKey,
+                  Labels.descriptPaySuccessKey,
+                  Labels.voirPaymentKey, () {
+                Get.back();
+                Constant.goToNextPage(context, Routes.feesScreenRoute);
+              }, dialogHeight: 465, imgWidth: 96, imgHeight: 125);
+            }
+          },
+          onStepCancel: currentStep == 1
+              ? null
+              : () {
+                  setState(() => currentStep--);
+                },
+          controlsBuilder: (context, details) {
+            final isLastStep = currentStep == stepListLength.length - 1;
 
-          return Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                if (currentStep != 1)
+            return Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  if (currentStep != 1)
+                    Expanded(
+                      flex: 1,
+                      child: getButtonFigma(
+                              context,
+                              transparentColor,
+                              true,
+                              Labels.retourKey,
+                              getAccentColor(context),
+                              details.onStepCancel as Function,
+                              isBorder: true,
+                              borderColor: getAccentColor(context),
+                              EdgeInsets.zero)
+                          .paddingOnly(right: 10.w),
+                    ),
                   Expanded(
                     flex: 1,
                     child: getButtonFigma(
-                            context,
-                            transparentColor,
-                            true,
-                            Labels.retourKey,
-                            getAccentColor(context),
-                            details.onStepCancel as Function,
-                            isBorder: true,
-                            borderColor: getAccentColor(context),
-                            EdgeInsets.zero)
-                        .paddingOnly(right: 10.w),
+                        context,
+                        getAccentColor(context),
+                        true,
+                        isLastStep ? Labels.confirmerKey : Labels.continuerKey,
+                        primaryColor,
+                        details.onStepContinue as Function,
+                        EdgeInsets.zero),
                   ),
-                Expanded(
-                  flex: 1,
-                  child: getButtonFigma(
-                      context,
-                      getAccentColor(context),
-                      true,
-                      isLastStep ? Labels.confirmerKey : Labels.continuerKey,
-                      primaryColor,
-                      details.onStepContinue as Function,
-                      EdgeInsets.zero),
-                ),
-              ],
-            ).paddingSymmetric(vertical: 40.h),
-          );
-        },
+                ],
+              ).paddingSymmetric(vertical: 40.h),
+            );
+          },
+        ),
       ),
     );
   }

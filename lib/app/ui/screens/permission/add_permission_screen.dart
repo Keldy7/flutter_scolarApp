@@ -42,8 +42,8 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
     }
   }
 
+  //upload files
   void _addFiles() async {
-    //upload files
     bool permissionGiven = (await Permission.storage.status).isGranted;
     if (permissionGiven) {
       _pickFiles();
@@ -274,48 +274,48 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
       List<String> spinnerItems, FiltersController controllerGet) {
     return ObxValue(
         (p0) => Container(
-          width: double.infinity,
-          height: getEditHeightFigma(),
-          decoration: getButtonDecoration(transparentColor,
-              withCorners: true,
-              corner: getButtonCornersFigma(),
-              withBorder: true,
-              borderColor: getFontHint(context)),
-          child: Center(
-            child: DropdownButton<String>(
-              value: spinnerItems[controllerGet.selectedSortPos.value],
-              icon: getSvgImageWithSize(
-                  context, Images.arrowDownSvg, 18.h, 18.h,
-                  color: secondaryColor),
-              iconSize: 24,
-              borderRadius: const BorderRadius.all(Radius.circular(15)),
-              isDense: true,
-              isExpanded: true,
-              style: buildTextStyle(
-                  context, getFontColor(context), FontWeight.w500, 16),
-              underline: 0.verticalSpace,
-              onChanged: (String? data) {
-                setState(() {
-                  controllerGet.selectedSortPos.value =
-                      spinnerItems.indexOf(data ?? "");
-                  if (spinnerItems[controllerGet.selectedSortPos.value] ==
-                      Labels.autreKey) {
-                    isOther = true;
-                  } else {
-                    isOther = false;
-                  }
-                });
-              },
-              items: spinnerItems
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: getCustomFont(value, 15, blackColor, 1),
-                );
-              }).toList(),
-            ).marginSymmetric(horizontal: 12.w),
-          ),
-        ).paddingAll(19.h),
+              width: double.infinity,
+              height: getEditHeightFigma(),
+              decoration: getButtonDecoration(transparentColor,
+                  withCorners: true,
+                  corner: getButtonCornersFigma(),
+                  withBorder: true,
+                  borderColor: getFontHint(context)),
+              child: Center(
+                child: DropdownButton<String>(
+                  value: spinnerItems[controllerGet.selectedSortPos.value],
+                  icon: getSvgImageWithSize(
+                      context, Images.arrowDownSvg, 18.h, 18.h,
+                      color: secondaryColor),
+                  iconSize: 24,
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                  isDense: true,
+                  isExpanded: true,
+                  style: buildTextStyle(
+                      context, getFontColor(context), FontWeight.w500, 16),
+                  underline: 0.verticalSpace,
+                  onChanged: (String? data) {
+                    setState(() {
+                      controllerGet.selectedSortPos.value =
+                          spinnerItems.indexOf(data ?? "");
+                      if (spinnerItems[controllerGet.selectedSortPos.value] ==
+                          Labels.autreKey) {
+                        isOther = true;
+                      } else {
+                        isOther = false;
+                      }
+                    });
+                  },
+                  items: spinnerItems
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: getCustomFont(value, 15, blackColor, 1),
+                    );
+                  }).toList(),
+                ).marginSymmetric(horizontal: 12.w),
+              ),
+            ).paddingAll(19.h),
         controllerGet.selectedSortPos);
   }
 
@@ -450,11 +450,8 @@ class PeriodPermissions extends StatelessWidget {
                               colorScheme: Theme.of(context)
                                   .colorScheme
                                   .copyWith(
-                                      onPrimary: accentColor,
-                                      primaryContainer: accentColor,
-                                      primary: primaryColor,
-                                      secondary: blackColor,
-                                      onSecondary: accentColor)),
+                                      onPrimary: primaryColor,
+                                      primary: getAccentColor(context))),
                           child: child!,
                         );
                       },
@@ -485,12 +482,8 @@ class PeriodPermissions extends StatelessWidget {
                               colorScheme: Theme.of(context)
                                   .colorScheme
                                   .copyWith(
-                                      onPrimary: accentColor,
-                                      primaryContainer: accentColor,
-                                      primary: primaryColor,
-                                      secondary: blackColor,
-                                      secondaryContainer: blackColor,
-                                      onSecondary: accentColor)),
+                                      onPrimary: primaryColor,
+                                      primary: getAccentColor(context))),
                           child: child!,
                         );
                       },

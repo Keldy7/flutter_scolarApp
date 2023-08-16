@@ -54,7 +54,7 @@ class _TabHomeState extends State<TabHome> {
               InkWell(
                   onTap: () {
                     Constant.goToNextPage(
-                        context, Routes.notificationScreenRoute);
+                        context, Routes.gender);
                   },
                   child: getSvgImageWithSize(
                       context, Images.notificationSvg, 25, 25,

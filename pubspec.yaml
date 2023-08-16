@@ -115,8 +115,6 @@ flutter:
           weight: 500
         - asset: fonts/FontsFree-Net-SFProDisplay-Bold.ttf
           weight: 700
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
     - family: Avenir-Next-LT-Pro
       fonts:
         - asset: fonts/Avenir-Next-LT-Pro-Regular.otf

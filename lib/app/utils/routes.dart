@@ -6,10 +6,10 @@ class Routes {
   static String forgotPassRoute = "keyForgotPasswordScreen";
   static String resetPassRoute = "keyResetPasswordScreen";
   static String phoneNumberRoute = "keyPhoneNumberScreen";
-  static String verificationScreenRoute = "keyverificationScreen";
+  static String verificationScreenRoute = "keyVerificationScreen";
   static String termNConditionScreenRoute = "keyTermsNCondition";
-  static String registrationRoute = "keyregistrationRoute";
-  static String countrySelectionRoute = "keycountrySelectionRoute";
+  static String registrationRoute = "keyRegistrationRoute";
+  static String countrySelectionRoute = "keyCountrySelectionRoute";
   static String homeScreenRoute = "keyHomeScreenRoute";
   static String attendanceScreenRoute = "keyAttendanceScreenRoute";
   static String examsScreenRoute = "keyExamsScreenRoute";
@@ -41,5 +41,6 @@ class Routes {
   static String settingScreenRoute = "keySettingScreenRoute";
   static String helpCenterScreenRoute = "keyHelpCenterScreenRoute";
   static String notificationScreenRoute = "keyNotificationScreenRoute";
+  static String gender = "keyGenderScreenRoute";
 
 }

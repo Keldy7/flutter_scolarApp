@@ -145,6 +145,9 @@ class Labels {
   static String totalKey = "Total";
   static String detailKey = "Détail";
   static String paiementKey = "Paiement";
+  static String paiementEffectueKey = "Paiement effectué !";
+  static String descriptPaySuccessKey = "La scolarité de votre enfant a bien été réglée.";
+  static String voirPaymentKey = "Voir mes paiements";
   static String payNowKey = "Payez maintenant";
   static String paidKey = "Reglée";
   
