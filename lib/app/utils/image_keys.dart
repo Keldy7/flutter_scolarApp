@@ -49,6 +49,7 @@ class Images {
   static String classSvg = 'class';
   static String distanceSvg = 'distance';
   static String doneAllSvg = 'done_all';
+  static String downloadSvg = 'download';
   static String examsSvg = 'exams';
   static String exportSvg = 'export';
   static String facebookSvg = 'facebook';
@@ -82,6 +83,7 @@ class Images {
   static String searchSvg = 'search';
   static String sendSvg = 'send';
   static String settingsSvg = 'settings';
+  static String shareSvg = 'share';
   static String splashLogoSvg = 'splash_logo';
   static String starSvg = 'star';
   static String takeAttendanceSvg = 'take_attendance';

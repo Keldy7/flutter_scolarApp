@@ -1732,7 +1732,7 @@ Widget getButtonFigma(
         children: [
           (isIcon)
               ? getSvgImageWithSize(context, icons ?? "", getEditIconSize().h,
-                  getEditIconSize().h)
+                  getEditIconSize().h, color: primaryColor)
               : getHorSpace(0),
           (isIcon) ? getHorSpace(10.w) : getHorSpace(0),
           getCustomFont(

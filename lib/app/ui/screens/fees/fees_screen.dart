@@ -226,13 +226,14 @@ class _FeesScreenState extends State<FeesScreen> {
                     index: 0,
                     onChanged: (index, value) {}),
                 //Button for pay now
-                isPaid
-                    ? Container()
-                    : getButtonFigma(context, getAccentColor(context), true,
-                        Labels.payNowKey, primaryColor, () {
-                        Constant.goToNextPage(
-                            context, Routes.paymentFeesScreenRoute);
-                      }, EdgeInsets.zero, isIcon: true, icons: Images.arrowSvg),
+                getButtonFigma(
+                    context,
+                    getAccentColor(context),
+                    true,
+                    isPaid ? Labels.downloadReceiptKey : Labels.payNowKey,
+                    primaryColor, () {
+                  Constant.goToNextPage(context, isPaid ?  Routes.childScreenRoute : Routes.paymentFeesScreenRoute);
+                }, EdgeInsets.zero, isIcon: true, icons: isPaid ? Images.downloadSvg : Images.shareSvg),
               ],
             ).paddingSymmetric(
               horizontal: MediaQuery.of(context).size.width * (0.05),

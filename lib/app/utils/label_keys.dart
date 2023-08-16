@@ -149,6 +149,7 @@ class Labels {
   static String descriptPaySuccessKey = "La scolarité de votre enfant a bien été réglée.";
   static String voirPaymentKey = "Voir mes paiements";
   static String payNowKey = "Payez maintenant";
+  static String downloadReceiptKey = "Télechargez le reçu";
   static String paidKey = "Reglée";
   
 //Moyens de paiement
