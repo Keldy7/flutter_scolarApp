@@ -21,8 +21,11 @@ class _TeachersScreenState extends State<TeachersScreen> {
     },
         Column(
           children: [
-            
+            Expanded(
+                child: ListView(
+                    shrinkWrap: true,
+                    children: [20.h.verticalSpace, const Text("Enseignants")])),
           ],
-        )).paddingSymmetric(vertical: 15.h);
+        ).paddingSymmetric(horizontal: 15));
   }
 }

@@ -99,6 +99,7 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
     TextEditingController titrePermissionController = TextEditingController();
     TextEditingController descriptPermissionController =
         TextEditingController();
+
     Rx firstDate = DateTime.now().obs;
     Rx lastDate = DateTime.now().obs;
 
@@ -124,7 +125,7 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                               titrePermissionController,
                               getFontColor(context),
                               (value) {})
-                          .marginOnly(top: 2.h),
+                          .marginOnly(top: 2.h)
                     ],
                   ),
                 ),

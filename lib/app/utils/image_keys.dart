@@ -35,6 +35,7 @@ class Images {
   //SVG
   static String accountSvg = 'account';
   static String addImgSvg = 'add_img';
+  static String announcmentSvg = 'announcment';
   static String arrowBottomSvg = 'arrow_bottom';
   static String arrowDownSvg = 'arrow_down';
   static String arrowSvg = 'arrow';

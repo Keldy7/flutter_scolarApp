@@ -65,7 +65,7 @@ class _FeesScreenState extends State<FeesScreen> {
                       .paddingSymmetric(vertical: 15.h),
                   Column(
                       children: List.generate(
-                    3,
+                    4,
                     (index) => getBorderedContainer(
                             context,
                             innerWidth,
@@ -225,15 +225,21 @@ class _FeesScreenState extends State<FeesScreen> {
                     isCheckboxRequired: false,
                     index: 0,
                     onChanged: (index, value) {}),
-                //Button for pay now
+                //Button for pay now or download e-receipt
                 getButtonFigma(
                     context,
                     getAccentColor(context),
                     true,
                     isPaid ? Labels.downloadReceiptKey : Labels.payNowKey,
                     primaryColor, () {
-                  Constant.goToNextPage(context, isPaid ?  Routes.childScreenRoute : Routes.paymentFeesScreenRoute);
-                }, EdgeInsets.zero, isIcon: true, icons: isPaid ? Images.downloadSvg : Images.shareSvg),
+                  Constant.goToNextPage(
+                      context,
+                      isPaid
+                          ? Routes.childScreenRoute
+                          : Routes.paymentFeesScreenRoute);
+                }, EdgeInsets.zero,
+                    isIcon: true,
+                    icons: isPaid ? Images.downloadSvg : Images.downloadSvg),
               ],
             ).paddingSymmetric(
               horizontal: MediaQuery.of(context).size.width * (0.05),
