@@ -239,7 +239,7 @@ class _FeesScreenState extends State<FeesScreen> {
                           : Routes.paymentFeesScreenRoute);
                 }, EdgeInsets.zero,
                     isIcon: true,
-                    icons: isPaid ? Images.downloadSvg : Images.downloadSvg),
+                    icons: isPaid ? Images.downloadSvg : Images.feesSvg),
               ],
             ).paddingSymmetric(
               horizontal: MediaQuery.of(context).size.width * (0.05),
