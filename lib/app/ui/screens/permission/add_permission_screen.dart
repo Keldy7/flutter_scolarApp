@@ -14,6 +14,7 @@ import '../../../utils/routes.dart';
 import '../../../utils/widget_utils.dart';
 import '../../controllers/filters_controller.dart';
 import '../../styles/colors.dart';
+import '../../widgets/calendar_popup.dart';
 
 class AddPermissionScreen extends StatefulWidget {
   const AddPermissionScreen({super.key});
@@ -30,6 +31,9 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
   late AnimationController controller1, controller2;
   late Animation<double> animation1, animation1View;
   late Animation<double> animation2, animation2View;
+
+  DateTime startDate = DateTime.now();
+  DateTime endDate = DateTime.now().add(const Duration(days: 5));
 
   List<PlatformFile> uploadedFiles = [];
 
@@ -100,8 +104,8 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
     TextEditingController descriptPermissionController =
         TextEditingController();
 
-    Rx firstDate = DateTime.now().obs;
-    Rx lastDate = DateTime.now().obs;
+    // Rx firstDate = DateTime.now().obs;
+    // Rx lastDate = DateTime.now().obs;
 
     return getScreenDetailDefaultView(context, Labels.permissionsKey, () {
       Constant.backToPrev(context);
@@ -144,11 +148,17 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
                 ),
                 30.h.verticalSpace,
                 buildTitle(context, Labels.periodePermissionKey),
-                14.h.verticalSpace,
-                buildTitles(context, Labels.startDatePermissionKey,
-                    subTitle: Labels.endDatePermissionKey),
+                // 14.h.verticalSpace,
+                // buildTitles(context, Labels.startDatePermissionKey,
+                //     subTitle: Labels.endDatePermissionKey),
                 10.h.verticalSpace,
-                PeriodPermissions(firstDate: firstDate, lastDate: lastDate),
+                // PeriodPermissions(firstDate: firstDate, lastDate: lastDate),
+                buildDatePickerButton(
+                    context,
+                    '${Labels.duKey} ${DateFormat("dd, MMM yyyy", Labels.langLocaleKey).format(startDate)}  ${Labels.auKey}  ${DateFormat("dd, MMM yyyy", Labels.langLocaleKey).format(endDate)}',
+                    Images.calendarSvg, () {
+                  showDemoDialog(context: context);
+                }),
                 30.h.verticalSpace,
                 buildTitle(context, Labels.joindreFileKey),
                 14.h.verticalSpace,
@@ -422,6 +432,26 @@ class _AddPermissionScreenState extends State<AddPermissionScreen>
 
     super.dispose();
   }
+
+  void showDemoDialog({BuildContext? context}) {
+    showDialog<dynamic>(
+      context: context!,
+      builder: (BuildContext context) => CalendarPopup(
+        barrierDismissible: true,
+        minimumDate: DateTime.now(),
+        //  maximumDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 10),
+        initialEndDate: endDate,
+        initialStartDate: startDate,
+        onApplyClick: (DateTime startData, DateTime endData) {
+          setState(() {
+            startDate = startData;
+            endDate = endData;
+          });
+        },
+        onCancelClick: () {},
+      ),
+    );
+  }
 }
 
 class PeriodPermissions extends StatelessWidget {
@@ -442,7 +472,8 @@ class PeriodPermissions extends StatelessWidget {
           child: ObxValue(
               (p0) => buildDatePickerButton(
                       context,
-                      DateFormat('dd-MM-yyyy', 'fr_FR').format(firstDate.value),
+                      DateFormat('dd-MM-yyyy', Labels.langLocaleKey)
+                          .format(firstDate.value),
                       Images.calendarSvg, () async {
                     DateTime? startDate = await showDatePicker(
                       builder: (context, child) {
@@ -474,7 +505,8 @@ class PeriodPermissions extends StatelessWidget {
           child: ObxValue(
               (p0) => buildDatePickerButton(
                       context,
-                      DateFormat('dd-MM-yyyy', 'fr_FR').format(lastDate.value),
+                      DateFormat('dd-MM-yyyy', Labels.langLocaleKey)
+                          .format(lastDate.value),
                       Images.calendarSvg, () async {
                     DateTime? endDate = await showDatePicker(
                       builder: (context, child) {

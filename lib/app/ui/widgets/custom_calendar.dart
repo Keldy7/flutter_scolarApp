@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../utils/constant.dart';
+import '../../utils/label_keys.dart';
+import '../../utils/widget_utils.dart';
 import '../styles/colors.dart';
 
-class CustomCalendarView extends StatefulWidget {
-  const CustomCalendarView(
+class CustomCalendar extends StatefulWidget {
+  const CustomCalendar(
       {Key? key,
       this.initialStartDate,
       this.initialEndDate,
@@ -21,11 +25,12 @@ class CustomCalendarView extends StatefulWidget {
   final Function(DateTime, DateTime)? startEndDateChange;
 
   @override
-  _CustomCalendarViewState createState() => _CustomCalendarViewState();
+  _CustomCalendarState createState() => _CustomCalendarState();
 }
 
-class _CustomCalendarViewState extends State<CustomCalendarView> {
+class _CustomCalendarState extends State<CustomCalendar> {
   List<DateTime> dateList = <DateTime>[];
+
   DateTime currentMonthDate = DateTime.now();
   DateTime? startDate;
   DateTime? endDate;
@@ -69,134 +74,110 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: <Widget>[
-          Padding(
-            padding:
-                const EdgeInsets.only(left: 8.0, right: 8.0, top: 4, bottom: 4),
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 38,
-                    width: 38,
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(24.0)),
-                      border: Border.all(
-                        color: dividerColor,
-                      ),
-                    ),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(24.0)),
-                        onTap: () {
-                          setState(() {
-                            currentMonthDate = DateTime(currentMonthDate.year,
-                                currentMonthDate.month, 0);
-                            setListOfDate(currentMonthDate);
-                          });
-                        },
-                        child: Icon(
-                          Icons.keyboard_arrow_left,
-                          color: Colors.grey,
-                        ),
-                      ),
+        children: [
+          Row(
+            children: [
+              Container(
+                height: 38,
+                width: 38,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(24.0)),
+                  border: Border.all(
+                    color: dividerColor,
+                  ),
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(24.0)),
+                    onTap: () {
+                      setState(() {
+                        currentMonthDate = DateTime(
+                            currentMonthDate.year, currentMonthDate.month, 0);
+                        setListOfDate(currentMonthDate);
+                      });
+                    },
+                    child: Icon(
+                      Icons.keyboard_arrow_left,
+                      color: greyColor,
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      DateFormat('MMMM, yyyy').format(currentMonthDate),
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                          color: Colors.black),
+              ).paddingAll(8),
+              Expanded(
+                child: Center(
+                    child: getCustomFont(
+                        "${Constant.getMonthName(currentMonthDate.month)} ${currentMonthDate.year}",
+                        20,
+                        blackColor,
+                        1,
+                        fontWeight: FontWeight.w500)),
+              ),
+              Container(
+                height: 38,
+                width: 38,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(24.0)),
+                  border: Border.all(
+                    color: dividerColor,
+                  ),
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(24.0)),
+                    onTap: () {
+                      setState(() {
+                        currentMonthDate = DateTime(currentMonthDate.year,
+                            currentMonthDate.month + 2, 0);
+                        setListOfDate(currentMonthDate);
+                      });
+                    },
+                    child: Icon(
+                      Icons.keyboard_arrow_right,
+                      color: greyColor,
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 38,
-                    width: 38,
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(24.0)),
-                      border: Border.all(
-                        color: dividerColor,
-                      ),
-                    ),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(24.0)),
-                        onTap: () {
-                          setState(() {
-                            currentMonthDate = DateTime(currentMonthDate.year,
-                                currentMonthDate.month + 2, 0);
-                            setListOfDate(currentMonthDate);
-                          });
-                        },
-                        child: Icon(
-                          Icons.keyboard_arrow_right,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
-            child: Row(
-              children: getDaysNameUI(),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8, left: 8),
-            child: Column(
-              children: getDaysNoUI(),
-            ),
-          ),
+              ).paddingAll(8.0),
+            ],
+          ).paddingOnly(left: 8.0, right: 8.0, top: 4, bottom: 4),
+          Row(
+            children: getDaysOfWeekName(),
+          ).paddingOnly(right: 8, left: 8, bottom: 8),
+          Column(
+            children: getDays(),
+          ).paddingOnly(right: 8, left: 8),
         ],
       ),
     );
   }
 
-  List<Widget> getDaysNameUI() {
+  List<Widget> getDaysOfWeekName() {
     final List<Widget> listUI = <Widget>[];
     for (int i = 0; i < 7; i++) {
       listUI.add(
         Expanded(
           child: Center(
-            child: Text(
-              DateFormat('EEE').format(dateList[i]),
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: primaryColor),
-            ),
-          ),
+              child: getCustomFont(
+                  DateFormat('EEE', Labels.langLocaleKey).format(dateList[i]),
+                  16,
+                  getAccentColor(context),
+                  1,
+                  fontWeight: FontWeight.w500)),
         ),
       );
     }
     return listUI;
   }
 
-  List<Widget> getDaysNoUI() {
+  List<Widget> getDays() {
     final List<Widget> noList = <Widget>[];
-    int count = 0;
+    int counter = 0;
     for (int i = 0; i < dateList.length / 7; i++) {
       final List<Widget> listUI = <Widget>[];
       for (int i = 0; i < 7; i++) {
-        final DateTime date = dateList[count];
+        final DateTime date = dateList[counter];
         listUI.add(
           Expanded(
             child: AspectRatio(
@@ -204,44 +185,37 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
               child: Container(
                 child: Stack(
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(top: 3, bottom: 3),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              top: 2,
-                              bottom: 2,
-                              left: isStartDateRadius(date) ? 4 : 0,
-                              right: isEndDateRadius(date) ? 4 : 0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: startDate != null && endDate != null
-                                  ? getIsItStartAndEndDate(date) ||
-                                          getIsInRange(date)
-                                      ? primaryColor
-                                          .withOpacity(0.4)
-                                      : Colors.transparent
-                                  : Colors.transparent,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: isStartDateRadius(date)
-                                    ? const Radius.circular(24.0)
-                                    : const Radius.circular(0.0),
-                                topLeft: isStartDateRadius(date)
-                                    ? const Radius.circular(24.0)
-                                    : const Radius.circular(0.0),
-                                topRight: isEndDateRadius(date)
-                                    ? const Radius.circular(24.0)
-                                    : const Radius.circular(0.0),
-                                bottomRight: isEndDateRadius(date)
-                                    ? const Radius.circular(24.0)
-                                    : const Radius.circular(0.0),
-                              ),
-                            ),
+                    Material(
+                      color: Colors.transparent,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: startDate != null && endDate != null
+                              ? getIsItStartAndEndDate(date) ||
+                                      getIsInRange(date)
+                                  ? secondaryColor.withOpacity(0.4)
+                                  : Colors.transparent
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: isStartDateRadius(date)
+                                ? const Radius.circular(24.0)
+                                : const Radius.circular(0.0),
+                            topLeft: isStartDateRadius(date)
+                                ? const Radius.circular(24.0)
+                                : const Radius.circular(0.0),
+                            topRight: isEndDateRadius(date)
+                                ? const Radius.circular(24.0)
+                                : const Radius.circular(0.0),
+                            bottomRight: isEndDateRadius(date)
+                                ? const Radius.circular(24.0)
+                                : const Radius.circular(0.0),
                           ),
                         ),
-                      ),
-                    ),
+                      ).paddingOnly(
+                          top: 2,
+                          bottom: 2,
+                          left: isStartDateRadius(date) ? 4 : 0,
+                          right: isEndDateRadius(date) ? 4 : 0),
+                    ).paddingOnly(top: 3, bottom: 3),
                     Material(
                       color: Colors.transparent,
                       child: InkWell(
@@ -284,54 +258,49 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                             }
                           }
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(2),
-                          child: Container(
-                            decoration: BoxDecoration(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: getIsItStartAndEndDate(date)
+                                ? secondaryColor
+                                : Colors.transparent,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(32.0)),
+                            border: Border.all(
                               color: getIsItStartAndEndDate(date)
-                                  ? primaryColor
+                                  ? secondaryColor
                                   : Colors.transparent,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(32.0)),
-                              border: Border.all(
-                                color: getIsItStartAndEndDate(date)
-                                    ? Colors.white
-                                    : Colors.transparent,
-                                width: 2,
-                              ),
-                              boxShadow: getIsItStartAndEndDate(date)
-                                  ? <BoxShadow>[
-                                      BoxShadow(
-                                          color: Colors.grey.withOpacity(0.6),
-                                          blurRadius: 4,
-                                          offset: const Offset(0, 0)),
-                                    ]
-                                  : null,
+                              width: 2,
                             ),
-                            child: Center(
-                              child: Text(
-                                '${date.day}',
-                                style: TextStyle(
-                                    color: getIsItStartAndEndDate(date)
-                                        ? Colors.white
-                                        : currentMonthDate.month == date.month
-                                            ? Colors.black
-                                            : Colors.grey.withOpacity(0.6),
-                                    fontSize:
-                                        MediaQuery.of(context).size.width > 360
-                                            ? 18
-                                            : 16,
-                                    fontWeight: getIsItStartAndEndDate(date)
-                                        ? FontWeight.bold
-                                        : FontWeight.normal),
-                              ),
-                            ),
+                            boxShadow: getIsItStartAndEndDate(date)
+                                ? [
+                                    BoxShadow(
+                                        color: greyColor.withOpacity(0.6),
+                                        blurRadius: 4,
+                                        offset: const Offset(0, 0)),
+                                  ]
+                                : null,
                           ),
-                        ),
+                          child: Center(
+                              child: getCustomFont(
+                                  '${date.day}',
+                                  MediaQuery.sizeOf(context).width > 360
+                                      ? 18
+                                      : 16,
+                                  getIsItStartAndEndDate(date)
+                                      ? primaryColor
+                                      : currentMonthDate.month == date.month
+                                          ? blackColor
+                                          : greyColor.withOpacity(0.6),
+                                  1,
+                                  fontWeight: getIsItStartAndEndDate(date)
+                                      ? FontWeight.bold
+                                      : FontWeight.normal)),
+                        ).paddingAll(2),
                       ),
                     ),
+                    //Indicator for focused day
                     Positioned(
-                      bottom: 9,
+                      bottom: 7,
                       right: 0,
                       left: 0,
                       child: Container(
@@ -342,8 +311,8 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                                     DateTime.now().month == date.month &&
                                     DateTime.now().year == date.year
                                 ? getIsInRange(date)
-                                    ? Colors.white
-                                    : primaryColor
+                                    ? getAccentColor(context)
+                                    : getAccentColor(context)
                                 : Colors.transparent,
                             shape: BoxShape.circle),
                       ),
@@ -354,7 +323,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
             ),
           ),
         );
-        count += 1;
+        counter += 1;
       }
       noList.add(Row(
         mainAxisAlignment: MainAxisAlignment.center,

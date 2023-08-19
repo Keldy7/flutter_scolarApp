@@ -146,6 +146,18 @@ class Constant {
     ];
     return months[monthNumber - 1];
   }
+  static String getDayName(int dayNumber) {
+    List<String> days = [
+      'Lun',
+      'Mar',
+      'Mer',
+      'Jeu',
+      'Ven',
+      'Sam',
+      'Dim'
+    ];
+    return days[dayNumber - 1];
+  }
 
   static List<String> buildMonthYearsBetweenTwoDates(
       DateTime startDate, DateTime endDate) {

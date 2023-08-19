@@ -125,7 +125,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                           borderRadius: BorderRadius.circular(15.0)),
                       margin: const EdgeInsets.only(top: 20),
                       child: TableCalendar(
-                        locale: 'fr_FR',
+                        locale: Labels.langLocaleKey,
                         calendarFormat: CalendarFormat.month,
                         headerVisible: false,
                         daysOfWeekHeight: 42,

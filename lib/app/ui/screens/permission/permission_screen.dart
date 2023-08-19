@@ -10,6 +10,7 @@ import '../../../utils/widget_utils.dart';
 import '../../../utils/constant.dart';
 import '../../../utils/routes.dart';
 
+
 class PermissionScreen extends StatefulWidget {
   const PermissionScreen({super.key});
 
@@ -29,7 +30,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
     HistoryListWidget(),
     HistoryListWidget(),
   ];
-
+  
   @override
   Widget build(BuildContext context) {
     RxInt selectedTab = 0.obs;
@@ -100,7 +101,6 @@ class _PermissionScreenState extends State<PermissionScreen> {
         });
   }
 
-  
   _buildListItems(BuildContext context,
       {required IconData iconName,
       required Color primColor,
@@ -133,16 +133,20 @@ class _PermissionScreenState extends State<PermissionScreen> {
                 ],
               ),
             ),
-            title: getCustomFont(titleAdvice, 20, blackColor, 1, fontWeight: FontWeight.w500),
+            title: getCustomFont(titleAdvice, 20, blackColor, 1,
+                fontWeight: FontWeight.w500),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                getCustomFont(dateAdvice, 15, backgroundColor.withOpacity(.6), 1).paddingOnly(top: 8.0),
+                getCustomFont(
+                        dateAdvice, 15, backgroundColor.withOpacity(.6), 1)
+                    .paddingOnly(top: 8.0),
               ],
             ),
           ).paddingAll(10),
         )).paddingOnly(top: 20);
   }
+
 }
 
 class HistoryListWidget extends StatelessWidget {

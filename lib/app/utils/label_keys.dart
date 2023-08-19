@@ -2,6 +2,9 @@
 class Labels {
   static String nomAppKey = "Scolar Pay";
 
+  //Langue locale
+  static String langLocaleKey = "fr_FR";
+
 //Authentification
   static String connexionKey = "Se connecter";
   static String deconnexionKey = "Se déconnecter";
@@ -15,15 +18,19 @@ class Labels {
   static String passwordKey = "Mot de passe";
   static String confirmPasswordKey = "Confirmer le mot de passe";
   static String forgetPasswordKey = "Mot de passe oublié ?";
-  static String numeroForgotPasswordKey = "Entrer votre numéro de télephone pour réinitialiser votre mot de passe.";
+  static String numeroForgotPasswordKey =
+      "Entrer votre numéro de télephone pour réinitialiser votre mot de passe.";
   static String verificationKey = "Vérification";
-  static String pleaseTapeSyntaxKey = "Veuillez saisir le code de vérification obtenu en saisissant";
+  static String pleaseTapeSyntaxKey =
+      "Veuillez saisir le code de vérification obtenu en saisissant";
   static String codeVerificationKey = "Code de vérification";
   static String sentCodeVerifKey = "Code de vérification envoyé au ";
   static String confirmVerifKey = "Code de vérification confirmé !";
   static String signInCompletedKey = "";
 
 //Extras
+  static String duKey = "Du";
+  static String auKey = "Au";
   static String okKey = "Ok";
   static String autreKey = "Autre";
   static String suivantKey = "Suivant";
@@ -146,12 +153,13 @@ class Labels {
   static String detailKey = "Détail";
   static String paiementKey = "Paiement";
   static String paiementEffectueKey = "Paiement effectué !";
-  static String descriptPaySuccessKey = "La scolarité de votre enfant a bien été réglée.";
+  static String descriptPaySuccessKey =
+      "La scolarité de votre enfant a bien été réglée.";
   static String voirPaymentKey = "Voir mes paiements";
   static String payNowKey = "Payez maintenant";
   static String downloadReceiptKey = "Télechargez le reçu";
   static String paidKey = "Reglée";
-  
+
 //Moyens de paiement
   static String paymentMethodsKey = "Moyens de paiement";
   static String waveKey = "Wave";
