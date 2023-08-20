@@ -63,6 +63,7 @@ dependencies:
   table_calendar: ^3.0.4
   flutter_html: ^3.0.0-alpha.5
   device_info_plus: ^3.2.3
+  time_planner: ^0.0.3
   # package_info_plus: ^1.4.2
 
 dev_dependencies:
