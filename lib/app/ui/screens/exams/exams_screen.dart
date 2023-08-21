@@ -21,6 +21,7 @@ class _ExamenScreenState extends State<ExamenScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return getScreenDetailDefaultView(context, Labels.examensCompositionsKey,
         () {
       Constant.backToPrev(context);
@@ -33,6 +34,7 @@ class _ExamenScreenState extends State<ExamenScreen> {
               children: [
                 20.h.verticalSpace,
                 buildTitles(context, "Jan - Fev"),
+                
                 // flutter pub add styled_widget
                 // Container(
                 //   width: double.infinity,
@@ -103,11 +105,11 @@ class _ExamenScreenState extends State<ExamenScreen> {
                   children: List.generate(7, (int _) {
                     return Card(
                         shape: RoundedRectangleBorder(
-                            side: BorderSide(color: greyColor),
+                            side: BorderSide(color: primaryColor),
                             borderRadius: BorderRadius.circular(8)),
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         elevation: 0,
-                        color: primaryColor,
+                        color: cardColor,
                         shadowColor: shadowColor,
                         margin: const EdgeInsets.all(5),
                         child: InkWell(
@@ -119,7 +121,7 @@ class _ExamenScreenState extends State<ExamenScreen> {
                               height: 100,
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
+                                children: [
                                   Container(
                                     width: 10,
                                     color: secondaryColor,
