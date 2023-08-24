@@ -858,6 +858,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.1"
+  time_planner:
+    dependency: "direct main"
+    description:
+      name: time_planner
+      sha256: "7ff81dc39169cd3c2f3570cbb0c4a367f90af0e14642f849ae30723552aedeb4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   timeago:
     dependency: "direct main"
     description:
