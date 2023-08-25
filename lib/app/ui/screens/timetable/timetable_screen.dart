@@ -40,7 +40,12 @@ class _TimetableScreenState extends State<TimetableScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     20.h.verticalSpace,
-                    getCustomFont(DateFormat("EEE dd, MMM yyyy", Labels.langLocaleKey).format(DateTime.now()), 20, blackColor, 1),
+                    getCustomFont(
+                        DateFormat("EEE dd, MMM yyyy", Labels.langLocaleKey)
+                            .format(DateTime.now()),
+                        20,
+                        blackColor,
+                        1),
                     5.h.verticalSpace,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,34 +119,8 @@ class _TimetableScreenState extends State<TimetableScreen> {
                         getCustomFont("09.00", 15, blackColor, 1,
                             fontWeight: FontWeight.w500),
                         10.w.horizontalSpace,
-                        Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 10,
-                                  color: Colors.black.withAlpha(50)),
-                            ],
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              getCustomFont(
-                                  "Cours géneral", 15, primaryColor, 2,
-                                  fontWeight: FontWeight.w500),
-                              Row(
-                                children: [
-                                  getCustomFont(
-                                      "Mme. Touwan Julie, +225 01 01 765 432",
-                                      11,
-                                      greyColor,
-                                      2)
-                                ],
-                              ).paddingOnly(left: 0.0, top: 5),
-                            ],
-                          ).paddingAll(8),
-                        ),
+                        _buildContentTimetable("Cours géneral",
+                            "Mme. Touwan Julie, +225 01 01 765 432"),
                       ],
                     ).paddingOnly(top: 20.0),
                     20.h.verticalSpace,
@@ -183,34 +162,8 @@ class _TimetableScreenState extends State<TimetableScreen> {
                         getCustomFont("09.00", 15, blackColor, 1,
                             fontWeight: FontWeight.w500),
                         10.w.horizontalSpace,
-                        Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 10,
-                                  color: Colors.black.withAlpha(50)),
-                            ],
-                            color: blackColor,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              getCustomFont(
-                                  "Cours géneral", 15, primaryColor, 2,
-                                  fontWeight: FontWeight.w500),
-                              Row(
-                                children: [
-                                  getCustomFont(
-                                      "Mme. Touwan Julie, +225 01 01 765 432",
-                                      11,
-                                      greyColor,
-                                      2)
-                                ],
-                              ).paddingOnly(left: 0.0, top: 5),
-                            ],
-                          ).paddingAll(8),
-                        ),
+                        _buildContentTimetable("Cours géneral",
+                            "Mme. Touwan Julie, +225 01 01 765 432"),
                       ],
                     ).paddingOnly(top: 20.0),
                     20.h.verticalSpace,
@@ -220,34 +173,8 @@ class _TimetableScreenState extends State<TimetableScreen> {
                         getCustomFont("09.00", 15, blackColor, 1,
                             fontWeight: FontWeight.w500),
                         10.w.horizontalSpace,
-                        Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 10,
-                                  color: Colors.black.withAlpha(50)),
-                            ],
-                            color: blackColor,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              getCustomFont(
-                                  "Cours géneral", 15, primaryColor, 2,
-                                  fontWeight: FontWeight.w500),
-                              Row(
-                                children: [
-                                  getCustomFont(
-                                      "Mme. Touwan Julie, +225 01 01 765 432",
-                                      11,
-                                      greyColor,
-                                      2)
-                                ],
-                              ).paddingOnly(left: 0.0, top: 5),
-                            ],
-                          ).paddingAll(8),
-                        ),
+                        _buildContentTimetable("Cours géneral",
+                            "Mme. Touwan Julie, +225 01 01 765 432"),
                       ],
                     ).paddingOnly(top: 20.0),
                     20.h.verticalSpace,
@@ -273,7 +200,8 @@ class _TimetableScreenState extends State<TimetableScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              getCustomFont("Pause déjeuner et repos", 15, primaryColor, 1,
+                              getCustomFont("Pause déjeuner et repos", 15,
+                                      primaryColor, 1,
                                       fontWeight: FontWeight.w500)
                                   .paddingAll(8),
                             ],
@@ -288,34 +216,8 @@ class _TimetableScreenState extends State<TimetableScreen> {
                         getCustomFont("14.00", 15, blackColor, 1,
                             fontWeight: FontWeight.w500),
                         10.w.horizontalSpace,
-                        Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 10,
-                                  color: Colors.black.withAlpha(50)),
-                            ],
-                            color: blackColor,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              getCustomFont(
-                                  "Cours géneral", 15, primaryColor, 2,
-                                  fontWeight: FontWeight.w500),
-                              Row(
-                                children: [
-                                  getCustomFont(
-                                      "Mme. Touwan Julie, +225 01 01 765 432",
-                                      11,
-                                      greyColor,
-                                      2)
-                                ],
-                              ).paddingOnly(left: 0.0, top: 5),
-                            ],
-                          ).paddingAll(8),
-                        ),
+                        _buildContentTimetable("Cours géneral",
+                            "Mme. Touwan Julie, +225 01 01 765 432"),
                       ],
                     ).paddingOnly(top: 20.0),
                     20.h.verticalSpace,
@@ -325,37 +227,10 @@ class _TimetableScreenState extends State<TimetableScreen> {
                         getCustomFont("15.30", 15, blackColor, 1,
                             fontWeight: FontWeight.w500),
                         10.w.horizontalSpace,
-                        Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 10,
-                                  color: Colors.black.withAlpha(50)),
-                            ],
-                            color: blackColor,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              getCustomFont(
-                                  "Cours géneral", 15, primaryColor, 2,
-                                  fontWeight: FontWeight.w500),
-                              Row(
-                                children: [
-                                  getCustomFont(
-                                      "Mme. Touwan Julie, +225 01 01 765 432",
-                                      11,
-                                      greyColor,
-                                      2)
-                                ],
-                              ).paddingOnly(left: 0.0, top: 5),
-                            ],
-                          ).paddingAll(8),
-                        ),
+                        _buildContentTimetable("Cours géneral",
+                            "Mme. Touwan Julie, +225 01 01 765 432"),
                       ],
                     ).paddingOnly(top: 20.0),
-                    
                     Padding(
                       padding: const EdgeInsets.only(top: 20.0),
                       child: Row(
@@ -429,6 +304,28 @@ class _TimetableScreenState extends State<TimetableScreen> {
           ),
         ],
       ).paddingSymmetric(horizontal: 15),
+    );
+  }
+
+  Container _buildContentTimetable(String titleCours, String subTitleCours) {
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(blurRadius: 10, color: Colors.black.withAlpha(50)),
+        ],
+        color: blackColor,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          getCustomFont(titleCours, 15, primaryColor, 2,
+              fontWeight: FontWeight.w500),
+          Row(
+            children: [getCustomFont(subTitleCours, 11, greyColor, 2)],
+          ).paddingOnly(left: 0.0, top: 5),
+        ],
+      ).paddingAll(8),
     );
   }
 }
