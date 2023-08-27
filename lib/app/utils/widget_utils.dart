@@ -629,8 +629,7 @@ Widget getProfileTopView(
             height: 120.h,
             child: Stack(
               children: [
-                getCircleImage(
-                    context, "profile_Setting.png", double.infinity),
+                getCircleImage(context, "profile_Setting.png", double.infinity),
                 Visibility(
                   visible: visibleEdit,
                   child: Align(
@@ -736,7 +735,9 @@ Widget getScreenDetailDefaultView(
     bool subtitle = false,
     String subtitleText = '',
     String actionImg = '',
-    bool withLeading = true}) {
+    bool withLeading = true,
+    Function? actionClick
+    }) {
   return WillPopScope(
       child: Scaffold(
         backgroundColor: getAccentColor(context),
@@ -749,7 +750,8 @@ Widget getScreenDetailDefaultView(
             title: title,
             actionImg: actionImg,
             iconColor: primaryColor,
-            centerTitle: centerTitle),
+            centerTitle: centerTitle,
+            actionClick: actionClick),
         body: getDefaultContainerView(context, childView),
       ),
       onWillPop: () async {
@@ -966,8 +968,7 @@ Widget getDefaultContainerView(BuildContext context, Widget childView,
 
 Container getBorderedContainer(
     BuildContext context, double innerWidth, Widget childColumn,
-    {Color borderColor = Colors.grey,
-    double widthBorder = 2}) {
+    {Color borderColor = Colors.grey, double widthBorder = 2}) {
   return Container(
       width: innerWidth,
       decoration: getButtonDecoration(getCardColor(context),
@@ -1554,15 +1555,17 @@ WillPopScope buildTitleDefaultWidget(BuildContext context, String title,
 }
 
 AppBar getBackAppBar(BuildContext context, Function backClick,
-    {Color color = Colors.transparent,
-    String title = "",
+    {String title = "",
     String subtitleText = "",
-    Color fontColor = Colors.white,
-    bool subtitle = false,
     String actionImg = '',
+    String actionPage = '',
+    Color color = Colors.transparent,
+    Color fontColor = Colors.white,
     Color iconColor = Colors.black,
     bool centerTitle = true,
-    bool withLeading = true}) {
+    bool subtitle = false,
+    bool withLeading = true,
+    Function? actionClick}) {
   return (subtitle)
       ? AppBar(
           elevation: 0,
@@ -1582,16 +1585,23 @@ AppBar getBackAppBar(BuildContext context, Function backClick,
           actions: [
             InkWell(
               onTap: () {
-                Constant.goToNextPage(context, Routes.filterScreenRoute);
+                if (actionImg != '') {
+                  actionClick!();
+                  // Constant.goToNextPage(context, actionPage);
+                } else {
+                  Constant.goToNextPage(context, Routes.filterScreenRoute);
+                }
               },
-              child: getSvgImageWithSize(
-                context,
-                actionImg,
-                24.h,
-                24.h,
-                fit: BoxFit.scaleDown,
-                color: iconColor,
-              ),
+              child: actionImg != ''
+                  ? getSvgImageWithSize(
+                      context,
+                      actionImg,
+                      24.h,
+                      24.h,
+                      fit: BoxFit.scaleDown,
+                      color: iconColor,
+                    )
+                  : Container(),
             ).paddingAll(12.h)
           ],
           leading: (withLeading)
@@ -1732,7 +1742,8 @@ Widget getButtonFigma(
         children: [
           (isIcon)
               ? getSvgImageWithSize(context, icons ?? "", getEditIconSize().h,
-                  getEditIconSize().h, color: primaryColor)
+                  getEditIconSize().h,
+                  color: primaryColor)
               : getHorSpace(0),
           (isIcon) ? getHorSpace(10.w) : getHorSpace(0),
           getCustomFont(

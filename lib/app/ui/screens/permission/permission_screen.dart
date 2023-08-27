@@ -10,7 +10,6 @@ import '../../../utils/widget_utils.dart';
 import '../../../utils/constant.dart';
 import '../../../utils/routes.dart';
 
-
 class PermissionScreen extends StatefulWidget {
   const PermissionScreen({super.key});
 
@@ -30,7 +29,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
     HistoryListWidget(),
     HistoryListWidget(),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     RxInt selectedTab = 0.obs;
@@ -38,16 +37,16 @@ class _PermissionScreenState extends State<PermissionScreen> {
     return WillPopScope(
         child: Scaffold(
           backgroundColor: getAccentColor(context),
-          appBar: getBackAppBar(context, () {
-            Constant.goToNextPage(context, Routes.childScreenRoute);
-          },
-              subtitle: true,
-              withLeading: true,
-              subtitleText: '',
-              title: Labels.permissionsKey,
-              actionImg: Images.filterIconSvg,
-              iconColor: primaryColor,
-              centerTitle: true),
+          appBar: getBackAppBar(
+            context,
+            () {
+              Constant.goToNextPage(context, Routes.childScreenRoute);
+            },
+            withLeading: true,
+            title: Labels.permissionsKey,
+            iconColor: primaryColor,
+            centerTitle: true,
+          ),
           floatingActionButton: FloatingActionButton.extended(
             splashColor: black40Color,
             onPressed: () {
@@ -146,7 +145,6 @@ class _PermissionScreenState extends State<PermissionScreen> {
           ).paddingAll(10),
         )).paddingOnly(top: 20);
   }
-
 }
 
 class HistoryListWidget extends StatelessWidget {

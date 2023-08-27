@@ -21,11 +21,12 @@ class _ExamenScreenState extends State<ExamenScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-    return getScreenDetailDefaultView(context, Labels.examensCompositionsKey,
+    return getScreenDetailDefaultView(
+        context,
+        Labels.examensCompositionsKey,
         () {
-      Constant.backToPrev(context);
-    },
+          Constant.backToPrev(context);
+        },
         Column(
           children: [
             Expanded(
@@ -34,7 +35,7 @@ class _ExamenScreenState extends State<ExamenScreen> {
               children: [
                 20.h.verticalSpace,
                 buildTitles(context, "Jan - Fev"),
-                
+
                 // flutter pub add styled_widget
                 // Container(
                 //   width: double.infinity,
@@ -188,6 +189,9 @@ class _ExamenScreenState extends State<ExamenScreen> {
           ],
         ).paddingSymmetric(horizontal: 15),
         actionImg: Images.filterIconSvg,
+        actionClick: () {
+          Get.bottomSheet(Column());
+        },
         withLeading: true,
         centerTitle: true,
         subtitle: true,
